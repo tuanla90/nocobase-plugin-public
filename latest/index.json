@@ -34,9 +34,9 @@
     {
       "packageName": "@tuanla90/plugin-hub",
       "slug": "hub",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "displayName": "Plugin Hub",
-      "url": "https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-hub-0.2.1.tgz"
+      "url": "https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-hub-0.2.2.tgz"
     },
     {
       "packageName": "@tuanla90/plugin-perf-guard",
