@@ -1439,7 +1439,7 @@ a:hover{text-decoration:underline}
       <div class="plugin-head">
         <h2><span class="lang lang-vi">App Doctor (Bác sĩ ứng dụng)</span><span class="lang lang-en" hidden>App Doctor</span><span class="lang lang-zh" hidden>应用医生</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Quản trị / Công cụ</span><span class="lang lang-en" hidden>Admin &amp; tools</span><span class="lang lang-zh" hidden>Admin &amp; tools</span></span>
-        <span class="chip">v0.3.5</span>
+        <span class="chip">v0.3.7</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -1447,7 +1447,7 @@ a:hover{text-decoration:underline}
 <strong>import / sinh app tự động</strong> để lại — cũng chính là nguyên nhân <strong>treo app khi mở sub-table</strong>. Việc sửa chỉ
 <strong>THÊM quan hệ ngược còn thiếu</strong>, <strong>không bao giờ đụng dữ liệu</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> System services · <strong>Chạy trên:</strong> /v/ (modern) + /admin (classic) · <strong>Phiên bản:</strong> 0.2.5</p>
+<p><strong>Nhóm:</strong> System services · <strong>Chạy trên:</strong> /v/ (modern) + /admin (classic) · <strong>Phiên bản:</strong> 0.3.7</p>
 <h3>Vì sao cần plugin này?</h3>
 <p>Khi bạn <strong>import dữ liệu</strong> hoặc để <strong>AI/app-builder sinh app</strong>, quan hệ nhiều khi bị <strong>một chiều</strong>: bảng con có
 <code>đơn hàng → khách</code>, nhưng bảng <code>khách</code> <strong>không có</strong> danh sách <code>đơn hàng</code> ngược lại. Hậu quả:</p>
@@ -1584,7 +1584,7 @@ Kiểm thử: <code>bash build-env/recipes/app-doctor-check.sh</code> (chạy tr
 breakage that <strong>imports / auto-generated apps</strong> leave behind — the same class that <strong>freezes the app when you open
 a sub-table</strong>. Repair only <strong>ADDS the missing reverse relation</strong> and <strong>never touches your data</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> System services · <strong>Runs on:</strong> /v/ (modern) + /admin (classic) · <strong>Version:</strong> 0.2.5</p>
+<p><strong>Group:</strong> System services · <strong>Runs on:</strong> /v/ (modern) + /admin (classic) · <strong>Version:</strong> 0.3.7</p>
 <h3>Why this plugin?</h3>
 <p>When you <strong>import data</strong> or let <strong>AI / app-builder generate an app</strong>, relations often end up <strong>one-sided</strong>: the child
 has <code>order → customer</code>, but <code>customer</code> has <strong>no</strong> reverse list of <code>orders</code>. Consequences:</p>
@@ -1729,7 +1729,7 @@ Checks: <code>bash build-env/recipes/app-doctor-check.sh</code> (runs against nb
 破损 —— 也正是<strong>打开子表格时会把整个应用卡死</strong>的那一类。修复只会<strong>补上缺失的反向关系</strong>，
 <strong>绝不动你的数据</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> System services（系统服务） · <strong>运行于：</strong> /v/（现代版）+ /admin（经典版） · <strong>版本：</strong> 0.2.5</p>
+<p><strong>分组：</strong> System services（系统服务） · <strong>运行于：</strong> /v/（现代版）+ /admin（经典版） · <strong>版本：</strong> 0.3.7</p>
 <h3>为什么需要这个插件？</h3>
 <p>当你<strong>导入数据</strong>，或者让 <strong>AI / app-builder 生成一个应用</strong>时，关系常常会变成<strong>单向的</strong>：子表上有
 <code>order → customer</code>，但 <code>customer</code> 上<strong>没有</strong>反过来的 <code>orders</code> 列表。后果是：</p>
@@ -1819,14 +1819,14 @@ repo 取到的用户数据表清单（一份允许清单 —— 系统数据表�
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Chống treo (ổn định)</span><span class="lang lang-en" hidden>Crash Guard (stability)</span><span class="lang lang-zh" hidden>防崩溃（稳定性）</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Quản trị / Công cụ</span><span class="lang lang-en" hidden>Admin &amp; tools</span><span class="lang lang-zh" hidden>Admin &amp; tools</span></span>
-        <span class="chip">v0.1.12</span>
+        <span class="chip">v0.1.13</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
 <p>Hai lớp bảo vệ cho giao diện <strong>hiện đại (/v/)</strong>: <strong>giới hạn keep-alive</strong> để app không <strong>chậm dần</strong> khi
 dùng lâu, và <strong>chống treo</strong> khi gặp <strong>quan hệ hỏng</strong>. Thuần client — <strong>không đổi dữ liệu, không cần restart server</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> System services · <strong>Chạy trên:</strong> /v/ (modern) · <strong>Phiên bản:</strong> 0.1.11</p>
+<p><strong>Nhóm:</strong> System services · <strong>Chạy trên:</strong> /v/ (modern) · <strong>Phiên bản:</strong> 0.1.13</p>
 <blockquote>
 <p>⚠️ <strong>QUAN TRỌNG (0.1.5):</strong> Phần <strong>CHỐNG TREO</strong> là tính năng chính, <strong>đang bật, an toàn</strong>. Phần <strong>GIỚI HẠN
 KEEP-ALIVE</strong> hiện là <strong>THỬ NGHIỆM và MẶC ĐỊNH TẮT</strong>: cách duy nhất NocoBase cho để gỡ trang (<code>destroyModel</code>)
@@ -1920,7 +1920,7 @@ core để unmount sạch phần còn lại; hook điều hướng qua <code>pus
 <p>Two defense layers for the <strong>modern (/v/)</strong> client: a <strong>keep-alive cap</strong> so the app doesn’t <strong>slow down
 over time</strong>, and a <strong>crash guard</strong> for <strong>broken relations</strong>. Pure client-side — <strong>no data changes, no server restart</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> System services · <strong>Runs on:</strong> /v/ (modern) · <strong>Version:</strong> 0.1.11</p>
+<p><strong>Group:</strong> System services · <strong>Runs on:</strong> /v/ (modern) · <strong>Version:</strong> 0.1.13</p>
 <blockquote>
 <p>⚠️ <strong>IMPORTANT (0.1.5):</strong> The <strong>CRASH GUARD</strong> is the active, safe feature. The <strong>KEEP-ALIVE CAP</strong> is
 <strong>EXPERIMENTAL and OFF by default</strong>: the only unmount primitive NocoBase exposes (<code>destroyModel</code>) turned out
@@ -2012,7 +2012,7 @@ reject the shared <code>Promise.all</code> → no freeze); idempotent, keeps the
 <p>为<strong>新版（/v/）<strong>客户端提供的两层防护：一个 <strong>keep-alive 上限</strong>，让应用不会</strong>越用越慢</strong>；
 以及一个针对<strong>损坏关系</strong>的<strong>崩溃防护</strong>。纯客户端 — <strong>不改动数据，也无需重启服务器</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> 系统服务 · <strong>运行于：</strong> /v/（新版） · <strong>版本：</strong> 0.1.11</p>
+<p><strong>分组：</strong> 系统服务 · <strong>运行于：</strong> /v/（新版） · <strong>版本：</strong> 0.1.13</p>
 <blockquote>
 <p>⚠️ <strong>重要（0.1.5）：</strong> <strong>崩溃防护</strong>是当前生效且安全的功能。<strong>KEEP-ALIVE 上限</strong>则是
 <strong>实验性的，且默认关闭</strong>：NocoBase 唯一暴露出来的卸载原语（<code>destroyModel</code>）后来被发现会
@@ -2105,7 +2105,7 @@ NocoBase 原本的行为</strong>，绝不抛出错误。</li>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Nhân bản ứng dụng</span><span class="lang lang-en" hidden>App Cloner (export / import)</span><span class="lang lang-zh" hidden>应用克隆（导出 / 导入）</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Quản trị / Công cụ</span><span class="lang lang-en" hidden>Admin &amp; tools</span><span class="lang lang-zh" hidden>Admin &amp; tools</span></span>
-        <span class="chip">v1.12.4</span>
+        <span class="chip">v1.12.5</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -2114,7 +2114,7 @@ chọn — từ bản cài này sang bản cài khác bằng một file <strong>
 xoá</strong> dữ liệu đang có; gặp bảng/cột <strong>trùng tên</strong> thì <strong>bạn chọn</strong>: chỉ thêm mới (giữ bản có sẵn)
 hoặc ghi đè theo file.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Quản trị / Di trú (Migration) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>CSDL:</strong> chỉ PostgreSQL · <strong>Phiên bản:</strong> 1.12.4</p>
+<p><strong>Nhóm:</strong> Quản trị / Di trú (Migration) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>CSDL:</strong> chỉ PostgreSQL · <strong>Phiên bản:</strong> 1.12.5</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Một trang cấu hình mới trong Settings: “NB Cloner”</strong> (biểu tượng copy) với ba tab: <strong>Xuất (Export)</strong>, <strong>Nhập (Import)</strong> và <strong>Dọn dẹp (Clean up)</strong>.</li>
@@ -2318,7 +2318,7 @@ from one install to another as a single <strong><code>.nbc.gz</code></strong> fi
 there; when a same-name table/column exists <strong>you choose</strong>: append only (keep existing) or overwrite
 with the file.</p>
 </blockquote>
-<p><strong>Group:</strong> Admin / Migration · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Database:</strong> PostgreSQL only · <strong>Version:</strong> 1.12.4</p>
+<p><strong>Group:</strong> Admin / Migration · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Database:</strong> PostgreSQL only · <strong>Version:</strong> 1.12.5</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A new Settings page: “NB Cloner”</strong> (copy icon) with three tabs: <strong>Export</strong>, <strong>Import</strong> and <strong>Clean up</strong>.</li>
@@ -2524,7 +2524,7 @@ older than it understands and tells you to re-export.</p>
 从一个安装实例搬到另一个，只用一个 <strong><code>.nbc.gz</code></strong> 文件。导入<strong>绝不删除</strong>已有内容；
 遇到同名的表/列时<strong>由你决定</strong>：仅追加（保留现有），还是用文件覆盖。</p>
 </blockquote>
-<p><strong>分组：</strong> 管理 / 迁移 · <strong>运行于：</strong> /admin（经典版）+ /v/（新版） · <strong>数据库：</strong> 仅 PostgreSQL · <strong>版本：</strong> 1.12.4</p>
+<p><strong>分组：</strong> 管理 / 迁移 · <strong>运行于：</strong> /admin（经典版）+ /v/（新版） · <strong>数据库：</strong> 仅 PostgreSQL · <strong>版本：</strong> 1.12.5</p>
 <h3>安装后有什么新变化？</h3>
 <ul>
 <li><strong>一个新的设置页面：“应用克隆器”（NB Cloner）</strong>（复制图标），含三个标签页：<strong>导出</strong>、<strong>导入</strong> 和 <strong>清理</strong>。</li>
@@ -2722,7 +2722,7 @@ manifest 里带有包格式的版本号；如果某个包的主版本比导入�
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Quản lý tệp</span><span class="lang lang-en" hidden>File Vault</span><span class="lang lang-zh" hidden>文件保险库</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Quản trị / Công cụ</span><span class="lang lang-en" hidden>Admin &amp; tools</span><span class="lang lang-zh" hidden>Admin &amp; tools</span></span>
-        <span class="chip">v0.1.6</span>
+        <span class="chip">v0.1.7</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -2731,7 +2731,7 @@ manifest 里带有包格式的版本号；如果某个包的主版本比导入�
 xóa</strong> tệp, biết <strong>mỗi tệp đang được bản ghi nào dùng</strong>, tìm và <strong>dọn hàng loạt tệp rác</strong>, và <strong>tải về
 bản sao lưu ZIP</strong>. Nó chỉ đọc bảng attachments sẵn có — <strong>không tạo bảng mới, không thêm dữ liệu</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Công cụ &amp; quản trị (Admin &amp; tools) · <strong>Chạy trên:</strong> /v/ (modern) · <strong>Phiên bản:</strong> 0.1.6</p>
+<p><strong>Nhóm:</strong> Công cụ &amp; quản trị (Admin &amp; tools) · <strong>Chạy trên:</strong> /v/ (modern) · <strong>Phiên bản:</strong> 0.1.7</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Một trang cấu hình mới trong Settings: “Quản lý tệp”</strong> (biểu tượng thư mục). Đây là nơi duy nhất bạn thao tác.</li>
@@ -2822,7 +2822,7 @@ collection but gives you no place to see them — File Vault does: <strong>brows
 files, see <strong>which records use each file</strong>, find and <strong>bulk-clean orphaned files</strong>, and <strong>download a
 ZIP backup</strong>. It reads the existing attachments — <strong>no new table, no new data</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Admin &amp; tools · <strong>Runs on:</strong> /v/ (modern) · <strong>Version:</strong> 0.1.6</p>
+<p><strong>Group:</strong> Admin &amp; tools · <strong>Runs on:</strong> /v/ (modern) · <strong>Version:</strong> 0.1.7</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A new Settings page: “File Vault”</strong> (folder icon). This is the one and only place you work.</li>
@@ -2913,7 +2913,7 @@ ZIP backup</strong>. It reads the existing attachments — <strong>no new table,
 <strong>每个文件被哪些记录使用</strong>，找出并<strong>批量清理孤立文件</strong>，还能<strong>下载 ZIP 备份</strong>。它只读取已有的
 附件 — <strong>不新建数据表，不产生新数据</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> 管理与工具 · <strong>运行于：</strong> /v/（modern） · <strong>版本：</strong> 0.1.6</p>
+<p><strong>分组：</strong> 管理与工具 · <strong>运行于：</strong> /v/（modern） · <strong>版本：</strong> 0.1.7</p>
 <h3>安装之后有什么变化？</h3>
 <ul>
 <li><strong>设置里多出一个页面：「文件库」</strong>（文件夹图标）。这是唯一需要操作的地方。</li>
@@ -3004,14 +3004,14 @@ ZIP backup</strong>. It reads the existing attachments — <strong>no new table,
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Trung tâm Plugin</span><span class="lang lang-en" hidden>Plugin Hub</span><span class="lang lang-zh" hidden>插件中心</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Quản trị / Công cụ</span><span class="lang lang-en" hidden>Admin &amp; tools</span><span class="lang lang-zh" hidden>Admin &amp; tools</span></span>
-        <span class="chip">v0.2.4</span>
+        <span class="chip">v0.2.5</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
 <p>Cài <strong>một plugin duy nhất</strong>, rồi từ đó <strong>cài và cập nhật mọi plugin @tuanla90 khác</strong> — không cần upload
 file <code>.tgz</code> qua trình duyệt, không cần vào server. Trỏ tới một <strong>manifest URL</strong>, bấm một nút là xong.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Giao diện (UI) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.4</p>
+<p><strong>Nhóm:</strong> Giao diện (UI) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.5</p>
 <h3>Vì sao cần?</h3>
 <p>Cài plugin trên NocoBase thường phải <strong>upload file <code>.tgz</code></strong> qua trình duyệt — nhiều thiết bị/mạng công ty
 <strong>chặn</strong> kiểu upload này. Plugin Hub đi đường khác: <strong>server tự tải</strong> plugin từ một URL, nên rào cản upload
@@ -3086,7 +3086,7 @@ riêng, thu hồi được, thay vì mở public cả repo.</p>
 <p>Install <strong>one plugin</strong>, then install &amp; update <strong>every other @tuanla90 plugin</strong> from it — no browser <code>.tgz</code>
 upload, no server shell. Point it at a <strong>manifest URL</strong>, click a button.</p>
 </blockquote>
-<p><strong>Group:</strong> UI · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.4</p>
+<p><strong>Group:</strong> UI · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.5</p>
 <h3>Why?</h3>
 <p>Installing a NocoBase plugin normally means <strong>uploading a <code>.tgz</code></strong> through the browser — which many devices
 / corporate networks <strong>block</strong>. Plugin Hub takes the other route: the <strong>server downloads</strong> each plugin from a
@@ -3161,7 +3161,7 @@ revocable read token instead of making the repo public.</p>
 <p>只装<strong>一个插件</strong>，然后用它来安装和更新<strong>其余所有 @tuanla90 插件</strong> — 不用在浏览器里上传 <code>.tgz</code>，
 也不用登服务器敲命令。指定一个<strong>清单 URL</strong>，点一下按钮即可。</p>
 </blockquote>
-<p><strong>分组：</strong> UI · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.4</p>
+<p><strong>分组：</strong> UI · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.5</p>
 <h3>为什么需要它？</h3>
 <p>安装 NocoBase 插件通常意味着要通过浏览器<strong>上传一个 <code>.tgz</code></strong> — 而很多设备
 / 企业网络会<strong>拦截</strong>这种操作。插件中心走的是另一条路：由<strong>服务端下载</strong>每个插件（从一个
@@ -3236,7 +3236,7 @@ URL 获取），所以浏览器的上传限制就不再是问题了。而且，�
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Căn cước công dân</span><span class="lang lang-en" hidden>Vietnam Citizen ID</span><span class="lang lang-zh" hidden>越南公民身份证</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.2.1</span>
+        <span class="chip">v0.2.2</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -3244,7 +3244,7 @@ URL 获取），所以浏览器的上传限制就不再是问题了。而且，�
 <strong>tỉnh khai sinh · giới tính · năm sinh</strong> từ chính con số. Kèm bộ đọc <strong>mã QR trên thẻ</strong>
 có <strong>đối chiếu chéo</strong> giữa số định danh và dữ liệu QR.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Fields (Trường) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.1</p>
+<p><strong>Nhóm:</strong> Fields (Trường) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.2</p>
 <blockquote>
 <p>✅ <strong>Chạy hoàn toàn offline.</strong> Bảng mã tỉnh 1,5 KB đóng gói sẵn. Không API, không khoá, không gửi
 số CCCD của ai đi đâu.</p>
@@ -3334,7 +3334,7 @@ lấy chuỗi QR, rồi đưa qua bộ đọc.</li>
 derives the <strong>birth province · gender · birth year</strong> straight from the number, plus a reader for
 the card’s <strong>QR payload</strong> that <strong>cross-checks</strong> the two against each other.</p>
 </blockquote>
-<p><strong>Group:</strong> Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.1</p>
+<p><strong>Group:</strong> Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.2</p>
 <blockquote>
 <p>✅ <strong>Fully offline.</strong> A 1.5 KB province table ships inside the plugin. No API, no key, and nobody’s
 ID number ever leaves the app.</p>
@@ -3429,7 +3429,7 @@ capture the QR string, then feed it to the reader.</li>
 推导出<strong>出生登记省份 · 性别 · 出生年份</strong>；另外还带一个读取证件<strong>二维码内容</strong>的解析器，
 会把二者<strong>交叉核对</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> 字段 · <strong>运行于：</strong> /admin（经典）+ /v/（现代） · <strong>版本：</strong> 0.2.1</p>
+<p><strong>分组：</strong> 字段 · <strong>运行于：</strong> /admin（经典）+ /v/（现代） · <strong>版本：</strong> 0.2.2</p>
 <blockquote>
 <p>✅ **完全离线运行。**一份 1.5 KB 的省份对照表随插件一起打包。不用 API，不用密钥，
 谁的身份证号都不会离开这个应用。</p>
@@ -3522,7 +3522,7 @@ capture the QR string, then feed it to the reader.</li>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Công thức &amp; Trường tự tính</span><span class="lang lang-en" hidden>Formula &amp; Computed Fields</span><span class="lang lang-zh" hidden>公式</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.1.99</span>
+        <span class="chip">v0.1.100</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -3530,7 +3530,7 @@ capture the QR string, then feed it to the reader.</li>
 trên field có sẵn, giá trị mặc định của form, <strong>cột thật do server tự tính lại</strong> theo quan hệ, và các phép
 <strong>tuần tự</strong> như số dư lũy kế hay tồn kho FIFO — <strong>không cần code</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Blocks / Fields · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.1.99</p>
+<p><strong>Nhóm:</strong> Blocks / Fields · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.1.100</p>
 <hr>
 <h3>Mục lục</h3>
 <ol>
@@ -4139,7 +4139,7 @@ tiên rồi bị <code>visited</code> chặn → tổng thiếu.</li>
 form default values, <strong>stored columns the server recomputes</strong> across relations, and <strong>sequential / window</strong> calculations
 like running balances or FIFO / average inventory costing — <strong>no code</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Blocks / Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.1.99</p>
+<p><strong>Group:</strong> Blocks / Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.1.100</p>
 <h3>What’s new after installing?</h3>
 <p>The plugin opens up <strong>5 ways to use formulas</strong>, each in a different place:</p>
 <table>
@@ -4359,7 +4359,7 @@ This column is <strong>not stored in the database</strong> — it recomputes on 
 表单默认值、<strong>由服务端跨关系重新计算并存储的列</strong>，以及<strong>顺序 / 窗口</strong>计算，
 例如滚动余额或 FIFO / 平均库存成本核算 — <strong>无需写代码</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> 区块 / 字段 · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.1.99</p>
+<p><strong>分组：</strong> 区块 / 字段 · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.1.100</p>
 <h3>安装后有什么变化？</h3>
 <p>插件带来了 <strong>5 种使用公式的方式</strong>，分别位于不同的地方：</p>
 <table>
@@ -4580,7 +4580,7 @@ This column is <strong>not stored in the database</strong> — it recomputes on 
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Cột AI</span><span class="lang lang-en" hidden>AI Column</span><span class="lang lang-zh" hidden>AI 字段</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.7.11</span>
+        <span class="chip">v0.7.12</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -4588,7 +4588,7 @@ This column is <strong>not stored in the database</strong> — it recomputes on 
 đối chiếu với danh mục để chọn mã, tạo ảnh, đọc thành <strong>giọng nói</strong>. Làm lẻ từng ô, làm <strong>hàng loạt</strong>
 trên các dòng đã tích, hoặc <strong>tự chạy khi lưu</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Trường (Fields) · AI · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.7.11</p>
+<p><strong>Nhóm:</strong> Trường (Fields) · AI · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.7.12</p>
 <hr>
 <h3>Mục lục</h3>
 <ol>
@@ -5356,7 +5356,7 @@ báo “Script error”.</li>
 classify a value against a catalog collection, turn <strong>one document into many rows</strong> in a sub-table,
 create images and read text aloud as <strong>speech</strong> (TTS) — per cell, in <strong>bulk</strong>, or <strong>auto-run on save</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Fields · AI · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.7.11</p>
+<p><strong>Group:</strong> Fields · AI · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.7.12</p>
 <blockquote>
 <p>⚙ <strong>Prerequisites (without these, nothing will generate):</strong></p>
 <ul>
@@ -5553,7 +5553,7 @@ create images and read text aloud as <strong>speech</strong> (TTS) — per cell,
 对照目录数据表对某个值做分类、把<strong>一份文档变成子表格里的多行</strong>、
 生成图片、把文本朗读成<strong>语音</strong>（TTS）— 可以逐格执行、<strong>批量</strong>执行，或<strong>保存时自动运行</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> 字段 · AI · <strong>运行于：</strong> /admin（经典）+ /v/（现代） · <strong>版本：</strong> 0.7.11</p>
+<p><strong>分组：</strong> 字段 · AI · <strong>运行于：</strong> /admin（经典）+ /v/（现代） · <strong>版本：</strong> 0.7.12</p>
 <blockquote>
 <p>⚙ <strong>前置条件（没有这些，什么都生成不了）：</strong></p>
 <ul>
@@ -5751,7 +5751,7 @@ create images and read text aloud as <strong>speech</strong> (TTS) — per cell,
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Địa chỉ Việt Nam</span><span class="lang lang-en" hidden>Vietnam Address</span><span class="lang lang-zh" hidden>越南行政区划地址</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.3.3</span>
+        <span class="chip">v0.3.4</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -5759,7 +5759,7 @@ create images and read text aloud as <strong>speech</strong> (TTS) — per cell,
 <strong>chuyển đổi đơn vị cũ sang đơn vị mới</strong> theo cải cách hành chính <strong>01/07/2025</strong>:
 <strong>63 tỉnh → 34</strong>, <strong>bỏ cấp quận/huyện</strong>, <strong>10.035 xã/phường → 3.321</strong> (kể cả 13 <strong>đặc khu</strong>).</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Fields (Trường) + Actions (Hành động) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.3.3</p>
+<p><strong>Nhóm:</strong> Fields (Trường) + Actions (Hành động) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.3.4</p>
 <blockquote>
 <p>✅ <strong>Chạy hoàn toàn offline.</strong> Toàn bộ danh mục và bảng ánh xạ được đóng gói sẵn trong plugin —
 không gọi API bên ngoài, không cần API key, không phụ thuộc mạng Internet.</p>
@@ -5991,7 +5991,7 @@ dấu phân cách rõ ràng có thể rơi vào trạng thái “Chỉ ra tỉnh
 <strong>63 provinces → 34</strong>, the <strong>district level abolished</strong>, <strong>10,035 wards → 3,321</strong>
 (including 13 <strong>special zones / đặc khu</strong>).</p>
 </blockquote>
-<p><strong>Group:</strong> Fields + Actions · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.3.3</p>
+<p><strong>Group:</strong> Fields + Actions · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.3.4</p>
 <blockquote>
 <p>✅ <strong>Fully offline.</strong> The unit catalogue and the mapping table ship inside the plugin — no external
 API, no API key, no network dependency.</p>
@@ -6229,7 +6229,7 @@ clear separators may land on “Province only”.</li>
 <strong>63 个省 → 34 个</strong>、<strong>取消郡/县这一级</strong>、<strong>10,035 个坊/社 → 3,321 个</strong>
 （其中含 13 个<strong>特区 / đặc khu</strong>）。</p>
 </blockquote>
-<p><strong>分组：</strong> Fields（字段）+ Actions（操作） · <strong>运行于：</strong> /admin（经典版）+ /v/（现代版） · <strong>版本：</strong> 0.3.3</p>
+<p><strong>分组：</strong> Fields（字段）+ Actions（操作） · <strong>运行于：</strong> /admin（经典版）+ /v/（现代版） · <strong>版本：</strong> 0.3.4</p>
 <blockquote>
 <p>✅ <strong>完全离线。</strong> 行政单位目录和映射表都随插件一起打包 —— 不调用外部 API、不需要 API key、不依赖网络。</p>
 </blockquote>
@@ -6455,7 +6455,7 @@ clear separators may land on “Province only”.</li>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Field nâng cao</span><span class="lang lang-en" hidden>Field Enhancements</span><span class="lang lang-zh" hidden>字段增强</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.2.65</span>
+        <span class="chip">v0.2.66</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -6463,7 +6463,7 @@ clear separators may land on “Province only”.</li>
 chấm sao, nhãn màu, huy hiệu On/Off, dropdown 2 dòng có avatar, ô nhập có icon… <strong>không cần code</strong>.
 Kèm một thư viện <strong>snippet RunJS</strong> cho lúc bạn muốn tự script.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Fields · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.2.65</p>
+<p><strong>Nhóm:</strong> Fields · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.2.66</p>
 <hr>
 <h3>Mục lục</h3>
 <ol>
@@ -7869,7 +7869,7 @@ trong schema block và bảng <code>ptdlFieldWidget</code> vẫn còn nguyên, b
 progress bars, star ratings, coloured tags, On/Off badges, inputs with icons… all <strong>with no code</strong>.
 Comes with a <strong>RunJS snippet library</strong> for the times you’d rather script it yourself.</p>
 </blockquote>
-<p><strong>Group:</strong> Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.65</p>
+<p><strong>Group:</strong> Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.66</p>
 <blockquote>
 <p>The <strong>detailed guide — every widget, every setting, defaults, best practices and traps — is
 <a href="./README.vi-VN.md">README.vi-VN.md</a></strong> (Vietnamese). This file is the short English overview.</p>
@@ -8023,7 +8023,7 @@ bash build-env/recipes/add-markers.sh build-env/storage/tar/@tuanla90/plugin-fie
 进度条、星级评分、彩色标签、开/关徽标、带图标的输入框…… 全部<strong>无需写代码</strong>。
 还附带一个 <strong>RunJS 代码片段库</strong>，供你想自己写脚本的时候使用。</p>
 </blockquote>
-<p><strong>分组：</strong> Fields（字段） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.65</p>
+<p><strong>分组：</strong> Fields（字段） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.66</p>
 <blockquote>
 <p><strong>详细指南 — 每一个组件、每一项设置、默认值、最佳实践和坑 — 都在
 <a href="./README.vi-VN.md">README.vi-VN.md</a></strong>（越南语）。本文件是简短的中文概览。</p>
@@ -8177,7 +8177,7 @@ bash build-env/recipes/add-markers.sh build-env/storage/tar/@tuanla90/plugin-fie
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Luồng trạng thái</span><span class="lang lang-en" hidden>Status Flow</span><span class="lang lang-zh" hidden>状态流</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.2.13</span>
+        <span class="chip">v0.2.14</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -8186,7 +8186,7 @@ bash build-env/recipes/add-markers.sh build-env/storage/tar/@tuanla90/plugin-fie
 <strong>chỉ hiện những trạng thái kế hợp lệ</strong>; <strong>máy chủ chặn</strong> mọi chuyển tiếp sai luật (kể cả sửa hàng loạt).
 Trên ô dữ liệu còn có <strong>sơ đồ luồng</strong> và <strong>nút chuyển nhanh</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Fields · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.13</p>
+<p><strong>Nhóm:</strong> Fields · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.14</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Một kiểu trường mới.</strong> Khi thêm/cấu hình trường của một bảng, danh sách kiểu trường có thêm
@@ -8359,7 +8359,7 @@ Client chỉ lọc dropdown cho gọn (UX), không phải nơi bảo vệ.</li>
 dropdown shows <strong>only valid next statuses</strong>; the <strong>server blocks</strong> every illegal transition (including bulk edit).
 Cells also get a <strong>flow graph</strong> and <strong>quick-transition buttons</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.13</p>
+<p><strong>Group:</strong> Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.14</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A new field type.</strong> When you add/configure a field on a collection, the field-type list gains
@@ -8531,7 +8531,7 @@ The client only filters the dropdown for tidiness (UX); it is not the protection
 下拉框<strong>只显示合法的下一个状态</strong>；<strong>服务端会拦截</strong>每一次非法流转（包括批量编辑）。
 单元格上还能显示<strong>流程图</strong>和<strong>快捷流转按钮</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> Fields · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.13</p>
+<p><strong>分组：</strong> Fields · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.14</p>
 <h3>安装后有什么变化？</h3>
 <ul>
 <li><strong>一种新的字段类型。</strong> 在数据表上添加/配置字段时，字段类型列表中会多出
@@ -8703,7 +8703,7 @@ The client only filters the dropdown for tidiness (UX); it is not the protection
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Mã số thuế</span><span class="lang lang-en" hidden>Vietnam Tax Code</span><span class="lang lang-zh" hidden>越南税号</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.2.1</span>
+        <span class="chip">v0.2.2</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -8711,7 +8711,7 @@ The client only filters the dropdown for tidiness (UX); it is not the protection
 cho chi nhánh) — bắt <strong>100% lỗi gõ sai một chữ số</strong> trong bộ kiểm chứng. Kèm nút <strong>Tra cứu</strong> lấy
 tên và địa chỉ doanh nghiệp, điền thẳng vào các cột bạn chỉ định.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Fields (Trường) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.1</p>
+<p><strong>Nhóm:</strong> Fields (Trường) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.2</p>
 <h3>Field “Mã số thuế”</h3>
 <p><strong>Add field → Tiện ích @tuanla90 → Mã số thuế.</strong></p>
 <ul>
@@ -8810,7 +8810,7 @@ bên thứ ba, cần cân nhắc khi đưa vào quy trình quan trọng.</li>
 13-character branch form) — catching <strong>100% of single-digit typos</strong> in our verification set. Plus a
 <strong>Look up</strong> button that pulls the company name and address straight into the columns you choose.</p>
 </blockquote>
-<p><strong>Group:</strong> Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.1</p>
+<p><strong>Group:</strong> Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.2</p>
 <h3>The “Tax code” field</h3>
 <p><strong>Add field → “@tuanla90 extras” → Tax code.</strong></p>
 <ul>
@@ -8912,7 +8912,7 @@ is still an outside service, worth weighing before putting it in a critical path
 机构形式）—— 在我们的验证集中能抓出<strong>100% 的单个数字输错</strong>。另外还有一个<strong>查询</strong>按钮，可以把企业
 名称和地址直接拉取到你指定的列中。</p>
 </blockquote>
-<p><strong>分组：</strong> Fields（字段） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.1</p>
+<p><strong>分组：</strong> Fields（字段） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.2</p>
 <h3>“税号”字段</h3>
 <p><strong>添加字段 → “@tuanla90 extras” → 税号。</strong></p>
 <p>（越南的税号 <em>mã số thuế</em> 相当于中国的纳税人识别号：企业和个人在税务机关登记后取得的唯一代码，
@@ -9013,14 +9013,14 @@ PTDL_VNTAX_LOOKUP_AUTH=Bearer xxx                               # if the source 
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Thêm cột tại chỗ</span><span class="lang lang-en" hidden>Inline Field</span><span class="lang lang-zh" hidden>就地新增字段</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.1.15</span>
+        <span class="chip">v0.1.16</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
 <p>Thêm một <strong>cột (field) mới ngay khi đang sửa bảng</strong> — <strong>không</strong> phải rời trang để vào Collection
 Manager tạo field. Khai báo trong một hộp thoại nhỏ, cột hiện <strong>luôn</strong> trong bảng đang xem.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Trường (Fields) · <strong>Chạy trên:</strong> /v/ (modern) · <strong>Phiên bản:</strong> 0.1.15</p>
+<p><strong>Nhóm:</strong> Trường (Fields) · <strong>Chạy trên:</strong> /v/ (modern) · <strong>Phiên bản:</strong> 0.1.16</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li>Trong <strong>menu ⚙ (cài đặt)</strong> của mỗi <strong>khối Bảng</strong> trên <code>/v/</code> xuất hiện mục <strong>“Thêm cột mới”</strong>.</li>
@@ -9128,7 +9128,7 @@ field-order) — siết thành vai trò admin nếu mở cho người dùng thư
 <p>Add a <strong>new column (field) while editing a table view</strong> — no trip to the Collection Manager. Define it
 in a small dialog and the column appears <strong>right there</strong> in the block you’re editing.</p>
 </blockquote>
-<p><strong>Group:</strong> Fields · <strong>Runs on:</strong> /v/ (modern) · <strong>Version:</strong> 0.1.15</p>
+<p><strong>Group:</strong> Fields · <strong>Runs on:</strong> /v/ (modern) · <strong>Version:</strong> 0.1.16</p>
 <h3>What it adds</h3>
 <ul>
 <li>A <strong>“Add new column”</strong> item in every <strong>Table block’s ⚙ settings menu</strong> on <code>/v/</code>.</li>
@@ -9203,7 +9203,7 @@ field-order) — tighten to an admin role if you expose it to non-admins. <code>
 <p><strong>在编辑表格视图的过程中直接添加一个新列（字段）</strong> — 不必跑一趟数据表管理。在一个小对话框里
 把它定义好，列就会<strong>当场出现</strong>在你正在编辑的区块里。</p>
 </blockquote>
-<p><strong>分组：</strong> Fields · <strong>运行于：</strong> /v/（modern） · <strong>版本：</strong> 0.1.15</p>
+<p><strong>分组：</strong> Fields · <strong>运行于：</strong> /v/（modern） · <strong>版本：</strong> 0.1.16</p>
 <h3>它带来了什么</h3>
 <ul>
 <li>在 <code>/v/</code> 上，每个<strong>表格区块的 ⚙ 设置菜单</strong>中多出一项 <strong>“添加新列”</strong>。</li>
@@ -9280,7 +9280,7 @@ field-order 一致）— 如果要开放给非管理员，请收紧为管理员�
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Thiết bị hiện trường</span><span class="lang lang-en" hidden>Device Kit</span><span class="lang lang-zh" hidden>设备套件（拍照·定位）</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.8.9</span>
+        <span class="chip">v0.8.10</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -9288,7 +9288,7 @@ field-order 一致）— 如果要开放给非管理员，请收紧为管理员�
 chụp ảnh có <strong>đóng dấu GPS/giờ</strong>, ghi <strong>vị trí trên bản đồ</strong> (không cần API key), <strong>chữ ký</strong> &amp; <strong>ghi âm</strong>,
 <strong>quét QR/barcode</strong> để điền hoặc tra cứu, và <strong>check-in</strong> một chạm.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Fields (Trường) + Actions (Hành động) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.8.9</p>
+<p><strong>Nhóm:</strong> Fields (Trường) + Actions (Hành động) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.8.10</p>
 <blockquote>
 <p>⚠️ <strong>Điều kiện bắt buộc: trang chạy HTTPS</strong> (hoặc <code>localhost</code>). Camera, GPS và micro của trình duyệt <strong>chỉ hoạt động trên HTTPS</strong>. Host trên Railway đã có sẵn HTTPS → mở URL production trên điện thoại là dùng được.</p>
 </blockquote>
@@ -9510,7 +9510,7 @@ chụp ảnh có <strong>đóng dấu GPS/giờ</strong>, ghi <strong>vị trí 
 photos with a <strong>GPS/time watermark</strong>, a <strong>location on a map</strong> (no API key), <strong>signature</strong> &amp; <strong>audio</strong>,
 <strong>scan QR/barcode</strong> to fill or look up, and one-tap <strong>check-in</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Fields + Actions · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.8.9</p>
+<p><strong>Group:</strong> Fields + Actions · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.8.10</p>
 <blockquote>
 <p>⚠️ <strong>Requirement: the page must run over HTTPS</strong> (or <code>localhost</code>). The browser’s camera, GPS and microphone <strong>only work over HTTPS</strong>. Hosting on Railway already provides HTTPS → just open the production URL on your phone and it works.</p>
 </blockquote>
@@ -9735,7 +9735,7 @@ photos with a <strong>GPS/time watermark</strong>, a <strong>location on a map</
 带 <strong>GPS／时间水印</strong>的照片、<strong>地图上的位置</strong>（无需 API key）、<strong>签名</strong>与<strong>录音</strong>、
 <strong>扫描 QR／条形码</strong>来填值或查找，以及一键<strong>签到</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> Fields（字段）+ Actions（操作） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.8.9</p>
+<p><strong>分组：</strong> Fields（字段）+ Actions（操作） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.8.10</p>
 <blockquote>
 <p>⚠️ <strong>前提条件：页面必须通过 HTTPS 访问</strong>（或 <code>localhost</code>）。浏览器的相机、GPS 和麦克风<strong>只在 HTTPS 下才能工作</strong>。部署在 Railway 上本身就带 HTTPS → 在手机上打开生产环境的 URL 就能直接用。</p>
 </blockquote>
@@ -9961,7 +9961,7 @@ photos with a <strong>GPS/time watermark</strong>, a <strong>location on a map</
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Thứ tự trường</span><span class="lang lang-en" hidden>Field Order</span><span class="lang lang-zh" hidden>字段排序</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.2.5</span>
+        <span class="chip">v0.2.6</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -9969,7 +9969,7 @@ photos with a <strong>GPS/time watermark</strong>, a <strong>location on a map</
 cấu hình trường — không cần code, không cần restart server.
 <strong>Từ 0.1.1</strong>, plugin còn <strong>tự sắp lại menu trong trang Settings</strong> cho gọn gàng theo nhóm.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Trường (Fields) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.5</p>
+<p><strong>Nhóm:</strong> Trường (Fields) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.6</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Một nút mới: “Sắp xếp trường”</strong> xuất hiện trên <strong>thanh công cụ của ngăn cấu hình trường</strong> (ngăn kéo ra khi bạn mở phần “Configure fields” của một bảng — chỗ có nút <strong>“Add field”</strong>). Nút nằm cạnh nút thêm trường.</li>
@@ -10054,7 +10054,7 @@ cấu hình trường — không cần code, không cần restart server.
 no code, no server restart.
 <strong>Since 0.1.1</strong>, the plugin also <strong>tidies the Settings-page menu</strong> into logical groups.</p>
 </blockquote>
-<p><strong>Group:</strong> Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.5</p>
+<p><strong>Group:</strong> Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.6</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A new button: “Reorder fields”</strong> appears on the <strong>toolbar of the field-configuration drawer</strong> (the drawer that opens when you “Configure fields” of a collection — where the <strong>“Add field”</strong> button is). It sits next to the add-field button.</li>
@@ -10138,7 +10138,7 @@ no code, no server restart.
 <p>直接在字段配置界面上，用<strong>拖拽</strong>给数据表的<strong>字段</strong>重新排序 —— 无需写代码，也无需重启服务端。
 <strong>自 0.1.1 起</strong>，插件还会把<strong>设置页面的菜单</strong>整理成有条理的分组。</p>
 </blockquote>
-<p><strong>分组：</strong> Fields（字段） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.5</p>
+<p><strong>分组：</strong> Fields（字段） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.6</p>
 <h3>安装之后多了什么？</h3>
 <ul>
 <li><strong>一个新按钮：“字段排序”</strong>，出现在<strong>字段配置抽屉的工具栏</strong>上（就是你对某个数据表“配置字段”时打开的那个抽屉 —— **“添加字段”**按钮所在的地方）。它紧挨着添加字段按钮。</li>
@@ -10224,7 +10224,7 @@ no code, no server restart.
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Bảng con Pro</span><span class="lang lang-en" hidden>Sub-table Pro</span><span class="lang lang-zh" hidden>增强子表格</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Khối &amp; biểu đồ</span><span class="lang lang-en" hidden>Blocks &amp; charts</span><span class="lang lang-zh" hidden>Blocks &amp; charts</span></span>
-        <span class="chip">v0.2.14</span>
+        <span class="chip">v0.2.15</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -10232,7 +10232,7 @@ no code, no server restart.
 thêm <strong>dòng tổng</strong>, đổi <strong>kiểu hiển thị</strong> (bảng / danh sách / thẻ), có <strong>nút +/− số lượng</strong>, và <strong>cầu nối</strong> để
 bấm 1 dòng ở block khác là tự thêm/tăng dòng ở đây — hợp cho <strong>báo giá, đơn hàng, soạn hàng</strong>. Lưu vẫn <strong>100% như bản gốc</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Khối &amp; Trường (Blocks / Fields) · <strong>Chạy trên:</strong> /v/ (modern) · <strong>Phiên bản:</strong> 0.2.14</p>
+<p><strong>Nhóm:</strong> Khối &amp; Trường (Blocks / Fields) · <strong>Chạy trên:</strong> /v/ (modern) · <strong>Phiên bản:</strong> 0.2.15</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Một lựa chọn thành phần trường mới: “Sub-table Pro”</strong> — áp cho field quan hệ <strong>một–nhiều (hasMany)</strong> hoặc <strong>nhiều–nhiều</strong>.</li>
@@ -10402,7 +10402,7 @@ entry tool: add a <strong>totals row</strong>, switch the <strong>display mode</
 quantity buttons</strong>, and a <strong>bridge</strong> so clicking a row in another block auto-adds/increments a line
 here — great for <strong>quotes, orders, picking</strong>. Saving is still <strong>100% native</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Blocks / Fields · <strong>Runs on:</strong> /v/ (modern) · <strong>Version:</strong> 0.2.14</p>
+<p><strong>Group:</strong> Blocks / Fields · <strong>Runs on:</strong> /v/ (modern) · <strong>Version:</strong> 0.2.15</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A new field-component option: “Sub-table Pro”</strong> — for <strong>one-to-many (hasMany)</strong> or <strong>many-to-many</strong> relation fields.</li>
@@ -10608,7 +10608,7 @@ bridge?.publish('ch1', { action: 'add', record: ctx.record });
 切换<strong>显示模式</strong>（表格 / 列表 / 卡片）、获得 <strong>+/− 数量按钮</strong>，还有一条<strong>桥接</strong>，让你在另一个
 区块里点击某一行就能自动在这里新增/累加一行 — 非常适合<strong>报价单、订单、拣货</strong>。保存过程依旧 <strong>100% 原生</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> 区块 / 字段 · <strong>运行于：</strong> /v/（现代） · <strong>版本：</strong> 0.2.14</p>
+<p><strong>分组：</strong> 区块 / 字段 · <strong>运行于：</strong> /v/（现代） · <strong>版本：</strong> 0.2.15</p>
 <h3>安装后有什么新东西？</h3>
 <ul>
 <li><strong>一个新的字段组件选项：「子表格 Pro」</strong> — 适用于<strong>一对多（hasMany）<strong>或</strong>多对多</strong>关系字段。</li>
@@ -10815,7 +10815,7 @@ bridge?.publish('ch1', { action: 'add', record: ctx.record });
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Biểu đồ ECharts Pro</span><span class="lang lang-en" hidden>Data Visualization: ECharts Pro</span><span class="lang lang-zh" hidden>数据可视化：ECharts Pro</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Khối &amp; biểu đồ</span><span class="lang lang-en" hidden>Blocks &amp; charts</span><span class="lang lang-zh" hidden>Blocks &amp; charts</span></span>
-        <span class="chip">v0.2.9</span>
+        <span class="chip">v0.2.10</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -10824,7 +10824,7 @@ vẽ đường / vùng / cột / thanh / tròn / phân tán, bật–tắt đư�
 tùy chỉnh phông chữ &amp; định dạng số, biến đổi dữ liệu bằng JavaScript, và một ô <strong>ghi đè option ECharts thô</strong>
 để kiểm soát toàn bộ — tất cả chỉnh <strong>ngay trên biểu đồ</strong>, không cần code phía máy chủ.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Blocks (Khối hiển thị) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.9</p>
+<p><strong>Nhóm:</strong> Blocks (Khối hiển thị) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.10</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li>Trong khối <strong>Biểu đồ</strong> (<em>Data Visualization</em> / <em>Charts</em>), khi chọn kiểu biểu đồ sẽ có thêm <strong>một nhóm mới “ECharts Pro”</strong>, bên trong là biểu đồ <strong>“ECharts Pro”</strong> — một kiểu biểu đồ “tất cả trong một” mà plugin thêm vào.</li>
@@ -10988,7 +10988,7 @@ plot line / area / column / bar / pie / scatter, toggle smooth · stack · donut
 customize fonts &amp; number formatting, transform data with JavaScript, and a <strong>raw ECharts option override</strong>
 for full control — all configured <strong>right on the chart</strong>, no server-side code.</p>
 </blockquote>
-<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.9</p>
+<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.10</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li>In the <strong>Charts</strong> block (<em>Data Visualization</em> / <em>Charts</em>), the chart-type picker gains <strong>a new “ECharts Pro” group</strong>, and inside it the <strong>“ECharts Pro”</strong> chart — an all-in-one chart type the plugin adds.</li>
@@ -11152,7 +11152,7 @@ for full control — all configured <strong>right on the chart</strong>, no serv
 可自定义字体与数字格式，可以用 JavaScript 变换数据，还有一个<strong>原生 ECharts option 覆盖</strong>入口
 让你完全掌控 — 全部<strong>在图表上就地配置</strong>，无需任何服务端代码。</p>
 </blockquote>
-<p><strong>分组：</strong> Blocks（区块） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.9</p>
+<p><strong>分组：</strong> Blocks（区块） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.10</p>
 <h3>安装之后有什么变化？</h3>
 <ul>
 <li>在 <strong>Charts</strong> 区块（<em>Data Visualization</em> / <em>Charts</em>）里，图表类型选择器会多出<strong>一个 “ECharts Pro” 分组</strong>，其中是插件新增的**“ECharts Pro”**图表 — 一个一体化的图表类型。</li>
@@ -11316,7 +11316,7 @@ for full control — all configured <strong>right on the chart</strong>, no serv
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Cây lọc / Thanh lọc</span><span class="lang lang-en" hidden>Filter Tree / Bar</span><span class="lang lang-zh" hidden>筛选树</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Khối &amp; biểu đồ</span><span class="lang lang-en" hidden>Blocks &amp; charts</span><span class="lang lang-zh" hidden>Blocks &amp; charts</span></span>
-        <span class="chip">v0.3.13</span>
+        <span class="chip">v0.3.14</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -11325,7 +11325,7 @@ giá trị kèm badge), bấm vào một giá trị là <strong>lọc ngay</stro
 Hai kiểu trên cùng một bộ máy: <strong>Cây lọc</strong> (dọc, lồng nhau) và <strong>Thanh lọc</strong> (ngang: pill / segmented / tab),
 kèm <strong>ô tìm kiếm</strong> chữ tự do tuỳ chọn — <strong>không cần code</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Blocks · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.3.13</p>
+<p><strong>Nhóm:</strong> Blocks · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.3.14</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Không thêm menu, không thêm trang, không đụng dữ liệu.</strong> Chỉ có <strong>2 khối mới</strong> trong trình thêm khối <strong>＋</strong>.</li>
@@ -11452,7 +11452,7 @@ kèm <strong>ô tìm kiếm</strong> chữ tự do tuỳ chọn — <strong>khô
 blocks on the same page. Two skins on one engine: <strong>Filter tree</strong> (vertical, nested) and
 <strong>Filter bar</strong> (horizontal: pill / segmented / tab), plus an optional <strong>free-text search box</strong> — <strong>no code</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.3.13</p>
+<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.3.14</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>No new menu, no new page, no data touched.</strong> Just <strong>2 new blocks</strong> in the Add-block (<strong>＋</strong>) picker.</li>
@@ -11575,7 +11575,7 @@ blocks on the same page. Two skins on one engine: <strong>Filter tree</strong> (
 一套引擎两种皮肤：<strong>筛选树</strong>（纵向、可嵌套）和 <strong>筛选栏</strong>（横向：pill / segmented / tab），
 外加一个可选的<strong>自由文本搜索框</strong> —— <strong>不用写代码</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> Blocks（区块） · <strong>运行于：</strong> /admin（经典版）+ /v/（现代版） · <strong>版本：</strong> 0.3.13</p>
+<p><strong>分组：</strong> Blocks（区块） · <strong>运行于：</strong> /admin（经典版）+ /v/（现代版） · <strong>版本：</strong> 0.3.14</p>
 <h3>安装后新增了什么？</h3>
 <ul>
 <li><strong>不加菜单、不加页面、不碰数据。</strong> 只是在添加区块（<strong>＋</strong>）选择器里多了 <strong>2 个新区块</strong>。</li>
@@ -11698,7 +11698,7 @@ blocks on the same page. Two skins on one engine: <strong>Filter tree</strong> (
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Chế độ bảng tính</span><span class="lang lang-en" hidden>Spreadsheet View</span><span class="lang lang-zh" hidden>电子表格视图</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Khối &amp; biểu đồ</span><span class="lang lang-en" hidden>Blocks &amp; charts</span><span class="lang lang-zh" hidden>Blocks &amp; charts</span></span>
-        <span class="chip">v0.2.12</span>
+        <span class="chip">v0.2.13</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -11706,7 +11706,7 @@ blocks on the same page. Two skins on one engine: <strong>Filter tree</strong> (
 widget của NocoBase</strong>, rồi ghi ngược về server. Kèm <strong>cột công thức ảo</strong>, <strong>nhóm nhiều cấp có tổng phụ</strong>,
 <strong>dòng tổng hợp</strong>, <strong>định dạng theo điều kiện</strong>, <strong>dán TSV từ Excel</strong>, <strong>fill-down</strong> và <strong>sao chép</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Blocks · <strong>Chạy trên:</strong> <code>/v/</code> + <code>/admin</code> <em>(chỉ trang chạy FlowEngine)</em> · <strong>Phiên bản:</strong> 0.2.12</p>
+<p><strong>Nhóm:</strong> Blocks · <strong>Chạy trên:</strong> <code>/v/</code> + <code>/admin</code> <em>(chỉ trang chạy FlowEngine)</em> · <strong>Phiên bản:</strong> 0.2.13</p>
 <hr>
 <h3>Mục lục</h3>
 <ol>
@@ -12238,7 +12238,7 @@ một transaction. Bật nhóm trên bảng lớn là chỗ tốn nhất.</p>
 save per row. Add <strong>virtual formula columns</strong>, <strong>multi-level grouping with subtotals</strong>, a <strong>summary row</strong>,
 <strong>conditional formatting</strong>, <strong>TSV paste</strong> from Excel/Sheets, <strong>fill-down</strong> and <strong>copy</strong> — all configured right on the block, no code.</p>
 </blockquote>
-<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> /v/ (modern) + /admin (classic, FlowEngine pages) · <strong>Version:</strong> 0.2.12</p>
+<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> /v/ (modern) + /admin (classic, FlowEngine pages) · <strong>Version:</strong> 0.2.13</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>One new block type</strong> in the block picker: <strong>“Spreadsheet”</strong> (in the <strong>“Content”</strong> group, next to the core blocks). Add it to a page like any other block and point it at a collection.</li>
@@ -12414,7 +12414,7 @@ save per row. Add <strong>virtual formula columns</strong>, <strong>multi-level 
 按行保存。还可以添加<strong>虚拟公式列</strong>、<strong>带小计的多级分组</strong>、<strong>汇总行</strong>、
 <strong>条件格式</strong>、从 Excel/Sheets <strong>粘贴 TSV</strong>、<strong>向下填充</strong>与<strong>复制</strong> — 全部直接在区块上配置，无需写代码。</p>
 </blockquote>
-<p><strong>分组：</strong> 区块 · <strong>运行于：</strong> /v/（现代） + /admin（经典，FlowEngine 页面） · <strong>版本：</strong> 0.2.12</p>
+<p><strong>分组：</strong> 区块 · <strong>运行于：</strong> /v/（现代） + /admin（经典，FlowEngine 页面） · <strong>版本：</strong> 0.2.13</p>
 <h3>安装后有什么变化？</h3>
 <ul>
 <li>区块选择器中多了<strong>一种新的区块类型</strong>：<strong>“电子表格”</strong>（位于**“内容”**分组，与核心区块并列）。像添加其他区块一样把它加到页面上，并指向一个数据表即可。</li>
@@ -12591,14 +12591,14 @@ save per row. Add <strong>virtual formula columns</strong>, <strong>multi-level 
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Cột của tôi (cá nhân)</span><span class="lang lang-en" hidden>My Columns (per-user)</span><span class="lang lang-zh" hidden>我的列（按用户）</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Khối &amp; biểu đồ</span><span class="lang lang-en" hidden>Blocks &amp; charts</span><span class="lang lang-zh" hidden>Blocks &amp; charts</span></span>
-        <span class="chip">v0.1.5</span>
+        <span class="chip">v0.1.6</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
 <p>Cho <strong>mỗi người tự sắp xếp cột của một bảng theo ý mình</strong>: ẩn cột không cần, đổi thứ tự, đặt độ rộng,
 ghim cột vào mép trái/phải. Người khác nhìn bảng đó vẫn thấy nguyên như cũ.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Fields · <strong>Chạy trên:</strong> <code>/v/</code> (modern) — <strong>không</strong> chạy trên <code>/admin</code> classic · <strong>Phiên bản:</strong> 0.1.5</p>
+<p><strong>Nhóm:</strong> Fields · <strong>Chạy trên:</strong> <code>/v/</code> (modern) — <strong>không</strong> chạy trên <code>/admin</code> classic · <strong>Phiên bản:</strong> 0.1.6</p>
 <hr>
 <h3>Vấn đề nó giải quyết</h3>
 <p>Một block Bảng trong NocoBase được người quản trị cấu hình <strong>một lần cho tất cả</strong>: ai vào cũng thấy đúng
@@ -12744,7 +12744,7 @@ CRUD mặc định vẫn khoá cho admin.</li>
 <p>Lets <strong>each person arrange a table’s columns their own way</strong>: hide the ones they don’t need, reorder them,
 set a width, pin them to the left or right edge. Everyone else keeps seeing the table exactly as it was.</p>
 </blockquote>
-<p><strong>Group:</strong> Fields · <strong>Runs on:</strong> <code>/v/</code> (modern) — <strong>not</strong> classic <code>/admin</code> · <strong>Version:</strong> 0.1.5</p>
+<p><strong>Group:</strong> Fields · <strong>Runs on:</strong> <code>/v/</code> (modern) — <strong>not</strong> classic <code>/admin</code> · <strong>Version:</strong> 0.1.6</p>
 <blockquote>
 <p>The detailed guide is <strong><a href="./README.vi-VN.md">README.vi-VN.md</a></strong> (Vietnamese).</p>
 </blockquote>
@@ -12838,7 +12838,7 @@ and falls back to the original columns. Server: <code>src/server/plugin.ts</code
 <p>让<strong>每个人都能按自己的方式安排表格的列</strong>：隐藏用不上的列、重新排序、
 设定宽度、固定到左侧或右侧边缘。其他人看到的表格则完全保持原样。</p>
 </blockquote>
-<p><strong>分组：</strong> Fields（字段） · <strong>运行于：</strong> <code>/v/</code>（modern）— <strong>不支持</strong>经典 <code>/admin</code> · <strong>版本：</strong> 0.1.5</p>
+<p><strong>分组：</strong> Fields（字段） · <strong>运行于：</strong> <code>/v/</code>（modern）— <strong>不支持</strong>经典 <code>/admin</code> · <strong>版本：</strong> 0.1.6</p>
 <blockquote>
 <p>详细指南见 <strong><a href="./README.vi-VN.md">README.vi-VN.md</a></strong>（越南语）。</p>
 </blockquote>
@@ -12933,14 +12933,14 @@ and falls back to the original columns. Server: <code>src/server/plugin.ts</code
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Định dạng có điều kiện</span><span class="lang lang-en" hidden>Conditional Formatting</span><span class="lang lang-zh" hidden>条件格式</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Khối &amp; biểu đồ</span><span class="lang lang-en" hidden>Blocks &amp; charts</span><span class="lang lang-zh" hidden>Blocks &amp; charts</span></span>
-        <span class="chip">v0.2.26</span>
+        <span class="chip">v0.2.27</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
 <p>Tô màu chữ, màu nền, in đậm/nghiêng, viền, icon hoặc vẽ <strong>heatmap / thanh dữ liệu</strong> cho các ô trong
 <strong>khối Bảng (Table)</strong> theo giá trị từng dòng — cấu hình ngay trên bảng, <strong>không cần code, không đổi dữ liệu</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Khối (Blocks) · <strong>Chạy trên:</strong> /v/ (modern) — trên khối <strong>Bảng (Table)</strong> · <strong>Phiên bản:</strong> 0.2.26</p>
+<p><strong>Nhóm:</strong> Khối (Blocks) · <strong>Chạy trên:</strong> /v/ (modern) — trên khối <strong>Bảng (Table)</strong> · <strong>Phiên bản:</strong> 0.2.27</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Một mục mới trong menu cài đặt ⚙ của mỗi khối Bảng</strong>: <strong>“Định dạng có điều kiện”</strong>. Đây là nơi duy nhất bạn chỉnh — không có trang Settings riêng.</li>
@@ -13063,7 +13063,7 @@ Trong hộp thoại, bấm <strong>“Thêm quy tắc”</strong>. Mỗi quy t�
 <p>Color the text, background, bold/italic, border, icon, or draw a <strong>heatmap / data bar</strong> on cells in
 <strong>Table blocks</strong> based on each row’s value — configured right on the table, <strong>no code, no data changes</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> /v/ (modern) — on Table blocks · <strong>Version:</strong> 0.2.26</p>
+<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> /v/ (modern) — on Table blocks · <strong>Version:</strong> 0.2.27</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A new item in every Table block’s ⚙ settings menu</strong>: <strong>“Conditional formatting”</strong>. This is the one and only place you configure it — there is no separate Settings page.</li>
@@ -13186,7 +13186,7 @@ In the dialog, click <strong>“Add rule”</strong>. Each rule uses one of 3 ty
 <p>根据每一行的值，为<strong>表格区块</strong>中的单元格设置文字颜色、背景、加粗/斜体、边框、图标，
 或者绘制<strong>热力图 / 数据条</strong> — 直接在表格上配置，<strong>无需写代码，也不改动数据</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> Blocks · <strong>运行于：</strong> /v/（modern）— 表格区块上 · <strong>版本：</strong> 0.2.26</p>
+<p><strong>分组：</strong> Blocks · <strong>运行于：</strong> /v/（modern）— 表格区块上 · <strong>版本：</strong> 0.2.27</p>
 <h3>安装后有什么变化？</h3>
 <ul>
 <li><strong>每个表格区块的 ⚙ 设置菜单中多出一项</strong>：<strong>“条件格式”</strong>。这是唯一的配置入口 — 没有单独的设置页面。</li>
@@ -13311,7 +13311,7 @@ In the dialog, click <strong>“Add rule”</strong>. Each rule uses one of 3 ty
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Kéo giãn cột</span><span class="lang lang-en" hidden>Column Resize</span><span class="lang lang-zh" hidden>列宽拖拽</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Khối &amp; biểu đồ</span><span class="lang lang-en" hidden>Blocks &amp; charts</span><span class="lang lang-zh" hidden>Blocks &amp; charts</span></span>
-        <span class="chip">v0.1.11</span>
+        <span class="chip">v0.1.12</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -13319,7 +13319,7 @@ In the dialog, click <strong>“Add rule”</strong>. Each rule uses one of 3 ty
 block</strong> (mọi người thấy cùng một bố cục, giống hệt tính năng <em>Column width</em> có sẵn của NocoBase). Chỉ cần
 bật lên — <strong>không cần code</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Blocks · <strong>Chạy trên:</strong> <strong>chỉ /v/ (modern)</strong> — không phải /admin (classic) · <strong>Phiên bản:</strong> 0.1.11</p>
+<p><strong>Nhóm:</strong> Blocks · <strong>Chạy trên:</strong> <strong>chỉ /v/ (modern)</strong> — không phải /admin (classic) · <strong>Phiên bản:</strong> 0.1.12</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Một tay nắm kéo trên mỗi tiêu đề cột</strong> trong bảng <code>/v/</code> — rê chuột vào mép phải của tiêu đề, con trỏ
@@ -13353,7 +13353,7 @@ width</em> gốc).</li>
 block</strong> (everyone sees the same layout, like NocoBase’s native <em>Column width</em> setting). Just switch it
 on — <strong>no code</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> <strong>/v/ (modern) only</strong> — not /admin (classic) · <strong>Version:</strong> 0.1.11</p>
+<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> <strong>/v/ (modern) only</strong> — not /admin (classic) · <strong>Version:</strong> 0.1.12</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A resize grip on every column header</strong> in <code>/v/</code> tables — hover the right edge of a header, the cursor
@@ -13388,7 +13388,7 @@ white-screens the page.</li>
 （所有人看到的是同一套布局，和 NocoBase 原生的<em>列宽</em>设置一样）。打开开关即可用 —
 <strong>无需写代码</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> 区块 · <strong>运行于：</strong> <strong>仅 /v/（新版）</strong> — 不支持 /admin（经典版） · <strong>版本：</strong> 0.1.11</p>
+<p><strong>分组：</strong> 区块 · <strong>运行于：</strong> <strong>仅 /v/（新版）</strong> — 不支持 /admin（经典版） · <strong>版本：</strong> 0.1.12</p>
 <h3>安装后有什么新变化？</h3>
 <ul>
 <li><strong><code>/v/</code> 表格中每个列标题上都有一个调整宽度的手柄</strong> — 把鼠标悬停在列标题的右边缘，光标
@@ -13423,13 +13423,13 @@ white-screens the page.</li>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Khối bố cục (Tabs / Collapse)</span><span class="lang lang-en" hidden>Layout Containers (Tabs / Collapse)</span><span class="lang lang-zh" hidden>布局容器（标签页 / 折叠面板）</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Khối &amp; biểu đồ</span><span class="lang lang-en" hidden>Blocks &amp; charts</span><span class="lang lang-zh" hidden>Blocks &amp; charts</span></span>
-        <span class="chip">v0.4.9</span>
+        <span class="chip">v0.4.11</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
 <p>Hai khối để <strong>sắp xếp nội dung trang và gom field trong form</strong>: khối <strong>Tabs</strong> và khối <strong>Collapse (Mục gập)</strong> — đều lồng nhau được, có cả biến thể nhóm-field trong form. Kèm khả năng <strong>đổi kiểu thanh tab</strong> của trang/popup sẵn có sang Line, Pill, Segment, Card, Step hoặc Text, với <strong>mặc định chung cho cả app theo từng theme</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Khối (Blocks) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.4.9</p>
+<p><strong>Nhóm:</strong> Khối (Blocks) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.4.11</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <p>Khi bật <strong>chế độ chỉnh giao diện (UI Editor)</strong> bạn sẽ thấy thêm:</p>
 <ul>
@@ -13616,7 +13616,7 @@ white-screens the page.</li>
 ability to <strong>restyle the tab bar</strong> of an existing page/popup to Line, Pill, Segment, Card, Step or
 Text, with an <strong>app-wide default per theme</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.4.9</p>
+<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.4.11</p>
 <h3>What’s new after installing?</h3>
 <p>When you turn on <strong>UI-editor mode</strong> you get:</p>
 <ul>
@@ -13807,7 +13807,7 @@ Text, with an <strong>app-wide default per theme</strong>.</p>
 <strong>重新设置</strong>现有页面/弹窗</strong>标签栏的样式</strong>，改成 Line、Pill、Segment、Card、Step 或
 Text，并且能<strong>按主题设置全应用范围的默认样式</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> 区块 · <strong>运行于：</strong> /admin（经典版）+ /v/（新版） · <strong>版本：</strong> 0.4.9</p>
+<p><strong>分组：</strong> 区块 · <strong>运行于：</strong> /admin（经典版）+ /v/（新版） · <strong>版本：</strong> 0.4.11</p>
 <h3>安装后有什么新变化？</h3>
 <p>打开<strong>界面编辑（UI editor）模式</strong>后，你会看到：</p>
 <ul>
@@ -13998,7 +13998,7 @@ Text，并且能<strong>按主题设置全应用范围的默认样式</strong>�
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Khối: Bảng nâng cao</span><span class="lang lang-en" hidden>Block: Enhanced Table</span><span class="lang lang-zh" hidden>区块：增强表格</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Khối &amp; biểu đồ</span><span class="lang lang-en" hidden>Blocks &amp; charts</span><span class="lang lang-zh" hidden>Blocks &amp; charts</span></span>
-        <span class="chip">v2.1.0-beta.24</span>
+        <span class="chip">v2.1.0-beta.25</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -14006,7 +14006,7 @@ Text，并且能<strong>按主题设置全应用范围的默认样式</strong>�
 <strong>xem nhanh thống kê khi kéo chọn nhiều ô</strong>, và <strong>chế độ thẻ</strong> tự xếp lại từng dòng cho gọn trên màn hình hẹp —
 cấu hình ngay trên khối, <strong>không cần code, không cần restart máy chủ</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Khối (Blocks) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 2.1.0-beta.23</p>
+<p><strong>Nhóm:</strong> Khối (Blocks) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 2.1.0-beta.25</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Không có loại khối mới nào phải chọn</strong> — plugin <strong>bổ sung thẳng vào khối Bảng có sẵn</strong>: mọi bảng bạn đã tạo (và sẽ tạo) đều có thêm các mục cài đặt bên dưới. Trên <strong>/admin</strong> vẫn còn mục <strong>Bảng nâng cao (Enhanced Table)</strong> trong bảng chọn “Thêm khối” để tương thích ngược, nhưng <strong>không cần dùng nữa</strong>.</li>
@@ -14187,7 +14187,7 @@ cấu hình ngay trên khối, <strong>không cần code, không cần restart m
 <p>A data table that does more than the standard one: add a <strong>summary row</strong> (sum / average / count… per column), <strong>get instant stats when you drag-select cells</strong>, and a <strong>card mode</strong> that restacks each row to fit narrow screens —
 configured right on the block, <strong>no code, no server restart</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 2.1.0-beta.23</p>
+<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 2.1.0-beta.25</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>No new block type to pick</strong> — the plugin extends the <strong>existing Table block</strong>, so every table you already have (and every new one) gains the settings below. The <strong>Enhanced Table</strong> item still exists in the /admin <strong>Add block</strong> picker for backward compatibility, but you no longer need it.</li>
@@ -14368,7 +14368,7 @@ configured right on the block, <strong>no code, no server restart</strong>.</p>
 <p>比标准表格更能干的数据表格：加一行<strong>汇总行</strong>（每列可求和／平均／计数…）、<strong>框选单元格即时出统计</strong>，还有窄屏时把每行重新堆叠成卡片的<strong>卡片模式</strong> —
 全部在区块上直接配置，<strong>无需写代码，无需重启服务</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> 区块 · <strong>可用于：</strong> /admin（经典版）+ /v/（现代版） · <strong>版本：</strong> 2.1.0-beta.23</p>
+<p><strong>分组：</strong> 区块 · <strong>可用于：</strong> /admin（经典版）+ /v/（现代版） · <strong>版本：</strong> 2.1.0-beta.25</p>
 <h3>装好之后多了什么？</h3>
 <ul>
 <li><strong>不需要挑新的区块类型</strong> —— 插件是在<strong>现有的表格区块</strong>上做扩展，所以你已有的每一张表格（以及以后新建的）都会多出下面这些设置。/admin 的<strong>添加区块</strong>选择器里仍保留 <strong>增强表格</strong> 这一项以兼容旧配置，但你已经不需要它了。</li>
@@ -14551,7 +14551,7 @@ configured right on the block, <strong>no code, no server restart</strong>.</p>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Khối: Bảng tổng hợp</span><span class="lang lang-en" hidden>Block: Pivot table</span><span class="lang lang-zh" hidden>区块：数据透视表</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Khối &amp; biểu đồ</span><span class="lang lang-en" hidden>Blocks &amp; charts</span><span class="lang lang-zh" hidden>Blocks &amp; charts</span></span>
-        <span class="chip">v0.1.1</span>
+        <span class="chip">v0.1.2</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -14560,7 +14560,7 @@ configured right on the block, <strong>no code, no server restart</strong>.</p>
 thẳng trong SQL</strong>, gộp ô, <strong>thanh bar / heatmap</strong>, gom nhóm theo ngày, <strong>bấm ô để xem chi tiết</strong>, và <strong>xuất
 Excel/CSV giữ nguyên ô gộp</strong>. Tất cả cấu hình ngay trên khối — không cần code.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Blocks · <strong>Chạy trên:</strong> /v/ (hiện đại) + /admin (cổ điển, trang FlowEngine) · <strong>Phiên bản:</strong> 0.1.1</p>
+<p><strong>Nhóm:</strong> Blocks · <strong>Chạy trên:</strong> /v/ (hiện đại) + /admin (cổ điển, trang FlowEngine) · <strong>Phiên bản:</strong> 0.1.2</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Một loại khối mới</strong> trong danh sách thêm khối: <strong>“Bảng tổng hợp”</strong> (nhóm <strong>“Content”</strong>). Thêm vào trang như mọi khối khác rồi chọn bảng dữ liệu.</li>
@@ -14603,7 +14603,7 @@ bình tỉ lệ con. Hiện dạng phần trăm hoặc số lần, kèm hoặc k
 in SQL</strong>, merged cells, <strong>bars / heatmaps</strong>, date bucketing, <strong>click-to-drill-down</strong>, and <strong>Excel/CSV export
 that keeps the merged cells</strong>. All configured on the block — no code.</p>
 </blockquote>
-<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> /v/ (modern) + /admin (classic, FlowEngine pages) · <strong>Version:</strong> 0.1.1</p>
+<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> /v/ (modern) + /admin (classic, FlowEngine pages) · <strong>Version:</strong> 0.1.2</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>One new block type</strong> in the block picker: <strong>“Pivot table”</strong> (in the <strong>“Content”</strong> group). Add it to a page like any other block and point it at a collection.</li>
@@ -14645,7 +14645,7 @@ summed or averaged. Optional display as percent or times, with or without the ra
 去重计数、<strong>比率 A/B</strong>），<strong>小计与总计直接在 SQL 中计算</strong>，合并单元格，<strong>条形 / 热力图</strong>，日期分桶，
 <strong>点击单元格下钻</strong>，以及<strong>保留合并单元格的 Excel/CSV 导出</strong>。全部在区块上配置——无需写代码。</p>
 </blockquote>
-<p><strong>分组：</strong> Blocks · <strong>运行于：</strong> /v/（新版）+ /admin（经典版 FlowEngine 页面） · <strong>版本：</strong> 0.1.1</p>
+<p><strong>分组：</strong> Blocks · <strong>运行于：</strong> /v/（新版）+ /admin（经典版 FlowEngine 页面） · <strong>版本：</strong> 0.1.2</p>
 <h3>安装后有什么变化？</h3>
 <ul>
 <li>区块选择器中新增<strong>一种区块</strong>：<strong>“数据透视表”</strong>（在 <strong>“Content”</strong> 分组）。像其他区块一样添加到页面，然后选择数据表。</li>
@@ -14686,7 +14686,7 @@ summed or averaged. Optional display as percent or times, with or without the ra
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Khối: HTML tùy biến</span><span class="lang lang-en" hidden>Block: Custom HTML</span><span class="lang lang-zh" hidden>区块：自定义 HTML</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Khối &amp; biểu đồ</span><span class="lang lang-en" hidden>Blocks &amp; charts</span><span class="lang lang-zh" hidden>Blocks &amp; charts</span></span>
-        <span class="chip">v0.12.15</span>
+        <span class="chip">v0.12.16</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -14694,7 +14694,7 @@ summed or averaged. Optional display as percent or times, with or without the ra
 xem trước, lọc, làm mới — rồi để <strong>bạn tự vẽ giao diện bằng JavaScript trả về HTML</strong>: thẻ điểm (scorecard),
 chỉ số KPI, bảng xếp hạng, thẻ card… Có sẵn <strong>mẫu bấm-là-chạy</strong> và <strong>bộ hàm trợ giúp</strong> (định dạng số, escape, icon).</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Khối (Blocks) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.12.15</p>
+<p><strong>Nhóm:</strong> Khối (Blocks) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.12.16</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Một loại khối mới</strong> tên <strong>“Custom HTML”</strong> trong bảng chọn <strong>Thêm khối</strong> — nằm cùng nhóm với khối <strong>Biểu đồ (Chart)</strong> vì nó được dựng trên khối Chart.</li>
@@ -14891,7 +14891,7 @@ return `
 preview, filter, refresh — then <strong>you draw the UI yourself with JavaScript that returns HTML</strong>: scorecards,
 KPIs, top lists, cards. Ships <strong>click-to-run templates</strong> and a <strong>helper toolkit</strong> (number formatting, escaping, icons).</p>
 </blockquote>
-<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.12.15</p>
+<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.12.16</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A new block type</strong> called <strong>“Custom HTML”</strong> in the <strong>Add block</strong> picker — grouped with the <strong>Chart</strong> block because it’s built on top of it.</li>
@@ -15088,7 +15088,7 @@ return `
 预览、筛选、刷新 — 然后<strong>由你自己用返回 HTML 的 JavaScript 来画界面</strong>：指标卡、
 KPI、排行榜、卡片。内置<strong>一键套用的模板</strong>和一套<strong>辅助工具</strong>（数字格式化、转义、图标）。</p>
 </blockquote>
-<p><strong>分组：</strong> Blocks · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.12.15</p>
+<p><strong>分组：</strong> Blocks · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.12.16</p>
 <h3>安装后有什么变化？</h3>
 <ul>
 <li><strong>添加区块</strong>选择器中多出一种名为 <strong>“自定义 HTML”</strong> 的<strong>新区块类型</strong> — 它和<strong>图表</strong>区块分在一组，因为它就是在图表区块之上构建的。</li>
@@ -15286,7 +15286,7 @@ return `
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Mã QR chuyển khoản (VietQR)</span><span class="lang lang-en" hidden>VietQR</span><span class="lang lang-zh" hidden>越南银行转账二维码 (VietQR)</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Khối &amp; biểu đồ</span><span class="lang lang-en" hidden>Blocks &amp; charts</span><span class="lang lang-zh" hidden>Blocks &amp; charts</span></span>
-        <span class="chip">v0.6.3</span>
+        <span class="chip">v0.6.4</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -15294,7 +15294,7 @@ return `
 ngân hàng + số tài khoản thụ hưởng, <strong>số tiền lấy từ cột</strong>, <strong>nội dung ghép từ token</strong> <code>{{ten_cot}}</code>.
 Khách quét là ra đúng số tiền, đúng nội dung — không phải gõ tay.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Blocks (Khối) + Fields (Trường) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.6.3</p>
+<p><strong>Nhóm:</strong> Blocks (Khối) + Fields (Trường) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.6.4</p>
 <blockquote>
 <p>✅ <strong>Sinh hoàn toàn offline.</strong> Payload được tính tại chỗ (EMVCo TLV + CRC-16), danh sách mã BIN
 ngân hàng đóng gói sẵn. <strong>Không cần API key, không gọi dịch vụ bên thứ ba, không tốn phí.</strong></p>
@@ -15585,7 +15585,7 @@ gạch nợ thì cần tích hợp API sao kê ngân hàng (chưa có).</li>
 bank + account, <strong>amount from a column</strong>, and a <strong>note assembled from</strong> <code>{{column}}</code> <strong>tokens</strong>.
 The payer scans and gets the exact amount and reference — nothing typed by hand.</p>
 </blockquote>
-<p><strong>Group:</strong> Blocks + Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.6.3</p>
+<p><strong>Group:</strong> Blocks + Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.6.4</p>
 <blockquote>
 <p>✅ <strong>Generated fully offline.</strong> The payload is computed locally (EMVCo TLV + CRC-16) and the bank
 BIN list ships inside the plugin. <strong>No API key, no third-party service, no fees.</strong></p>
@@ -15880,7 +15880,7 @@ matching payments automatically would need a bank statement API (not built).</li
 以及<strong>由</strong> <code>{{column}}</code> <strong>占位符拼接而成的</strong>转账备注。
 付款人扫一下就能得到准确的金额和备注 —— 不用手工敲任何东西。</p>
 </blockquote>
-<p><strong>分组：</strong> Blocks（区块）+ Fields（字段） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.6.3</p>
+<p><strong>分组：</strong> Blocks（区块）+ Fields（字段） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.6.4</p>
 <blockquote>
 <p>✅ <strong>完全离线生成。</strong> 二维码内容在本地计算（EMVCo TLV + CRC-16），银行 BIN 清单随插件一起打包。
 <strong>不需要 API 密钥，不调用第三方服务，不产生任何费用。</strong></p>
@@ -16170,14 +16170,14 @@ VietinBank、Agribank……）必须存在 —— 否则构建<strong>直接失�
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Panel bên</span><span class="lang lang-en" hidden>Detail Panel</span><span class="lang lang-zh" hidden>详情侧栏</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Khối &amp; biểu đồ</span><span class="lang lang-en" hidden>Blocks &amp; charts</span><span class="lang lang-zh" hidden>Blocks &amp; charts</span></span>
-        <span class="chip">v0.1.6</span>
+        <span class="chip">v0.1.7</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
 <p>Mở bản ghi <strong>ghim sang bên phải</strong> thay vì bật popup che kín màn hình — kiểu <strong>master–detail của AppSheet</strong>:
 danh sách ở bên trái, chi tiết bản ghi ở bên phải, kéo thanh giữa để chỉnh rộng hẹp. Chỉ cần bật, <strong>không cần code</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Khối (Blocks) · <strong>Chạy trên:</strong> <strong>chỉ /v/ (modern)</strong> — không áp dụng /admin (classic) · <strong>Phiên bản:</strong> 0.1.6</p>
+<p><strong>Nhóm:</strong> Khối (Blocks) · <strong>Chạy trên:</strong> <strong>chỉ /v/ (modern)</strong> — không áp dụng /admin (classic) · <strong>Phiên bản:</strong> 0.1.7</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Thêm một cách mở bản ghi mới: “Panel bên”</strong> — lựa chọn <strong>thứ 4</strong> nằm cạnh Drawer / Dialog / Page trong phần <em>cách mở popup</em> (Open mode) của mỗi nút mở popup (Xem/Sửa…). Chọn nó thì popup <strong>ghim sang phải</strong>, nội dung chính <strong>co lại bên cạnh</strong> thay vì bị lớp phủ che kín.</li>
@@ -16299,7 +16299,7 @@ danh sách ở bên trái, chi tiết bản ghi ở bên phải, kéo thanh gi�
 <p>Open a record <strong>docked to the right</strong> instead of a full-screen popup — <strong>AppSheet-style master–detail</strong>:
 the list on the left, the record’s details on the right, drag the divider to resize. Just switch it on, <strong>no code</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> <strong>/v/ (modern) only</strong> — not /admin (classic) · <strong>Version:</strong> 0.1.6</p>
+<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> <strong>/v/ (modern) only</strong> — not /admin (classic) · <strong>Version:</strong> 0.1.7</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A new way to open a record: “Side panel”</strong> — a <strong>4th</strong> choice beside Drawer / Dialog / Page in the <em>Open mode</em> of every popup button (View/Edit…). Pick it and the popup <strong>docks to the right</strong>, with the main content <strong>shrinking beside it</strong> instead of being hidden under a mask.</li>
@@ -16427,7 +16427,7 @@ bash recipes/add-markers.sh storage/tar/@tuanla90/plugin-detail-panel-0.1.0.tgz
 <p>把记录<strong>停靠在右侧</strong>打开，而不是弹出一个全屏弹窗 — <strong>AppSheet 风格的主从视图</strong>：
 左边是列表，右边是记录详情，拖动中间的分隔条即可调整宽度。打开开关即可使用，<strong>无需写代码</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> 区块 · <strong>运行于：</strong> <strong>仅 /v/（现代）</strong> — 不支持 /admin（经典） · <strong>版本：</strong> 0.1.6</p>
+<p><strong>分组：</strong> 区块 · <strong>运行于：</strong> <strong>仅 /v/（现代）</strong> — 不支持 /admin（经典） · <strong>版本：</strong> 0.1.7</p>
 <h3>安装后有什么变化？</h3>
 <ul>
 <li><strong>一种新的记录打开方式：“侧边面板”</strong> — 在每个弹窗按钮（查看/编辑…）的<em>打开方式</em>中，除 Drawer / Dialog / Page 之外新增<strong>第 4 种</strong>选择。选中它后，弹窗会<strong>停靠到右侧</strong>，主内容区<strong>在旁边收窄</strong>，而不是被遮罩挡住。</li>
@@ -16557,7 +16557,7 @@ bash recipes/add-markers.sh storage/tar/@tuanla90/plugin-detail-panel-0.1.0.tgz
       <div class="plugin-head">
         <h2><span class="lang lang-vi">View Pro</span><span class="lang lang-en" hidden>View Pro</span><span class="lang lang-zh" hidden>视图 Pro</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Khối &amp; biểu đồ</span><span class="lang lang-en" hidden>Blocks &amp; charts</span><span class="lang lang-zh" hidden>Blocks &amp; charts</span></span>
-        <span class="chip">v0.1.0</span>
+        <span class="chip">v0.1.1</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -16566,7 +16566,7 @@ một bảng dữ liệu, bạn đặt <strong>một khối View Pro</strong> r�
 Deck · Cây · Bản đồ · Bảng · Bảng tính</strong>. Đổi cách nhìn <strong>không phải tải lại dữ liệu</strong>, và bộ lọc —
 sắp xếp — phạm vi dữ liệu <strong>áp chung cho cả chín</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Khối (Blocks) · <strong>Chạy trên:</strong> cả <strong>/admin (classic)</strong> và <strong>/v/ (modern)</strong> · <strong>Phiên bản:</strong> 0.1.0</p>
+<p><strong>Nhóm:</strong> Khối (Blocks) · <strong>Chạy trên:</strong> cả <strong>/admin (classic)</strong> và <strong>/v/ (modern)</strong> · <strong>Phiên bản:</strong> 0.1.1</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Một khối mới trong danh sách chọn khối: “View Pro”</strong> (nhóm <em>Content</em>). Chọn bảng như mọi khối khác.</li>
@@ -16721,7 +16721,7 @@ block and a separate Table block over the same collection, you place <strong>one
 between <strong>Kanban · Gantt · Calendar · Gallery · Deck · Tree · Map · Table · Spreadsheet</strong>. Switching a
 lens <strong>does not refetch</strong>, and filter — sorting — data scope apply to <strong>all nine</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> both <strong>/admin (classic)</strong> and <strong>/v/ (modern)</strong> · <strong>Version:</strong> 0.1.0</p>
+<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> both <strong>/admin (classic)</strong> and <strong>/v/ (modern)</strong> · <strong>Version:</strong> 0.1.1</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A new block in the block picker: “View Pro”</strong> (group <em>Content</em>). Pick a collection like any other block.</li>
@@ -16879,7 +16879,7 @@ occurrence could not be clicked, edited or filtered. The correct approach is to 
 <strong>一个 View Pro 区块</strong>，然后在 <strong>看板 · 甘特图 · 日历 · 画廊 · 卡片列表 · 树形 · 地图 · 表格 · 电子表格</strong>
 之间切换。切换视角<strong>不会重新请求数据</strong>，筛选、排序、数据范围<strong>对九种视角同时生效</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> 区块（Blocks） · <strong>适用于：</strong> <strong>/admin（经典）和 /v/（新版）都可以</strong> · <strong>版本：</strong> 0.1.0</p>
+<p><strong>分组：</strong> 区块（Blocks） · <strong>适用于：</strong> <strong>/admin（经典）和 /v/（新版）都可以</strong> · <strong>版本：</strong> 0.1.1</p>
 <h3>安装后有什么变化？</h3>
 <ul>
 <li><strong>区块选择器里多了一个「View Pro」区块</strong>（<em>Content</em> 分组）。像其他区块一样选择数据表即可。</li>
@@ -17030,7 +17030,7 @@ NocoBase 标准操作，选你需要的。</li>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Dựng app từ mô tả</span><span class="lang lang-en" hidden>App Builder</span><span class="lang lang-zh" hidden>应用生成器</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Giao diện</span><span class="lang lang-en" hidden>Interface</span><span class="lang lang-zh" hidden>Interface</span></span>
-        <span class="chip">v0.6.42</span>
+        <span class="chip">v0.6.43</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -17038,7 +17038,7 @@ NocoBase 标准操作，选你需要的。</li>
 ra một app NocoBase chạy được: <strong>bảng dữ liệu, quan hệ, cột tự tính, luồng trạng thái, dữ liệu mẫu,
 trang và menu</strong>. Giữa mô tả và lúc dựng luôn có <strong>bản App-Spec xem trước và sửa được</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Tools · <strong>Chạy trên:</strong> <strong>chỉ <code>/v/</code></strong> (modern) · <strong>Phiên bản:</strong> 0.6.42</p>
+<p><strong>Nhóm:</strong> Tools · <strong>Chạy trên:</strong> <strong>chỉ <code>/v/</code></strong> (modern) · <strong>Phiên bản:</strong> 0.6.43</p>
 <hr>
 <h3>Mục lục</h3>
 <ol>
@@ -17551,7 +17551,7 @@ NocoBase app for you: <strong>collections, relations, seed data, auto-computed c
 pages and menu</strong> — right in the <strong>/v/</strong> interface. Need to change an existing app? AI <strong>adds/modifies
 it step by step</strong> too.</p>
 </blockquote>
-<p><strong>Group:</strong> Low-code builder · <strong>Runs on:</strong> /v/ (modern) only · <strong>Version:</strong> 0.6.42</p>
+<p><strong>Group:</strong> Low-code builder · <strong>Runs on:</strong> /v/ (modern) only · <strong>Version:</strong> 0.6.43</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A floating button</strong> at the <strong>bottom-right</strong> of the screen: <strong>“🛠 Build app”</strong> (on the <strong>/v/</strong> interface only). Click it to open the <strong>“Build app from an App-Spec”</strong> dialog — the one and only place you work.</li>
@@ -17747,7 +17747,7 @@ it step by step</strong> too.</p>
 NocoBase 应用：<strong>数据表、关系、种子数据、自动计算列、状态流、页面和菜单</strong> —— 全都在 <strong>/v/</strong>
 界面里完成。想改动已有的应用？AI 也能<strong>一步一步地增改</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> Low-code builder（低代码搭建） · <strong>运行于：</strong> 仅 /v/（现代版） · <strong>版本：</strong> 0.6.42</p>
+<p><strong>分组：</strong> Low-code builder（低代码搭建） · <strong>运行于：</strong> 仅 /v/（现代版） · <strong>版本：</strong> 0.6.43</p>
 <h3>安装后新增了什么？</h3>
 <ul>
 <li>屏幕<strong>右下角</strong>多了一个<strong>浮动按钮</strong>：<strong>“🛠 Build app”</strong>（只在 <strong>/v/</strong> 界面上）。点它会打开 <strong>“Build app from an App-Spec”</strong> 对话框 —— 这是你唯一需要动手的地方。</li>
@@ -17944,7 +17944,7 @@ NocoBase 应用：<strong>数据表、关系、种子数据、自动计算列、
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Mẫu in ấn</span><span class="lang lang-en" hidden>Print Template</span><span class="lang lang-zh" hidden>打印模板</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Giao diện</span><span class="lang lang-en" hidden>Interface</span><span class="lang lang-zh" hidden>Interface</span></span>
-        <span class="chip">v0.1.15</span>
+        <span class="chip">v0.1.16</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -17952,7 +17952,7 @@ NocoBase 应用：<strong>数据表、关系、种子数据、自动计算列、
 bản ghi nào chỉ bằng một nút. Kèm <strong>in hàng loạt</strong>, <strong>lưu PDF vào field</strong>, QR, watermark, header/footer
 lặp mỗi trang, tổng hợp bằng công thức và <strong>SQL</strong> — không cần code.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Actions · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.1.15</p>
+<p><strong>Nhóm:</strong> Actions · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.1.16</p>
 <hr>
 <h3>Mục lục</h3>
 <ol>
@@ -18592,7 +18592,7 @@ trong <code>dist/</code> và <strong>phải sống sót qua build/deploy</strong
 them for any record with a single button. Includes <strong>batch print</strong>, <strong>save the PDF into a field</strong>, QR codes,
 watermarks, headers/footers repeated on every page, formula and <strong>SQL</strong> summaries — no code required.</p>
 </blockquote>
-<p><strong>Group:</strong> Actions · <strong>Runs on:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Version:</strong> 0.1.15</p>
+<p><strong>Group:</strong> Actions · <strong>Runs on:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Version:</strong> 0.1.16</p>
 <hr>
 <h3>Table of contents</h3>
 <ol>
@@ -19236,7 +19236,7 @@ the drag-drop editor is GrapesJS (<code>GrapesBodyEditor</code>), and the Handle
 <p>用<strong>拖拽</strong>编辑器（或 HTML）把<strong>发票 / 收据 / 报表</strong>模板设计一次，之后任何一条记录都能一键打印。
 内含<strong>批量打印</strong>、<strong>把 PDF 保存到字段</strong>、QR 码、水印、每页重复的页眉／页脚、公式与 <strong>SQL</strong> 汇总 —— 不需要写代码。</p>
 </blockquote>
-<p><strong>分组：</strong> Actions · <strong>运行于：</strong> <code>/admin</code>（classic）+ <code>/v/</code>（modern） · <strong>版本：</strong> 0.1.15</p>
+<p><strong>分组：</strong> Actions · <strong>运行于：</strong> <code>/admin</code>（classic）+ <code>/v/</code>（modern） · <strong>版本：</strong> 0.1.16</p>
 <hr>
 <h3>目录</h3>
 <ol>
@@ -19862,7 +19862,7 @@ PDF 服务，则由管理员 snippet 把关。记录数据依旧走 NocoBase 正
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Menu nâng cao (Nhóm + Badge)</span><span class="lang lang-en" hidden>Menu Enhancements (Sections + Badge)</span><span class="lang lang-zh" hidden>菜单增强（分组 + 角标）</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Giao diện</span><span class="lang lang-en" hidden>Interface</span><span class="lang lang-zh" hidden>Interface</span></span>
-        <span class="chip">v0.4.22</span>
+        <span class="chip">v0.4.23</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -19870,7 +19870,7 @@ PDF 服务，则由管理员 snippet 把关。记录数据依旧走 NocoBase 正
 và gắn <strong>badge đếm số</strong> sống (số dòng hoặc tổng/trung bình/lớn nhất/nhỏ nhất của một field) lên mục menu.
 Tất cả chỉnh ngay trên mục menu — <strong>không cần code, không thêm trang</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Menu · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.4.22</p>
+<p><strong>Nhóm:</strong> Menu · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.4.23</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Không thêm menu, không thêm trang, không thêm mục Settings.</strong> Mọi thứ nằm trong <strong>⚙ (bánh răng) của từng mục menu</strong> ở sidebar.</li>
@@ -20009,7 +20009,7 @@ Tất cả chỉnh ngay trên mục menu — <strong>không cần code, không t
 and attach a live <strong>count badge</strong> (row count, or sum/avg/max/min of a field) to a menu item.
 Everything is configured right on the menu item — <strong>no code, no extra page</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Menu · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.4.22</p>
+<p><strong>Group:</strong> Menu · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.4.23</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>No new menu, page or Settings entry is added.</strong> Everything lives in the <strong>⚙ (gear) of each menu item</strong> in the sidebar.</li>
@@ -20148,7 +20148,7 @@ Everything is configured right on the menu item — <strong>no code, no extra pa
 并给菜单项挂上一个实时的<strong>计数徽标</strong>（行数，或某个字段的求和/平均/最大值/最小值）。
 一切都在菜单项上直接配置 — <strong>无需写代码，也不多出任何页面</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> 菜单 · <strong>运行于：</strong> /admin（经典版）+ /v/（新版） · <strong>版本：</strong> 0.4.22</p>
+<p><strong>分组：</strong> 菜单 · <strong>运行于：</strong> /admin（经典版）+ /v/（新版） · <strong>版本：</strong> 0.4.23</p>
 <h3>安装后有什么新变化？</h3>
 <ul>
 <li><strong>不会新增任何菜单、页面或设置入口。</strong> 一切都在侧边栏中**每个菜单项的 ⚙（齿轮）**里。</li>
@@ -20288,7 +20288,7 @@ Everything is configured right on the menu item — <strong>no code, no extra pa
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Nút thao tác nâng cao</span><span class="lang lang-en" hidden>Action Button Enhancements</span><span class="lang lang-zh" hidden>操作按钮增强</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Giao diện</span><span class="lang lang-en" hidden>Interface</span><span class="lang lang-zh" hidden>Interface</span></span>
-        <span class="chip">v0.1.5</span>
+        <span class="chip">v0.1.6</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -20296,7 +20296,7 @@ Everything is configured right on the menu item — <strong>no code, no extra pa
 của khối, và thêm 2 công cụ mới cho bảng — <strong>Thanh tìm kiếm</strong> và <strong>Bộ lọc</strong> — tất cả chỉnh ngay trên
 giao diện, <strong>không cần code, không cần restart server</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Giao diện · Nút thao tác (Actions/UI)  ·  <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern)  ·  <strong>Phiên bản:</strong> 0.1.5</p>
+<p><strong>Nhóm:</strong> Giao diện · Nút thao tác (Actions/UI)  ·  <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern)  ·  <strong>Phiên bản:</strong> 0.1.6</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <p>Plugin <strong>không thêm menu hay trang Settings</strong> nào. Thay vào đó, khi bạn <strong>bật chế độ chỉnh sửa giao diện
 (UI Editor)</strong> sẽ có thêm các lựa chọn mới:</p>
@@ -20517,7 +20517,7 @@ Chi tiết thiết kế: <code>docs/ACTION-ENHANCEMENTS-DESIGN.md</code>; bản 
 a block’s <strong>action bar</strong>, and add two brand-new tools to tables — a <strong>Search bar</strong> and a <strong>Filter bar</strong> —
 all right in the UI, <strong>no code, no server restart</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> UI · Action buttons (Actions/UI) · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.1.5</p>
+<p><strong>Group:</strong> UI · Action buttons (Actions/UI) · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.1.6</p>
 <h3>What’s new after installing?</h3>
 <p>The plugin <strong>adds no menu and no Settings page</strong>. Instead, once you turn on <strong>UI editing (UI Editor)</strong>, new options appear:</p>
 <ul>
@@ -20743,7 +20743,7 @@ bash recipes/add-markers.sh storage/tar/@tuanla90/plugin-action-enhancements-*.t
 区块的<strong>操作栏</strong>，并给表格新增两件全新的工具 — <strong>搜索栏</strong>和<strong>筛选栏</strong> —
 全部在界面里完成，<strong>无需写代码，无需重启服务端</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> UI · 操作按钮（Actions/UI） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.1.5</p>
+<p><strong>分组：</strong> UI · 操作按钮（Actions/UI） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.1.6</p>
 <h3>安装之后有什么变化？</h3>
 <p>插件<strong>不会新增菜单，也不会新增设置页</strong>。只要你打开<strong>界面编辑（UI Editor）</strong>，就会出现一些新选项：</p>
 <ul>
@@ -20970,7 +20970,7 @@ bash recipes/add-markers.sh storage/tar/@tuanla90/plugin-action-enhancements-*.t
       <div class="plugin-head">
         <h2><span class="lang lang-vi">PWA (ứng dụng cài đặt được)</span><span class="lang lang-en" hidden>PWA (Installable App)</span><span class="lang lang-zh" hidden>PWA（可安装应用）</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Giao diện</span><span class="lang lang-en" hidden>Interface</span><span class="lang lang-zh" hidden>Interface</span></span>
-        <span class="chip">v0.5.17</span>
+        <span class="chip">v0.5.18</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -20978,7 +20978,7 @@ bash recipes/add-markers.sh storage/tar/@tuanla90/plugin-action-enhancements-*.t
 có icon riêng trên màn hình chính, mở ra chạy toàn màn hình như một app thật. Bạn tự đặt <strong>tên, màu và biểu tượng</strong>
 trong một trang cấu hình — <strong>không cần code, không cần restart server</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Giao diện &amp; Trải nghiệm (UI/UX) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.5.17</p>
+<p><strong>Nhóm:</strong> Giao diện &amp; Trải nghiệm (UI/UX) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.5.18</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Một trang cấu hình mới trong Settings</strong>: <strong>“PWA”</strong> (biểu tượng điện thoại di động). Đây là nơi duy nhất bạn chỉnh.</li>
@@ -21075,7 +21075,7 @@ trong một trang cấu hình — <strong>không cần code, không cần restar
 it gets its own icon on the home screen and opens full-screen like a real app. You set the
 <strong>name, colors and icon</strong> in one config page — <strong>no code, no server restart</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Interface &amp; Experience (UI/UX) · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.5.17</p>
+<p><strong>Group:</strong> Interface &amp; Experience (UI/UX) · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.5.18</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A new Settings page: “PWA”</strong> (mobile-phone icon). This is the one and only place you configure it.</li>
@@ -21172,7 +21172,7 @@ it gets its own icon on the home screen and opens full-screen like a real app. Y
 它会在主屏幕上拥有自己的图标，打开后像真正的应用一样全屏运行。你只需在一个配置页里设置
 <strong>名称、颜色和图标</strong> — <strong>无需写代码，也无需重启服务端</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> 界面与体验（UI/UX） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.5.17</p>
+<p><strong>分组：</strong> 界面与体验（UI/UX） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.5.18</p>
 <h3>安装之后有什么变化？</h3>
 <ul>
 <li><strong>设置里多出一个页面：「PWA」</strong>（手机图标）。这是唯一需要配置的地方。</li>
@@ -21270,7 +21270,7 @@ it gets its own icon on the home screen and opens full-screen like a real app. Y
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Tạo trang nhanh</span><span class="lang lang-en" hidden>Instant Create Page</span><span class="lang lang-zh" hidden>一键建页</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Giao diện</span><span class="lang lang-en" hidden>Interface</span><span class="lang lang-zh" hidden>Interface</span></span>
-        <span class="chip">v0.1.13</span>
+        <span class="chip">v0.1.14</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -21278,7 +21278,7 @@ it gets its own icon on the home screen and opens full-screen like a real app. Y
 khối <strong>Bảng</strong> đúng các cột đó, kèm nút <strong>Xem / Sửa / Thêm mới</strong> mà popup cũng hiển thị đúng các cột đó.
 Không phải bấm cấu hình khối/cột/popup thủ công. Kết quả là trang NocoBase gốc, <strong>chỉnh sửa tiếp thoải mái</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Khối &amp; Trang (Blocks) · <strong>Chạy trên:</strong> chỉ <strong>/v/</strong> (modern) — giao diện <strong>/admin</strong> (classic) không có công cụ này · <strong>Phiên bản:</strong> 0.1.13</p>
+<p><strong>Nhóm:</strong> Khối &amp; Trang (Blocks) · <strong>Chạy trên:</strong> chỉ <strong>/v/</strong> (modern) — giao diện <strong>/admin</strong> (classic) không có công cụ này · <strong>Phiên bản:</strong> 0.1.14</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Một trang trong Settings</strong>: <strong>“Tạo trang nhanh”</strong> (biểu tượng ô có dấu cộng). Đây là nơi mở công cụ.</li>
@@ -21386,7 +21386,7 @@ Không phải bấm cấu hình khối/cột/popup thủ công. Kết quả là 
 a <strong>Table</strong> block of exactly those columns, plus <strong>View / Edit / Add</strong> buttons whose popups show those same columns.
 No manual block/column/popup wiring. The result is a native NocoBase page you can <strong>keep editing freely</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> <strong>/v/</strong> (modern) only — the <strong>/admin</strong> (classic) client does not have this tool · <strong>Version:</strong> 0.1.13</p>
+<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> <strong>/v/</strong> (modern) only — the <strong>/admin</strong> (classic) client does not have this tool · <strong>Version:</strong> 0.1.14</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A new Settings page: “Instant Create Page”</strong> (box-with-plus icon). This is where you open the tool.</li>
@@ -21494,7 +21494,7 @@ No manual block/column/popup wiring. The result is a native NocoBase page you ca
 一个恰好包含这些列的<strong>表格</strong>区块，外加<strong>查看 / 编辑 / 新增</strong>按钮，它们的弹窗中也显示同样的这些列。
 无需手动拼装区块/列/弹窗。生成的结果是原生的 NocoBase 页面，你可以<strong>继续自由编辑</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> 区块 · <strong>运行于：</strong> 仅 <strong>/v/</strong>（现代） — <strong>/admin</strong>（经典）客户端没有这个工具 · <strong>版本：</strong> 0.1.13</p>
+<p><strong>分组：</strong> 区块 · <strong>运行于：</strong> 仅 <strong>/v/</strong>（现代） — <strong>/admin</strong>（经典）客户端没有这个工具 · <strong>版本：</strong> 0.1.14</p>
 <h3>安装后有什么变化？</h3>
 <ul>
 <li><strong>一个新的设置页面：“一键建页”</strong>（带加号的方框图标）。你从这里打开这个工具。</li>
@@ -21603,7 +21603,7 @@ No manual block/column/popup wiring. The result is a native NocoBase page you ca
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Thư viện icon (Lucide + thay icon hệ thống)</span><span class="lang lang-en" hidden>Custom Icons (Lucide + Remap)</span><span class="lang lang-zh" hidden>自定义图标（Lucide + 替换）</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Giao diện</span><span class="lang lang-en" hidden>Interface</span><span class="lang lang-zh" hidden>Interface</span></span>
-        <span class="chip">v0.2.9</span>
+        <span class="chip">v0.2.10</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -21611,7 +21611,7 @@ No manual block/column/popup wiring. The result is a native NocoBase page you ca
 Ant Design mặc định bằng Lucide</strong> ở mọi nơi — menu, nút, field, thanh tiêu đề. Kèm <strong>bộ mapping mặc định</strong>
 nạp sẵn khi cài và <strong>trình sửa từng icon</strong> có nhập/xuất CSV. Không cần code, không cần restart server.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Giao diện (UI) · Icon · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.9</p>
+<p><strong>Nhóm:</strong> Giao diện (UI) · Icon · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.10</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Toàn bộ icon Lucide vào trình chọn icon</strong> — ở <strong>cả hai</strong> giao diện. Khi bạn cấu hình icon cho menu / nút /
@@ -21768,7 +21768,7 @@ theo tên. Chi tiết kỹ thuật: xem <code>README.md</code> (tiếng Anh).</p
 default Ant Design icons with Lucide</strong> everywhere — menus, buttons, fields, the header bar. Ships a <strong>default
 mapping</strong> loaded on install and a <strong>per-icon editor</strong> with CSV import/export — <strong>no code, no server restart</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Interface (UI) · Icons · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.9</p>
+<p><strong>Group:</strong> Interface (UI) · Icons · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.10</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>The whole Lucide set enters the icon picker</strong> — in <strong>both</strong> clients. When you set an icon for a menu / button /
@@ -21931,7 +21931,7 @@ modern via <code>addMenuItem</code> + <code>addPageTabItem</code> — and ACL gr
 <strong>用 Lucide 替换默认的 Ant Design 图标</strong> — 菜单、按钮、字段、顶部导航栏。安装时会自动载入一套<strong>默认
 映射</strong>，另外还提供一个带 CSV 导入／导出的<strong>逐个图标编辑器</strong> — <strong>无需写代码，无需重启服务端</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> 界面（UI） · 图标 · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.9</p>
+<p><strong>分组：</strong> 界面（UI） · 图标 · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.10</p>
 <h3>安装之后有什么变化？</h3>
 <ul>
 <li><strong>整套 Lucide 图标进入图标选择器</strong> — <strong>两个</strong>客户端都有。当你给菜单 / 按钮 / 字段设置图标时，打开选择器就能在
@@ -22089,7 +22089,7 @@ Excel 打开不会出现乱码。导入 CSV 会<strong>替换</strong>当前的�
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Thư viện nút (Action Library)</span><span class="lang lang-en" hidden>Action Library</span><span class="lang lang-zh" hidden>操作按钮库</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Giao diện</span><span class="lang lang-en" hidden>Interface</span><span class="lang lang-zh" hidden>Interface</span></span>
-        <span class="chip">v0.6.5</span>
+        <span class="chip">v0.6.6</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -22101,7 +22101,7 @@ không role nào nhìn thấy.</p>
 (luật liên động) và <strong>hộp thoại xác nhận</strong> — và cho <strong>sửa ngay tại panel</strong>. Thêm <strong>sửa hàng loạt</strong> kiểu
 dáng và <strong>sao chép luật/xác nhận</strong> cho cả loạt nút.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> System services · <strong>Chạy trên:</strong> <code>/v/</code> + <code>/admin</code> · <strong>Phiên bản:</strong> 0.6.5</p>
+<p><strong>Nhóm:</strong> System services · <strong>Chạy trên:</strong> <code>/v/</code> + <code>/admin</code> · <strong>Phiên bản:</strong> 0.6.6</p>
 <hr>
 <h3>Mới từ 0.3 → 0.6</h3>
 <ul>
@@ -22513,7 +22513,7 @@ route <code>flowPage</code> chứ không phải route <code>tabs</code>.</li>
 <strong>for which collection</strong>, <strong>what view type</strong>, <strong>on which page</strong> — with a link that opens it. Plus a scan
 for <strong>broken or missing</strong> buttons.</p>
 </blockquote>
-<p><strong>Group:</strong> System services · <strong>Runs on:</strong> <code>/v/</code> (modern) + <code>/admin</code> (classic) · <strong>Version:</strong> 0.6.5</p>
+<p><strong>Group:</strong> System services · <strong>Runs on:</strong> <code>/v/</code> (modern) + <code>/admin</code> (classic) · <strong>Version:</strong> 0.6.6</p>
 <h3>New in 0.3 → 0.6</h3>
 <ul>
 <li><strong>Who can see &amp; click</strong> each button (permission by role) + a <strong>filter by role</strong>.</li>
@@ -22672,7 +22672,7 @@ only works when the target buttons are on the same collection / have that column
 <strong>属于哪个数据表</strong>、<strong>是什么区块类型</strong>、<strong>在哪个页面上</strong> — 并附带一个可以直接打开它的链接。
 另外还会扫描出<strong>损坏或缺失</strong>的按钮。</p>
 </blockquote>
-<p><strong>分组：</strong> System services · <strong>运行于：</strong> <code>/v/</code>（modern）+ <code>/admin</code>（classic） · <strong>版本：</strong> 0.6.5</p>
+<p><strong>分组：</strong> System services · <strong>运行于：</strong> <code>/v/</code>（modern）+ <code>/admin</code>（classic） · <strong>版本：</strong> 0.6.6</p>
 <h3>0.3 → 0.6 新增</h3>
 <ul>
 <li>每个按钮的<strong>谁能看到并点击</strong>（按角色的权限）+ 一个<strong>按角色筛选</strong>。</li>
@@ -22832,7 +22832,7 @@ only works when the target buttons are on the same collection / have that column
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Thương hiệu &amp; Giao diện</span><span class="lang lang-en" hidden>Branding &amp; Theme</span><span class="lang lang-zh" hidden>品牌与主题</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Giao diện</span><span class="lang lang-en" hidden>Interface</span><span class="lang lang-zh" hidden>Interface</span></span>
-        <span class="chip">v0.4.24</span>
+        <span class="chip">v0.4.25</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -22841,7 +22841,7 @@ Sáng/Pha/Tối cho thanh bên, đầu trang, nền nội dung và thẻ; đặt
 động; nạp font Google và áp cho cả app; sơn lại mọi bảng dữ liệu; đổi tên app, favicon, logo (sáng/tối);
 ẩn menu ngang và icon trợ giúp; và <strong>xuất/nhập cả bộ giao diện thành một file JSON</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> UI · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.4.24</p>
+<p><strong>Nhóm:</strong> UI · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.4.25</p>
 <hr>
 <h3>Mục lục</h3>
 <ol>
@@ -23354,7 +23354,7 @@ phải dùng <code>app.updateFavicon()</code> + ghi lại <strong>mọi</strong>
 <p>Restyle your whole app: colors for the sidebar / header / cards, accent color, density (weight), font,
 app name, favicon and logo (light/dark)… Ships with presets, <strong>remembers per theme</strong>, and imports/exports the config.</p>
 </blockquote>
-<p><strong>Group:</strong> UI · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.4.24</p>
+<p><strong>Group:</strong> UI · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.4.25</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A new Settings page: “Branding &amp; Theme”</strong> (paint-drop icon 🎨). This is where you configure everything.</li>
@@ -23429,7 +23429,7 @@ app name, favicon and logo (light/dark)… Ships with presets, <strong>remembers
 <p>为整个应用换装：侧边栏 / 顶栏 / 卡片的配色、强调色、密度（松紧）、字体、
 应用名称、站点图标（favicon）和 Logo（浅色/深色）…内置多种预设，<strong>按主题分别记住</strong>，并支持导入/导出配置。</p>
 </blockquote>
-<p><strong>分组：</strong> UI · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.4.24</p>
+<p><strong>分组：</strong> UI · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.4.25</p>
 <h3>安装后有什么变化？</h3>
 <ul>
 <li><strong>一个新的设置页面：“品牌与主题（Branding &amp; Theme）”</strong>（颜料滴图标 🎨）。所有配置都在这里完成。</li>
@@ -23506,7 +23506,7 @@ app name, favicon and logo (light/dark)… Ships with presets, <strong>remembers
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Tiêu đề tùy biến</span><span class="lang lang-en" hidden>Custom Header</span><span class="lang lang-zh" hidden>自定义页头</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Giao diện</span><span class="lang lang-en" hidden>Interface</span><span class="lang lang-zh" hidden>Interface</span></span>
-        <span class="chip">v0.2.8</span>
+        <span class="chip">v0.2.9</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -23514,7 +23514,7 @@ app name, favicon and logo (light/dark)… Ships with presets, <strong>remembers
 nhãn field ở form/detail và tiêu đề khối: đặt <strong>icon</strong>, <strong>màu chữ</strong>, <strong>cỡ chữ</strong>, <strong>in đậm</strong>,
 <strong>nền</strong> (đơn sắc/gradient) và <strong>căn lề</strong>. Không cần code — chỉnh ngay trên phần tử.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Giao diện (Blocks/UI) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.8</p>
+<p><strong>Nhóm:</strong> Giao diện (Blocks/UI) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.9</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <p>Plugin thêm một <strong>mục tạo kiểu vào menu ⚙ (bánh răng)</strong> của 4 loại phần tử. <strong>Không</strong> thêm menu, trang hay mục Settings nào:</p>
 <table>
@@ -23678,7 +23678,7 @@ nhãn field ở form/detail và tiêu đề khối: đặt <strong>icon</strong>
 form/detail field labels and block titles: set an <strong>icon</strong>, <strong>text color</strong>, <strong>size</strong>, <strong>bold</strong>,
 <strong>background</strong> (solid / gradient) and <strong>alignment</strong>. No code — style right on the element.</p>
 </blockquote>
-<p><strong>Group:</strong> Appearance (Blocks/UI) · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.8</p>
+<p><strong>Group:</strong> Appearance (Blocks/UI) · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.9</p>
 <h3>What’s new after installing?</h3>
 <p>The plugin adds a <strong>styling item to the ⚙ (gear) menu</strong> of 4 element types. It adds <strong>no</strong> menu, page or Settings entry:</p>
 <table>
@@ -23845,7 +23845,7 @@ form/detail field labels and block titles: set an <strong>icon</strong>, <strong
 表单/详情中的字段标签以及区块标题：可设置<strong>图标</strong>、<strong>文字颜色</strong>、<strong>字号</strong>、<strong>加粗</strong>、
 <strong>背景</strong>（纯色 / 渐变）和<strong>对齐方式</strong>。无需写代码 — 直接在元素上设置样式。</p>
 </blockquote>
-<p><strong>分组：</strong> 外观（区块/UI） · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.2.8</p>
+<p><strong>分组：</strong> 外观（区块/UI） · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.2.9</p>
 <h3>安装后有什么变化？</h3>
 <p>插件会在 4 类元素的 <strong>⚙（齿轮）菜单中添加一个样式设置项</strong>。它<strong>不会</strong>新增任何菜单、页面或设置入口：</p>
 <table>
@@ -24013,14 +24013,14 @@ form/detail field labels and block titles: set an <strong>icon</strong>, <strong
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Tìm kiếm toàn cục</span><span class="lang lang-en" hidden>Global Search</span><span class="lang lang-zh" hidden>全局搜索</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Giao diện</span><span class="lang lang-en" hidden>Interface</span><span class="lang lang-zh" hidden>Interface</span></span>
-        <span class="chip">v0.9.18</span>
+        <span class="chip">v0.9.19</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
 <p>Một <strong>ô tìm kiếm trên thanh tiêu đề</strong> + <strong>bảng lệnh <code>Ctrl / ⌘ + K</code></strong> tìm xuyên nhiều bộ sưu tập
 một lúc và <strong>nhảy thẳng tới bản ghi</strong> — kết quả gom nhóm theo bộ sưu tập, hiện ngay khi bạn gõ.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> UI (tìm kiếm) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.9.18</p>
+<p><strong>Nhóm:</strong> UI (tìm kiếm) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.9.19</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Phím tắt <code>Ctrl / ⌘ + K</code></strong> ở bất cứ đâu → mở <strong>bảng lệnh tìm kiếm</strong>. Bấm lại (hoặc <code>Esc</code>) để đóng.</li>
@@ -24168,7 +24168,7 @@ vẫn còn trên máy chủ và <strong>quay lại khi bật lại</strong> plug
 <p>A <strong>header search box</strong> plus a <strong><code>Ctrl / ⌘ + K</code> command palette</strong> that searches across many
 collections at once and <strong>jumps straight to the record</strong> — results grouped by collection, shown live as you type.</p>
 </blockquote>
-<p><strong>Group:</strong> UI (search) · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.9.18</p>
+<p><strong>Group:</strong> UI (search) · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.9.19</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A <code>Ctrl / ⌘ + K</code> shortcut</strong> anywhere → opens the <strong>search command palette</strong>. Press it again (or <code>Esc</code>) to close.</li>
@@ -24339,7 +24339,7 @@ client’s <code>pm:listEnabledV2</code> skips the plugin and nothing renders on
 <p>一个<strong>顶栏搜索框</strong>加上一个 <strong><code>Ctrl / ⌘ + K</code> 命令面板</strong>，可以同时搜索多个数据表，
 并<strong>直接跳转到那条记录</strong> — 结果按数据表分组，边输入边实时显示。</p>
 </blockquote>
-<p><strong>分组：</strong> 界面（搜索） · <strong>运行于：</strong> /admin（经典版）+ /v/（新版） · <strong>版本：</strong> 0.9.18</p>
+<p><strong>分组：</strong> 界面（搜索） · <strong>运行于：</strong> /admin（经典版）+ /v/（新版） · <strong>版本：</strong> 0.9.19</p>
 <h3>安装后有什么新变化？</h3>
 <ul>
 <li><strong>一个 <code>Ctrl / ⌘ + K</code> 快捷键</strong>，在任何位置按下 → 打开<strong>搜索命令面板</strong>。再按一次（或 <code>Esc</code>）关闭。</li>
@@ -24512,7 +24512,7 @@ client’s <code>pm:listEnabledV2</code> skips the plugin and nothing renders on
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Bộ sinh dòng theo quy tắc</span><span class="lang lang-en" hidden>Line Generator</span><span class="lang lang-zh" hidden>行生成器</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Dữ liệu</span><span class="lang lang-en" hidden>Data</span><span class="lang lang-zh" hidden>Data</span></span>
-        <span class="chip">v0.8.17</span>
+        <span class="chip">v0.8.18</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -24521,7 +24521,7 @@ Cùng một cơ chế lo được <strong>chia hoa hồng</strong>, <strong>nổ
 khớp qua quan hệ, người nhận động, gộp-và-cộng, làm tròn; chạy <strong>thủ công bằng nút</strong> hoặc <strong>tự động khi
 lưu</strong>, kèm <strong>xem thử</strong> và <strong>trình gỡ lỗi từng bước</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Công cụ mô hình dữ liệu · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.8.17</p>
+<p><strong>Nhóm:</strong> Công cụ mô hình dữ liệu · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.8.18</p>
 <hr>
 <h3>Mục lục</h3>
 <ol>
@@ -25163,7 +25163,7 @@ NocoBase nuốt mất (thành <code>data</code>, rụng <code>ok</code>/<code>sk
 <p>From <strong>one parent record</strong> → generate <strong>N child rows</strong> in <strong>one transaction</strong>, following a <strong>rule set</strong> you declare once.
 The same mechanism covers <strong>BOM explosion</strong>, <strong>commission splits</strong>, and <strong>cost / piece-rate allocation</strong> — with cross-relation matching, dynamic recipients, group-and-sum, and rounding; run it <strong>manually with a button</strong> or <strong>automatically on save</strong>, with a <strong>dry-run preview</strong> + <strong>debugger</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Data model tools · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.8.17</p>
+<p><strong>Group:</strong> Data model tools · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.8.18</p>
 <blockquote>
 <p><strong>New in 0.8</strong> — the single JOIN is generalised into an <strong>ordered multi-step JOIN pipeline</strong>. The config editor becomes a <strong>pipeline builder</strong>: LEFT source, then an add/remove/reorder list of <strong>step cards</strong> (each joins its own RIGHT side), then the final group/SUM + write target.</p>
 <ul>
@@ -25280,7 +25280,7 @@ The same mechanism covers <strong>BOM explosion</strong>, <strong>commission spl
 <p>从<strong>一条父记录</strong> → 在<strong>一个事务内</strong>生成 <strong>N 行子记录</strong>，依据的是一套你只需声明一次的<strong>规则集</strong>。
 同一套机制可以覆盖 <strong>BOM 展开</strong>、<strong>提成分摊</strong>以及<strong>成本／计件工资分摊</strong> —— 支持跨关系匹配、动态收款人、分组求和与取整；既可以<strong>用按钮手动运行</strong>，也可以<strong>在保存时自动运行</strong>，并配有<strong>试运行预览</strong> + <strong>调试器</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> Data model tools（数据模型工具） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.8.17</p>
+<p><strong>分组：</strong> Data model tools（数据模型工具） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.8.18</p>
 <blockquote>
 <p><strong>0.8 新增</strong> —— 原先单一的 JOIN 被推广为<strong>有序的多步 JOIN 流水线</strong>。配置编辑器随之变成一个<strong>流水线搭建器</strong>：左侧数据源，接着是一串可增删、可排序的<strong>步骤卡片</strong>（每一步各自连接自己的右侧数据），最后是分组／SUM 与写入目标。</p>
 <ul>
@@ -25399,7 +25399,7 @@ The same mechanism covers <strong>BOM explosion</strong>, <strong>commission spl
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Đồng bộ Google Sheets</span><span class="lang lang-en" hidden>Google Sheets Sync</span><span class="lang lang-zh" hidden>Google Sheets 同步</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Dữ liệu</span><span class="lang lang-en" hidden>Data</span><span class="lang lang-zh" hidden>Data</span></span>
-        <span class="chip">v0.1.13</span>
+        <span class="chip">v0.1.14</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -25407,7 +25407,7 @@ The same mechanism covers <strong>BOM explosion</strong>, <strong>commission spl
 tự động theo lịch. Tự tạo collection và <strong>đoán kiểu dữ liệu</strong>, hoặc map cột vào collection có sẵn;
 chế độ <strong>thay toàn bộ</strong> hoặc <strong>upsert theo cột khóa</strong>; tuỳ chọn <strong>ghi ngược 2 chiều</strong> lên sheet.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Công cụ mô hình dữ liệu (Data model tools) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.1.12</p>
+<p><strong>Nhóm:</strong> Công cụ mô hình dữ liệu (Data model tools) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.1.14</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Một trang cấu hình mới trong Settings</strong>: <strong>“Google Sheets Sync”</strong> (biểu tượng đám mây đồng bộ). Đây là nơi duy nhất bạn thao tác — chia làm 2 thẻ: <strong>“Kết nối”</strong> và <strong>“Service Account”</strong>.</li>
@@ -25561,7 +25561,7 @@ manually or automatically on a schedule. Auto-create the collection and <strong>
 or map columns onto an existing collection; <strong>replace-all</strong> or <strong>upsert-by-key</strong> modes;
 optional <strong>two-way write-back</strong> to the sheet.</p>
 </blockquote>
-<p><strong>Group:</strong> Data model tools · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.1.12</p>
+<p><strong>Group:</strong> Data model tools · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.1.14</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A new Settings page: “Google Sheets Sync”</strong> (cloud-sync icon). This is the one and only place you work — split into two tabs: <strong>“Connections”</strong> and <strong>“Service Account”</strong>.</li>
@@ -25717,7 +25717,7 @@ optional <strong>two-way write-back</strong> to the sheet.</p>
 也能把列映射到已有的数据表上；支持<strong>全量替换</strong>或<strong>按主键 Upsert</strong> 两种模式；
 还可选开启<strong>双向回写</strong>到表格。</p>
 </blockquote>
-<p><strong>分组：</strong> 数据模型工具 · <strong>运行于：</strong> /admin（经典）+ /v/（现代） · <strong>版本：</strong> 0.1.12</p>
+<p><strong>分组：</strong> 数据模型工具 · <strong>运行于：</strong> /admin（经典）+ /v/（现代） · <strong>版本：</strong> 0.1.14</p>
 <h3>安装后有什么新东西？</h3>
 <ul>
 <li><strong>一个新的设置页面：「Google Sheets 同步」</strong>（云同步图标）。这是你唯一要打交道的地方 — 分成两个标签页：**「连接」**和 <strong>「Service Account」</strong>。</li>
@@ -25869,7 +25869,7 @@ optional <strong>two-way write-back</strong> to the sheet.</p>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Gửi Email</span><span class="lang lang-en" hidden>Mailer</span><span class="lang lang-zh" hidden>邮件发送</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Dữ liệu</span><span class="lang lang-en" hidden>Data</span><span class="lang lang-zh" hidden>Data</span></span>
-        <span class="chip">v0.2.6</span>
+        <span class="chip">v0.2.7</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -25878,7 +25878,7 @@ dựng mẫu email bằng trình kéo-thả, rồi mở một bản ghi bất k�
 điền theo bản ghi đó. Cũng dùng được như một node trong Workflow.</p>
 </blockquote>
 <p><strong>Nhóm:</strong> Dữ liệu · <strong>Chạy trên:</strong> <code>/v/</code> (modern) — node Workflow cấu hình ở <code>/admin</code> classic ·
-<strong>Phiên bản:</strong> 0.2.6</p>
+<strong>Phiên bản:</strong> 0.2.7</p>
 <hr>
 <h3>Mục lục</h3>
 <ol>
@@ -26407,7 +26407,7 @@ bằng snippet <code>pm.mailer</code> + kiểm tra role trong handler; <code>sen
       <div class="prose lang lang-en" hidden><blockquote>
 <p>Send emails straight from your records and workflows, using reusable HTML templates and either Google Apps Script (Gmail) or SMTP — no code.</p>
 </blockquote>
-<p><strong>Group:</strong> Data · <strong>Runs on:</strong> /v/ (modern client) · <strong>Version:</strong> 0.2.6</p>
+<p><strong>Group:</strong> Data · <strong>Runs on:</strong> /v/ (modern client) · <strong>Version:</strong> 0.2.7</p>
 <h3>What’s new in 0.2.0</h3>
 <ul>
 <li><strong>Multiple named sending methods</strong> instead of a single backend. Keep, say, a Gmail-via-Apps-Script method <strong>and</strong> an SMTP method side by side; mark one as the <strong>default</strong>, enable/disable each. The record action and workflow node just <strong>pick a method</strong> (or use the default) — no more per-node credentials.</li>
@@ -26452,7 +26452,7 @@ bằng snippet <code>pm.mailer</code> + kiểm tra role trong handler; <code>sen
       <div class="prose lang lang-zh" hidden><blockquote>
 <p>直接从记录和工作流中发送邮件，使用可复用的 HTML 模板，后端可选 Google Apps Script（Gmail）或 SMTP — 无需写代码。</p>
 </blockquote>
-<p><strong>分组：</strong> 数据 · <strong>运行于：</strong> /v/（现代客户端） · <strong>版本：</strong> 0.2.6</p>
+<p><strong>分组：</strong> 数据 · <strong>运行于：</strong> /v/（现代客户端） · <strong>版本：</strong> 0.2.7</p>
 <h3>0.2.0 有什么新东西</h3>
 <ul>
 <li><strong>多个具名的发送方式</strong>，取代原来的单一后端。你可以让一个 Gmail-via-Apps-Script 的方式<strong>和</strong>一个 SMTP 的方式并存；把其中一个标记为<strong>默认</strong>，并逐个启用/停用。记录操作和工作流节点只需<strong>选择一个方式</strong>（或使用默认方式）— 不必再在每个节点上填凭据。</li>
@@ -26500,7 +26500,7 @@ bằng snippet <code>pm.mailer</code> + kiểm tra role trong handler; <code>sen
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Nhật ký thay đổi</span><span class="lang lang-en" hidden>Change Log</span><span class="lang lang-zh" hidden>变更日志</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Dữ liệu</span><span class="lang lang-en" hidden>Data</span><span class="lang lang-zh" hidden>Data</span></span>
-        <span class="chip">v0.1.11</span>
+        <span class="chip">v0.1.12</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -26508,7 +26508,7 @@ bằng snippet <code>pm.mailer</code> + kiểm tra role trong handler; <code>sen
 ai đổi · lúc nào · vai trò gì · từ giá trị nào sang giá trị nào · qua đường nào · nằm ở giá trị cũ bao lâu · kèm lý do (tuỳ chọn).
 Xem lại dưới dạng <strong>dòng thời gian</strong> ngay trên bản ghi — không cần code, không cần restart.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Kiểm toán / Nhật ký (Auditing) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.1.11</p>
+<p><strong>Nhóm:</strong> Kiểm toán / Nhật ký (Auditing) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.1.12</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Một trang cấu hình mới trong Settings</strong>: <strong>“Nhật ký thay đổi”</strong> (biểu tượng đồng hồ lịch sử) → tab <strong>“Collection theo dõi”</strong>. Đây là nơi bạn chọn <strong>theo dõi bảng nào, field nào</strong>.</li>
@@ -26691,7 +26691,7 @@ mới</strong> — không cần restart.</li>
 who changed it · when · which role · from which value to which value · through which path · how long it sat in the old value · with an optional reason.
 Review it as a <strong>timeline</strong> right on the record — <strong>no code, no restart</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Auditing · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.1.11</p>
+<p><strong>Group:</strong> Auditing · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.1.12</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A new Settings page: “Change Log”</strong> (history-clock icon) → the <strong>“Tracked collections”</strong> tab. This is where you choose <strong>which collections and which fields</strong> to track.</li>
@@ -26875,7 +26875,7 @@ never offered before. Your other choices (enabled, snapshots, note, retention) a
 谁改的 · 什么时候改的 · 以什么角色改的 · 从哪个值改成了哪个值 · 通过哪条路径改的 · 在旧值上停留了多久 · 还可以附一条原因说明。
 直接在记录上以<strong>时间线</strong>的形式查看 —— <strong>无需写代码，无需重启</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> Auditing（审计） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.1.11</p>
+<p><strong>分组：</strong> Auditing（审计） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.1.12</p>
 <h3>安装之后多了什么？</h3>
 <ul>
 <li><strong>一个新的设置页面：“Change Log”</strong>（时钟历史图标）→ <strong>“跟踪的数据表”<strong>标签页。你在这里选择</strong>要跟踪哪些数据表、哪些字段</strong>。</li>
@@ -27059,7 +27059,7 @@ never offered before. Your other choices (enabled, snapshots, note, retention) a
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Xuất Excel theo mẫu</span><span class="lang lang-en" hidden>Excel Template Export</span><span class="lang lang-zh" hidden>Excel 模板导出</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Dữ liệu</span><span class="lang lang-en" hidden>Data</span><span class="lang lang-zh" hidden>Data</span></span>
-        <span class="chip">v0.1.11</span>
+        <span class="chip">v0.1.12</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><p>Xuất bản ghi ra file <strong><code>.xlsx</code> theo đúng mẫu bạn tự thiết kế trong Excel</strong> — merge ô, màu, viền, định dạng số, logo giữ <strong>nguyên 1:1</strong>. Bạn chỉ đặt các ô placeholder <code>{{...}}</code>, khi xuất plugin chỉ <strong>thay giá trị</strong>, mọi định dạng được giữ y hệt.</p>
@@ -27415,14 +27415,14 @@ never offered before. Your other choices (enabled, snapshots, note, retention) a
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Chặn/Cho phép theo IP (Danh sách trắng/đen)</span><span class="lang lang-en" hidden>IP Guard (Whitelist / Blacklist)</span><span class="lang lang-zh" hidden>IP 门禁（白名单 / 黑名单）</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Bảo mật &amp; Đăng nhập</span><span class="lang lang-en" hidden>Security &amp; sign-in</span><span class="lang lang-zh" hidden>Security &amp; sign-in</span></span>
-        <span class="chip">v0.2.4</span>
+        <span class="chip">v0.2.5</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
 <p>Tường lửa cho NocoBase theo <strong>địa chỉ IP</strong> của người truy cập: chỉ cho một số IP vào, hoặc chặn
 một số IP xấu — cấu hình ngay trong trang quản trị, <strong>không cần code, không cần restart server</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Bảo mật (Security) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.4</p>
+<p><strong>Nhóm:</strong> Bảo mật (Security) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.5</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Một trang cấu hình mới trong Settings</strong>: <strong>“Chặn/Cho phép theo IP”</strong> (biểu tượng ổ khoá). Đây là nơi duy nhất bạn chỉnh.</li>
@@ -27540,7 +27540,7 @@ một số IP xấu — cấu hình ngay trong trang quản trị, <strong>khôn
 <p>Firewall NocoBase by the visitor’s <strong>IP address</strong>: admit only certain IPs, or block bad ones —
 configured right in the admin UI, <strong>no code, no server restart</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Security · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.4</p>
+<p><strong>Group:</strong> Security · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.5</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A new Settings page: “IP Guard”</strong> (lock icon). This is the one and only place you configure it.</li>
@@ -27658,7 +27658,7 @@ configured right in the admin UI, <strong>no code, no server restart</strong>.</
 <p>按访问者的 <strong>IP 地址</strong>给 NocoBase 加一道防火墙：只放行特定 IP，或者拦截可疑 IP —
 全部在管理界面里配置，<strong>无需写代码，无需重启服务器</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> 安全 · <strong>运行于：</strong> /admin（经典）+ /v/（现代） · <strong>版本：</strong> 0.2.4</p>
+<p><strong>分组：</strong> 安全 · <strong>运行于：</strong> /admin（经典）+ /v/（现代） · <strong>版本：</strong> 0.2.5</p>
 <h3>安装后有什么新东西？</h3>
 <ul>
 <li><strong>一个新的设置页面：「IP 防护」</strong>（锁形图标）。这是你唯一要配置的地方。</li>
@@ -27778,7 +27778,7 @@ configured right in the admin UI, <strong>no code, no server restart</strong>.</
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Luật dữ liệu (phân quyền dòng, cột &amp; trang)</span><span class="lang lang-en" hidden>Data Rules (row, column &amp; page permissions)</span><span class="lang lang-zh" hidden>数据规则（行、列与页面权限）</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Bảo mật &amp; Đăng nhập</span><span class="lang lang-en" hidden>Security &amp; sign-in</span><span class="lang lang-zh" hidden>Security &amp; sign-in</span></span>
-        <span class="chip">v0.4.5</span>
+        <span class="chip">v0.4.6</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><p>Một nơi cho cả ba tầng “ai được đụng vào cái gì”: <strong>dòng</strong>, <strong>cột</strong> và <strong>trang</strong>. Mở ra là biết ngay: vai trò nào, trên bảng nào, được xem/sửa/xoá những dòng nào — và logic “những dòng nào” viết bằng đúng cú pháp công thức của <strong>Trường tự tính</strong>.</p>
@@ -28564,7 +28564,7 @@ data.region == $user.region &amp;&amp; data.amount &lt;= 100000000
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Trang đăng nhập tùy biến</span><span class="lang lang-en" hidden>Custom Login</span><span class="lang lang-zh" hidden>自定义登录页</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Bảo mật &amp; Đăng nhập</span><span class="lang lang-en" hidden>Security &amp; sign-in</span><span class="lang lang-zh" hidden>Security &amp; sign-in</span></span>
-        <span class="chip">v2.3.6</span>
+        <span class="chip">v2.3.8</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -28572,7 +28572,7 @@ data.region == $user.region &amp;&amp; data.amount &lt;= 100000000
 icon ô nhập, chân trang và trang đích sau khi đăng nhập — ngay trong trang quản trị, <strong>có xem trước
 trực tiếp</strong>, <strong>không cần code</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Xác thực &amp; Giao diện (Auth/UI) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 2.3.6</p>
+<p><strong>Nhóm:</strong> Xác thực &amp; Giao diện (Auth/UI) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 2.3.8</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Trang đăng nhập (<code>/signin</code>) được thay bằng giao diện tùy biến của plugin.</strong> Ngay khi bật (dù <strong>chưa
@@ -28720,7 +28720,7 @@ AGPL-3.0 / NocoBase Commercial — vui lòng giữ dòng attribution ở chân t
 logo, input icons, footer and post-login landing page — right in the admin UI, with <strong>live preview</strong>,
 <strong>no code</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Auth &amp; UI · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 2.3.6</p>
+<p><strong>Group:</strong> Auth &amp; UI · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 2.3.8</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>The sign-in page (<code>/signin</code>) is replaced by the plugin’s custom skin.</strong> The moment you enable it (even with <strong>nothing configured yet</strong>), the page already has a <strong>bundled gradient background</strong> + a <strong>side-panel form</strong> — lightweight, with <strong>no external image request</strong>.</li>
@@ -28861,7 +28861,7 @@ the login page <strong>still uses the plugin’s default skin</strong> (gradient
 <p>给 NocoBase 的<strong>登录页</strong>换一整套皮肤 —— 背景、表单布局与位置、明暗配色、logo、输入框图标、页脚
 以及登录后的落地页 —— 全都在管理界面里搞定，带<strong>实时预览</strong>，<strong>不用写代码</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> Auth &amp; UI（认证与界面） · <strong>运行于：</strong> /admin（经典版）+ /v/（现代版） · <strong>版本：</strong> 2.3.6</p>
+<p><strong>分组：</strong> Auth &amp; UI（认证与界面） · <strong>运行于：</strong> /admin（经典版）+ /v/（现代版） · <strong>版本：</strong> 2.3.8</p>
 <h3>安装后新增了什么？</h3>
 <ul>
 <li><strong>登录页（<code>/signin</code>）被换成插件的自定义皮肤。</strong> 一启用它（哪怕<strong>什么都还没配</strong>），页面就已经有了<strong>内置的渐变背景</strong> + <strong>侧栏式表单</strong> —— 很轻量，<strong>不会向外部请求图片</strong>。</li>
