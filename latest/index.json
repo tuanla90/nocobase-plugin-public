@@ -1,0 +1,49 @@
+{
+  "source": "@tuanla90/nocobase-plugin",
+  "updatedAt": null,
+  "count": 6,
+  "plugins": [
+    {
+      "packageName": "@tuanla90/plugin-app-doctor",
+      "slug": "app-doctor",
+      "version": "0.3.2",
+      "displayName": "App Doctor",
+      "url": "https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-app-doctor-0.3.2.tgz"
+    },
+    {
+      "packageName": "@tuanla90/plugin-column-resize",
+      "slug": "column-resize",
+      "version": "0.1.11",
+      "displayName": "Column Resize",
+      "url": "https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-column-resize-0.1.11.tgz"
+    },
+    {
+      "packageName": "@tuanla90/plugin-custom-icons",
+      "slug": "custom-icons",
+      "version": "0.2.9",
+      "displayName": "Custom Icons (Lucide + Remap)",
+      "url": "https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-custom-icons-0.2.9.tgz"
+    },
+    {
+      "packageName": "@tuanla90/plugin-field-order",
+      "slug": "field-order",
+      "version": "0.2.5",
+      "displayName": "Field Order",
+      "url": "https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-field-order-0.2.5.tgz"
+    },
+    {
+      "packageName": "@tuanla90/plugin-hub",
+      "slug": "hub",
+      "version": "0.2.1",
+      "displayName": "Plugin Hub",
+      "url": "https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-hub-0.2.1.tgz"
+    },
+    {
+      "packageName": "@tuanla90/plugin-perf-guard",
+      "slug": "perf-guard",
+      "version": "0.1.12",
+      "displayName": "Crash Guard (stability)",
+      "url": "https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-perf-guard-0.1.12.tgz"
+    }
+  ]
+}
