@@ -6,9 +6,9 @@
     {
       "packageName": "@tuanla90/plugin-app-doctor",
       "slug": "app-doctor",
-      "version": "0.3.2",
+      "version": "0.3.3",
       "displayName": "App Doctor",
-      "url": "https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-app-doctor-0.3.2.tgz"
+      "url": "https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-app-doctor-0.3.3.tgz"
     },
     {
       "packageName": "@tuanla90/plugin-column-resize",
