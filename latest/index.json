@@ -34,15 +34,15 @@
     {
       "packageName": "@tuanla90/plugin-hub",
       "slug": "hub",
-      "version": "0.2.3",
+      "version": "0.2.4",
       "displayName": "Plugin Hub",
-      "url": "https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-hub-0.2.3.tgz"
+      "url": "https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-hub-0.2.4.tgz"
     },
     {
       "packageName": "@tuanla90/plugin-perf-guard",
       "slug": "perf-guard",
       "version": "0.1.12",
-      "displayName": "Crash Guard (stability)",
+      "displayName": "Performance & Stability",
       "url": "https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-perf-guard-0.1.12.tgz"
     }
   ]

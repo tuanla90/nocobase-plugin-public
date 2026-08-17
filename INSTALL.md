@@ -5,7 +5,7 @@ Các plugin trong repo này được đóng gói sẵn (`.tgz` ở `latest/@tuan
 ## ⭐ Cách nhanh nhất — Plugin Hub (cài 1 lần, lo hết)
 Cài **Plugin Hub** rồi nó tự cài/cập nhật mọi plugin còn lại từ manifest (`latest/index.json`) — khỏi dán URL 30+ lần.
 1. Admin NocoBase → **Plugin manager → Add → URL** → dán:
-   `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-hub-0.2.3.tgz`
+   `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-hub-0.2.4.tgz`
    → Install → **Enable**.
 2. Vào **Settings → Plugin Hub → Kiểm tra ngay** → cài/cập nhật từng cái hoặc **Cập nhật tất cả**.
 
@@ -26,7 +26,7 @@ Plugin cài lúc runtime nằm ở `storage/plugins` trên **service NocoBase** 
 | column-resize | 0.1.11 | `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-column-resize-0.1.11.tgz` |
 | custom-icons | 0.2.9 | `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-custom-icons-0.2.9.tgz` |
 | field-order | 0.2.5 | `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-field-order-0.2.5.tgz` |
-| hub | 0.2.3 | `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-hub-0.2.3.tgz` |
+| hub | 0.2.4 | `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-hub-0.2.4.tgz` |
 | perf-guard | 0.1.12 | `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-perf-guard-0.1.12.tgz` |
 
 _Tự sinh từ `latest/@tuanla90/` bởi `build-env/gen-manifest.cjs`. Chạy lại sau mỗi lần rebuild._
