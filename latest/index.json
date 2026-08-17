@@ -6,9 +6,9 @@
     {
       "packageName": "@tuanla90/plugin-app-doctor",
       "slug": "app-doctor",
-      "version": "0.3.4",
+      "version": "0.3.5",
       "displayName": "App Doctor",
-      "url": "https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-app-doctor-0.3.4.tgz"
+      "url": "https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-app-doctor-0.3.5.tgz"
     },
     {
       "packageName": "@tuanla90/plugin-column-resize",
@@ -42,7 +42,7 @@
       "packageName": "@tuanla90/plugin-perf-guard",
       "slug": "perf-guard",
       "version": "0.1.12",
-      "displayName": "Performance & Stability",
+      "displayName": "Crash Guard (stability)",
       "url": "https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-perf-guard-0.1.12.tgz"
     }
   ]
