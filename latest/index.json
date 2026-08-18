@@ -20,9 +20,9 @@
     {
       "packageName": "@tuanla90/plugin-custom-icons",
       "slug": "custom-icons",
-      "version": "0.2.10",
+      "version": "0.2.11",
       "displayName": "Custom Icons (Lucide + Remap)",
-      "url": "https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-custom-icons-0.2.10.tgz"
+      "url": "https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-custom-icons-0.2.11.tgz"
     },
     {
       "packageName": "@tuanla90/plugin-field-order",
