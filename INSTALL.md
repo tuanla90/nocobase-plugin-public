@@ -5,7 +5,7 @@ Các plugin trong repo này được đóng gói sẵn (`.tgz` ở `latest/@tuan
 ## ⭐ Cách nhanh nhất — Plugin Hub (cài 1 lần, lo hết)
 Cài **Plugin Hub** rồi nó tự cài/cập nhật mọi plugin còn lại từ manifest (`latest/index.json`) — khỏi dán URL 30+ lần.
 1. Admin NocoBase → **Plugin manager → Add → URL** → dán:
-   `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-hub-0.2.5.tgz`
+   `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90plugin-hub-0.2.7.tgz`
    → Install → **Enable**.
 2. Vào **Settings → Plugin Hub → Kiểm tra ngay** → cài/cập nhật từng cái hoặc **Cập nhật tất cả**.
 
@@ -22,11 +22,11 @@ Plugin cài lúc runtime nằm ở `storage/plugins` trên **service NocoBase** 
 ## Danh sách (6 plugin — sync theo `latest/@tuanla90/`)
 | Plugin | Version | Install URL |
 |---|---|---|
-| app-doctor | 0.3.7 | `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-app-doctor-0.3.7.tgz` |
-| column-resize | 0.1.12 | `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-column-resize-0.1.12.tgz` |
-| custom-icons | 0.2.10 | `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-custom-icons-0.2.10.tgz` |
-| field-order | 0.2.6 | `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-field-order-0.2.6.tgz` |
-| hub | 0.2.5 | `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-hub-0.2.5.tgz` |
-| perf-guard | 0.1.13 | `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-perf-guard-0.1.13.tgz` |
+| app-doctor | 0.3.8 | `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90plugin-app-doctor-0.3.8.tgz` |
+| column-resize | 0.1.12 | `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90plugin-column-resize-0.1.12.tgz` |
+| custom-icons | 0.2.11 | `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90plugin-custom-icons-0.2.11.tgz` |
+| field-order | 0.2.6 | `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90plugin-field-order-0.2.6.tgz` |
+| hub | 0.2.7 | `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90plugin-hub-0.2.7.tgz` |
+| perf-guard | 0.1.13 | `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90plugin-perf-guard-0.1.13.tgz` |
 
 _Tự sinh từ `latest/@tuanla90/` bởi `build-env/gen-manifest.cjs`. Chạy lại sau mỗi lần rebuild._
