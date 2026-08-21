@@ -164,13 +164,9 @@ a:hover{text-decoration:underline}
     <div class="nav-group">
       <div class="nav-cat"><span class="lang lang-vi">Bảo mật &amp; Đăng nhập</span><span class="lang lang-en" hidden>Security &amp; sign-in</span><span class="lang lang-zh" hidden>Security &amp; sign-in</span></div>
       <a class="nav-link" href="#ip-guard" data-text="chặn/cho phép theo ip (danh sách trắng/đen) ip guard (whitelist / blacklist) ip 门禁（白名单 / 黑名单） tường lửa nocobase theo ip client. chế độ danh sách trắng chỉ cho các ip trong danh sách truy cập api; danh sách đen chặn các ip liệt kê; chế độ giám sát chỉ ghi log mà không chặn. hỗ trợ ip đơn, dải cidr và dải đầu-cuối (ipv4 + ipv6), danh sách an toàn luôn cho phép (dành cho admin), miễn trừ loopback/lan, xử lý proxy x-forwarded-for, nhật ký truy cập và công cụ kiểm tra ip. firewall your nocobase by client ip. allow-list mode lets only listed ips reach the api; block-list mode blocks listed ips; a monitor mode logs without blocking. supports single ips, cidr ranges and start-end ranges (ipv4 + ipv6), an always-allow admin safe-list, loopback/lan exemptions, x-forwarded-for proxy handling, an access log and a built-in ip tester. 按客户端 ip 为 nocobase 加防火墙。白名单模式只放行列出的 ip；黑名单模式拦截列出的 ip；监控模式只记录不拦截。支持单个 ip、cidr 与起止区间（ipv4 与 ipv6）、管理员始终放行名单、回环与内网豁免、x-forwarded-for 代理处理、访问日志与 ip 测试工具。"><span class="lang lang-vi">Chặn/Cho phép theo IP (Danh sách trắng/đen)</span><span class="lang lang-en" hidden>IP Guard (Whitelist / Blacklist)</span><span class="lang lang-zh" hidden>IP 门禁（白名单 / 黑名单）</span></a>
+      <a class="nav-link" href="#google-login" data-text="đăng nhập bằng google google sign-in google 登录 đăng nhập nocobase bằng tài khoản google (oauth 2.0 / openid connect). thêm loại xác thực &quot;google&quot;: nút đăng nhập ngoài trang login, đổi mã ở phía server (client secret không lộ ra trình duyệt), tuỳ chọn tự tạo tài khoản, và danh sách domain google workspace được phép. chạy cùng trang đăng nhập tuỳ biến của plugin custom login trên cả hai client. sign in to nocobase with a google account (oauth 2.0 / openid connect). adds a &quot;google&quot; authenticator type: a sign-in button on the login page, server-side code exchange (the client secret never reaches the browser), optional auto sign-up, and an allow-list of google workspace domains. works with the custom login plugin's themed sign-in page on both clients. 使用 google 账号登录 nocobase（oauth 2.0 / openid connect）。新增&quot;google&quot;认证类型：登录页上的 google 按钮、在服务端完成授权码交换（client secret 绝不下发到浏览器）、可选自动注册，以及 google workspace 域名白名单。可与自定义登录插件的登录页在两个客户端上协同工作。"><span class="lang lang-vi">Đăng nhập bằng Google</span><span class="lang lang-en" hidden>Google Sign-In</span><span class="lang lang-zh" hidden>Google 登录</span></a>
       <a class="nav-link" href="#data-rule" data-text="luật dữ liệu (phân quyền dòng, cột &amp; trang) data rules (row, column &amp; page permissions) 数据规则（行、列与页面权限） ba tầng phân quyền trên cùng một trang. dòng: luật = vai trò r, trên bảng c, cho hành động xem/sửa/xoá, được đụng vào những dòng khớp biểu thức viết bằng đúng cú pháp công thức excel của trường tự tính. có biến người dùng hiện tại (kể cả qua quan hệ), vai trò và ngày tháng; nhánh theo vai trò viết gọn trong một biểu thức vì vế hằng được rút gọn ngay lúc chạy. có ai viết hộ từ mô tả tiếng việt hoặc chuyển thẳng security filter của appsheet (useremail/userrole/lookup/in...), tự kiểm chứng lại từng bản nháp bằng schema thật và số dòng khớp. luật được biên dịch thành filter của nocobase rồi and thêm vào phạm vi dữ liệu gốc — chỉ thu hẹp chứ không nới rộng, root luôn được bỏ qua, và có sẵn công cụ chạy thử cho biết người khác nhìn thấy bao nhiêu dòng. cột: giấu hẳn một cột khỏi vai trò, hoặc cho đọc nhưng cấm ghi — chặn ở server nên api và xuất dữ liệu cũng phải theo. trang: chính cơ chế phân quyền trang của nocobase (roles ↔ desktop routes) bày thành bảng cho tất cả vai trò thay vì xem từng vai trò một, ghi thẳng qua api lõi. three layers of &quot;who may touch what&quot; on one page. rows: rule = role r, on collection c, for view/edit/delete, may touch the rows matching an expression written in the same excel-style formula dialect as computed fields. variables for the current user (relations included), role and date; a role branch can live inside a single expression because constant sides fold at request time. an ai helper drafts a rule from a plain-language description or converts an appsheet security filter (useremail/userrole/lookup/in...), self-validating each draft against the real schema and row counts. rules compile to a nocobase filter and are and-ed on top of the native data scope — they only ever narrow, root always bypasses, and a built-in dry-run shows exactly how many rows another user would see. columns: hide a column from a role entirely, or let it read but never write — enforced server-side, so the api and exports obey it too (hidden names are stripped from the requested `fields`, not just added to `except`, which the core ignores once `fields` is set). pages: nocobase's own page permission (roles ↔ desktop routes) as one cross-role matrix instead of one role at a time, writing through the core endpoints. 在一个页面里管理三层权限。行：某角色在某数据表上，对查看／编辑／删除各自可以操作哪些行，条件用与计算字段相同的 excel 风格公式书写（data.&lt;字段&gt;、$user.*（可穿透关系）、$role、today()）。不含 data. 的一侧会在请求时先行求值，因此“管理员看全部，其余人只看自己负责的”可以写在同一个表达式里——这是普通筛选条件无法表达的。列：对某角色隐藏某些列，或允许读取但禁止写入；在服务端生效，所以 api 与导出同样受限。页面：把 nocobase 自身的页面权限（角色 ↔ 桌面路由）铺成一张跨角色的矩阵，勾选即通过核心接口写入，并可加条件（条件只会收回权限，不会额外授予）。规则编译成 nocobase 的筛选条件后叠加在原生数据范围之上，只会收紧不会放宽；root 始终不受限；没有规则的数据表完全不受影响。表达式在保存时即校验，另有试运行功能，可查看换成别的用户后实际能看到多少行。内置 ai：用自然语言描述即可生成规则，或直接粘贴 appsheet 的 security filter 自动转换，每次生成都会用真实结构编译并统计行数进行自检。"><span class="lang lang-vi">Luật dữ liệu (phân quyền dòng, cột &amp; trang)</span><span class="lang lang-en" hidden>Data Rules (row, column &amp; page permissions)</span><span class="lang lang-zh" hidden>数据规则（行、列与页面权限）</span></a>
       <a class="nav-link" href="#login-lite" data-text="trang đăng nhập tùy biến custom login 自定义登录页 tùy biến trang đăng nhập: nền (gradient dựng sẵn, ảnh, html hoặc nhúng trang web), bố cục form (panel bên hoặc thẻ nổi) và vị trí, chủ đề màu sáng/tối/theo hệ thống, logo, icon ô nhập, chân trang markdown, và trang đích sau đăng nhập. có xem trước; cả hai client. theme the sign-in page: background (gradient presets, image, html or embedded webpage), form layout (side panel or floating card) and position, color/light/dark/system themes, logo, input icons, markdown footer, and a post-login landing page. live preview; both clients. 自定义登录页外观：背景（渐变预设、图片、html 或内嵌网页）、表单布局与位置、明暗主题、logo、输入框图标、markdown 页脚，以及登录后的落地页。实时预览，两套客户端通用。"><span class="lang lang-vi">Trang đăng nhập tùy biến</span><span class="lang lang-en" hidden>Custom Login</span><span class="lang lang-zh" hidden>自定义登录页</span></a>
-    </div>
-
-    <div class="nav-group">
-      <div class="nav-cat"><span class="lang lang-vi">Authentication</span><span class="lang lang-en" hidden>Authentication</span><span class="lang lang-zh" hidden>Authentication</span></div>
-      <a class="nav-link" href="#google-login" data-text="đăng nhập bằng google google sign-in google 登录 đăng nhập nocobase bằng tài khoản google (oauth 2.0 / openid connect). thêm loại xác thực &quot;google&quot;: nút đăng nhập ngoài trang login, đổi mã ở phía server (client secret không lộ ra trình duyệt), tuỳ chọn tự tạo tài khoản, và danh sách domain google workspace được phép. chạy cùng trang đăng nhập tuỳ biến của plugin custom login trên cả hai client. sign in to nocobase with a google account (oauth 2.0 / openid connect). adds a &quot;google&quot; authenticator type: a sign-in button on the login page, server-side code exchange (the client secret never reaches the browser), optional auto sign-up, and an allow-list of google workspace domains. works with the custom login plugin's themed sign-in page on both clients. sign in to nocobase with a google account (oauth 2.0 / openid connect). adds a &quot;google&quot; authenticator type: a sign-in button on the login page, server-side code exchange (the client secret never reaches the browser), optional auto sign-up, and an allow-list of google workspace domains. works with the custom login plugin's themed sign-in page on both clients."><span class="lang lang-vi">Đăng nhập bằng Google</span><span class="lang lang-en" hidden>Google Sign-In</span><span class="lang lang-zh" hidden>Google 登录</span></a>
     </div>
         <div class="nav-empty" id="empty"><span class="lang lang-vi">Không tìm thấy plugin phù hợp.</span><span class="lang lang-en" hidden>No matching plugin found.</span><span class="lang lang-zh" hidden>No matching plugin found.</span></div>
       </div>
@@ -9909,7 +9905,7 @@ PTDL_VNTAX_LOOKUP_AUTH=Bearer xxx                               # if the source 
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Thêm cột tại chỗ</span><span class="lang lang-en" hidden>Inline Field</span><span class="lang lang-zh" hidden>就地新增字段</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.1.16</span>
+        <span class="chip">v0.1.17</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -10857,7 +10853,7 @@ photos with a <strong>GPS/time watermark</strong>, a <strong>location on a map</
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Thứ tự trường</span><span class="lang lang-en" hidden>Field Order</span><span class="lang lang-zh" hidden>字段排序</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.2.7</span>
+        <span class="chip">v0.2.8</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -10865,7 +10861,7 @@ photos with a <strong>GPS/time watermark</strong>, a <strong>location on a map</
 cấu hình trường — không cần code, không cần restart server.
 <strong>Từ 0.1.1</strong>, plugin còn <strong>tự sắp lại menu trong trang Settings</strong> cho gọn gàng theo nhóm.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Trường (Fields) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.7</p>
+<p><strong>Nhóm:</strong> Trường (Fields) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.8</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Một nút mới: “Sắp xếp trường”</strong> xuất hiện trên <strong>thanh công cụ của ngăn cấu hình trường</strong> (ngăn kéo ra khi bạn mở phần “Configure fields” của một bảng — chỗ có nút <strong>“Add field”</strong>). Nút nằm cạnh nút thêm trường.</li>
@@ -10950,7 +10946,7 @@ cấu hình trường — không cần code, không cần restart server.
 no code, no server restart.
 <strong>Since 0.1.1</strong>, the plugin also <strong>tidies the Settings-page menu</strong> into logical groups.</p>
 </blockquote>
-<p><strong>Group:</strong> Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.7</p>
+<p><strong>Group:</strong> Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.8</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A new button: “Reorder fields”</strong> appears on the <strong>toolbar of the field-configuration drawer</strong> (the drawer that opens when you “Configure fields” of a collection — where the <strong>“Add field”</strong> button is). It sits next to the add-field button.</li>
@@ -11034,7 +11030,7 @@ no code, no server restart.
 <p>直接在字段配置界面上，用<strong>拖拽</strong>给数据表的<strong>字段</strong>重新排序 —— 无需写代码，也无需重启服务端。
 <strong>自 0.1.1 起</strong>，插件还会把<strong>设置页面的菜单</strong>整理成有条理的分组。</p>
 </blockquote>
-<p><strong>分组：</strong> Fields（字段） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.7</p>
+<p><strong>分组：</strong> Fields（字段） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.8</p>
 <h3>安装之后多了什么？</h3>
 <ul>
 <li><strong>一个新按钮：“字段排序”</strong>，出现在<strong>字段配置抽屉的工具栏</strong>上（就是你对某个数据表“配置字段”时打开的那个抽屉 —— **“添加字段”**按钮所在的地方）。它紧挨着添加字段按钮。</li>
@@ -30067,6 +30063,397 @@ configured right in the admin UI, <strong>no code, no server restart</strong>.</
 </div>
     </section>
 
+    <section class="plugin" id="google-login" data-text="đăng nhập bằng google google sign-in google 登录 đăng nhập nocobase bằng tài khoản google (oauth 2.0 / openid connect). thêm loại xác thực &quot;google&quot;: nút đăng nhập ngoài trang login, đổi mã ở phía server (client secret không lộ ra trình duyệt), tuỳ chọn tự tạo tài khoản, và danh sách domain google workspace được phép. chạy cùng trang đăng nhập tuỳ biến của plugin custom login trên cả hai client. sign in to nocobase with a google account (oauth 2.0 / openid connect). adds a &quot;google&quot; authenticator type: a sign-in button on the login page, server-side code exchange (the client secret never reaches the browser), optional auto sign-up, and an allow-list of google workspace domains. works with the custom login plugin's themed sign-in page on both clients. 使用 google 账号登录 nocobase（oauth 2.0 / openid connect）。新增&quot;google&quot;认证类型：登录页上的 google 按钮、在服务端完成授权码交换（client secret 绝不下发到浏览器）、可选自动注册，以及 google workspace 域名白名单。可与自定义登录插件的登录页在两个客户端上协同工作。 security">
+      <div class="plugin-head">
+        <h2><span class="lang lang-vi">Đăng nhập bằng Google</span><span class="lang lang-en" hidden>Google Sign-In</span><span class="lang lang-zh" hidden>Google 登录</span></h2>
+        <span class="chip chip-cat"><span class="lang lang-vi">Bảo mật &amp; Đăng nhập</span><span class="lang lang-en" hidden>Security &amp; sign-in</span><span class="lang lang-zh" hidden>Security &amp; sign-in</span></span>
+        <span class="chip">v0.1.1</span>
+        <a class="chip chip-top" href="#top" title="Top">↑</a>
+      </div>
+      <div class="prose lang lang-vi"><blockquote>
+<p>Cho mọi người vào NocoBase bằng chính tài khoản Google họ đang dùng. Bạn đăng ký một OAuth client
+bên Google, dán hai giá trị vào đây, và nút “Đăng nhập bằng Google” hiện ngay trên trang đăng nhập —
+kể cả trang đã trang trí bằng plugin Custom Login, trên cả hai client.</p>
+</blockquote>
+<p><strong>Nhóm:</strong> Bảo mật · <strong>Chạy trên:</strong> /admin + /v/ (cả hai client) · <strong>Phiên bản:</strong> 0.1.1</p>
+<h3>Bạn được gì</h3>
+<p>Một loại xác thực mới tên là <strong>Google</strong>. Mọi thứ khác giữ nguyên: đăng nhập bằng mật khẩu vẫn chạy,
+vai trò và phân quyền không đổi, và bạn có thể dùng nhiều authenticator Google song song (ví dụ mỗi
+domain Workspace một cái).</p>
+<p>Toàn bộ việc trao đổi diễn ra <strong>ở phía server</strong>. Trình duyệt chỉ thấy lệnh chuyển hướng sang Google
+rồi quay về, nên client secret không bao giờ rời khỏi máy chạy NocoBase.</p>
+<h3>Bước 1 — tạo OAuth client trên Google</h3>
+<p>Vào <a href="https://console.cloud.google.com/">Google Cloud Console</a>: chọn project → <strong>APIs &amp; Services →
+OAuth consent screen</strong> (<em>Internal</em> để giới hạn trong Workspace của bạn) → <strong>Credentials → Create
+credentials → OAuth client ID</strong> → loại <strong>Web application</strong>. Ở mục <strong>Authorized redirect URIs</strong>, thêm
+đúng địa chỉ mà màn hình cấu hình hiển thị (có sẵn nút copy):</p>
+<pre><code>https://&lt;your-app&gt;/api/ptdlGoogleAuth:callback
+</code></pre>
+<p>Lưu lại, rồi giữ <strong>Client ID</strong> và <strong>Client secret</strong> cho bước sau.</p>
+<h3>Bước 2 — khai báo authenticator</h3>
+<p>Vào <strong>Cài đặt → Xác thực → Thêm → Google</strong> rồi điền:</p>
+<table>
+<thead>
+<tr>
+<th>Mục</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Client ID</td>
+<td>Lấy ở bước 1</td>
+</tr>
+<tr>
+<td>Client secret</td>
+<td>Lấy ở bước 1 — chỉ lưu phía server</td>
+</tr>
+<tr>
+<td>Địa chỉ ứng dụng</td>
+<td>Địa chỉ công khai của app. Để trống = tự nhận theo request; hãy điền khi chạy sau proxy hoặc tên miền riêng</td>
+</tr>
+<tr>
+<td>Domain email được phép</td>
+<td><code>company.com, partner.com</code>. Để trống = mọi tài khoản Google</td>
+</tr>
+<tr>
+<td>Vai trò cho người dùng mới</td>
+<td>Vai trò gán cho tài khoản được tạo tự động</td>
+</tr>
+<tr>
+<td>Tự tạo tài khoản</td>
+<td>Bật = người Google mới có tài khoản ngay. Tắt = chỉ ai đã có tài khoản mới vào được</td>
+</tr>
+<tr>
+<td>Gộp với người dùng cùng email</td>
+<td>Bật (mặc định) = danh tính Google gắn vào tài khoản đang dùng email đó</td>
+</tr>
+<tr>
+<td>Nhãn nút</td>
+<td>Chữ hiển thị trên nút đăng nhập</td>
+</tr>
+<tr>
+<td>Trang vào sau khi đăng nhập</td>
+<td>Một đường dẫn như <code>/admin</code>. Để trống = đi tiếp tới nơi người dùng đang muốn vào</td>
+</tr>
+</tbody>
+</table>
+<p>Bật lên là nút xuất hiện ở trang đăng nhập.</p>
+<h3>Một lượt đăng nhập chạy thế nào</h3>
+<pre><code>browser  -&gt;  /api/ptdlGoogleAuth:authorize?authenticator=&lt;name&gt;   -&gt;  302 to Google
+Google   -&gt;  /api/ptdlGoogleAuth:callback?code=...&amp;state=...      -&gt;  code exchanged on the server,
+                                                                      profile read, user resolved,
+                                                                      token issued, 302 back
+app      -&gt;  stores the token and opens the landing page
+</code></pre>
+<p>Người dùng được khớp theo ba bước: danh tính đã từng đăng nhập bằng Google, rồi tài khoản sẵn có trùng
+địa chỉ email, và cuối cùng mới là tạo tài khoản mới — bước cuối này chỉ xảy ra khi bật <em>Tự tạo tài
+khoản</em>.</p>
+<h3>Bảo mật</h3>
+<p>Client secret nằm lại ở server. Tham số <code>state</code> được ký bằng khoá ứng dụng và hết hạn sau mười phút,
+nên một liên kết đăng nhập bị sửa, bị giả chữ ký hay để quá lâu đều bị từ chối. Hồ sơ Google đã xác
+thực được chuyển cho phần đăng nhập qua vùng state phía server chứ không qua nội dung request, và
+chính điều này chặn việc gọi thẳng API đăng nhập kèm email của người khác. Đường dẫn quay lại luôn bị
+ép về đúng địa chỉ của app, còn tài khoản Google chưa xác minh email thì bị từ chối vì bước gộp tài
+khoản dựa trên email.</p>
+<p>Quản trị viên mở lại màn hình cấu hình vẫn đọc được client secret, giống cách NocoBase lưu các cấu
+hình xác thực khác — nên hãy cân nhắc khi cấp quyền quản trị.</p>
+<h3>Xử lý sự cố</h3>
+<table>
+<thead>
+<tr>
+<th>Thông báo</th>
+<th>Cần làm gì</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>redirect_uri_mismatch</code></td>
+<td>URI trong Google Console khác với chuỗi hiện ở màn hình cấu hình. Copy lại, để ý http hay https, cổng, và phần đuôi</td>
+</tr>
+<tr>
+<td><code>Invalid or expired sign-in state</code></td>
+<td>Đã quá mười phút, hoặc khoá ứng dụng đã đổi. Bấm nút đăng nhập lại</td>
+</tr>
+<tr>
+<td><code>No NocoBase account for ...</code></td>
+<td><em>Tự tạo tài khoản</em> đang tắt và chưa ai dùng email đó</td>
+</tr>
+<tr>
+<td><code>This Google account is not allowed to sign in</code></td>
+<td>Email nằm ngoài <em>Domain email được phép</em></td>
+</tr>
+<tr>
+<td><code>Google client ID is not configured</code></td>
+<td>Authenticator chưa điền Client ID</td>
+</tr>
+<tr>
+<td>Quay lại trang đăng nhập mà không báo gì</td>
+<td>Xem log server ở dòng <code>[google-login]</code></td>
+</tr>
+</tbody>
+</table>
+<h3>Dành cho người phát triển</h3>
+<p>Mã loại xác thực là <code>google</code>, nhờ vậy trang Custom Login tự lấy đúng icon Google. Hai endpoint công
+khai đứng sau nó: <code>ptdlGoogleAuth:authorize</code> và <code>ptdlGoogleAuth:callback</code>. Không thêm bảng dữ liệu nào
+— chuỗi <code>state</code> đã ký tự mang đủ ngữ cảnh — và không cần thư viện <code>googleapis</code>, vì <code>fetch</code> có sẵn của
+Node lo phần đổi token.</p>
+</div>
+      <div class="prose lang lang-en" hidden><blockquote>
+<p>Let people into NocoBase with the Google account they already use. You register one OAuth client
+with Google, paste two values here, and a “Sign in with Google” button appears on the login page —
+including the themed one from the Custom Login plugin, on both clients.</p>
+</blockquote>
+<p><strong>Group:</strong> Security · <strong>Runs on:</strong> /admin + /v/ (both clients) · <strong>Version:</strong> 0.1.1</p>
+<h3>What you get</h3>
+<p>A new authenticator type called <strong>Google</strong>. Everything else stays as it is: password sign-in keeps
+working, roles and permissions are unchanged, and you can run several Google authenticators side by
+side (for example one per Workspace domain).</p>
+<p>The whole exchange happens <strong>on the server</strong>. The browser only ever sees a redirect to Google and a
+redirect back, so your client secret never leaves the machine NocoBase runs on.</p>
+<h3>Step 1 — create the Google OAuth client</h3>
+<p>In <a href="https://console.cloud.google.com/">Google Cloud Console</a>: pick a project → <strong>APIs &amp; Services →
+OAuth consent screen</strong> (<em>Internal</em> keeps it to your Workspace) → <strong>Credentials → Create credentials →
+OAuth client ID</strong> → application type <strong>Web application</strong>. Under <strong>Authorized redirect URIs</strong> add this
+address, exactly as the settings screen shows it (there is a copy button):</p>
+<pre><code>https://&lt;your-app&gt;/api/ptdlGoogleAuth:callback
+</code></pre>
+<p>Save, then keep the <strong>Client ID</strong> and <strong>Client secret</strong> for the next step.</p>
+<h3>Step 2 — add the authenticator</h3>
+<p>Go to <strong>Settings → Authentication → Add → Google</strong> and fill in:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Client ID</td>
+<td>From step 1</td>
+</tr>
+<tr>
+<td>Client secret</td>
+<td>From step 1 — stored server-side only</td>
+</tr>
+<tr>
+<td>App URL</td>
+<td>Public address of this app. Empty = detected from the request; set it behind a proxy or custom domain</td>
+</tr>
+<tr>
+<td>Allowed email domains</td>
+<td><code>company.com, partner.com</code>. Empty = any Google account</td>
+</tr>
+<tr>
+<td>Role for new users</td>
+<td>Role given to accounts created automatically</td>
+</tr>
+<tr>
+<td>Create an account automatically</td>
+<td>On = a new Google user gets an account. Off = only people who already have one may sign in</td>
+</tr>
+<tr>
+<td>Link to an existing user with the same email</td>
+<td>On (default) = the Google identity attaches to the account that already uses that email</td>
+</tr>
+<tr>
+<td>Button label</td>
+<td>Text on the sign-in button</td>
+</tr>
+<tr>
+<td>Landing page after sign-in</td>
+<td>A path such as <code>/admin</code>. Empty = wherever the user was heading</td>
+</tr>
+</tbody>
+</table>
+<p>Enable it and the button shows up on the sign-in page.</p>
+<h3>How a sign-in runs</h3>
+<pre><code>browser  -&gt;  /api/ptdlGoogleAuth:authorize?authenticator=&lt;name&gt;   -&gt;  302 to Google
+Google   -&gt;  /api/ptdlGoogleAuth:callback?code=...&amp;state=...      -&gt;  code exchanged on the server,
+                                                                      profile read, user resolved,
+                                                                      token issued, 302 back
+app      -&gt;  stores the token and opens the landing page
+</code></pre>
+<p>A person is matched in three steps: an identity that already signed in with Google, then an existing
+user with the same email address, and only then a brand-new account — and that last step happens only
+when <em>Create an account automatically</em> is on.</p>
+<h3>Security</h3>
+<p>The client secret stays on the server. The <code>state</code> parameter is signed with the app key and expires
+after ten minutes, so a tampered, forged or stale sign-in link is refused. The verified Google profile
+is handed to the sign-in code through server-side state and never through the request body, which is
+what stops someone from calling the sign-in API with another person’s email address. The return path
+is forced back onto this app’s own address, and Google accounts whose email is not verified are
+rejected because account linking matches on email.</p>
+<p>Administrators can read the client secret back in the settings drawer, the same way NocoBase stores
+other authentication settings — so treat administrator access accordingly.</p>
+<h3>Troubleshooting</h3>
+<table>
+<thead>
+<tr>
+<th>Message</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>redirect_uri_mismatch</code></td>
+<td>The URI in Google Console differs from the one shown in the settings screen. Copy it again, watching http vs https, the port, and the trailing part</td>
+</tr>
+<tr>
+<td><code>Invalid or expired sign-in state</code></td>
+<td>More than ten minutes passed, or the app key changed. Press the button again</td>
+</tr>
+<tr>
+<td><code>No NocoBase account for ...</code></td>
+<td><em>Create an account automatically</em> is off and nobody has that email yet</td>
+</tr>
+<tr>
+<td><code>This Google account is not allowed to sign in</code></td>
+<td>The email is outside <em>Allowed email domains</em></td>
+</tr>
+<tr>
+<td><code>Google client ID is not configured</code></td>
+<td>The authenticator has no Client ID</td>
+</tr>
+<tr>
+<td>Back on the login page with nothing shown</td>
+<td>Check the server log for <code>[google-login]</code></td>
+</tr>
+</tbody>
+</table>
+<h3>For developers</h3>
+<p>The auth type id is <code>google</code>, so the Custom Login page picks up its Google icon automatically. Two
+public endpoints back it: <code>ptdlGoogleAuth:authorize</code> and <code>ptdlGoogleAuth:callback</code>. There is no extra
+database table — the signed <code>state</code> carries its own context — and no <code>googleapis</code> dependency, since
+Node’s built-in <code>fetch</code> does the token exchange.</p>
+</div>
+      <div class="prose lang lang-zh" hidden><blockquote>
+<p>让大家用手上已有的 Google 账号进入 NocoBase。你在 Google 那边注册一个 OAuth 客户端，把两个值粘贴到
+这里，登录页上就会出现「使用 Google 登录」按钮 —— 包括自定义登录插件美化过的登录页，两个客户端都
+支持。</p>
+</blockquote>
+<p><strong>分组：</strong> 安全 · <strong>运行于：</strong> /admin + /v/（两个客户端） · <strong>版本：</strong> 0.1.1</p>
+<h3>你会得到什么</h3>
+<p>一个名为 <strong>Google</strong> 的新认证类型。其余一切保持不变：密码登录照常可用，角色与权限不受影响，而且可以
+同时启用多个 Google 认证器（例如每个 Workspace 域名一个）。</p>
+<p>整个换取过程都在 <strong>服务端</strong> 完成。浏览器只会看到跳转到 Google、再跳转回来，因此 client secret 绝不会
+离开运行 NocoBase 的那台机器。</p>
+<h3>第一步 —— 创建 Google OAuth 客户端</h3>
+<p>打开 <a href="https://console.cloud.google.com/">Google Cloud Console</a>：选择项目 → <strong>APIs &amp; Services →
+OAuth consent screen</strong>（选 <em>Internal</em> 可限定在自己的 Workspace 内）→ <strong>Credentials → Create
+credentials → OAuth client ID</strong> → 类型选 <strong>Web application</strong>。在 <strong>Authorized redirect URIs</strong> 中，
+按配置界面显示的地址原样添加（界面上有复制按钮）：</p>
+<pre><code>https://&lt;your-app&gt;/api/ptdlGoogleAuth:callback
+</code></pre>
+<p>保存后，记下 <strong>Client ID</strong> 与 <strong>Client secret</strong>，下一步要用。</p>
+<h3>第二步 —— 添加认证器</h3>
+<p>进入 <strong>设置 → 认证 → 添加 → Google</strong>，填写：</p>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Client ID</td>
+<td>来自第一步</td>
+</tr>
+<tr>
+<td>Client secret</td>
+<td>来自第一步 —— 仅保存在服务端</td>
+</tr>
+<tr>
+<td>应用地址</td>
+<td>本应用的公开地址。留空则按请求自动识别；使用反向代理或自定义域名时请填写</td>
+</tr>
+<tr>
+<td>允许的邮箱域名</td>
+<td><code>company.com, partner.com</code>。留空表示允许任意 Google 账号</td>
+</tr>
+<tr>
+<td>新用户的角色</td>
+<td>分配给自动创建账号的角色</td>
+</tr>
+<tr>
+<td>自动创建账号</td>
+<td>开启＝新的 Google 用户直接获得账号。关闭＝只有已有账号的人才能登录</td>
+</tr>
+<tr>
+<td>与相同邮箱的已有用户关联</td>
+<td>开启（默认）＝该 Google 身份挂到已在使用该邮箱的账号上</td>
+</tr>
+<tr>
+<td>按钮文字</td>
+<td>登录按钮上显示的文字</td>
+</tr>
+<tr>
+<td>登录后进入的页面</td>
+<td>形如 <code>/admin</code> 的路径。留空表示前往用户原本要访问的页面</td>
+</tr>
+</tbody>
+</table>
+<p>启用后，按钮就会出现在登录页上。</p>
+<h3>一次登录是怎么走完的</h3>
+<pre><code>browser  -&gt;  /api/ptdlGoogleAuth:authorize?authenticator=&lt;name&gt;   -&gt;  302 to Google
+Google   -&gt;  /api/ptdlGoogleAuth:callback?code=...&amp;state=...      -&gt;  code exchanged on the server,
+                                                                      profile read, user resolved,
+                                                                      token issued, 302 back
+app      -&gt;  stores the token and opens the landing page
+</code></pre>
+<p>匹配用户分三步：先找曾经用 Google 登录过的身份，再找邮箱相同的已有账号，最后才是新建账号 —— 而最后
+这一步只有在开启 <em>自动创建账号</em> 时才会发生。</p>
+<h3>安全性</h3>
+<p>client secret 始终留在服务端。<code>state</code> 参数用应用密钥签名并在十分钟后过期，因此被篡改、伪造签名或搁置
+过久的登录链接都会被拒绝。经过验证的 Google 资料是通过服务端 state 交给登录逻辑的，而不是经由请求体，
+正是这一点挡住了「拿别人的邮箱直接调用登录接口」的做法。回跳地址被强制限定在本应用自身的地址上；邮箱
+未通过验证的 Google 账号会被拒绝，因为账号关联是按邮箱匹配的。</p>
+<p>管理员重新打开配置抽屉时仍可读到 client secret，这与 NocoBase 保存其他认证配置的方式一致 —— 因此请
+相应地控制管理员权限。</p>
+<h3>疑难排查</h3>
+<table>
+<thead>
+<tr>
+<th>提示信息</th>
+<th>该怎么做</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>redirect_uri_mismatch</code></td>
+<td>Google Console 里的 URI 与配置界面显示的不一致。重新复制，注意 http 与 https、端口以及结尾部分</td>
+</tr>
+<tr>
+<td><code>Invalid or expired sign-in state</code></td>
+<td>已超过十分钟，或应用密钥变更过。请重新点击按钮</td>
+</tr>
+<tr>
+<td><code>No NocoBase account for ...</code></td>
+<td><em>自动创建账号</em> 处于关闭状态，且还没有人使用该邮箱</td>
+</tr>
+<tr>
+<td><code>This Google account is not allowed to sign in</code></td>
+<td>该邮箱不在 <em>允许的邮箱域名</em> 范围内</td>
+</tr>
+<tr>
+<td><code>Google client ID is not configured</code></td>
+<td>该认证器还没有填写 Client ID</td>
+</tr>
+<tr>
+<td>回到登录页却没有任何提示</td>
+<td>查看服务端日志中的 <code>[google-login]</code></td>
+</tr>
+</tbody>
+</table>
+<h3>面向开发者</h3>
+<p>认证类型标识是 <code>google</code>，因此自定义登录页会自动取到对应的 Google 图标。背后是两个公开端点：
+<code>ptdlGoogleAuth:authorize</code> 与 <code>ptdlGoogleAuth:callback</code>。不会新增任何数据表 —— 已签名的 <code>state</code>
+自带上下文 —— 也不需要 <code>googleapis</code> 依赖，因为换取令牌由 Node 内置的 <code>fetch</code> 完成。</p>
+</div>
+    </section>
+
     <section class="plugin" id="data-rule" data-text="luật dữ liệu (phân quyền dòng, cột &amp; trang) data rules (row, column &amp; page permissions) 数据规则（行、列与页面权限） ba tầng phân quyền trên cùng một trang. dòng: luật = vai trò r, trên bảng c, cho hành động xem/sửa/xoá, được đụng vào những dòng khớp biểu thức viết bằng đúng cú pháp công thức excel của trường tự tính. có biến người dùng hiện tại (kể cả qua quan hệ), vai trò và ngày tháng; nhánh theo vai trò viết gọn trong một biểu thức vì vế hằng được rút gọn ngay lúc chạy. có ai viết hộ từ mô tả tiếng việt hoặc chuyển thẳng security filter của appsheet (useremail/userrole/lookup/in...), tự kiểm chứng lại từng bản nháp bằng schema thật và số dòng khớp. luật được biên dịch thành filter của nocobase rồi and thêm vào phạm vi dữ liệu gốc — chỉ thu hẹp chứ không nới rộng, root luôn được bỏ qua, và có sẵn công cụ chạy thử cho biết người khác nhìn thấy bao nhiêu dòng. cột: giấu hẳn một cột khỏi vai trò, hoặc cho đọc nhưng cấm ghi — chặn ở server nên api và xuất dữ liệu cũng phải theo. trang: chính cơ chế phân quyền trang của nocobase (roles ↔ desktop routes) bày thành bảng cho tất cả vai trò thay vì xem từng vai trò một, ghi thẳng qua api lõi. three layers of &quot;who may touch what&quot; on one page. rows: rule = role r, on collection c, for view/edit/delete, may touch the rows matching an expression written in the same excel-style formula dialect as computed fields. variables for the current user (relations included), role and date; a role branch can live inside a single expression because constant sides fold at request time. an ai helper drafts a rule from a plain-language description or converts an appsheet security filter (useremail/userrole/lookup/in...), self-validating each draft against the real schema and row counts. rules compile to a nocobase filter and are and-ed on top of the native data scope — they only ever narrow, root always bypasses, and a built-in dry-run shows exactly how many rows another user would see. columns: hide a column from a role entirely, or let it read but never write — enforced server-side, so the api and exports obey it too (hidden names are stripped from the requested `fields`, not just added to `except`, which the core ignores once `fields` is set). pages: nocobase's own page permission (roles ↔ desktop routes) as one cross-role matrix instead of one role at a time, writing through the core endpoints. 在一个页面里管理三层权限。行：某角色在某数据表上，对查看／编辑／删除各自可以操作哪些行，条件用与计算字段相同的 excel 风格公式书写（data.&lt;字段&gt;、$user.*（可穿透关系）、$role、today()）。不含 data. 的一侧会在请求时先行求值，因此“管理员看全部，其余人只看自己负责的”可以写在同一个表达式里——这是普通筛选条件无法表达的。列：对某角色隐藏某些列，或允许读取但禁止写入；在服务端生效，所以 api 与导出同样受限。页面：把 nocobase 自身的页面权限（角色 ↔ 桌面路由）铺成一张跨角色的矩阵，勾选即通过核心接口写入，并可加条件（条件只会收回权限，不会额外授予）。规则编译成 nocobase 的筛选条件后叠加在原生数据范围之上，只会收紧不会放宽；root 始终不受限；没有规则的数据表完全不受影响。表达式在保存时即校验，另有试运行功能，可查看换成别的用户后实际能看到多少行。内置 ai：用自然语言描述即可生成规则，或直接粘贴 appsheet 的 security filter 自动转换，每次生成都会用真实结构编译并统计行数进行自检。 security">
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Luật dữ liệu (phân quyền dòng, cột &amp; trang)</span><span class="lang lang-en" hidden>Data Rules (row, column &amp; page permissions)</span><span class="lang lang-zh" hidden>数据规则（行、列与页面权限）</span></h2>
@@ -31290,215 +31677,6 @@ the login page <strong>still uses the plugin’s default skin</strong> (gradient
 <hr>
 <h4>面向开发者</h4>
 <p>这个插件在<strong>两条 lane</strong>（<code>/</code> 经典版和 <code>/v/</code> 现代版）上都<strong>覆盖</strong>了 <code>AuthLayout</code> + <code>SignInPage</code>。配置存放在 <strong><code>login_configs</code></strong> 表里 —— 每一行都有 <code>options</code>（JSON）、<code>type = 'home'</code> 和一个 <code>enabled</code> 标志。<strong><code>getActiveConfig</code></strong> 操作<strong>仅对</strong> <code>type = 'home'</code> <strong>公开</strong>；<strong>启用</strong>一份配置会<strong>自动停用</strong>同类型的其他配置（只有一份处于活动状态）。设置页通过 <code>pluginSettingsManager.add</code>（经典版）和 <code>addMenuItem</code> + <code>addPageTabItem</code>（v2）注册，两边编辑的是同一条记录。不依赖框架的辅助函数放在 <code>@tuanla90/shared</code>（<code>loginKit</code>）里，并被打包进插件。登录输入框会把 placeholder 镜像到 <code>aria-label</code>，方便屏幕阅读器。双许可 AGPL-3.0 / NocoBase Commercial —— 请保留页脚的署名行。</p>
-</div>
-    </section>
-
-    <section class="plugin" id="google-login" data-text="đăng nhập bằng google google sign-in google 登录 đăng nhập nocobase bằng tài khoản google (oauth 2.0 / openid connect). thêm loại xác thực &quot;google&quot;: nút đăng nhập ngoài trang login, đổi mã ở phía server (client secret không lộ ra trình duyệt), tuỳ chọn tự tạo tài khoản, và danh sách domain google workspace được phép. chạy cùng trang đăng nhập tuỳ biến của plugin custom login trên cả hai client. sign in to nocobase with a google account (oauth 2.0 / openid connect). adds a &quot;google&quot; authenticator type: a sign-in button on the login page, server-side code exchange (the client secret never reaches the browser), optional auto sign-up, and an allow-list of google workspace domains. works with the custom login plugin's themed sign-in page on both clients. sign in to nocobase with a google account (oauth 2.0 / openid connect). adds a &quot;google&quot; authenticator type: a sign-in button on the login page, server-side code exchange (the client secret never reaches the browser), optional auto sign-up, and an allow-list of google workspace domains. works with the custom login plugin's themed sign-in page on both clients. authentication">
-      <div class="plugin-head">
-        <h2><span class="lang lang-vi">Đăng nhập bằng Google</span><span class="lang lang-en" hidden>Google Sign-In</span><span class="lang lang-zh" hidden>Google 登录</span></h2>
-        <span class="chip chip-cat"><span class="lang lang-vi">Authentication</span><span class="lang lang-en" hidden>Authentication</span><span class="lang lang-zh" hidden>Authentication</span></span>
-        <span class="chip">v0.1.0</span>
-        <a class="chip chip-top" href="#top" title="Top">↑</a>
-      </div>
-      <div class="prose lang lang-vi"><p>Cho phép đăng nhập NocoBase bằng tài khoản Google (OAuth 2.0 / OpenID Connect). Plugin thêm một <strong>loại xác thực “Google”</strong>: nút “Đăng nhập bằng Google” ngoài trang login, đổi mã ở phía <strong>server</strong> (client secret không bao giờ xuống trình duyệt), tuỳ chọn tự tạo tài khoản, và giới hạn theo <strong>domain</strong> Google Workspace.</p>
-<p>Chạy sẵn với trang đăng nhập tuỳ biến của plugin <strong>Custom Login (login-lite)</strong> trên <strong>cả hai client</strong> (<code>/admin</code> và <code>/v/</code>) — không cần cấu hình gì thêm.</p>
-<hr>
-<h3>1. Tạo OAuth client trên Google (một lần)</h3>
-<ol>
-<li>Vào <a href="https://console.cloud.google.com/">Google Cloud Console</a> → chọn/ tạo project.</li>
-<li><strong>APIs &amp; Services → OAuth consent screen</strong>: chọn <em>Internal</em> (chỉ nhân viên trong Workspace) hoặc <em>External</em>, điền tên ứng dụng + email hỗ trợ.</li>
-<li><strong>APIs &amp; Services → Credentials → Create credentials → OAuth client ID</strong>
-<ul>
-<li><strong>Application type</strong>: <code>Web application</code></li>
-<li><strong>Authorized redirect URIs</strong>: dán <strong>chính xác</strong> địa chỉ mà plugin hiển thị trong màn hình cấu hình, dạng:<pre><code>https://&lt;địa-chỉ-app-của-bạn&gt;/api/ptdlGoogleAuth:callback
-</code></pre>
-</li>
-</ul>
-</li>
-<li>Lưu lại <strong>Client ID</strong> và <strong>Client secret</strong>.</li>
-</ol>
-<blockquote>
-<p>⚠️ Sai một ký tự ở redirect URI là Google báo <code>redirect_uri_mismatch</code>. Plugin sẽ hiện đúng chuỗi cần dán (có nút copy) trong màn hình cấu hình.</p>
-</blockquote>
-<h3>2. Khai báo trong NocoBase</h3>
-<p><strong>Cài đặt → Xác thực (Authentication) → Thêm → chọn loại <code>Google</code></strong>, rồi điền:</p>
-<table>
-<thead>
-<tr>
-<th>Trường</th>
-<th>Ý nghĩa</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Client ID / Client secret</strong></td>
-<td>Lấy từ bước 1</td>
-</tr>
-<tr>
-<td><strong>Địa chỉ ứng dụng</strong> (tuỳ chọn)</td>
-<td>Địa chỉ công khai của app, vd <code>https://app.company.com</code>. Để trống = tự nhận theo request. <strong>Nên điền</strong> khi chạy sau proxy / tên miền riêng</td>
-</tr>
-<tr>
-<td><strong>Domain email được phép</strong> (tuỳ chọn)</td>
-<td>vd <code>company.com, partner.com</code>. Để trống = mọi tài khoản Google</td>
-</tr>
-<tr>
-<td><strong>Vai trò cho người dùng mới</strong> (tuỳ chọn)</td>
-<td>Vai trò gán cho tài khoản được tạo tự động</td>
-</tr>
-<tr>
-<td><strong>Tự tạo tài khoản</strong></td>
-<td>Bật = người Google mới tự có tài khoản. Tắt = chỉ ai đã có tài khoản mới vào được</td>
-</tr>
-<tr>
-<td><strong>Gộp với người dùng cùng email</strong></td>
-<td>Bật (mặc định) = tài khoản Google gắn vào user sẵn có cùng email</td>
-</tr>
-<tr>
-<td><strong>Nhãn nút / Trang vào sau đăng nhập</strong></td>
-<td>Tuỳ biến hiển thị</td>
-</tr>
-</tbody>
-</table>
-<p>Bật authenticator lên là nút Google xuất hiện ở trang đăng nhập.</p>
-<h3>3. Cách hoạt động</h3>
-<pre><code>Trình duyệt  →  /api/ptdlGoogleAuth:authorize?authenticator=&lt;tên&gt;
-             →  302 sang màn hình đồng ý của Google
-Google       →  /api/ptdlGoogleAuth:callback?code=…&amp;state=…
-             →  server đổi code lấy token, đọc hồ sơ, tìm/tạo user,
-                cấp token NocoBase, 302 quay lại app kèm token
-App          →  lưu token qua SDK và vào thẳng ứng dụng
-</code></pre>
-<p>Người dùng được khớp theo thứ tự: <strong>(1)</strong> đã từng đăng nhập Google (theo <code>sub</code> của Google) → <strong>(2)</strong> user sẵn có trùng email → <strong>(3)</strong> tạo mới (nếu bật <em>Tự tạo tài khoản</em>).</p>
-<h3>4. Bảo mật</h3>
-<ul>
-<li><strong>Client secret chỉ nằm ở server.</strong> Việc đổi code diễn ra trong tiến trình NocoBase; trình duyệt không bao giờ thấy secret.</li>
-<li><strong>Chống CSRF/giả mạo:</strong> tham số <code>state</code> được <strong>ký HMAC</strong> bằng <code>APP_KEY</code> của app, hết hạn sau 10 phút. State bị sửa / ký sai / hết hạn đều bị từ chối (đã kiểm thử).</li>
-<li><strong>Không thể mạo danh qua API:</strong> hồ sơ Google đã xác thực được truyền qua <code>ctx.state</code> (chỉ tồn tại phía server), <strong>không</strong> qua body request — nên không thể gọi thẳng <code>auth:signIn</code> kèm email người khác để chiếm tài khoản.</li>
-<li><strong>Chống open-redirect:</strong> đường dẫn quay lại luôn bị ép về đúng origin của app.</li>
-<li><strong>Email chưa xác minh</strong> bị từ chối (vì bước gộp tài khoản dựa trên email).</li>
-</ul>
-<blockquote>
-<p>ℹ️ Client secret được lưu trong <code>options</code> của authenticator, nên <strong>quản trị viên</strong> xem được khi mở lại màn hình cấu hình (giống cách NocoBase lưu cấu hình các auth khác). Hãy giới hạn quyền quản trị tương ứng.</p>
-</blockquote>
-<h3>5. Xử lý sự cố</h3>
-<table>
-<thead>
-<tr>
-<th>Thông báo</th>
-<th>Nguyên nhân / cách xử lý</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>redirect_uri_mismatch</code></td>
-<td>Redirect URI trong Google Console không khớp <strong>tuyệt đối</strong>. Copy đúng chuỗi plugin hiển thị (chú ý http/https, cổng, dấu <code>/</code> cuối)</td>
-</tr>
-<tr>
-<td><code>Invalid or expired sign-in state</code></td>
-<td>Bấm nút để quá 10 phút, hoặc app đổi <code>APP_KEY</code>. Bấm đăng nhập lại</td>
-</tr>
-<tr>
-<td><code>No NocoBase account for …</code></td>
-<td>Chưa bật <em>Tự tạo tài khoản</em> và email đó chưa có tài khoản</td>
-</tr>
-<tr>
-<td><code>This Google account is not allowed to sign in</code></td>
-<td>Email không thuộc <em>Domain được phép</em></td>
-</tr>
-<tr>
-<td><code>Google client ID is not configured</code></td>
-<td>Authenticator chưa điền Client ID</td>
-</tr>
-<tr>
-<td>Quay về trang login mà không báo gì</td>
-<td>Xem log server (<code>[google-login]</code>) để biết lỗi chi tiết</td>
-</tr>
-</tbody>
-</table>
-<h3>6. Ghi chú kỹ thuật</h3>
-<ul>
-<li>Không thêm bảng nào: <code>state</code> tự chứa và được ký, không cần lưu DB hay dọn rác.</li>
-<li>Không phụ thuộc <code>googleapis</code> — dùng <code>fetch</code> sẵn có của Node 18+.</li>
-<li>Loại xác thực đăng ký với tên <code>google</code>; login-lite đã sẵn icon Google cho loại này.</li>
-<li>Hai endpoint <code>ptdlGoogleAuth:authorize</code> / <code>:callback</code> là <strong>public</strong> (người chưa đăng nhập phải gọi được).</li>
-</ul>
-</div>
-      <div class="prose lang lang-en" hidden><p>Sign in to NocoBase with a Google account (OAuth 2.0 / OpenID Connect). Adds a <strong>“Google” authenticator type</strong>: a sign-in button on the login page, <strong>server-side</strong> code exchange (the client secret never reaches the browser), optional auto sign-up, and a Google Workspace <strong>domain allow-list</strong>.</p>
-<p>Works out of the box with the <strong>Custom Login (login-lite)</strong> themed sign-in page on <strong>both clients</strong> (<code>/admin</code> and <code>/v/</code>).</p>
-<blockquote>
-<p>Hướng dẫn tiếng Việt: <a href="README.vi-VN.md">README.vi-VN.md</a></p>
-</blockquote>
-<h3>1. Create the Google OAuth client (once)</h3>
-<ol>
-<li><a href="https://console.cloud.google.com/">Google Cloud Console</a> → pick/create a project.</li>
-<li><strong>APIs &amp; Services → OAuth consent screen</strong> → <em>Internal</em> (Workspace only) or <em>External</em>.</li>
-<li><strong>Credentials → Create credentials → OAuth client ID</strong> → <strong>Web application</strong>, and add this <strong>exact</strong> Authorized redirect URI (the settings screen shows it with a copy button):<pre><code>https://&lt;your-app&gt;/api/ptdlGoogleAuth:callback
-</code></pre>
-</li>
-<li>Keep the <strong>Client ID</strong> and <strong>Client secret</strong>.</li>
-</ol>
-<h3>2. Configure NocoBase</h3>
-<p><strong>Settings → Authentication → Add → <code>Google</code></strong>, then fill in Client ID / Client secret, and optionally: App URL (set it behind a proxy/custom domain), allowed email domains, role for new users, auto sign-up, link-by-email, button label and landing page. Enable it and the Google button appears on the sign-in page.</p>
-<h3>3. How it works</h3>
-<pre><code>browser → /api/ptdlGoogleAuth:authorize?authenticator=&lt;name&gt;   → 302 to Google
-Google  → /api/ptdlGoogleAuth:callback?code&amp;state              → exchange code, read profile,
-                                                                 find/create user, mint token,
-                                                                 302 back with ?ptdlGoogleToken
-app     → stores the token via the SDK and lands in the app
-</code></pre>
-<p>User matching order: <strong>(1)</strong> previously linked Google identity (<code>sub</code>) → <strong>(2)</strong> existing user with the same email → <strong>(3)</strong> create a new user (only when auto sign-up is on).</p>
-<h3>4. Security</h3>
-<ul>
-<li>The <strong>client secret stays on the server</strong>; the code exchange runs in the NocoBase process.</li>
-<li>The <code>state</code> is <strong>HMAC-signed</strong> with the app’s <code>APP_KEY</code> and expires after 10 minutes — tampered, forged and expired states are rejected (unit-tested).</li>
-<li>The verified Google profile reaches <code>validate()</code> through <strong><code>ctx.state</code></strong>, never the request body, so nobody can call <code>auth:signIn</code> with someone else’s email to impersonate them.</li>
-<li>The return path is clamped to the app’s own origin (no open redirect).</li>
-<li>Unverified Google emails are refused, because account linking matches on email.</li>
-</ul>
-<blockquote>
-<p>The client secret is stored in the authenticator’s <code>options</code>, so <strong>administrators</strong> can read it back in the settings drawer (the same model NocoBase uses for other auth configuration). Scope admin access accordingly.</p>
-</blockquote>
-<h3>5. Notes</h3>
-<p>No extra tables (the signed state needs no storage), no <code>googleapis</code> dependency (uses Node 18+ <code>fetch</code>), auth type id is <code>google</code>, and both OAuth endpoints are public by design.</p>
-</div>
-      <div class="prose lang lang-zh" hidden><p>Sign in to NocoBase with a Google account (OAuth 2.0 / OpenID Connect). Adds a <strong>“Google” authenticator type</strong>: a sign-in button on the login page, <strong>server-side</strong> code exchange (the client secret never reaches the browser), optional auto sign-up, and a Google Workspace <strong>domain allow-list</strong>.</p>
-<p>Works out of the box with the <strong>Custom Login (login-lite)</strong> themed sign-in page on <strong>both clients</strong> (<code>/admin</code> and <code>/v/</code>).</p>
-<blockquote>
-<p>Hướng dẫn tiếng Việt: <a href="README.vi-VN.md">README.vi-VN.md</a></p>
-</blockquote>
-<h3>1. Create the Google OAuth client (once)</h3>
-<ol>
-<li><a href="https://console.cloud.google.com/">Google Cloud Console</a> → pick/create a project.</li>
-<li><strong>APIs &amp; Services → OAuth consent screen</strong> → <em>Internal</em> (Workspace only) or <em>External</em>.</li>
-<li><strong>Credentials → Create credentials → OAuth client ID</strong> → <strong>Web application</strong>, and add this <strong>exact</strong> Authorized redirect URI (the settings screen shows it with a copy button):<pre><code>https://&lt;your-app&gt;/api/ptdlGoogleAuth:callback
-</code></pre>
-</li>
-<li>Keep the <strong>Client ID</strong> and <strong>Client secret</strong>.</li>
-</ol>
-<h3>2. Configure NocoBase</h3>
-<p><strong>Settings → Authentication → Add → <code>Google</code></strong>, then fill in Client ID / Client secret, and optionally: App URL (set it behind a proxy/custom domain), allowed email domains, role for new users, auto sign-up, link-by-email, button label and landing page. Enable it and the Google button appears on the sign-in page.</p>
-<h3>3. How it works</h3>
-<pre><code>browser → /api/ptdlGoogleAuth:authorize?authenticator=&lt;name&gt;   → 302 to Google
-Google  → /api/ptdlGoogleAuth:callback?code&amp;state              → exchange code, read profile,
-                                                                 find/create user, mint token,
-                                                                 302 back with ?ptdlGoogleToken
-app     → stores the token via the SDK and lands in the app
-</code></pre>
-<p>User matching order: <strong>(1)</strong> previously linked Google identity (<code>sub</code>) → <strong>(2)</strong> existing user with the same email → <strong>(3)</strong> create a new user (only when auto sign-up is on).</p>
-<h3>4. Security</h3>
-<ul>
-<li>The <strong>client secret stays on the server</strong>; the code exchange runs in the NocoBase process.</li>
-<li>The <code>state</code> is <strong>HMAC-signed</strong> with the app’s <code>APP_KEY</code> and expires after 10 minutes — tampered, forged and expired states are rejected (unit-tested).</li>
-<li>The verified Google profile reaches <code>validate()</code> through <strong><code>ctx.state</code></strong>, never the request body, so nobody can call <code>auth:signIn</code> with someone else’s email to impersonate them.</li>
-<li>The return path is clamped to the app’s own origin (no open redirect).</li>
-<li>Unverified Google emails are refused, because account linking matches on email.</li>
-</ul>
-<blockquote>
-<p>The client secret is stored in the authenticator’s <code>options</code>, so <strong>administrators</strong> can read it back in the settings drawer (the same model NocoBase uses for other auth configuration). Scope admin access accordingly.</p>
-</blockquote>
-<h3>5. Notes</h3>
-<p>No extra tables (the signed state needs no storage), no <code>googleapis</code> dependency (uses Node 18+ <code>fetch</code>), auth type id is <code>google</code>, and both OAuth endpoints are public by design.</p>
 </div>
     </section>
   </main>
