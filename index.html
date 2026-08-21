@@ -3474,7 +3474,7 @@ ZIP backup</strong>. It reads the existing attachments — <strong>no new table,
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Trình quản lý dữ liệu (Database Editor)</span><span class="lang lang-en" hidden>Database Editor</span><span class="lang lang-zh" hidden>数据库编辑器</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Quản trị / Công cụ</span><span class="lang lang-en" hidden>Admin &amp; tools</span><span class="lang lang-zh" hidden>Admin &amp; tools</span></span>
-        <span class="chip">v0.2.1</span>
+        <span class="chip">v0.3.0</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -3609,8 +3609,14 @@ một thẻ ở tab Cấu trúc — nhìn là biết, không cần mở ra xem.<
 <h3>Tab Cấu trúc</h3>
 <p>Liệt kê mọi cột kèm kiểu lưu trữ thật, interface, bảng đích của quan hệ và các nhãn (khoá chính / duy nhất /
 bắt buộc / điền tự động), những bảng đang trỏ <strong>tới</strong> bảng này, và cảnh báo <strong>quan hệ một chiều</strong> — quan hệ
-thiếu mất nửa còn lại, đúng loại hỏng khiến sub-table và picker không phân giải được trường. Tab này chỉ
-báo; <code>@tuanla90/plugin-app-doctor</code> là chỗ sửa.</p>
+thiếu mất nửa còn lại, đúng loại hỏng khiến sub-table và picker không phân giải được trường. Những cảnh báo
+đó thì tab này chỉ báo; <code>@tuanla90/plugin-app-doctor</code> là chỗ sửa.</p>
+<p>Cột cũng <strong>sửa được ngay tại đây</strong>, cạnh chỗ đang xem: nút <strong>Thêm cột</strong> ở đầu tab mở đúng hộp thoại tạo
+trường mà tab Dữ liệu dùng, còn mỗi dòng có <strong>Sửa cột</strong> (tên hiển thị, bắt buộc, duy nhất, và danh sách lựa
+chọn kèm màu thẻ) và <strong>Xoá</strong>. Khoá chính và cột quan hệ vẫn hiện nhưng không sửa ở đây — chúng thuộc về
+Collection Manager, nơi hậu quả của việc đổi được nói rõ. Trong danh sách lựa chọn, <strong>giá trị lưu</strong> để chỉ
+đọc, chỉ nhãn và màu đổi được: bản ghi giữ khoá, nên đổi nhãn thì vô hại còn sửa giá trị sẽ làm mồ côi mọi
+dòng đang dùng nó.</p>
 <h3>Ghi chú</h3>
 <ul>
 <li>Cố ý KHÔNG cho đổi kiểu dữ liệu: NocoBase sẽ migrate cột vật lý và ép kiểu sai là mất dữ liệu. Ở đây sửa
@@ -3754,7 +3760,13 @@ without opening anything.</p>
 <p>Every column with its real storage type, interface, relation target and flags (key / unique / required /
 filled automatically), which collections point <strong>at</strong> this one, and a warning listing <strong>one-sided
 relations</strong> — a relation whose other half is missing, the damage that makes sub-tables and pickers fail to
-resolve a field. The tab reports them; <code>@tuanla90/plugin-app-doctor</code> repairs them.</p>
+resolve a field. The tab reports those; <code>@tuanla90/plugin-app-doctor</code> repairs them.</p>
+<p>Columns are also <strong>edited here</strong>, next to what they describe: <strong>Add column</strong> in the header opens the same
+New-field dialog the Data tab uses, and every row carries <strong>Edit</strong> (display name, required, unique, and the
+choice list with its tag colours) and <strong>Delete</strong>. The primary key and relation columns are shown but not
+editable here — they belong to the Collection Manager, where the consequences of changing them are spelled
+out. In a choice list the stored <strong>value</strong> is read-only and only the label and colour can change: records
+keep the key, so renaming a label is free while editing a value would orphan every row holding it.</p>
 <h3>Notes</h3>
 <ul>
 <li>Type changes are deliberately not offered: NocoBase migrates the physical column and a wrong cast loses
@@ -3881,8 +3893,12 @@ data. Rename, required, unique and choice lists are editable here; retyping stay
 <p><code>ctx</code> 包含 <code>{ collection, field, title, type, interface, api, app, flowEngine, refresh }</code>。</p>
 <h3>结构标签页</h3>
 <p>列出每个字段的真实存储类型、interface、关联目标与标记（主键 / 唯一 / 必填 / 自动填充），哪些数据表指向
-<strong>本表</strong>，以及<strong>单向关系</strong>告警——缺少另一侧的关系，正是导致子表与选择器无法解析字段的那类问题。本页只负责
-报告，修复由 <code>@tuanla90/plugin-app-doctor</code> 完成。</p>
+<strong>本表</strong>，以及<strong>单向关系</strong>告警——缺少另一侧的关系，正是导致子表与选择器无法解析字段的那类问题。这类告警
+本页只负责报告，修复由 <code>@tuanla90/plugin-app-doctor</code> 完成。</p>
+<p>字段也可以<strong>直接在这里编辑</strong>：顶部的<strong>添加字段</strong>打开与数据标签页相同的新建字段对话框，每一行都带有<strong>编辑</strong>
+（显示名称、必填、唯一，以及带标签颜色的选项列表）和<strong>删除</strong>。主键与关系字段只展示、不在此编辑 —— 它们属于
+数据表管理，那里会说明修改的后果。选项列表中<strong>存储值</strong>为只读，只能改标签和颜色：记录保存的是键，所以改标签
+无害，而改值会让所有使用它的记录变成孤儿数据。</p>
 <h3>说明</h3>
 <ul>
 <li>有意不提供修改字段类型：NocoBase 会迁移物理列，错误的类型转换会丢数据。这里可以修改名称、必填、唯一与
@@ -23789,7 +23805,7 @@ only works when the target buttons are on the same collection / have that column
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Thương hiệu &amp; Giao diện</span><span class="lang lang-en" hidden>Branding &amp; Theme</span><span class="lang lang-zh" hidden>品牌与主题</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Giao diện</span><span class="lang lang-en" hidden>Interface</span><span class="lang lang-zh" hidden>Interface</span></span>
-        <span class="chip">v0.4.26</span>
+        <span class="chip">v0.4.27</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -23798,7 +23814,7 @@ Sáng/Pha/Tối cho thanh bên, đầu trang, nền nội dung và thẻ; đặt
 động; nạp font Google và áp cho cả app; sơn lại mọi bảng dữ liệu; đổi tên app, favicon, logo (sáng/tối);
 ẩn menu ngang và icon trợ giúp; và <strong>xuất/nhập cả bộ giao diện thành một file JSON</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> UI · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.4.25</p>
+<p><strong>Nhóm:</strong> UI · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.4.27</p>
 <hr>
 <h3>Mục lục</h3>
 <ol>
@@ -24311,7 +24327,7 @@ phải dùng <code>app.updateFavicon()</code> + ghi lại <strong>mọi</strong>
 <p>Restyle your whole app: colors for the sidebar / header / cards, accent color, density (weight), font,
 app name, favicon and logo (light/dark)… Ships with presets, <strong>remembers per theme</strong>, and imports/exports the config.</p>
 </blockquote>
-<p><strong>Group:</strong> UI · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.4.25</p>
+<p><strong>Group:</strong> UI · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.4.27</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A new Settings page: “Branding &amp; Theme”</strong> (paint-drop icon 🎨). This is where you configure everything.</li>
@@ -24386,7 +24402,7 @@ app name, favicon and logo (light/dark)… Ships with presets, <strong>remembers
 <p>为整个应用换装：侧边栏 / 顶栏 / 卡片的配色、强调色、密度（松紧）、字体、
 应用名称、站点图标（favicon）和 Logo（浅色/深色）…内置多种预设，<strong>按主题分别记住</strong>，并支持导入/导出配置。</p>
 </blockquote>
-<p><strong>分组：</strong> UI · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.4.25</p>
+<p><strong>分组：</strong> UI · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.4.27</p>
 <h3>安装后有什么变化？</h3>
 <ul>
 <li><strong>一个新的设置页面：“品牌与主题（Branding &amp; Theme）”</strong>（颜料滴图标 🎨）。所有配置都在这里完成。</li>
