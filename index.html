@@ -3042,59 +3042,126 @@ manifest 里带有包格式的版本号；如果某个包的主版本比导入�
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Ops Agent (Cổng vận hành)</span><span class="lang lang-en" hidden>Ops Agent</span><span class="lang lang-zh" hidden>Ops Agent</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Quản trị / Công cụ</span><span class="lang lang-en" hidden>Admin &amp; tools</span><span class="lang lang-zh" hidden>Admin &amp; tools</span></span>
-        <span class="chip">v0.1.0</span>
+        <span class="chip">v0.1.2</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
-      <div class="prose lang lang-vi"><p>A read-only operations endpoint so a central dashboard can watch many NocoBase instances at once,
-and so a backup job can protect the uploads folder.</p>
-<h3>Endpoints</h3>
+      <div class="prose lang lang-vi"><p><strong>Ops Agent</strong> là một cổng API chỉ-đọc, không có màn hình cấu hình riêng. Nó phục vụ 2 việc:</p>
+<ul>
+<li>một dashboard trung tâm theo dõi tình trạng nhiều instance NocoBase cùng lúc (phiên bản, danh sách
+plugin, dung lượng DB, số bản ghi…), và</li>
+<li>một job backup cần tải về thư mục <code>uploads</code> — các tệp người dùng đã đính kèm — thứ mà <strong>bản sao
+lưu database KHÔNG hề chứa</strong>.</li>
+</ul>
+<p>Cài xong là dùng được ngay, không cần cấu hình gì thêm; gỡ ra không để lại gì (không tạo bảng, không
+có trang cài đặt).</p>
+<h3>Xác thực</h3>
+<p>3 trong 4 endpoint đòi hỏi <strong>API key</strong> của NocoBase (<strong>Cài đặt → API keys → Thêm mới</strong>), gửi kèm theo
+header:</p>
+<pre><code>Authorization: Bearer &lt;api-key-của-bạn&gt;
+</code></pre>
+<p>Riêng <code>dumpUploads</code> còn yêu cầu API key đó phải thuộc vai trò <code>admin</code> hoặc <code>root</code>.</p>
+<h3>4 endpoint</h3>
 <table>
 <thead>
 <tr>
-<th>Action</th>
-<th>Auth</th>
-<th>Returns</th>
+<th>Hành động</th>
+<th>Xác thực</th>
+<th>Trả về</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>GET /api/opsAgent:health</code></td>
-<td>public</td>
-<td><code>{ok:true}</code> only — deliberately no version, to avoid fingerprinting</td>
+<td>Công khai</td>
+<td>chỉ <code>{ &quot;ok&quot;: true }</code> — cố tình KHÔNG kèm số phiên bản, tránh trở thành manh mối cho kẻ dò lỗ hổng</td>
 </tr>
 <tr>
 <td><code>GET /api/opsAgent:status</code></td>
-<td>logged in</td>
-<td>NocoBase version, plugin list + versions, DB dialect/size, uptime, row counts, storage types</td>
+<td>Đăng nhập</td>
+<td>một bản chụp nhanh tình trạng instance (xem ví dụ bên dưới)</td>
 </tr>
 <tr>
 <td><code>GET /api/opsAgent:listUploads</code></td>
-<td>logged in</td>
-<td>file count + total bytes of the local uploads folder (<code>?list=1</code> for the full list)</td>
+<td>Đăng nhập</td>
+<td>số tệp + tổng dung lượng thư mục uploads; thêm <code>?list=1</code> để lấy danh sách đầy đủ</td>
 </tr>
 <tr>
 <td><code>GET /api/opsAgent:dumpUploads</code></td>
-<td><strong>admin only</strong></td>
-<td>the uploads folder streamed as <code>tar.gz</code></td>
+<td><strong>Chỉ admin</strong></td>
+<td>xuất toàn bộ thư mục uploads dạng <code>tar.gz</code>, tải về trực tiếp</td>
 </tr>
 </tbody>
 </table>
-<h3>Why dumpUploads exists</h3>
-<p>Attachments in a <code>local</code> storage live on the server’s volume. A database dump does <strong>not</strong> contain
-them — restore the database after losing the volume and every uploaded file is gone. This endpoint
-lets a backup job pull that folder without shell access to the container.</p>
-<p>Disable it entirely with <code>OPS_AGENT_UPLOADS=off</code>. Override the folder with <code>OPS_AGENT_UPLOADS_DIR</code>
-(it otherwise follows <code>LOCAL_STORAGE_DEST</code>, default <code>storage/uploads</code>).</p>
-<p>It shells out to the system <code>tar</code> rather than bundling a compression library: one less dependency to
-maintain, and the system tar handles long paths and non-ASCII filenames correctly.</p>
-<h3>Security</h3>
-<p><code>status</code> exposes no business data — only metadata an operator already knows. <code>dumpUploads</code> exports
-every file your users uploaded, so it is admin-only and checked inside the handler, not just by ACL.</p>
-<p>Create a dedicated API key with an admin role for the backup job, and keep it out of anything shared.</p>
+<h4>Ví dụ — <code>status</code></h4>
+<pre><code class="language-bash">curl -H &quot;Authorization: Bearer &lt;api-key&gt;&quot; https://app-cua-ban.example.com/api/opsAgent:status
+</code></pre>
+<pre><code class="language-json">{
+  &quot;ok&quot;: true,
+  &quot;at&quot;: &quot;2026-08-23T10:00:00.000Z&quot;,
+  &quot;nocobaseVersion&quot;: &quot;2.1.19&quot;,
+  &quot;dbDialect&quot;: &quot;sqlite&quot;,
+  &quot;dbSizeMB&quot;: 42.3,
+  &quot;uptimeSec&quot;: 5310,
+  &quot;nodeVersion&quot;: &quot;v24.16.0&quot;,
+  &quot;counts&quot;: { &quot;users&quot;: 12, &quot;collections&quot;: 58, &quot;attachments&quot;: 340 },
+  &quot;storages&quot;: [{ &quot;name&quot;: &quot;default&quot;, &quot;type&quot;: &quot;local&quot;, &quot;default&quot;: true }],
+  &quot;plugins&quot;: [{ &quot;name&quot;: &quot;@tuanla90/plugin-ops-agent&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;enabled&quot;: true }]
+}
+</code></pre>
+<p>Mỗi trường được lấy trong khối try/catch riêng — một phần bị lỗi (ví dụ truy vấn dung lượng DB thất
+bại) chỉ khiến đúng ô đó trả về <code>null</code>, không làm hỏng cả câu trả lời.</p>
+<h4>Ví dụ — <code>listUploads</code></h4>
+<pre><code class="language-bash">curl -H &quot;Authorization: Bearer &lt;api-key&gt;&quot; &quot;https://app-cua-ban.example.com/api/opsAgent:listUploads?list=1&quot;
+</code></pre>
+<pre><code class="language-json">{
+  &quot;ok&quot;: true,
+  &quot;dir&quot;: &quot;/app/storage/uploads&quot;,
+  &quot;exists&quot;: true,
+  &quot;files&quot;: 214,
+  &quot;bytes&quot;: 88234112,
+  &quot;list&quot;: [{ &quot;path&quot;: &quot;2026/08/abc123.png&quot;, &quot;size&quot;: 40211, &quot;mtime&quot;: &quot;2026-08-20T03:11:00.000Z&quot; }]
+}
+</code></pre>
+<p>Bỏ <code>?list=1</code> để chỉ lấy tổng số tệp và dung lượng — nhẹ hơn, phù hợp cho dashboard hỏi định kỳ. Thư
+mục quá lớn bị giới hạn quét tối đa 20.000 tệp mỗi lần.</p>
+<h3>Vì sao cần <code>dumpUploads</code></h3>
+<p>Tệp đính kèm ở kho lưu trữ <code>local</code> nằm trên <strong>volume của server</strong>, không nằm trong database. Mất
+volume mà chỉ khôi phục lại DB thì mọi ảnh/tài liệu người dùng đã tải lên đều biến mất. <code>dumpUploads</code>
+cho job backup tải nguyên thư mục đó về mà không cần quyền truy cập shell vào container:</p>
+<pre><code class="language-bash">curl -H &quot;Authorization: Bearer &lt;api-key-vai-trò-admin&gt;&quot; \
+  https://app-cua-ban.example.com/api/opsAgent:dumpUploads -o uploads-backup.tar.gz
+</code></pre>
+<ul>
+<li>Tắt hẳn endpoint này bằng biến môi trường <code>OPS_AGENT_UPLOADS=off</code> (sẽ trả về mã <code>403</code>).</li>
+<li>Trỏ sang thư mục khác bằng <code>OPS_AGENT_UPLOADS_DIR</code> (mặc định theo <code>LOCAL_STORAGE_DEST</code>, hoặc
+<code>storage/uploads</code>).</li>
+<li>Dùng lệnh <code>tar</code> có sẵn của hệ điều hành thay vì đóng gói thêm thư viện nén riêng — ít phụ thuộc hơn,
+và <code>tar</code> hệ thống xử lý đường dẫn dài / tên tệp tiếng Việt đúng đắn hơn.</li>
+</ul>
+<h3>Bảo mật</h3>
+<ul>
+<li><code>status</code> không lộ dữ liệu nghiệp vụ — chỉ là thông tin vận hành mà quản trị viên vốn đã biết.</li>
+<li><code>dumpUploads</code> xuất TOÀN BỘ tệp người dùng đã tải lên, nên bắt buộc vai trò admin, và được kiểm tra
+ngay trong hàm xử lý (không chỉ dựa vào ACL) — cấu hình vai trò sai cũng không thể vô tình mở rộng
+quyền truy cập endpoint này.</li>
+<li>Nên tạo một API key <strong>riêng biệt</strong>, gán vai trò admin, chỉ dùng cho job backup — và giữ nó ngoài mọi
+nơi có thể bị lộ (repo công khai, log, kênh chat…).</li>
+</ul>
 </div>
-      <div class="prose lang lang-en" hidden><p>A read-only operations endpoint so a central dashboard can watch many NocoBase instances at once,
-and so a backup job can protect the uploads folder.</p>
-<h3>Endpoints</h3>
+      <div class="prose lang lang-en" hidden><p><strong>Ops Agent</strong> is a read-only API gateway with no settings screen of its own. It exists for two jobs:</p>
+<ul>
+<li>a central dashboard that watches several NocoBase instances at once (version, installed plugins,
+DB size, row counts, …), and</li>
+<li>a backup job that needs the <code>uploads</code> folder — the files your users attached — which a <strong>database
+dump does not contain</strong>.</li>
+</ul>
+<p>Nothing to configure after install; nothing left behind if you remove it (no tables, no settings).</p>
+<h3>Authentication</h3>
+<p>Three of the four endpoints need a NocoBase <strong>API key</strong> (<strong>Settings → API keys → Add</strong>), sent as:</p>
+<pre><code>Authorization: Bearer &lt;your-api-key&gt;
+</code></pre>
+<p><code>dumpUploads</code> additionally requires that key’s role to be <code>admin</code> or <code>root</code>.</p>
+<h3>The four endpoints</h3>
 <table>
 <thead>
 <tr>
@@ -3107,84 +3174,174 @@ and so a backup job can protect the uploads folder.</p>
 <tr>
 <td><code>GET /api/opsAgent:health</code></td>
 <td>public</td>
-<td><code>{ok:true}</code> only — deliberately no version, to avoid fingerprinting</td>
+<td><code>{ &quot;ok&quot;: true }</code> only — deliberately no version, so it can’t be used to fingerprint your instance</td>
 </tr>
 <tr>
 <td><code>GET /api/opsAgent:status</code></td>
 <td>logged in</td>
-<td>NocoBase version, plugin list + versions, DB dialect/size, uptime, row counts, storage types</td>
+<td>a snapshot of the instance’s health (example below)</td>
 </tr>
 <tr>
 <td><code>GET /api/opsAgent:listUploads</code></td>
 <td>logged in</td>
-<td>file count + total bytes of the local uploads folder (<code>?list=1</code> for the full list)</td>
+<td>file count + total bytes of the uploads folder; add <code>?list=1</code> for the full file list</td>
 </tr>
 <tr>
 <td><code>GET /api/opsAgent:dumpUploads</code></td>
 <td><strong>admin only</strong></td>
-<td>the uploads folder streamed as <code>tar.gz</code></td>
+<td>the whole uploads folder streamed as a downloadable <code>tar.gz</code></td>
 </tr>
 </tbody>
 </table>
-<h3>Why dumpUploads exists</h3>
-<p>Attachments in a <code>local</code> storage live on the server’s volume. A database dump does <strong>not</strong> contain
-them — restore the database after losing the volume and every uploaded file is gone. This endpoint
-lets a backup job pull that folder without shell access to the container.</p>
-<p>Disable it entirely with <code>OPS_AGENT_UPLOADS=off</code>. Override the folder with <code>OPS_AGENT_UPLOADS_DIR</code>
-(it otherwise follows <code>LOCAL_STORAGE_DEST</code>, default <code>storage/uploads</code>).</p>
-<p>It shells out to the system <code>tar</code> rather than bundling a compression library: one less dependency to
-maintain, and the system tar handles long paths and non-ASCII filenames correctly.</p>
+<h4>Example — <code>status</code></h4>
+<pre><code class="language-bash">curl -H &quot;Authorization: Bearer &lt;api-key&gt;&quot; https://your-app.example.com/api/opsAgent:status
+</code></pre>
+<pre><code class="language-json">{
+  &quot;ok&quot;: true,
+  &quot;at&quot;: &quot;2026-08-23T10:00:00.000Z&quot;,
+  &quot;nocobaseVersion&quot;: &quot;2.1.19&quot;,
+  &quot;dbDialect&quot;: &quot;sqlite&quot;,
+  &quot;dbSizeMB&quot;: 42.3,
+  &quot;uptimeSec&quot;: 5310,
+  &quot;nodeVersion&quot;: &quot;v24.16.0&quot;,
+  &quot;counts&quot;: { &quot;users&quot;: 12, &quot;collections&quot;: 58, &quot;attachments&quot;: 340 },
+  &quot;storages&quot;: [{ &quot;name&quot;: &quot;default&quot;, &quot;type&quot;: &quot;local&quot;, &quot;default&quot;: true }],
+  &quot;plugins&quot;: [{ &quot;name&quot;: &quot;@tuanla90/plugin-ops-agent&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;enabled&quot;: true }]
+}
+</code></pre>
+<p>Each field is fetched in its own try/catch — one piece failing (say, the DB-size query) shows up as
+<code>null</code> in that one field instead of taking down the whole response.</p>
+<h4>Example — <code>listUploads</code></h4>
+<pre><code class="language-bash">curl -H &quot;Authorization: Bearer &lt;api-key&gt;&quot; &quot;https://your-app.example.com/api/opsAgent:listUploads?list=1&quot;
+</code></pre>
+<pre><code class="language-json">{
+  &quot;ok&quot;: true,
+  &quot;dir&quot;: &quot;/app/storage/uploads&quot;,
+  &quot;exists&quot;: true,
+  &quot;files&quot;: 214,
+  &quot;bytes&quot;: 88234112,
+  &quot;list&quot;: [{ &quot;path&quot;: &quot;2026/08/abc123.png&quot;, &quot;size&quot;: 40211, &quot;mtime&quot;: &quot;2026-08-20T03:11:00.000Z&quot; }]
+}
+</code></pre>
+<p>Leave off <code>?list=1</code> for just the count and total size — lighter, so a dashboard can poll it often.
+Very large folders are capped at 20,000 files per scan.</p>
+<h3>Why <code>dumpUploads</code> exists</h3>
+<p>Attachments in a <code>local</code> storage live on the server’s <strong>volume</strong>, not in the database. Lose the
+volume and restore only the database, and every uploaded file is gone. <code>dumpUploads</code> lets a backup
+job pull that folder without needing shell access to the container:</p>
+<pre><code class="language-bash">curl -H &quot;Authorization: Bearer &lt;admin-api-key&gt;&quot; \
+  https://your-app.example.com/api/opsAgent:dumpUploads -o uploads-backup.tar.gz
+</code></pre>
+<ul>
+<li>Disable it entirely with <code>OPS_AGENT_UPLOADS=off</code> (the endpoint then returns <code>403</code>).</li>
+<li>Point it at a different folder with <code>OPS_AGENT_UPLOADS_DIR</code> (otherwise follows <code>LOCAL_STORAGE_DEST</code>,
+default <code>storage/uploads</code>).</li>
+<li>It shells out to the system <code>tar</code> instead of bundling a compression library — one less dependency
+to maintain, and the system tar handles long paths and non-ASCII filenames correctly.</li>
+</ul>
 <h3>Security</h3>
-<p><code>status</code> exposes no business data — only metadata an operator already knows. <code>dumpUploads</code> exports
-every file your users uploaded, so it is admin-only and checked inside the handler, not just by ACL.</p>
-<p>Create a dedicated API key with an admin role for the backup job, and keep it out of anything shared.</p>
+<ul>
+<li><code>status</code> exposes no business data — only operational metadata an admin already has access to.</li>
+<li><code>dumpUploads</code> exports every file your users uploaded, so it’s admin-only, checked inside the
+handler itself (not just via ACL) — a misconfigured role can’t accidentally widen access to it.</li>
+<li>Create a <strong>dedicated</strong> API key with the admin role just for the backup job, and keep it out of
+anything shared (public repos, logs, chat).</li>
+</ul>
 </div>
-      <div class="prose lang lang-zh" hidden><p>A read-only operations endpoint so a central dashboard can watch many NocoBase instances at once,
-and so a backup job can protect the uploads folder.</p>
-<h3>Endpoints</h3>
+      <div class="prose lang lang-zh" hidden><p><strong>Ops Agent</strong> 是一个只读的 API 网关，没有自己的配置页面。它服务于两件事：</p>
+<ul>
+<li>让中心化的看板能同时监控多个 NocoBase 实例的状态（版本、已装插件、数据库大小、各表行数……），以及</li>
+<li>让备份任务能拉取 <code>uploads</code> 目录——用户上传的附件——这是<strong>数据库备份不会包含</strong>的内容。</li>
+</ul>
+<p>安装后无需任何配置即可使用；卸载后也不会留下任何东西（不建表，没有设置页面）。</p>
+<h3>鉴权</h3>
+<p>四个接口中有三个需要 NocoBase 的 <strong>API Key</strong>（<strong>设置 → API keys → 新增</strong>），通过请求头携带：</p>
+<pre><code>Authorization: Bearer &lt;你的 API key&gt;
+</code></pre>
+<p><code>dumpUploads</code> 还额外要求该 API key 所属的角色必须是 <code>admin</code> 或 <code>root</code>。</p>
+<h3>四个接口</h3>
 <table>
 <thead>
 <tr>
-<th>Action</th>
-<th>Auth</th>
-<th>Returns</th>
+<th>动作</th>
+<th>鉴权</th>
+<th>返回</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>GET /api/opsAgent:health</code></td>
-<td>public</td>
-<td><code>{ok:true}</code> only — deliberately no version, to avoid fingerprinting</td>
+<td>公开</td>
+<td>只返回 <code>{ &quot;ok&quot;: true }</code> —— 刻意不带版本号，避免成为攻击者探测漏洞的线索</td>
 </tr>
 <tr>
 <td><code>GET /api/opsAgent:status</code></td>
-<td>logged in</td>
-<td>NocoBase version, plugin list + versions, DB dialect/size, uptime, row counts, storage types</td>
+<td>已登录</td>
+<td>实例状态的一份快照（示例见下文）</td>
 </tr>
 <tr>
 <td><code>GET /api/opsAgent:listUploads</code></td>
-<td>logged in</td>
-<td>file count + total bytes of the local uploads folder (<code>?list=1</code> for the full list)</td>
+<td>已登录</td>
+<td>uploads 目录的文件数与总字节数；加上 <code>?list=1</code> 可获取完整文件列表</td>
 </tr>
 <tr>
 <td><code>GET /api/opsAgent:dumpUploads</code></td>
-<td><strong>admin only</strong></td>
-<td>the uploads folder streamed as <code>tar.gz</code></td>
+<td><strong>仅管理员</strong></td>
+<td>将整个 uploads 目录以 <code>tar.gz</code> 流式打包下载</td>
 </tr>
 </tbody>
 </table>
-<h3>Why dumpUploads exists</h3>
-<p>Attachments in a <code>local</code> storage live on the server’s volume. A database dump does <strong>not</strong> contain
-them — restore the database after losing the volume and every uploaded file is gone. This endpoint
-lets a backup job pull that folder without shell access to the container.</p>
-<p>Disable it entirely with <code>OPS_AGENT_UPLOADS=off</code>. Override the folder with <code>OPS_AGENT_UPLOADS_DIR</code>
-(it otherwise follows <code>LOCAL_STORAGE_DEST</code>, default <code>storage/uploads</code>).</p>
-<p>It shells out to the system <code>tar</code> rather than bundling a compression library: one less dependency to
-maintain, and the system tar handles long paths and non-ASCII filenames correctly.</p>
-<h3>Security</h3>
-<p><code>status</code> exposes no business data — only metadata an operator already knows. <code>dumpUploads</code> exports
-every file your users uploaded, so it is admin-only and checked inside the handler, not just by ACL.</p>
-<p>Create a dedicated API key with an admin role for the backup job, and keep it out of anything shared.</p>
+<h4>示例 —— <code>status</code></h4>
+<pre><code class="language-bash">curl -H &quot;Authorization: Bearer &lt;api-key&gt;&quot; https://your-app.example.com/api/opsAgent:status
+</code></pre>
+<pre><code class="language-json">{
+  &quot;ok&quot;: true,
+  &quot;at&quot;: &quot;2026-08-23T10:00:00.000Z&quot;,
+  &quot;nocobaseVersion&quot;: &quot;2.1.19&quot;,
+  &quot;dbDialect&quot;: &quot;sqlite&quot;,
+  &quot;dbSizeMB&quot;: 42.3,
+  &quot;uptimeSec&quot;: 5310,
+  &quot;nodeVersion&quot;: &quot;v24.16.0&quot;,
+  &quot;counts&quot;: { &quot;users&quot;: 12, &quot;collections&quot;: 58, &quot;attachments&quot;: 340 },
+  &quot;storages&quot;: [{ &quot;name&quot;: &quot;default&quot;, &quot;type&quot;: &quot;local&quot;, &quot;default&quot;: true }],
+  &quot;plugins&quot;: [{ &quot;name&quot;: &quot;@tuanla90/plugin-ops-agent&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;enabled&quot;: true }]
+}
+</code></pre>
+<p>每个字段都在各自独立的 try/catch 中获取——某一部分失败（比如数据库大小查询出错）只会让那一个字段变成
+<code>null</code>，不会拖垮整个响应。</p>
+<h4>示例 —— <code>listUploads</code></h4>
+<pre><code class="language-bash">curl -H &quot;Authorization: Bearer &lt;api-key&gt;&quot; &quot;https://your-app.example.com/api/opsAgent:listUploads?list=1&quot;
+</code></pre>
+<pre><code class="language-json">{
+  &quot;ok&quot;: true,
+  &quot;dir&quot;: &quot;/app/storage/uploads&quot;,
+  &quot;exists&quot;: true,
+  &quot;files&quot;: 214,
+  &quot;bytes&quot;: 88234112,
+  &quot;list&quot;: [{ &quot;path&quot;: &quot;2026/08/abc123.png&quot;, &quot;size&quot;: 40211, &quot;mtime&quot;: &quot;2026-08-20T03:11:00.000Z&quot; }]
+}
+</code></pre>
+<p>不带 <code>?list=1</code> 只返回文件数和总大小——更轻量，适合看板频繁轮询。超大目录每次扫描上限 20,000 个文件。</p>
+<h3>为什么需要 <code>dumpUploads</code></h3>
+<p>使用 <code>local</code> 存储的附件保存在服务器的<strong>卷</strong>上，而不在数据库里。卷丢失后即使恢复了数据库，用户上传的
+所有文件也已经没有了。<code>dumpUploads</code> 让备份任务无需进入容器的 shell 就能把该目录拉走：</p>
+<pre><code class="language-bash">curl -H &quot;Authorization: Bearer &lt;管理员 api-key&gt;&quot; \
+  https://your-app.example.com/api/opsAgent:dumpUploads -o uploads-backup.tar.gz
+</code></pre>
+<ul>
+<li>用 <code>OPS_AGENT_UPLOADS=off</code> 可以完全关闭该接口（此时返回 <code>403</code>）。</li>
+<li>用 <code>OPS_AGENT_UPLOADS_DIR</code> 指向其他目录（否则跟随 <code>LOCAL_STORAGE_DEST</code>，默认为 <code>storage/uploads</code>）。</li>
+<li>它调用系统自带的 <code>tar</code>，而不是内置一个压缩库——少维护一个依赖，而且系统 <code>tar</code> 能正确处理长路径与
+非 ASCII 文件名。</li>
+</ul>
+<h3>安全</h3>
+<ul>
+<li><code>status</code> 不暴露任何业务数据——只有运维人员本来就知道的元信息。</li>
+<li><code>dumpUploads</code> 会导出用户上传的每一个文件，因此仅限管理员，并且在处理函数内部再次校验（而不是只
+依赖 ACL）——即便角色配置有误，也不会意外扩大这个接口的访问范围。</li>
+<li>请为备份任务单独创建一个<strong>专用</strong>、带管理员角色的 API Key，并且不要把它放进任何可能泄露的地方
+（公开仓库、日志、聊天工具等）。</li>
+</ul>
 </div>
     </section>
 
@@ -4430,7 +4587,7 @@ capture the QR string, then feed it to the reader.</li>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Công thức &amp; Trường tự tính</span><span class="lang lang-en" hidden>Formula &amp; Computed Fields</span><span class="lang lang-zh" hidden>公式</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.2.12</span>
+        <span class="chip">v0.2.13</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -5488,7 +5645,7 @@ This column is <strong>not stored in the database</strong> — it recomputes on 
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Cột AI</span><span class="lang lang-en" hidden>AI Column</span><span class="lang lang-zh" hidden>AI 字段</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.7.12</span>
+        <span class="chip">v0.7.13</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -7363,7 +7520,7 @@ clear separators may land on “Province only”.</li>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Field nâng cao</span><span class="lang lang-en" hidden>Field Enhancements</span><span class="lang lang-zh" hidden>字段增强</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.2.68</span>
+        <span class="chip">v0.2.69</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -10869,7 +11026,7 @@ photos with a <strong>GPS/time watermark</strong>, a <strong>location on a map</
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Thứ tự trường</span><span class="lang lang-en" hidden>Field Order</span><span class="lang lang-zh" hidden>字段排序</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.2.8</span>
+        <span class="chip">v0.2.10</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -11132,7 +11289,7 @@ no code, no server restart.
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Bảng con Pro</span><span class="lang lang-en" hidden>Sub-table Pro</span><span class="lang lang-zh" hidden>增强子表格</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Khối &amp; biểu đồ</span><span class="lang lang-en" hidden>Blocks &amp; charts</span><span class="lang lang-zh" hidden>Blocks &amp; charts</span></span>
-        <span class="chip">v0.2.15</span>
+        <span class="chip">v0.2.16</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -11723,7 +11880,7 @@ bridge?.publish('ch1', { action: 'add', record: ctx.record });
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Biểu đồ ECharts Pro</span><span class="lang lang-en" hidden>Data Visualization: ECharts Pro</span><span class="lang lang-zh" hidden>数据可视化：ECharts Pro</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Khối &amp; biểu đồ</span><span class="lang lang-en" hidden>Blocks &amp; charts</span><span class="lang lang-zh" hidden>Blocks &amp; charts</span></span>
-        <span class="chip">v0.2.10</span>
+        <span class="chip">v0.2.11</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -17465,7 +17622,7 @@ bash recipes/add-markers.sh storage/tar/@tuanla90/plugin-detail-panel-0.1.0.tgz
       <div class="plugin-head">
         <h2><span class="lang lang-vi">View Pro</span><span class="lang lang-en" hidden>View Pro</span><span class="lang lang-zh" hidden>视图 Pro</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Khối &amp; biểu đồ</span><span class="lang lang-en" hidden>Blocks &amp; charts</span><span class="lang lang-zh" hidden>Blocks &amp; charts</span></span>
-        <span class="chip">v0.1.25</span>
+        <span class="chip">v0.1.26</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -18003,7 +18160,7 @@ NocoBase 标准操作，选你需要的。</li>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Dựng app từ mô tả</span><span class="lang lang-en" hidden>App Builder</span><span class="lang lang-zh" hidden>应用生成器</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Giao diện</span><span class="lang lang-en" hidden>Interface</span><span class="lang lang-zh" hidden>Interface</span></span>
-        <span class="chip">v0.7.0</span>
+        <span class="chip">v0.7.3</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -18024,6 +18181,7 @@ trang và menu</strong>. Giữa mô tả và lúc dựng luôn có <strong>bản
 <li><a href="#7-c%E1%BA%A5u-tr%C3%BAc-app-spec">Cấu trúc App-Spec</a></li>
 <li><a href="#8-an-to%C3%A0n--%C4%91%E1%BB%8Dc-tr%C6%B0%E1%BB%9Bc-khi-b%E1%BA%A5m-t%E1%BA%A1o-app">An toàn — đọc trước khi bấm Tạo app</a></li>
 <li><a href="#9-c%E1%BA%A1m-b%E1%BA%ABy">Cạm bẫy</a></li>
+<li><a href="#10-y%C3%AAu-c%E1%BA%A7u-kh%C3%A1ch-h%C3%A0ng-v%C3%A0o-b%E1%BA%B1ng-markdown-ra-b%E1%BA%B1ng-thay-%C4%91%E1%BB%95i-%C4%91%C3%A3-duy%E1%BB%87t">Yêu cầu khách hàng</a></li>
 </ol>
 <hr>
 <h3>1. Tìm nút ở đâu</h3>
@@ -18501,6 +18659,18 @@ sai theo <strong>ba</strong> cách cùng lúc:</p>
 <p><strong>Doc cũ sai 2 chỗ</strong> (đã sửa trong bản này): nút <strong>không</strong> phải lúc nào cũng hiện (cần UI Editor), và dựng
 lỗi <strong>không</strong> tự rollback.</p>
 <hr>
+<h3>10. Yêu cầu khách hàng (vào bằng Markdown, ra bằng thay đổi đã duyệt)</h3>
+<p><strong>Cấu hình → Yêu cầu khách hàng.</strong> Yêu cầu chỉnh sửa thường đến dưới dạng tài liệu. Chuyển nó sang Markdown,
+dán vào đây, mỗi tiêu đề và mỗi gạch đầu dòng thành <strong>một phiếu</strong> — tách theo quy tắc cố định, nên cùng một
+tài liệu luôn tách ra như nhau và mỗi phiếu giữ nguyên chữ của khách.</p>
+<p>Với từng phiếu: <strong>Lập kế hoạch bằng AI</strong> biến yêu cầu thành các bước công cụ, rồi kế hoạch được <strong>đối chiếu
+với app đang chạy</strong> trước khi bạn đọc — bảng không tồn tại, cột mà yêu cầu đòi thêm nhưng đã có sẵn, kế hoạch
+tự nở ra thành tạo bảng và trang mới: mỗi thứ đều quay lại thành một cảnh báo gắn trên bước đó. Nếu AI hiểu
+sai, gõ góp ý bằng lời rồi bấm <strong>Lập lại</strong>; mọi lần thử đều được lưu, nên cuộc trao đổi đi tiếp chứ không
+phải làm lại từ đầu.</p>
+<p>Không có gì được áp dụng cho tới khi <strong>bạn</strong> bấm <strong>Chạy</strong> trên phiếu đó. Cả trang này không có chỗ nào tự
+động áp dụng, và bước <strong>xoá dữ liệu</strong> thì vẫn được lập kế hoạch nhưng không bao giờ chạy được từ đây — nó
+được đánh dấu để bạn tự làm tay. Mỗi lần chạy đều ghi lại trên phiếu: chạy gì, có được không, ai duyệt, lúc nào.</p>
 <h3>Gỡ / tắt</h3>
 <p>Tắt trong <strong>Plugin Manager</strong>. Cụm nút biến mất, nhưng <strong>mọi thứ đã dựng vẫn còn nguyên</strong> — chúng là bảng,
 trang, menu bình thường của NocoBase.</p>
@@ -18690,6 +18860,18 @@ it step by step</strong> too.</p>
 <blockquote>
 <p>🤖 These AI features need <strong><code>@nocobase/plugin-ai</code></strong> enabled + a model configured, same as the two build buttons. The ✨ button on a chart <strong>only appears while the UI-editor is ON</strong> (the /v/ design mode) — regular viewers won’t see it.</p>
 </blockquote>
+<h3>Customer requirements (Markdown in, reviewed changes out)</h3>
+<p><strong>Settings → Customer requirements.</strong> The requirements for a change usually arrive as a document. Convert it
+to Markdown, paste it here, and every heading and bullet becomes <strong>one ticket</strong> — split deterministically, so
+the same document always splits the same way and each ticket keeps the customer’s exact words.</p>
+<p>Per ticket: <strong>Plan with AI</strong> turns the requirement into tool steps, then the plan is <strong>grounded against the
+live app</strong> before you read it — a collection that does not exist, a column the requirement asks to add that
+is already there, a plan that quietly grew into new tables and pages: each comes back as a warning on the
+step. If the AI misread the ask, type the correction in plain words and press <strong>Re-plan</strong>; every attempt is
+kept, so the conversation moves forward instead of starting over.</p>
+<p>Nothing is applied until <strong>you</strong> press <strong>Run</strong> on that ticket. There is no auto-apply anywhere in this
+workspace, and a step that <strong>deletes data</strong> is planned but never runnable — it is marked and left for you to
+do by hand. Each run is logged on the ticket: what ran, whether it worked, who approved it and when.</p>
 <h3>Tips &amp; notes</h3>
 <ul>
 <li>⚠️ <strong>Creating an app writes for real to the database</strong> (it creates collections, relations, pages). <strong>Validate</strong> / review the JSON <strong>before</strong> you click <strong>Create app</strong>.</li>
@@ -18886,6 +19068,15 @@ NocoBase 应用：<strong>数据表、关系、种子数据、自动计算列、
 <blockquote>
 <p>🤖 这些 AI 功能同样需要启用 <strong><code>@nocobase/plugin-ai</code></strong> 并配置好模型，跟那两个搭建按钮一样。图表上的 ✨ 按钮<strong>只在 UI 编辑器开着时才出现</strong>（也就是 /v/ 的设计模式）—— 普通浏览者看不到它。</p>
 </blockquote>
+<h3>客户需求（输入 Markdown，输出已审批的变更）</h3>
+<p><strong>设置 → 客户需求。</strong> 变更需求通常以文档形式送来。把它转成 Markdown 粘贴到这里，每个标题和条目都会变成
+<strong>一张工单</strong> —— 按固定规则拆分，同一份文档每次拆分结果都一样，并且每张工单都保留客户的原话。</p>
+<p>对每张工单：<strong>用 AI 规划</strong>把需求转成工具步骤，然后在你阅读之前先与<strong>运行中的应用核对</strong> —— 不存在的数据表、
+需求要求新增但其实已存在的字段、悄悄扩张成新建数据表和页面的计划：每一项都会作为告警附在对应步骤上。如果
+AI 理解错了，用大白话写下更正再点<strong>重新规划</strong>；每次尝试都会保留，对话得以往前推进而不是从头再来。</p>
+<p>在<strong>你</strong>对该工单点击<strong>执行</strong>之前，不会有任何改动被应用。本工作区没有任何自动应用；<strong>删除数据</strong>的步骤会被
+规划但永远无法从这里执行 —— 它会被标记，交由你手动处理。每次执行都会记录在工单上：执行了什么、是否成功、
+谁批准的、什么时候。</p>
 <h3>提示与注意事项</h3>
 <ul>
 <li>⚠️ <strong>创建应用是真的往数据库写</strong>（它会创建数据表、关系、页面）。在点 <strong>Create app</strong> <strong>之前</strong>，先 <strong>Validate</strong> / 检查一下 JSON。</li>
@@ -21943,7 +22134,7 @@ bash recipes/add-markers.sh storage/tar/@tuanla90/plugin-action-enhancements-*.t
       <div class="plugin-head">
         <h2><span class="lang lang-vi">PWA (ứng dụng cài đặt được)</span><span class="lang lang-en" hidden>PWA (Installable App)</span><span class="lang lang-zh" hidden>PWA（可安装应用）</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Giao diện</span><span class="lang lang-en" hidden>Interface</span><span class="lang lang-zh" hidden>Interface</span></span>
-        <span class="chip">v0.5.20</span>
+        <span class="chip">v0.5.21</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -23805,7 +23996,7 @@ only works when the target buttons are on the same collection / have that column
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Thương hiệu &amp; Giao diện</span><span class="lang lang-en" hidden>Branding &amp; Theme</span><span class="lang lang-zh" hidden>品牌与主题</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Giao diện</span><span class="lang lang-en" hidden>Interface</span><span class="lang lang-zh" hidden>Interface</span></span>
-        <span class="chip">v0.4.27</span>
+        <span class="chip">v0.4.28</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -24986,7 +25177,7 @@ form/detail field labels and block titles: set an <strong>icon</strong>, <strong
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Tìm kiếm toàn cục</span><span class="lang lang-en" hidden>Global Search</span><span class="lang lang-zh" hidden>全局搜索</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Giao diện</span><span class="lang lang-en" hidden>Interface</span><span class="lang lang-zh" hidden>Interface</span></span>
-        <span class="chip">v0.9.19</span>
+        <span class="chip">v0.9.20</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -26842,7 +27033,7 @@ optional <strong>two-way write-back</strong> to the sheet.</p>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Gửi Email</span><span class="lang lang-en" hidden>Mailer</span><span class="lang lang-zh" hidden>邮件发送</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Dữ liệu</span><span class="lang lang-en" hidden>Data</span><span class="lang lang-zh" hidden>Data</span></span>
-        <span class="chip">v0.2.10</span>
+        <span class="chip">v0.2.11</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -27996,7 +28187,7 @@ Slack 3900 字符。</p>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Làm việc offline</span><span class="lang lang-en" hidden>Offline Sync</span><span class="lang lang-zh" hidden>Offline Sync</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Dữ liệu</span><span class="lang lang-en" hidden>Data</span><span class="lang lang-zh" hidden>Data</span></span>
-        <span class="chip">v0.1.1</span>
+        <span class="chip">v0.1.2</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><p>Dùng app khi <strong>mất mạng</strong>, có mạng lại thì <strong>tự đồng bộ</strong>.</p>
@@ -28245,128 +28436,128 @@ Slack 3900 字符。</p>
 </ul>
 <p>Not yet exercised in a real browser (IndexedDB, service worker, SW registration).</p>
 </div>
-      <div class="prose lang lang-zh" hidden><p>Use the app <strong>without a network</strong>, and sync automatically when it comes back.</p>
-<p>The plugin pre-caches data into the browser while online — <strong>including screens the user has never opened</strong> — so a cold start with no connection still boots and still shows data.</p>
+      <div class="prose lang lang-zh" hidden><p><strong>在没有网络的情况下</strong>继续使用应用，网络恢复后自动同步。</p>
+<p>插件会在在线时把数据预先缓存到浏览器 —— <strong>包括用户从未打开过的页面</strong> —— 因此在完全断网的情况下冷启动，应用依然能启动并显示数据。</p>
 <hr>
-<h3>What works offline</h3>
+<h3>离线时哪些功能可用</h3>
 <table>
 <thead>
 <tr>
 <th></th>
-<th>Offline</th>
+<th>离线</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Cold start (close the tab, reopen it)</td>
-<td>✅ via a service worker caching the bundle</td>
+<td>冷启动（关掉标签页再打开）</td>
+<td>✅ 由 service worker 缓存前端包</td>
 </tr>
 <tr>
-<td>List / filter / sort / paginate</td>
-<td>✅ evaluated against the pre-cached rows</td>
+<td>列表 / 筛选 / 排序 / 分页</td>
+<td>✅ 基于预缓存的数据在本地计算</td>
 </tr>
 <tr>
-<td>Open one record’s detail</td>
-<td>✅ if that record is within the cached slice</td>
+<td>打开某条记录的详情</td>
+<td>✅ 前提是该记录在缓存范围内</td>
 </tr>
 <tr>
-<td><strong>Create</strong> a record</td>
-<td>✅ queued, replayed on reconnect</td>
+<td><strong>新建</strong>记录</td>
+<td>✅ 先排队，恢复连接后重放</td>
 </tr>
 <tr>
-<td><strong>Edit / delete</strong> a record</td>
-<td>❌ not supported (see “Why create-only”)</td>
+<td><strong>编辑 / 删除</strong>记录</td>
+<td>❌ 不支持（见“为什么只支持新建”）</td>
 </tr>
 </tbody>
 </table>
 <hr>
-<h3>How it works</h3>
-<h4>1. Pre-cache — the part that actually matters</h4>
-<p>A read-through cache (store whatever was fetched) only ever covers screens already visited, so the first offline visit to anything else is a blank page. This plugin <strong>pulls data down ahead of time</strong>:</p>
+<h3>工作原理</h3>
+<h4>1. 预缓存 —— 真正起作用的部分</h4>
+<p>只“把取到的东西存下来”的读穿缓存，永远只能覆盖已经访问过的页面，第一次离线访问别的页面就是白屏。本插件是<strong>提前把数据拉下来</strong>：</p>
 <ul>
-<li>For each enabled collection, download up to <code>Rows to pre-cache</code> (default 500), honouring the configured <code>filter</code> / <code>sort</code> / <code>appends</code>.</li>
-<li>Re-run on a timer (default 15 min) while online, and immediately on enable.</li>
-<li>Snapshot <strong>collection metadata</strong> so blocks can render offline.</li>
-<li>A <strong>service worker</strong> caches the JS/CSS shell so a cold offline start can boot at all.</li>
+<li>对每个启用的数据表，按配置的 <code>filter</code> / <code>sort</code> / <code>appends</code>，最多下载 <code>预缓存行数</code> 条（默认 500）。</li>
+<li>在线时按定时器重跑（默认 15 分钟），启用时立即跑一次。</li>
+<li>快照<strong>数据表元数据</strong>，让区块在离线时也能渲染。</li>
+<li>一个 <strong>service worker</strong> 缓存 JS/CSS 外壳，离线冷启动才有可能成功。</li>
 </ul>
 <blockquote>
-<p>The worker is served from <code>/ptdl-offline-sw.js</code> (the server lane registers a root route). It must be at the root: from the plugin’s static directory its scope would cover nothing the app loads.</p>
+<p>Worker 由 <code>/ptdl-offline-sw.js</code> 提供（服务端注册了根路由）。它必须位于根路径：放在插件的静态目录下，其作用域覆盖不到应用真正加载的资源。</p>
 </blockquote>
-<h4>2. Offline reads</h4>
-<p>When a request <strong>never reaches the server</strong> (no HTTP response at all), the interceptor answers from IndexedDB:</p>
+<h4>2. 离线读取</h4>
+<p>当一个请求<strong>根本没有到达服务器</strong>（完全没有 HTTP 响应）时，拦截器改由 IndexedDB 应答：</p>
 <ul>
-<li><code>filter</code> is evaluated locally: <code>$eq $ne $gt $gte $lt $lte $in $notIn $includes $notIncludes $empty $notEmpty $date* $like $notLike $between $null $notNull $isTruly $isFalsy</code>, plus <code>$and</code>/<code>$or</code>/<code>$not</code> and dot-paths (<code>owner.name</code>).</li>
-<li>Unsupported operators are <strong>never silently dropped</strong> — the banner says exactly which ones did not run, so nobody mistakes an under-filtered list for a filtered one.</li>
-<li>The banner always states <strong>“Offline — data as of HH:MM”</strong>.</li>
+<li><code>filter</code> 在本地计算：<code>$eq $ne $gt $gte $lt $lte $in $notIn $includes $notIncludes $empty $notEmpty $date* $like $notLike $between $null $notNull $isTruly $isFalsy</code>，以及 <code>$and</code>/<code>$or</code>/<code>$not</code> 和点路径（<code>owner.name</code>）。</li>
+<li>不支持的操作符<strong>绝不会被悄悄丢掉</strong> —— 提示条会明确列出哪些条件没有生效，避免有人把“筛得不全的列表”当成“筛过的列表”。</li>
+<li>提示条始终显示**“离线 —— 数据截至 HH:MM”**。</li>
 </ul>
-<h4>3. Offline creates</h4>
+<h4>3. 离线新建</h4>
 <ul>
-<li>A new record gets a <strong>temporary id</strong> <code>__off_&lt;uuid&gt;</code>, appears in the UI at once, and is queued.</li>
-<li>On reconnect: replayed <strong>parents before children</strong>, swapping temporary ids for the <strong>real server ids</strong> (walking nested objects and arrays).</li>
-<li>A server refusal (4xx) lands in the <strong>Rejected</strong> inbox with the verbatim error, plus <strong>Retry</strong> / <strong>Discard</strong>.</li>
-<li>Connection drops mid-replay → stop, preserve order, resume next time.</li>
-<li>5xx → retried, capped at 5 attempts, then moved to Rejected (never an infinite loop).</li>
+<li>新记录会拿到一个<strong>临时 id</strong> <code>__off_&lt;uuid&gt;</code>，立刻出现在界面上，并进入队列。</li>
+<li>恢复连接后：<strong>先父后子</strong>重放，并把临时 id 换成<strong>服务器返回的真实 id</strong>（会递归处理嵌套对象与数组）。</li>
+<li>服务器拒绝（4xx）的记录进入<strong>已拒绝</strong>收件箱，附带原样的错误信息，并提供<strong>重试</strong> / <strong>丢弃</strong>。</li>
+<li>重放途中断网 → 停止、保持顺序、下次继续。</li>
+<li>5xx → 重试，最多 5 次，之后移入已拒绝（不会无限循环）。</li>
 </ul>
-<p><strong>Important:</strong> replay goes through the public <code>&lt;collection&gt;:create</code> resource, so <strong>every server-side hook, guard and ACL check runs exactly as it would for an online write</strong>. The plugin never writes to the database directly.</p>
+<p><strong>重要：</strong> 重放走的是公开的 <code>&lt;collection&gt;:create</code> 资源，因此<strong>服务端的每一个 hook、校验与 ACL 都会照常执行</strong>，与在线写入完全一致。插件从不直接写数据库。</p>
 <hr>
-<h3>Why create-only</h3>
-<p>An offline edit must be merged against whatever the server did meanwhile, which needs field-level conflict resolution and a resolution UI. A create has <strong>nothing to conflict with</strong> — the row does not exist yet. That is the single decision that makes this phase shippable.</p>
+<h3>为什么只支持新建</h3>
+<p>离线编辑必须与服务器同期的改动做合并，这需要字段级的冲突解决和一套解决冲突的界面。而新建<strong>没有任何东西可冲突</strong> —— 那条记录还不存在。正是这个取舍让当前阶段可以交付。</p>
 <hr>
-<h3>Risks before you enable “Create offline”</h3>
-<p>The config screen labels each collection:</p>
+<h3>开启“离线新建”之前要看的风险</h3>
+<p>配置界面会给每个数据表打标签：</p>
 <table>
 <thead>
 <tr>
-<th>Label</th>
-<th>Meaning</th>
+<th>标签</th>
+<th>含义</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Status-flow guard</strong></td>
-<td>A <code>statusFlow</code> field exists. The server’s <code>beforeCreate</code> rejects a row that does not start at the configured initial status. Offline the guard cannot run, so a bad row is only refused at replay — after the user believed it was saved.</td>
+<td><strong>状态流拦截</strong></td>
+<td>存在 <code>statusFlow</code> 字段。服务端 <code>beforeCreate</code> 会拒绝不是从配置的初始状态开始的记录。离线时这道拦截跑不了，坏记录要到重放时才被拒 —— 那时用户早以为已经保存了。</td>
 </tr>
 <tr>
-<td><strong>AI column filled after sync</strong></td>
-<td>AI columns run on <code>afterCreate</code> and need the network. Not a rejection, just a blank column until sync.</td>
+<td><strong>AI 字段在同步后填充</strong></td>
+<td>AI 字段在 <code>afterCreate</code> 运行且需要网络。这不是拒绝，只是同步前该字段为空。</td>
 </tr>
 <tr>
-<td><strong>Unique constraint</strong></td>
-<td>Uniqueness cannot be checked offline. Two devices can queue the same key; the second is rejected at replay.</td>
+<td><strong>唯一约束冲突</strong></td>
+<td>离线无法校验唯一性。两台设备可能排队同一个键值，第二个会在重放时被拒。</td>
 </tr>
 <tr>
-<td><strong>Required field</strong></td>
-<td>A required field the offline form cannot supply fails at replay.</td>
+<td><strong>必填字段</strong></td>
+<td>离线表单无法填写的必填字段，会在重放时失败。</td>
 </tr>
 </tbody>
 </table>
-<p>These are <strong>warnings, not blocks</strong> — almost every real collection has a status field, and refusing them all would leave the feature unusable.</p>
+<p>这些是<strong>警告，不是禁止</strong> —— 几乎每张真实业务表都有状态字段，全部拒绝会让这个功能无法使用。</p>
 <hr>
-<h3>Known limitations</h3>
+<h3>已知限制</h3>
 <ul>
-<li><strong>Associations</strong>: <code>posts/1/comments:list</code> is <strong>not</strong> served offline. Re-implementing the server’s joins client-side and getting it subtly wrong is worse than a clear failure. Use <code>appends</code> on the parent collection instead.</li>
-<li><strong>Permissions</strong>: cached rows are the rows the user could read <strong>at cache time</strong>. Data rules are not re-evaluated offline, so access revoked while offline is not reflected until the next sync.</li>
-<li><strong><code>$eq</code> is case-INSENSITIVE offline</strong> (it reuses <code>evalConditionOp</code> from <code>@tuanla90/shared</code>) while SQL usually is not, so offline can return a few extra rows.</li>
-<li><strong>Shared devices</strong>: signing in as a different user <strong>wipes</strong> the previous user’s cache before anything is read.</li>
-<li><strong>Service workers need HTTPS</strong> (or localhost). On plain http there is no offline cold start; everything else still works.</li>
+<li><strong>关联查询</strong>：<code>posts/1/comments:list</code> <strong>不</strong>在离线时提供。在客户端重新实现服务端的关联查询并且实现得似是而非，比干脆失败更糟。请改用父表上的 <code>appends</code>。</li>
+<li><strong>权限</strong>：缓存下来的是用户<strong>在缓存那一刻</strong>能读到的记录。数据权限规则不会在离线时重新计算，因此离线期间被收回的访问权限要到下次同步才反映出来。</li>
+<li><strong>离线的 <code>$eq</code> 不区分大小写</strong>（复用 <code>@tuanla90/shared</code> 的 <code>evalConditionOp</code>），而 SQL 通常区分，所以离线可能多返回几行。</li>
+<li><strong>共享设备</strong>：换一个用户登录会在读取任何数据之前<strong>清空</strong>上一个用户的缓存。</li>
+<li><strong>Service worker 需要 HTTPS</strong>（或 localhost）。纯 http 下没有离线冷启动，其余功能仍然可用。</li>
 </ul>
 <hr>
-<h3>Configuration</h3>
-<p><code>Settings → Offline mode</code></p>
+<h3>配置</h3>
+<p><code>设置 → 离线模式</code></p>
 <ul>
-<li><strong>Enable offline</strong> — when off, the plugin caches nothing and queues nothing.</li>
-<li><strong>Auto refresh</strong> — pre-cache interval (0 = manual only).</li>
-<li>Collection table: <strong>Read offline</strong> / <strong>Create offline</strong> / <strong>Rows to pre-cache</strong> / a <strong>Risks</strong> column.</li>
+<li><strong>启用离线</strong> —— 关闭时，插件不缓存任何内容，也不排队任何请求。</li>
+<li><strong>自动刷新</strong> —— 预缓存间隔（0 = 仅手动）。</li>
+<li>数据表列表：<strong>离线读取</strong> / <strong>离线新建</strong> / <strong>预缓存行数</strong> / <strong>风险</strong>列。</li>
 </ul>
-<p>Users see a <strong>floating pill</strong> whenever they are offline, have records waiting, or have rejected records. Tapping it opens a drawer: state, data age, storage used, the queue, the Rejected inbox, and <strong>Sync now</strong>.</p>
+<p>用户在离线、有记录待同步、或有被拒记录时，会看到一个<strong>浮动药丸</strong>。点开是一个抽屉：状态、数据时间、已用存储、队列、已拒绝收件箱，以及<strong>立即同步</strong>。</p>
 <hr>
-<h3>Testing</h3>
-<p>The pure logic is covered by Node tests (no browser needed):</p>
+<h3>测试</h3>
+<p>纯逻辑部分由 Node 测试覆盖（不需要浏览器）：</p>
 <ul>
-<li><strong>Query engine — 39/39</strong>: operators, <code>$and</code>/<code>$or</code>/<code>$not</code> trees, dot-paths, sorting (with a regression test pinning a <code>Date.parse</code> bug that sorted numeric columns as years), pagination, and the <strong>reporting</strong> of unsupported operators.</li>
-<li><strong>Queue — 36/36</strong>: adopting the real id, parents-before-children, deeply nested placeholders, 4xx = rejected (not retried), a rejected parent rejecting its children, mid-replay disconnect stopping and resuming, the 5xx retry cap, and Retry / Discard.</li>
+<li><strong>查询引擎 —— 39/39</strong>：各操作符、<code>$and</code>/<code>$or</code>/<code>$not</code> 树、点路径、排序（含一个回归用例，锁定曾把数字列当年份排序的 <code>Date.parse</code> 缺陷）、分页，以及不支持操作符的<strong>上报</strong>。</li>
+<li><strong>队列 —— 36/36</strong>：接收真实 id、先父后子、深层嵌套占位符、4xx = 拒绝（不重试）、父记录被拒则子记录一并被拒、重放途中断网的停止与恢复、5xx 重试上限，以及重试 / 丢弃。</li>
 </ul>
-<p>Not yet exercised in a real browser (IndexedDB, service worker, SW registration).</p>
+<p>尚未在真实浏览器中验证（IndexedDB、service worker、SW 注册）。</p>
 </div>
     </section>
 
@@ -31260,7 +31451,7 @@ data.region == $user.region &amp;&amp; data.amount &lt;= 100000000
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Trang đăng nhập tùy biến</span><span class="lang lang-en" hidden>Custom Login</span><span class="lang lang-zh" hidden>自定义登录页</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Bảo mật &amp; Đăng nhập</span><span class="lang lang-en" hidden>Security &amp; sign-in</span><span class="lang lang-zh" hidden>Security &amp; sign-in</span></span>
-        <span class="chip">v2.3.9</span>
+        <span class="chip">v2.3.10</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
