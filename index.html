@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hướng dẫn Plugin @tuanla90 · @tuanla90 Plugin Guides</title>
-<meta name="description" content="Hướng dẫn sử dụng 56 plugin @tuanla90 cho NocoBase — User guides for 56 @tuanla90 NocoBase plugins.">
+<meta name="description" content="Hướng dẫn sử dụng 57 plugin @tuanla90 cho NocoBase — User guides for 57 @tuanla90 NocoBase plugins.">
 <style>
 :root{
   --bg:#ffffff; --fg:#1f2328; --muted:#656d76; --border:#d1d9e0; --card:#f6f8fa;
@@ -76,7 +76,7 @@ a:hover{text-decoration:underline}
 <a id="top"></a>
 <div class="layout">
   <aside class="side">
-    <div class="brand">📚 <span class="lang lang-vi">Hướng dẫn Plugin @tuanla90</span><span class="lang lang-en" hidden>@tuanla90 Plugin Guides</span><span class="lang lang-zh" hidden>@tuanla90 Plugin Guides</span><small>56 plugin · NocoBase</small></div>
+    <div class="brand">📚 <span class="lang lang-vi">Hướng dẫn Plugin @tuanla90</span><span class="lang lang-en" hidden>@tuanla90 Plugin Guides</span><span class="lang lang-zh" hidden>@tuanla90 Plugin Guides</span><small>57 plugin · NocoBase</small></div>
     <div class="langtoggle">
       <button data-lang="vi" class="active">Tiếng Việt</button>
       <button data-lang="en">English</button>
@@ -159,6 +159,7 @@ a:hover{text-decoration:underline}
       <a class="nav-link" href="#offline-sync" data-text="làm việc offline offline sync offline sync dùng app khi mất mạng, có mạng lại thì tự đồng bộ. các collection được đánh dấu sẽ được tải sẵn xuống trình duyệt (indexeddb) khi còn mạng — kể cả màn hình người dùng chưa từng mở — nên mở nguội lúc offline vẫn vào được app và vẫn có dữ liệu. đọc thì phục vụ từ cache kèm banner &quot;offline, dữ liệu lúc hh:mm&quot;. ghi chỉ cho phép tạo mới: bản ghi mới được xếp hàng ở máy với id tạm, khi có mạng thì phát lại theo thứ tự cha-trước-con và thay id tạm bằng id thật của server. cái nào server từ chối lúc phát lại sẽ rơi vào hộp thư bị từ chối để thử lại, sửa hoặc bỏ. collection có logic ghi chạy ở server (chặn chuyển trạng thái, cột ai) được gắn nhãn rủi ro cụ thể trước khi bật tạo offline. use the app without a network connection and sync automatically when it comes back. marked collections are pre-cached into the browser (indexeddb) while online — including screens the user has never opened — so a cold start offline still boots and shows data. reads are served from the cache with an &quot;offline, data as of hh:mm&quot; banner. writes are limited to create: new records are queued locally with a temporary id, then replayed parents-first when the connection returns, remapping temporary ids to the real server ids. anything the server rejects on replay lands in a rejected inbox to retry, edit or discard. collections whose writes depend on server-side logic (status-flow guards, ai columns) are flagged with the specific risk before offline create is turned on. use the app without a network connection and sync automatically when it comes back. marked collections are pre-cached into the browser (indexeddb) while online — including screens the user has never opened — so a cold start offline still boots and shows data. reads are served from the cache with an &quot;offline, data as of hh:mm&quot; banner. writes are limited to create: new records are queued locally with a temporary id, then replayed parents-first when the connection returns, remapping temporary ids to the real server ids. anything the server rejects on replay lands in a rejected inbox to retry, edit or discard. collections whose writes depend on server-side logic (status-flow guards, ai columns) are flagged with the specific risk before offline create is turned on."><span class="lang lang-vi">Làm việc offline</span><span class="lang lang-en" hidden>Offline Sync</span><span class="lang lang-zh" hidden>Offline Sync</span></a>
       <a class="nav-link" href="#deep-duplicate" data-text="nhân bản sâu (cha – con – cháu) deep duplicate 深度复制 nhân bản một bản ghi cùng toàn bộ con và cháu của nó trong một giao dịch duy nhất. một quy tắc quyết định chính xác những cột nào được sao chép ở từng cấp và những quan hệ nào sẽ đi theo; các dòng mới nhận id mới nhưng mọi liên kết đều được nối lại đúng — con của bản sao trỏ về bản ghi cha mới, các tham chiếu chéo bên trong tập vừa sao chép (kể cả cây tự tham chiếu) cũng được ánh xạ sang id mới, còn liên kết tới bản ghi bên ngoài thì giữ nguyên. xem trước cho biết sẽ tạo ra những gì trước khi ghi; giới hạn số dòng và độ sâu, xử lý cột duy nhất và ghi đè theo cột ('{{name}} (bản sao)', xoá trống, thời gian/người dùng hiện tại) giúp bản sao luôn hợp lệ. duplicate a record together with its children and grandchildren, in one transaction. a rule picks exactly which columns are copied at every level and which relations are followed; new rows get new ids while every link is rewired — a child of the copy points at the new parent, and cross-links inside the copied set (including self-referencing trees) are remapped too, while links to records outside the set stay untouched. preview shows what will be created before anything is written; row and depth caps, unique-column handling and per-column overrides ('{{name}} (copy)', clear, current time/user) keep the copy valid. 在一个事务中复制一条记录及其子记录和孙记录。规则精确决定每一层复制哪些字段、沿哪些关系展开；新记录获得新的 id，而所有关联都会重新指向正确的位置——副本的子记录指向新的父记录，被复制集合内部的交叉引用（包括自引用树）同样重新映射，指向集合之外记录的关联则保持不变。写入之前可预览将要创建的内容；行数与层级上限、唯一字段处理以及按字段的覆盖规则（'{{name}}（副本）'、清空、当前时间/用户）确保副本有效。"><span class="lang lang-vi">Nhân bản sâu (cha – con – cháu)</span><span class="lang lang-en" hidden>Deep Duplicate</span><span class="lang lang-zh" hidden>深度复制</span></a>
       <a class="nav-link" href="#change-log" data-text="nhật ký thay đổi change log 变更日志 ghi lại lịch sử thay đổi có hiểu ngữ cảnh trạng thái cho những trường bạn chọn: ai đổi, đổi lúc nào, với vai trò nào, giá trị từ→đến (kèm ảnh chụp màu và biểu tượng tại thời điểm đó), nguồn thay đổi, thời gian đã nằm ở giá trị trước đó và ghi chú tùy chọn. xem được dưới dạng popover dòng thời gian, ngăn kéo đầy đủ hoặc một khối riêng. records a status-aware change history for chosen fields: who/when/role, from→to values (with color/icon snapshot), change source, time spent in the previous value, and an optional note. surfaces as a timeline popover, a full drawer, or a block. 为选定的字段记录带状态语义的变更历史：谁改的、什么时候改的、以什么角色改的，从→到的取值（连同当时的颜色与图标快照）、变更来源、在上一个取值上停留的时长，以及可选的备注。可以用时间线弹窗、完整抽屉或独立区块三种方式呈现。"><span class="lang lang-vi">Nhật ký thay đổi</span><span class="lang lang-en" hidden>Change Log</span><span class="lang lang-zh" hidden>变更日志</span></a>
+      <a class="nav-link" href="#group-sequence" data-text="stt theo nhóm group sequence 分组编号 số thứ tự đánh lại theo từng nhóm — theo đơn hàng (kac031/8/01, /02…), theo khách hàng, theo tháng (pn2610-0001) hoặc theo chứng từ (dòng 1, 2, 3). đặt quy tắc kèm mẫu lên một trường chữ hoặc số bình thường; số được cấp lúc lưu bản ghi, trong cùng transaction với bộ đếm theo nhóm được khoá, nên lưu đồng thời không bao giờ trùng. có thể giữ mã gõ tay, bộ đếm được đồng bộ từ dữ liệu sẵn có, và form tạo mới hiện trước mã sẽ được cấp. numbering that restarts per group — per order (kac031/8/01, /02…), per customer, per month (pn2610-0001) or per document (line 1, 2, 3). put a rule with a template on an ordinary text or number field; the number is given when the record is saved, inside its transaction with a locked per-group counter, so concurrent saves never collide. typed codes can be kept, counters are seeded from existing data, and create forms show the code a save would get. 按分组重新开始的编号——按订单（kac031/8/01、/02…）、按客户、按月（pn2610-0001）或按单据（第 1、2、3 行）。在普通的文本或数字字段上设置带模板的规则；编号在保存记录时于同一事务内、以加锁的分组计数器生成，并发保存也不会重复。可保留手动输入的编号，计数器可从已有数据同步，新建表单会预先显示将要生成的编号。"><span class="lang lang-vi">STT theo nhóm</span><span class="lang lang-en" hidden>Group Sequence</span><span class="lang lang-zh" hidden>分组编号</span></a>
       <a class="nav-link" href="#excel-template" data-text="xuất excel theo mẫu excel template export excel 模板导出 xuất bản ghi ra .xlsx từ mẫu excel bạn tự thiết kế: merge ô, màu, viền, định dạng số và logo giữ nguyên 1:1. điền ô bằng {{field}} và {{= excel formula}} (dùng lại engine formula), lặp dòng theo từng dòng chi tiết hoặc từng bản ghi với {{#each}}. chứng từ 1 bản ghi, zip hàng loạt, hoặc cả danh sách vào 1 sheet. export records to .xlsx from an excel template you design yourself: merged cells, colours, borders, number formats and logo are kept 1:1. fill cells with {{field}} placeholders and {{= excel formulas}} (reuses the formula engine), repeat a row per detail line or per record with {{#each}}. single-record document, batch zip, or a whole list into one sheet. 按你自己设计的 excel 模板把记录导出为 .xlsx：合并单元格、颜色、边框、数字格式和 logo 全部 1:1 保留。在单元格里用 {{field}} 占位符和 {{= excel formulas}} 填充内容（复用 formula 引擎），用 {{#each}} 让某一行按每条明细或每条记录重复。可导出单条记录的单据、批量打包成 zip，或把整个列表输出到一个工作表。"><span class="lang lang-vi">Xuất Excel theo mẫu</span><span class="lang lang-en" hidden>Excel Template Export</span><span class="lang lang-zh" hidden>Excel 模板导出</span></a>
     </div>
 
@@ -4818,7 +4819,7 @@ capture the QR string, then feed it to the reader.</li>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Công thức &amp; Trường tự tính</span><span class="lang lang-en" hidden>Formula &amp; Computed Fields</span><span class="lang lang-zh" hidden>公式</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.2.20</span>
+        <span class="chip">v0.2.22</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -4826,7 +4827,7 @@ capture the QR string, then feed it to the reader.</li>
 trên field có sẵn, giá trị mặc định của form, <strong>cột thật do server tự tính lại</strong> theo quan hệ, và các phép
 <strong>tuần tự</strong> như số dư lũy kế hay tồn kho FIFO — <strong>không cần code</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Blocks / Fields · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.2.20</p>
+<p><strong>Nhóm:</strong> Blocks / Fields · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.2.22</p>
 <hr>
 <h3>Mục lục</h3>
 <ol>
@@ -5444,7 +5445,7 @@ tiên rồi bị <code>visited</code> chặn → tổng thiếu.</li>
 form default values, <strong>stored columns the server recomputes</strong> across relations, and <strong>sequential / window</strong> calculations
 like running balances or FIFO / average inventory costing — <strong>no code</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Blocks / Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.20</p>
+<p><strong>Group:</strong> Blocks / Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.22</p>
 <h3>What’s new after installing?</h3>
 <p>The plugin opens up <strong>5 ways to use formulas</strong>, each in a different place:</p>
 <table>
@@ -5667,7 +5668,7 @@ This column is <strong>not stored in the database</strong> — it recomputes on 
 表单默认值、<strong>由服务端跨关系重新计算并存储的列</strong>，以及<strong>顺序 / 窗口</strong>计算，
 例如滚动余额或 FIFO / 平均库存成本核算 — <strong>无需写代码</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> 区块 / 字段 · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.2.20</p>
+<p><strong>分组：</strong> 区块 / 字段 · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.2.22</p>
 <h3>安装后有什么变化？</h3>
 <p>插件带来了 <strong>5 种使用公式的方式</strong>，分别位于不同的地方：</p>
 <table>
@@ -11306,7 +11307,7 @@ photos with a <strong>GPS/time watermark</strong>, a <strong>location on a map</
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Thứ tự trường</span><span class="lang lang-en" hidden>Field Order</span><span class="lang lang-zh" hidden>字段排序</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.2.11</span>
+        <span class="chip">v0.2.12</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -11314,7 +11315,7 @@ photos with a <strong>GPS/time watermark</strong>, a <strong>location on a map</
 cấu hình trường — không cần code, không cần restart server.
 <strong>Từ 0.1.1</strong>, plugin còn <strong>tự sắp lại menu trong trang Settings</strong> cho gọn gàng theo nhóm.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Trường (Fields) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.11</p>
+<p><strong>Nhóm:</strong> Trường (Fields) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.12</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Một nút mới: “Sắp xếp trường”</strong> xuất hiện trên <strong>thanh công cụ của ngăn cấu hình trường</strong> (ngăn kéo ra khi bạn mở phần “Configure fields” của một bảng — chỗ có nút <strong>“Add field”</strong>). Nút nằm cạnh nút thêm trường.</li>
@@ -11399,7 +11400,7 @@ cấu hình trường — không cần code, không cần restart server.
 no code, no server restart.
 <strong>Since 0.1.1</strong>, the plugin also <strong>tidies the Settings-page menu</strong> into logical groups.</p>
 </blockquote>
-<p><strong>Group:</strong> Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.11</p>
+<p><strong>Group:</strong> Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.12</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A new button: “Reorder fields”</strong> appears on the <strong>toolbar of the field-configuration drawer</strong> (the drawer that opens when you “Configure fields” of a collection — where the <strong>“Add field”</strong> button is). It sits next to the add-field button.</li>
@@ -11483,7 +11484,7 @@ no code, no server restart.
 <p>直接在字段配置界面上，用<strong>拖拽</strong>给数据表的<strong>字段</strong>重新排序 —— 无需写代码，也无需重启服务端。
 <strong>自 0.1.1 起</strong>，插件还会把<strong>设置页面的菜单</strong>整理成有条理的分组。</p>
 </blockquote>
-<p><strong>分组：</strong> Fields（字段） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.11</p>
+<p><strong>分组：</strong> Fields（字段） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.12</p>
 <h3>安装之后多了什么？</h3>
 <ul>
 <li><strong>一个新按钮：“字段排序”</strong>，出现在<strong>字段配置抽屉的工具栏</strong>上（就是你对某个数据表“配置字段”时打开的那个抽屉 —— **“添加字段”**按钮所在的地方）。它紧挨着添加字段按钮。</li>
@@ -29894,6 +29895,248 @@ never offered before. Your other choices (enabled, snapshots, note, retention) a
 <hr>
 <h4>开发者说明</h4>
 <p>记录发生在<strong>服务端</strong>，通过触发字段上的数据库钩子 <code>afterCreate</code>/<code>afterUpdate</code> 实现；每次变更成为 <strong><code>ptdlChangeLogs</code></strong> 数据表中的一行（不可变，<code>dumpRules: 'skipped'</code>），每个数据表的配置存放在 <strong><code>ptdlChangeLogConfigs</code></strong> 中（一个数据表一行）。值的颜色／图标／标签由 <code>statusFlow</code> 字段的 <code>uiSchema.enum</code> 快照到 <code>fromMeta</code>/<code>toMeta</code>。变更来源 = <code>x-ptdl-change-source</code> 请求头（<code>form</code>/<code>quick</code>/<code>action</code>，由客户端设置）加上服务端推断（<code>create</code>/<code>bulk</code>/<code>api</code>/<code>system</code>）；原因通过 base64 编码的请求头 <code>x-ptdl-change-note</code> 传递。各个展示面（时间线 / 气泡卡片 / 抽屉 / 区块）都通过标准的资源 API 查询，并<strong>以来源数据表为准做权限控制</strong>（失败时放行）。<code>globalThis.__ptdlChangeLog</code> 桥接让其他插件（例如状态流）无需硬依赖即可打开历史气泡卡片。</p>
+</div>
+    </section>
+
+    <section class="plugin" id="group-sequence" data-text="stt theo nhóm group sequence 分组编号 số thứ tự đánh lại theo từng nhóm — theo đơn hàng (kac031/8/01, /02…), theo khách hàng, theo tháng (pn2610-0001) hoặc theo chứng từ (dòng 1, 2, 3). đặt quy tắc kèm mẫu lên một trường chữ hoặc số bình thường; số được cấp lúc lưu bản ghi, trong cùng transaction với bộ đếm theo nhóm được khoá, nên lưu đồng thời không bao giờ trùng. có thể giữ mã gõ tay, bộ đếm được đồng bộ từ dữ liệu sẵn có, và form tạo mới hiện trước mã sẽ được cấp. numbering that restarts per group — per order (kac031/8/01, /02…), per customer, per month (pn2610-0001) or per document (line 1, 2, 3). put a rule with a template on an ordinary text or number field; the number is given when the record is saved, inside its transaction with a locked per-group counter, so concurrent saves never collide. typed codes can be kept, counters are seeded from existing data, and create forms show the code a save would get. 按分组重新开始的编号——按订单（kac031/8/01、/02…）、按客户、按月（pn2610-0001）或按单据（第 1、2、3 行）。在普通的文本或数字字段上设置带模板的规则；编号在保存记录时于同一事务内、以加锁的分组计数器生成，并发保存也不会重复。可保留手动输入的编号，计数器可从已有数据同步，新建表单会预先显示将要生成的编号。 data">
+      <div class="plugin-head">
+        <h2><span class="lang lang-vi">STT theo nhóm</span><span class="lang lang-en" hidden>Group Sequence</span><span class="lang lang-zh" hidden>分组编号</span></h2>
+        <span class="chip chip-cat"><span class="lang lang-vi">Dữ liệu</span><span class="lang lang-en" hidden>Data</span><span class="lang lang-zh" hidden>Data</span></span>
+        <span class="chip">v0.1.0</span>
+        <a class="chip chip-top" href="#top" title="Top">↑</a>
+      </div>
+      <div class="prose lang lang-vi"><blockquote>
+<p>Số thứ tự <strong>đánh lại theo từng nhóm</strong>: <code>KAC031/8/01, /02…</code> theo đơn hàng, <code>PN2610-0001…</code> theo tháng, dòng 1, 2, 3
+theo chứng từ. Số được cấp lúc lưu bản ghi, nên hai người lưu cùng lúc không bao giờ nhận trùng số.</p>
+</blockquote>
+<p><strong>Nhóm:</strong> Dữ liệu · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.1.0</p>
+<h3>Vì sao cần</h3>
+<p>Trường <em>Sequence</em> có sẵn của NocoBase chỉ có <strong>một bộ đếm cho cả trường</strong> — không thể bắt đầu lại từ 1 cho từng
+đơn hay từng tháng. Các cách chữa thường dùng (công thức đếm dòng, hoặc quy tắc form điền sẵn mã) cấp trùng số khi
+hai người lưu cùng lúc, và nhảy cóc hoặc dùng lại số sau khi có bản ghi bị xoá.</p>
+<h3>Cài xong có gì mới?</h3>
+<ul>
+<li><strong>Thêm một trang Settings: “STT theo nhóm”</strong>, nơi đặt quy tắc đánh số lên một <strong>trường chữ hoặc số bình thường</strong>.</li>
+<li>Khi lưu bản ghi, trường nhận số tiếp theo của <strong>nhóm của nó</strong> — được lấy có khoá trong cùng transaction cơ sở
+dữ liệu, nên không bao giờ trùng, kể cả khi import hay tạo qua API.</li>
+<li><strong>Form tạo mới hiện trước mã sẽ được cấp</strong> ngay dưới ô (“Tự sinh khi lưu: KAC031/8/13”), tự cập nhật khi chọn
+đơn hàng. Chưa lưu thì chưa giữ chỗ số nào.</li>
+<li>Không có loại trường mới: giá trị lưu ngay trong trường bạn chọn, nên tắt plugin thì mọi mã vẫn còn nguyên.</li>
+</ul>
+<h3>Cách dùng</h3>
+<h4>Tình huống A — Mã theo từng đơn: <code>KAC031/8/01, /02…</code></h4>
+<ol>
+<li>Mở ⚙ <strong>Settings</strong> → <strong>“STT theo nhóm”</strong> → <strong>“Thêm quy tắc”</strong>.</li>
+<li><strong>Bảng dữ liệu</strong>: bảng chứa bản ghi cần đánh số. <strong>Trường nhận số</strong>: một trường chữ.</li>
+<li><strong>Mẫu</strong>: chèn mã đơn bằng <strong>“Chèn cột”</strong> (<code>{{order.order_code}}</code>), gõ <code>/</code>, rồi <strong>“Chèn số”</strong> loại 2 chữ số
+→ <code>{{order.order_code}}/{{seq:2}}</code>.</li>
+<li>Để trống <strong>“Đánh lại số theo”</strong> — các trường trong mẫu chính là nhóm (ở đây: đơn hàng).</li>
+<li><strong>Lưu</strong>. Nếu bảng đã có mã từ trước, bộ đếm được tự đồng bộ theo các mã đó.</li>
+<li>Trong các form, <strong>tắt “Bắt buộc”</strong> cho trường này: số được điền lúc lưu bản ghi.</li>
+</ol>
+<h4>Tình huống B — Số theo tháng: <code>PN2610-0001</code></h4>
+<p>Mẫu <code>PN{{createdAt:YYMM}}-{{seq:4}}</code>. Tháng nằm trong mẫu, nên mỗi tháng đánh lại từ đầu.</p>
+<h4>Tình huống C — Dòng 1, 2, 3 theo chứng từ</h4>
+<p>Chọn một trường <strong>số</strong> (ví dụ <code>line_no</code>) và đặt <strong>“Đánh lại số theo”</strong> là khoá quan hệ tới chứng từ (ví dụ
+<code>order_id</code>). Các dòng của mỗi chứng từ đếm 1, 2, 3…</p>
+<h3>Cần biết</h3>
+<ul>
+<li>🔢 <strong>Token trong mẫu:</strong> <code>{{seq}}</code> / <code>{{seq:3}}</code> (số, có đệm số 0) · <code>{{field}}</code> hoặc <code>{{quan_hệ.field}}</code> · ngày tháng
+<code>{{createdAt:YYMM}}</code> (YYYY, YY, MM, DD, HH, mm).</li>
+<li>✍️ <strong>Cho gõ tay</strong> (bật sẵn): mã người dùng gõ được giữ nguyên; nếu đúng mẫu, bộ đếm nhảy qua mã đó để mã tự
+sinh tiếp theo không trùng. Tắt đi thì luôn đánh số tự động.</li>
+<li>⛔ Bản ghi có giá trị nhóm trống (chưa chọn đơn) <strong>không</strong> được cấp số, và không tốn số nào.</li>
+<li>🔁 <strong>Đồng bộ bộ đếm</strong> đọc các mã đã có trong bảng và đặt bộ đếm mỗi nhóm bằng số lớn nhất — chạy sau khi
+import dữ liệu cũ.</li>
+<li>🧮 <strong>Bộ đếm</strong> hiện số đã cấp gần nhất của từng nhóm và cho sửa (ví dụ tiếp tục sổ giấy từ số 120). Nếu mã tiếp
+theo đã có người dùng, mã đó được bỏ qua.</li>
+<li>🗑️ Xoá bản ghi không trả lại số của nó (giống sổ hoá đơn). Xoá quy tắc thì các mã đã cấp vẫn giữ nguyên.</li>
+</ul>
+<h3>Xử lý sự cố</h3>
+<table>
+<thead>
+<tr>
+<th>Hiện tượng</th>
+<th>Nguyên nhân / cách xử lý</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Form không cho lưu: trường bắt buộc</td>
+<td>Tắt <strong>Bắt buộc</strong> cho trường đó trong form — số được điền sau khi gửi form.</td>
+</tr>
+<tr>
+<td>Không được cấp mã</td>
+<td>Giá trị nhóm trống (ví dụ chưa chọn đơn), hoặc quy tắc đang tắt.</td>
+</tr>
+<tr>
+<td>Mã bắt đầu lại từ 01 dù bảng đã có mã</td>
+<td>Bấm <strong>Đồng bộ bộ đếm</strong> trên quy tắc.</td>
+</tr>
+</tbody>
+</table>
+<h3>Ghi chú kỹ thuật</h3>
+<p>Quy tắc lưu ở <code>ptdlGroupSeqRules</code>, bộ đếm ở <code>ptdlGroupSeqCounters</code> (duy nhất theo bảng + trường + nhóm). Số được
+lấy ở <code>&lt;collection&gt;.afterCreateWithAssociations</code> — sau khi gắn quan hệ, trong transaction tạo bản ghi — với
+<code>SELECT … FOR UPDATE</code> trên dòng đếm của nhóm (nhóm mới được chèn trong một savepoint, nên hai transaction cùng tạo
+nhóm đó không bị lỗi). Mã được ghi bằng một lệnh cập nhật bình thường, nên các trường computed đọc mã sẽ tính lại.
+API: <code>ptdlGroupSeq:peek</code> (xem trước trong form, người dùng đã đăng nhập), <code>ptdlGroupSeq:fields</code>, và chỉ admin:
+<code>ptdlGroupSeq:sync|counters|setCounter</code> (snippet ACL <code>pm.tuanla90-group-sequence</code>).</p>
+</div>
+      <div class="prose lang lang-en" hidden><blockquote>
+<p>Numbers that <strong>restart per group</strong>: <code>KAC031/8/01, /02…</code> per order, <code>PN2610-0001…</code> per month, line 1, 2, 3 per
+document. Given when the record is saved, so two people saving at once never get the same number.</p>
+</blockquote>
+<p><strong>Group:</strong> Data · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.1.0</p>
+<h3>Why</h3>
+<p>NocoBase’s own <em>Sequence</em> field keeps <strong>one counter for the whole field</strong> — it can’t start again at 1 for
+each order or each month. The usual workarounds (a formula counting rows, or a form rule pre-filling a code)
+hand out the same number twice when two people save at the same time, and skip or reuse numbers after a
+deletion.</p>
+<h3>What’s new after installing?</h3>
+<ul>
+<li><strong>A new Settings page: “Group sequence”</strong> where you put a numbering rule on an <strong>ordinary text or number field</strong>.</li>
+<li>When a record is saved, the field gets the next number of <strong>its group</strong> — taken under a lock in the same
+database transaction, so numbers never collide, also for imports and API calls.</li>
+<li><strong>Create forms show the code a save would get</strong> under the field (“Given on save: KAC031/8/13”), updated
+when you pick the order. Nothing is reserved until you save.</li>
+<li>No new field type: the value is stored in the field you chose, so turning the plugin off keeps every code.</li>
+</ul>
+<h3>How to use</h3>
+<h4>Scenario A — A code per order: <code>KAC031/8/01, /02…</code></h4>
+<ol>
+<li>Open ⚙ <strong>Settings</strong> → <strong>“Group sequence”</strong> → <strong>“Add rule”</strong>.</li>
+<li><strong>Collection</strong>: the table of the records to number. <strong>Field that receives the number</strong>: a text field.</li>
+<li><strong>Template</strong>: insert the order’s code with <strong>“Insert column”</strong> (<code>{{order.order_code}}</code>), type <code>/</code>, then
+<strong>“Insert number”</strong> with 2 digits → <code>{{order.order_code}}/{{seq:2}}</code>.</li>
+<li>Leave <strong>“Restart numbering per”</strong> empty — the template’s fields are the group (here: the order).</li>
+<li><strong>Save</strong>. If the table already has codes, the counters are synced from them automatically.</li>
+<li>In your forms, turn <strong>off “Required”</strong> for that field: the number is filled when the record is saved.</li>
+</ol>
+<h4>Scenario B — A number per month: <code>PN2610-0001</code></h4>
+<p>Template <code>PN{{createdAt:YYMM}}-{{seq:4}}</code>. The month is part of the template, so numbering restarts each month.</p>
+<h4>Scenario C — Line 1, 2, 3 per document</h4>
+<p>Pick a <strong>number</strong> field (e.g. <code>line_no</code>) and set <strong>“Restart numbering per”</strong> to the document’s relation key
+(e.g. <code>order_id</code>). Each document’s lines count 1, 2, 3…</p>
+<h3>Good to know</h3>
+<ul>
+<li>🔢 <strong>Template tokens:</strong> <code>{{seq}}</code> / <code>{{seq:3}}</code> (number, padded) · <code>{{field}}</code> or <code>{{relation.field}}</code> · dates
+<code>{{createdAt:YYMM}}</code> (YYYY, YY, MM, DD, HH, mm).</li>
+<li>✍️ <strong>Typing allowed</strong> (on by default): a code typed by the user is kept; if it follows the template, the counter
+moves past it so the next automatic code doesn’t clash. Turn it off to always number automatically.</li>
+<li>⛔ A record whose group value is empty (no order picked) gets <strong>no</strong> number, and none is spent.</li>
+<li>🔁 <strong>Sync counters</strong> reads the codes already in the table and sets each group’s counter to its highest number —
+run it after importing old data.</li>
+<li>🧮 <strong>Counters</strong> shows the last number per group and lets you change it (e.g. continue a paper register at 120).
+If the next code is already taken, it is skipped.</li>
+<li>🗑️ Deleting a record does not give its number back (like an invoice register). Deleting a rule keeps the codes.</li>
+</ul>
+<h3>Troubleshooting</h3>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Cause / what to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The form won’t save: field is required</td>
+<td>Turn off <strong>Required</strong> for that field in the form — the number arrives after submit.</td>
+</tr>
+<tr>
+<td>No code was given</td>
+<td>The group value was empty (e.g. no order picked), or the rule is disabled.</td>
+</tr>
+<tr>
+<td>Codes start at 01 on a table that already has codes</td>
+<td>Click <strong>Sync counters</strong> on the rule.</td>
+</tr>
+</tbody>
+</table>
+<h3>Technical notes</h3>
+<p>Rules live in <code>ptdlGroupSeqRules</code>, counters in <code>ptdlGroupSeqCounters</code> (unique per collection + field + group).
+The number is taken in <code>&lt;collection&gt;.afterCreateWithAssociations</code> — after relations are attached, inside the
+creating transaction — with <code>SELECT … FOR UPDATE</code> on the group’s counter row (a brand-new group is inserted
+inside a savepoint, so two transactions creating it at once don’t fail). The code is written with a normal
+update, so computed fields that read it recompute. API: <code>ptdlGroupSeq:peek</code> (form preview, logged-in users),
+<code>ptdlGroupSeq:fields</code>, and admin-only <code>ptdlGroupSeq:sync|counters|setCounter</code> (ACL snippet
+<code>pm.tuanla90-group-sequence</code>).</p>
+</div>
+      <div class="prose lang lang-zh" hidden><blockquote>
+<p><strong>按分组重新开始</strong>的编号：按订单 <code>KAC031/8/01、/02…</code>，按月 <code>PN2610-0001…</code>，按单据第 1、2、3 行。
+编号在保存记录时生成，因此两人同时保存也绝不会得到相同的编号。</p>
+</blockquote>
+<p><strong>分组：</strong> 数据 · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.1.0</p>
+<h3>为什么需要</h3>
+<p>NocoBase 自带的<em>序列</em>字段<strong>整个字段只有一个计数器</strong>——无法为每个订单或每个月重新从 1 开始。常见的变通办法
+（用公式统计行数，或用表单规则预填编号）在两人同时保存时会给出重复编号，删除记录后还会跳号或重复使用编号。</p>
+<h3>安装后有什么变化？</h3>
+<ul>
+<li><strong>新增一个设置页面：“分组编号”</strong>，在<strong>普通的文本或数字字段</strong>上设置编号规则。</li>
+<li>保存记录时，该字段获得<strong>其所属分组</strong>的下一个编号——在同一数据库事务中加锁获取，因此编号绝不冲突，
+导入或通过 API 创建时也一样。</li>
+<li><strong>新建表单会在字段下方显示保存后将得到的编号</strong>（“保存时生成：KAC031/8/13”），选择订单后自动更新。
+保存之前不会占用任何编号。</li>
+<li>没有新的字段类型：值保存在你选择的字段中，因此停用插件后所有编号都会保留。</li>
+</ul>
+<h3>使用方法</h3>
+<h4>场景 A — 按订单编号：<code>KAC031/8/01、/02…</code></h4>
+<ol>
+<li>打开 ⚙ <strong>设置</strong> → <strong>“分组编号”</strong> → <strong>“添加规则”</strong>。</li>
+<li><strong>数据表</strong>：要编号的记录所在的表。<strong>接收编号的字段</strong>：一个文本字段。</li>
+<li><strong>模板</strong>：用 <strong>“插入字段”</strong> 插入订单编号（<code>{{order.order_code}}</code>），输入 <code>/</code>，再用 <strong>“插入编号”</strong> 选择 2 位
+→ <code>{{order.order_code}}/{{seq:2}}</code>。</li>
+<li><strong>“编号重新开始的依据”</strong> 留空——模板中的字段就是分组（此处为订单）。</li>
+<li><strong>保存</strong>。如果表中已有编号，计数器会自动根据它们同步。</li>
+<li>在表单中<strong>关闭该字段的“必填”</strong>：编号在保存记录时才会填入。</li>
+</ol>
+<h4>场景 B — 按月编号：<code>PN2610-0001</code></h4>
+<p>模板 <code>PN{{createdAt:YYMM}}-{{seq:4}}</code>。月份包含在模板中，因此每个月重新开始编号。</p>
+<h4>场景 C — 每张单据第 1、2、3 行</h4>
+<p>选择一个<strong>数字</strong>字段（例如 <code>line_no</code>），将 <strong>“编号重新开始的依据”</strong> 设为指向单据的关联键（例如 <code>order_id</code>）。
+每张单据的行依次为 1、2、3…</p>
+<h3>须知</h3>
+<ul>
+<li>🔢 <strong>模板占位符：</strong> <code>{{seq}}</code> / <code>{{seq:3}}</code>（编号，补零）· <code>{{field}}</code> 或 <code>{{关联.field}}</code> · 日期
+<code>{{createdAt:YYMM}}</code>（YYYY、YY、MM、DD、HH、mm）。</li>
+<li>✍️ <strong>允许手动输入</strong>（默认开启）：保留用户输入的编号；若符合模板，计数器会越过该编号，下一个自动编号就不会冲突。
+关闭后始终自动编号。</li>
+<li>⛔ 分组值为空（未选择订单）的记录<strong>不会</strong>获得编号，也不会消耗编号。</li>
+<li>🔁 <strong>同步计数器</strong>会读取表中已有的编号，并将每个分组的计数器设为其最大编号——导入旧数据后请运行。</li>
+<li>🧮 <strong>计数器</strong>显示每个分组最近一次生成的编号并允许修改（例如从纸质登记簿的 120 号继续）。若下一个编号已被占用，
+则自动跳过。</li>
+<li>🗑️ 删除记录不会归还其编号（与发票登记簿相同）。删除规则后已生成的编号保持不变。</li>
+</ul>
+<h3>故障排查</h3>
+<table>
+<thead>
+<tr>
+<th>现象</th>
+<th>原因 / 处理方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>表单无法保存：字段为必填</td>
+<td>在表单中关闭该字段的<strong>必填</strong>——编号在提交后才会填入。</td>
+</tr>
+<tr>
+<td>没有生成编号</td>
+<td>分组值为空（例如未选择订单），或规则已停用。</td>
+</tr>
+<tr>
+<td>表中已有编号，但编号又从 01 开始</td>
+<td>在该规则上点击<strong>同步计数器</strong>。</td>
+</tr>
+</tbody>
+</table>
+<h3>技术说明</h3>
+<p>规则保存在 <code>ptdlGroupSeqRules</code>，计数器保存在 <code>ptdlGroupSeqCounters</code>（按数据表 + 字段 + 分组唯一）。编号在
+<code>&lt;collection&gt;.afterCreateWithAssociations</code> 中获取——在关联写入之后、创建记录的事务之内——并对该分组的计数器行执行
+<code>SELECT … FOR UPDATE</code>（新分组在保存点内插入，因此两个事务同时创建该分组也不会失败）。编号通过普通更新写入，
+因此读取该编号的计算字段会重新计算。API：<code>ptdlGroupSeq:peek</code>（表单预览，已登录用户）、<code>ptdlGroupSeq:fields</code>，
+以及仅管理员可用的 <code>ptdlGroupSeq:sync|counters|setCounter</code>（ACL 片段 <code>pm.tuanla90-group-sequence</code>）。</p>
 </div>
     </section>
 
