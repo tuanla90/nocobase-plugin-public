@@ -27,9 +27,9 @@
     {
       "packageName": "@tuanla90/plugin-field-order",
       "slug": "field-order",
-      "version": "0.2.11",
+      "version": "0.2.12",
       "displayName": "Field Order",
-      "url": "https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-field-order-0.2.11.tgz"
+      "url": "https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-field-order-0.2.12.tgz"
     },
     {
       "packageName": "@tuanla90/plugin-hub",
