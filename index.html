@@ -29902,14 +29902,14 @@ never offered before. Your other choices (enabled, snapshots, note, retention) a
       <div class="plugin-head">
         <h2><span class="lang lang-vi">STT theo nhóm</span><span class="lang lang-en" hidden>Group Sequence</span><span class="lang lang-zh" hidden>分组编号</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Dữ liệu</span><span class="lang lang-en" hidden>Data</span><span class="lang lang-zh" hidden>Data</span></span>
-        <span class="chip">v0.1.0</span>
+        <span class="chip">v0.1.1</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
 <p>Số thứ tự <strong>đánh lại theo từng nhóm</strong>: <code>KAC031/8/01, /02…</code> theo đơn hàng, <code>PN2610-0001…</code> theo tháng, dòng 1, 2, 3
 theo chứng từ. Số được cấp lúc lưu bản ghi, nên hai người lưu cùng lúc không bao giờ nhận trùng số.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Dữ liệu · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.1.0</p>
+<p><strong>Nhóm:</strong> Dữ liệu · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.1.1</p>
 <h3>Vì sao cần</h3>
 <p>Trường <em>Sequence</em> có sẵn của NocoBase chỉ có <strong>một bộ đếm cho cả trường</strong> — không thể bắt đầu lại từ 1 cho từng
 đơn hay từng tháng. Các cách chữa thường dùng (công thức đếm dòng, hoặc quy tắc form điền sẵn mã) cấp trùng số khi
@@ -29928,21 +29928,23 @@ dữ liệu, nên không bao giờ trùng, kể cả khi import hay tạo qua AP
 <ol>
 <li>Mở ⚙ <strong>Settings</strong> → <strong>“STT theo nhóm”</strong> → <strong>“Thêm quy tắc”</strong>.</li>
 <li><strong>Bảng dữ liệu</strong>: bảng chứa bản ghi cần đánh số. <strong>Trường nhận số</strong>: một trường chữ.</li>
-<li><strong>Mẫu</strong>: chèn mã đơn bằng <strong>“Chèn cột”</strong> (<code>{{order.order_code}}</code>), gõ <code>/</code>, rồi <strong>“Chèn số”</strong> loại 2 chữ số
-→ <code>{{order.order_code}}/{{seq:2}}</code>.</li>
-<li>Để trống <strong>“Đánh lại số theo”</strong> — các trường trong mẫu chính là nhóm (ở đây: đơn hàng).</li>
+<li><strong>Mã gồm</strong> — thêm lần lượt các mảnh: <strong>Giá trị trường</strong> → <em>Đơn hàng › Mã đơn hàng</em>, <strong>Chữ cố định</strong> → <code>/</code>,
+<strong>Số tự tăng</strong> → 2 chữ số. Phần ví dụ bên dưới hiện mã thật (<code>KAC031/8/01, /02</code>, đơn khác <code>KAN014/1/01</code>) và nói
+rõ khi nào đánh lại: “Số đánh lại từ 1 cho Đơn hàng › Mã đơn hàng”.</li>
+<li>Không cần chỉnh gì thêm — các mảnh Giá trị trường chính là nhóm (ở đây: đơn hàng).</li>
 <li><strong>Lưu</strong>. Nếu bảng đã có mã từ trước, bộ đếm được tự đồng bộ theo các mã đó.</li>
 <li>Trong các form, <strong>tắt “Bắt buộc”</strong> cho trường này: số được điền lúc lưu bản ghi.</li>
 </ol>
 <h4>Tình huống B — Số theo tháng: <code>PN2610-0001</code></h4>
-<p>Mẫu <code>PN{{createdAt:YYMM}}-{{seq:4}}</code>. Tháng nằm trong mẫu, nên mỗi tháng đánh lại từ đầu.</p>
+<p>Các mảnh: <strong>Chữ cố định</strong> <code>PN</code> → <strong>Ngày tháng</strong> <em>Ngày tạo</em> · <em>Năm và tháng, rút gọn</em> → <strong>Chữ cố định</strong> <code>-</code> → <strong>Số tự tăng</strong>
+4 chữ số. Tháng nằm trong mã, nên mỗi tháng đánh lại từ đầu (<code>PN2610-0001</code>, rồi <code>PN2611-0001</code>).</p>
 <h4>Tình huống C — Dòng 1, 2, 3 theo chứng từ</h4>
-<p>Chọn một trường <strong>số</strong> (ví dụ <code>line_no</code>) và đặt <strong>“Đánh lại số theo”</strong> là khoá quan hệ tới chứng từ (ví dụ
-<code>order_id</code>). Các dòng của mỗi chứng từ đếm 1, 2, 3…</p>
+<p>Chọn một trường <strong>số</strong> (ví dụ <code>line_no</code>) và trong mục <strong>Nâng cao</strong>, đặt <strong>“Đánh lại số theo”</strong> là khoá quan hệ tới
+chứng từ (ví dụ <code>order_id</code>). Các dòng của mỗi chứng từ đếm 1, 2, 3…</p>
 <h3>Cần biết</h3>
 <ul>
-<li>🔢 <strong>Token trong mẫu:</strong> <code>{{seq}}</code> / <code>{{seq:3}}</code> (số, có đệm số 0) · <code>{{field}}</code> hoặc <code>{{quan_hệ.field}}</code> · ngày tháng
-<code>{{createdAt:YYMM}}</code> (YYYY, YY, MM, DD, HH, mm).</li>
+<li>🧩 <strong>Các mảnh:</strong> Giá trị trường (đi qua quan hệ được) · Chữ cố định · Ngày tháng (năm, tháng, ngày) · Số tự tăng (số chữ số,
+số bắt đầu). Chúng được lưu thành mẫu như <code>{{order.order_code}}/{{seq:2}}</code>; <strong>Nâng cao → Xem dạng mẫu</strong> để sửa trực tiếp.</li>
 <li>✍️ <strong>Cho gõ tay</strong> (bật sẵn): mã người dùng gõ được giữ nguyên; nếu đúng mẫu, bộ đếm nhảy qua mã đó để mã tự
 sinh tiếp theo không trùng. Tắt đi thì luôn đánh số tự động.</li>
 <li>⛔ Bản ghi có giá trị nhóm trống (chưa chọn đơn) <strong>không</strong> được cấp số, và không tốn số nào.</li>
@@ -29987,7 +29989,7 @@ API: <code>ptdlGroupSeq:peek</code> (xem trước trong form, người dùng đ�
 <p>Numbers that <strong>restart per group</strong>: <code>KAC031/8/01, /02…</code> per order, <code>PN2610-0001…</code> per month, line 1, 2, 3 per
 document. Given when the record is saved, so two people saving at once never get the same number.</p>
 </blockquote>
-<p><strong>Group:</strong> Data · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.1.0</p>
+<p><strong>Group:</strong> Data · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.1.1</p>
 <h3>Why</h3>
 <p>NocoBase’s own <em>Sequence</em> field keeps <strong>one counter for the whole field</strong> — it can’t start again at 1 for
 each order or each month. The usual workarounds (a formula counting rows, or a form rule pre-filling a code)
@@ -30007,21 +30009,23 @@ when you pick the order. Nothing is reserved until you save.</li>
 <ol>
 <li>Open ⚙ <strong>Settings</strong> → <strong>“Group sequence”</strong> → <strong>“Add rule”</strong>.</li>
 <li><strong>Collection</strong>: the table of the records to number. <strong>Field that receives the number</strong>: a text field.</li>
-<li><strong>Template</strong>: insert the order’s code with <strong>“Insert column”</strong> (<code>{{order.order_code}}</code>), type <code>/</code>, then
-<strong>“Insert number”</strong> with 2 digits → <code>{{order.order_code}}/{{seq:2}}</code>.</li>
-<li>Leave <strong>“Restart numbering per”</strong> empty — the template’s fields are the group (here: the order).</li>
+<li><strong>Code made of</strong> — add the pieces in order: <strong>Field value</strong> → <em>Order › Order code</em>, <strong>Fixed text</strong> → <code>/</code>,
+<strong>Auto number</strong> → 2 digits. The example below shows real codes (<code>KAC031/8/01, /02</code>, another order <code>KAN014/1/01</code>)
+and says when numbering restarts: “Numbering restarts at 1 for Order › Order code”.</li>
+<li>Nothing else to set — the Field value pieces are the group (here: the order).</li>
 <li><strong>Save</strong>. If the table already has codes, the counters are synced from them automatically.</li>
 <li>In your forms, turn <strong>off “Required”</strong> for that field: the number is filled when the record is saved.</li>
 </ol>
 <h4>Scenario B — A number per month: <code>PN2610-0001</code></h4>
-<p>Template <code>PN{{createdAt:YYMM}}-{{seq:4}}</code>. The month is part of the template, so numbering restarts each month.</p>
+<p>Pieces: <strong>Fixed text</strong> <code>PN</code> → <strong>Date</strong> <em>Created at</em> · <em>Year and month, short</em> → <strong>Fixed text</strong> <code>-</code> → <strong>Auto number</strong> 4 digits.
+The month is part of the code, so numbering restarts each month (<code>PN2610-0001</code>, then <code>PN2611-0001</code>).</p>
 <h4>Scenario C — Line 1, 2, 3 per document</h4>
-<p>Pick a <strong>number</strong> field (e.g. <code>line_no</code>) and set <strong>“Restart numbering per”</strong> to the document’s relation key
-(e.g. <code>order_id</code>). Each document’s lines count 1, 2, 3…</p>
+<p>Pick a <strong>number</strong> field (e.g. <code>line_no</code>) and, under <strong>Advanced</strong>, set <strong>“Restart numbering per”</strong> to the document’s
+relation key (e.g. <code>order_id</code>). Each document’s lines count 1, 2, 3…</p>
 <h3>Good to know</h3>
 <ul>
-<li>🔢 <strong>Template tokens:</strong> <code>{{seq}}</code> / <code>{{seq:3}}</code> (number, padded) · <code>{{field}}</code> or <code>{{relation.field}}</code> · dates
-<code>{{createdAt:YYMM}}</code> (YYYY, YY, MM, DD, HH, mm).</li>
+<li>🧩 <strong>Pieces:</strong> Field value (through relations) · Fixed text · Date (year, month, date formats) · Auto number (digits,
+start). They are saved as a template such as <code>{{order.order_code}}/{{seq:2}}</code>; <strong>Advanced → Show as template</strong> edits it directly.</li>
 <li>✍️ <strong>Typing allowed</strong> (on by default): a code typed by the user is kept; if it follows the template, the counter
 moves past it so the next automatic code doesn’t clash. Turn it off to always number automatically.</li>
 <li>⛔ A record whose group value is empty (no order picked) gets <strong>no</strong> number, and none is spent.</li>
@@ -30067,7 +30071,7 @@ update, so computed fields that read it recompute. API: <code>ptdlGroupSeq:peek<
 <p><strong>按分组重新开始</strong>的编号：按订单 <code>KAC031/8/01、/02…</code>，按月 <code>PN2610-0001…</code>，按单据第 1、2、3 行。
 编号在保存记录时生成，因此两人同时保存也绝不会得到相同的编号。</p>
 </blockquote>
-<p><strong>分组：</strong> 数据 · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.1.0</p>
+<p><strong>分组：</strong> 数据 · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.1.1</p>
 <h3>为什么需要</h3>
 <p>NocoBase 自带的<em>序列</em>字段<strong>整个字段只有一个计数器</strong>——无法为每个订单或每个月重新从 1 开始。常见的变通办法
 （用公式统计行数，或用表单规则预填编号）在两人同时保存时会给出重复编号，删除记录后还会跳号或重复使用编号。</p>
@@ -30085,21 +30089,22 @@ update, so computed fields that read it recompute. API: <code>ptdlGroupSeq:peek<
 <ol>
 <li>打开 ⚙ <strong>设置</strong> → <strong>“分组编号”</strong> → <strong>“添加规则”</strong>。</li>
 <li><strong>数据表</strong>：要编号的记录所在的表。<strong>接收编号的字段</strong>：一个文本字段。</li>
-<li><strong>模板</strong>：用 <strong>“插入字段”</strong> 插入订单编号（<code>{{order.order_code}}</code>），输入 <code>/</code>，再用 <strong>“插入编号”</strong> 选择 2 位
-→ <code>{{order.order_code}}/{{seq:2}}</code>。</li>
-<li><strong>“编号重新开始的依据”</strong> 留空——模板中的字段就是分组（此处为订单）。</li>
+<li><strong>编号组成</strong>——依次添加片段：<strong>字段值</strong> → <em>订单 › 订单编号</em>，<strong>固定文字</strong> → <code>/</code>，<strong>自增编号</strong> → 2 位。下方示例显示
+真实编号（<code>KAC031/8/01、/02</code>，另一订单 <code>KAN014/1/01</code>），并说明何时重新开始：“编号从 1 重新开始，依据 订单 › 订单编号”。</li>
+<li>无需其他设置——字段值片段就是分组（此处为订单）。</li>
 <li><strong>保存</strong>。如果表中已有编号，计数器会自动根据它们同步。</li>
 <li>在表单中<strong>关闭该字段的“必填”</strong>：编号在保存记录时才会填入。</li>
 </ol>
 <h4>场景 B — 按月编号：<code>PN2610-0001</code></h4>
-<p>模板 <code>PN{{createdAt:YYMM}}-{{seq:4}}</code>。月份包含在模板中，因此每个月重新开始编号。</p>
+<p>片段：<strong>固定文字</strong> <code>PN</code> → <strong>日期</strong> <em>创建时间</em> · <em>年月（短）</em> → <strong>固定文字</strong> <code>-</code> → <strong>自增编号</strong> 4 位。
+月份包含在编号中，因此每个月重新开始编号（<code>PN2610-0001</code>，然后 <code>PN2611-0001</code>）。</p>
 <h4>场景 C — 每张单据第 1、2、3 行</h4>
-<p>选择一个<strong>数字</strong>字段（例如 <code>line_no</code>），将 <strong>“编号重新开始的依据”</strong> 设为指向单据的关联键（例如 <code>order_id</code>）。
+<p>选择一个<strong>数字</strong>字段（例如 <code>line_no</code>），并在 <strong>高级</strong> 中将 <strong>“编号重新开始的依据”</strong> 设为指向单据的关联键（例如 <code>order_id</code>）。
 每张单据的行依次为 1、2、3…</p>
 <h3>须知</h3>
 <ul>
-<li>🔢 <strong>模板占位符：</strong> <code>{{seq}}</code> / <code>{{seq:3}}</code>（编号，补零）· <code>{{field}}</code> 或 <code>{{关联.field}}</code> · 日期
-<code>{{createdAt:YYMM}}</code>（YYYY、YY、MM、DD、HH、mm）。</li>
+<li>🧩 <strong>片段：</strong> 字段值（可经由关联）· 固定文字 · 日期（年、月、日）· 自增编号（位数、起始值）。它们保存为
+<code>{{order.order_code}}/{{seq:2}}</code> 这样的模板；<strong>高级 → 以模板显示</strong> 可直接编辑。</li>
 <li>✍️ <strong>允许手动输入</strong>（默认开启）：保留用户输入的编号；若符合模板，计数器会越过该编号，下一个自动编号就不会冲突。
 关闭后始终自动编号。</li>
 <li>⛔ 分组值为空（未选择订单）的记录<strong>不会</strong>获得编号，也不会消耗编号。</li>
