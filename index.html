@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hướng dẫn Plugin @tuanla90 · @tuanla90 Plugin Guides</title>
-<meta name="description" content="Hướng dẫn sử dụng 57 plugin @tuanla90 cho NocoBase — User guides for 57 @tuanla90 NocoBase plugins.">
+<meta name="description" content="Hướng dẫn sử dụng 58 plugin @tuanla90 cho NocoBase — User guides for 58 @tuanla90 NocoBase plugins.">
 <style>
 :root{
   --bg:#ffffff; --fg:#1f2328; --muted:#656d76; --border:#d1d9e0; --card:#f6f8fa;
@@ -76,7 +76,7 @@ a:hover{text-decoration:underline}
 <a id="top"></a>
 <div class="layout">
   <aside class="side">
-    <div class="brand">📚 <span class="lang lang-vi">Hướng dẫn Plugin @tuanla90</span><span class="lang lang-en" hidden>@tuanla90 Plugin Guides</span><span class="lang lang-zh" hidden>@tuanla90 Plugin Guides</span><small>57 plugin · NocoBase</small></div>
+    <div class="brand">📚 <span class="lang lang-vi">Hướng dẫn Plugin @tuanla90</span><span class="lang lang-en" hidden>@tuanla90 Plugin Guides</span><span class="lang lang-zh" hidden>@tuanla90 Plugin Guides</span><small>58 plugin · NocoBase</small></div>
     <div class="langtoggle">
       <button data-lang="vi" class="active">Tiếng Việt</button>
       <button data-lang="en">English</button>
@@ -95,6 +95,7 @@ a:hover{text-decoration:underline}
       <a class="nav-link" href="#image-thumbnail" data-text="ảnh thu nhỏ image thumbnails 图片缩略图 tạo một bản nhỏ cho mỗi ảnh jpeg/png tải lên ổ lưu trữ local và dùng nó làm ảnh xem trước, để bảng, danh sách và thẻ chỉ tải vài kb mỗi ảnh thay vì cả tấm ảnh gốc, trong khi mở ảnh ra vẫn là ảnh gốc. trang thiết lập cho phép tạo ảnh nhỏ cho các ảnh đã tải lên trước đó, chạy ngầm. creates a small copy of every jpeg/png uploaded to local storage and serves it as the file preview, so tables, lists and cards load a few kb per image instead of the full photo, while opening the image still shows the original. a settings page creates thumbnails for images uploaded earlier, in the background. 为上传到本地存储的每张 jpeg/png 图片生成一张小图，并将其作为文件预览，使表格、列表和卡片每张图只加载几 kb，而不是整张原图；点开图片仍显示原图。设置页面可在后台为此前上传的图片补生成缩略图。"><span class="lang lang-vi">Ảnh thu nhỏ</span><span class="lang lang-en" hidden>Image Thumbnails</span><span class="lang lang-zh" hidden>图片缩略图</span></a>
       <a class="nav-link" href="#app-doctor" data-text="app doctor (bác sĩ ứng dụng) app doctor 应用医生 quét các bảng dữ liệu của app để tìm quan hệ hỏng và sửa bằng một cú bấm. phát hiện quan hệ một chiều (belongsto thiếu hasmany của bảng cha, hasmany thiếu belongsto của bảng con, hoặc nhiều-nhiều một chiều) — đúng loại hỏng do import/sinh app tự động để lại, và là nguyên nhân khiến cột sub-table không phân giải được field và có thể treo app. cũng cảnh báo quan hệ trỏ tới bảng/bảng trung gian không tồn tại. việc sửa chỉ thêm quan hệ ngược còn thiếu, không bao giờ đụng tới dữ liệu. scans the app's data collections for relation-integrity problems and repairs them in one click. finds one-sided relations (a belongsto without the master's hasmany, a hasmany without the child's belongsto, or a one-sided many-to-many) — the incomplete-bidirectional damage that imports and auto-generated apps leave behind, and the class that makes a sub-table column's field unresolvable and can freeze the app. also flags relations that point at a non-existent collection or junction table. repair is additive (it only creates the missing reverse relation field) and never touches your data. 扫描应用中的数据表，找出关系完整性问题并一键修复。它能发现单向关系（有 belongsto 却缺少主表的 hasmany、有 hasmany 却缺少子表的 belongsto，或单向的多对多）——这正是数据导入和自动生成的应用常常留下的双向关系残缺，也正是这一类问题会让子表格列的字段无法解析、甚至使应用卡死。此外还会标记指向不存在的数据表或中间表的关系。修复只做加法（仅补建缺失的反向关系字段），绝不改动你的数据。"><span class="lang lang-vi">App Doctor (Bác sĩ ứng dụng)</span><span class="lang lang-en" hidden>App Doctor</span><span class="lang lang-zh" hidden>应用医生</span></a>
       <a class="nav-link" href="#perf-guard" data-text="chống treo (ổn định) crash guard (stability) 防崩溃（稳定性） các lớp bảo vệ phía client cho giao diện hiện đại (/v/). chống treo (đang bật): một quan hệ hỏng (thiếu belongsto ngược / lệch khóa ngoại) có thể khiến flow beforerender của một cột ném lỗi và làm treo cả app — plugin cô lập beforerender từng sub-model để một cột hỏng chỉ thành ô trống thay vì treo tất cả. giới hạn keep-alive (thử nghiệm, mặc định tắt): nocobase v2 giữ mọi trang con đã mở nên dom phình dần khi điều hướng — plugin phát hiện được các trang tồn đọng, nhưng primitive unmount duy nhất (flowengine.destroymodel) lại xóa trang khỏi db, nên auto-dọn bị tắt cho tới khi có cách unmount không hủy diệt; trang cấu hình hiển thị tín hiệu dom và nút quét chỉ-báo-cáo. client-side defense layers for the modern (/v/) client. crash guard (active): a malformed relation (missing reverse belongsto / mismatched fk) can make a column's beforerender flow throw and render-loop the whole app (freeze) — this isolates each sub-model's beforerender so one broken column degrades to an empty cell instead of freezing everything. keep-alive cap (experimental, off by default): nocobase v2 keeps every visited sub-page mounted, so the dom grows unbounded across navigation — the plugin can detect the stale pages, but the only unmount primitive available (flowengine.destroymodel) also deletes the page from the db, so auto-eviction stays disabled until a non-destructive unmount exists; the settings page shows the live dom signal and a report-only scan. 面向新版（/v/）客户端的前端防护层。防崩溃（已启用）：一个不完整的关系（缺少反向 belongsto / 外键不匹配）会让某一列的 beforerender 流程抛出异常，进而让整个应用陷入渲染死循环并卡死 —— 本插件把每个子模型的 beforerender 隔离开，使一列出错只退化成一个空单元格，而不会拖垮全部内容。keep-alive 上限（实验性，默认关闭）：nocobase v2 会让访问过的每个子页面保持挂载，因此随着不断跳转，dom 会无限膨胀 —— 插件能识别出这些残留页面，但目前唯一可用的卸载手段（flowengine.destroymodel）会连带把页面从数据库中删除，因此在出现非破坏性的卸载方式之前，自动清理保持停用；设置页面会显示实时的 dom 指标，并提供一次仅出报告的扫描。"><span class="lang lang-vi">Chống treo (ổn định)</span><span class="lang lang-en" hidden>Crash Guard (stability)</span><span class="lang lang-zh" hidden>防崩溃（稳定性）</span></a>
+      <a class="nav-link" href="#friendly-url" data-text="đường dẫn dễ đọc friendly urls 友好网址 đường dẫn trang dễ đọc: /admin/bao-cao/chi-phi thay cho /admin/94iwybl2q18/tabs/43zfdcgb30j. mỗi trang và tab có một đường dẫn tạo từ tiêu đề (bỏ dấu tiếng việt), giữ nguyên khi đổi tên trang; sửa tay thì đường dẫn cũ vẫn dùng được. link dạng mã cũ vẫn mở được và tự chuyển sang dạng dễ đọc. chạy ở cả giao diện cũ lẫn mới, không thay đổi trang, menu hay popup. readable page addresses: /admin/bao-cao/chi-phi instead of /admin/94iwybl2q18/tabs/43zfdcgb30j. every page and tab gets an address made from its title (vietnamese marks removed), kept when the page is renamed; editing it keeps the old one working. links with the old codes still open and switch to the readable form. works in both the classic and the modern client, without changing pages, menus or popups. 易读的页面地址：/admin/bao-cao/chi-phi 代替 /admin/94iwybl2q18/tabs/43zfdcgb30j。每个页面和标签页都会根据标题生成地址（去除越南语声调），重命名页面时保持不变；手动修改后旧地址依然可用。旧的编码链接仍可打开，并自动切换为易读形式。同时支持经典客户端和新客户端，不改动页面、菜单或弹窗。"><span class="lang lang-vi">Đường dẫn dễ đọc</span><span class="lang lang-en" hidden>Friendly URLs</span><span class="lang lang-zh" hidden>友好网址</span></a>
       <a class="nav-link" href="#job-queue-pro" data-text="hàng chờ tác vụ (chạy hàng loạt &amp; khôi phục lỗi) job queue pro (batch jobs &amp; error recovery) 任务队列 pro（批量任务与错误恢复） chạy các tác vụ hàng loạt nặng — tính lại 10.000 hoa hồng, gửi 5.000 hóa đơn — dưới dạng job bền vững theo từng bản ghi. trạng thái mỗi bản ghi được lưu lại, nên sập ở dòng 4.521 thì chạy tiếp đúng từ đó: không tính trùng, không bỏ sót. tự retry với backoff, tab 'thư chết' cho bản ghi lỗi mãi, tab 'chưa rõ' cho job có side-effect bị đứt giữa chừng, giới hạn tốc độ, tạm dừng/chạy tiếp, tiến độ trực tiếp. handler có sẵn: cập nhật hàng loạt, tính lại cột computed, webhook http từng bản ghi, chạy workflow từng bản ghi. run heavy batch operations — recompute 10,000 commissions, send 5,000 invoices — as durable per-record jobs. every record's state is stored, so a crash at record 4,521 resumes exactly there: no double-processing, nothing skipped. automatic retry with backoff, a dead-letter tab for records that keep failing, an 'in-doubt' tab for side-effect jobs interrupted mid-send, rate limiting, pause/resume, and live progress. built-in handlers: batch field update, recompute computed columns, http webhook per record, trigger a workflow per record. 把繁重的批量操作 — 重算 10,000 条佣金、发送 5,000 张发票 — 作为按记录持久化的任务运行。每条记录的状态都有存储，崩溃在第 4,521 条就从那里继续：不重复处理、不遗漏。自动重试（退避）、死信页签、发送中断的『存疑』页签、限速、暂停/继续、实时进度。内置处理器：批量更新字段、重算计算列、按记录 http webhook、按记录触发工作流。"><span class="lang lang-vi">Hàng chờ Tác vụ (Chạy hàng loạt &amp; Khôi phục lỗi)</span><span class="lang lang-en" hidden>Job Queue Pro (Batch Jobs &amp; Error Recovery)</span><span class="lang lang-zh" hidden>任务队列 Pro（批量任务与错误恢复）</span></a>
       <a class="nav-link" href="#nb-cloner" data-text="nhân bản ứng dụng app cloner (export / import) 应用克隆（导出 / 导入） nhân bản toàn bộ một app nocobase tự xây giữa các bản cài. xuất cấu trúc (collections + fields + nhóm bảng), giao diện (uischemas + flow-engine models + menu desktop/mobile + block template), phân quyền, định nghĩa workflow (tuỳ chọn) và dữ liệu nghiệp vụ được chọn vào một file nén .nbc.gz duy nhất, rồi upsert sang một app cùng phiên bản mà không xoá dữ liệu đang có. phân loại từng bảng (của bạn / plugin / hệ thống / đã xóa) kèm bộ lọc để chỉ chọn bảng thật của bạn, có bộ chọn dữ liệu theo từng bảng và báo cáo từng bước import. khi import cũng chọn được: chọn phần (cấu trúc / giao diện / phân quyền / workflow), chọn bảng, bảng nào kèm dữ liệu — và khi gặp bảng/cột trùng tên bạn chọn chiến lược: chỉ thêm mới (giữ bản có sẵn) hoặc ghi đè theo file. đích postgresql. clone a whole self-built nocobase app between installs. exports the schema (collections + fields + categories), the ui (uischemas + flow-engine models + desktop/mobile menus + block templates), roles &amp; permissions, optional workflow definitions and hand-picked business data into a single compressed .nbc.gz bundle, then upsert-imports it into another same-version app without deleting existing data. classifies every collection (your data / plugin / system / deleted) with a filter so you pick only your real tables, plus a per-collection data picker and an import step report. import is selective too: pick which parts (schema / ui / roles / workflows), which collections, and which of them bring their data — and when a same-name table/column already exists you choose the conflict strategy: append only (keep existing) or overwrite with the file. postgresql target. 在不同安装之间克隆整个自建的 nocobase 应用。导出结构（数据表、字段、分类）、界面（uischemas、flow-engine 模型、桌面与移动端菜单、区块模板）、角色与权限，以及可选的工作流定义和自行挑选的业务数据，打包成单个压缩的 .nbc.gz 文件，再以 upsert 方式导入到另一个**相同版本**的应用中，且不会删除已有数据。工具会为每个数据表分类（你的数据／插件／系统／已删除）并提供筛选，让你只挑真正属于自己的表；另有按表选择数据的选择器和导入步骤报告。导入同样是可选的：挑选导入哪些部分（结构／界面／角色／工作流）、哪些数据表、其中哪些连数据一起导入；当同名表或同名列已存在时，可选择冲突策略——仅追加（保留现有）或用文件覆盖。目标数据库为 postgresql。"><span class="lang lang-vi">Nhân bản ứng dụng</span><span class="lang lang-en" hidden>App Cloner (export / import)</span><span class="lang lang-zh" hidden>应用克隆（导出 / 导入）</span></a>
       <a class="nav-link" href="#ops-agent" data-text="ops agent (cổng vận hành) ops agent ops agent cổng vận hành chỉ-đọc để quản lý nhiều app cùng lúc: một lần gọi trả về phiên bản nocobase, phiên bản từng plugin đã cài, dung lượng database, số bản ghi, thời gian chạy và loại kho tệp — đủ cho một bảng điều khiển trung tâm theo dõi cả cụm. ngoài ra còn xuất thư mục uploads dưới dạng tar.gz để job backup sao lưu được tệp đính kèm, thứ nằm trên volume và không nằm trong bản dump database. a read-only operations endpoint for fleet management: one call returns the app's nocobase version, installed plugin versions, database size and row counts, uptime and storage type — everything a central dashboard needs to watch many instances at once. also streams the local uploads folder as a tar.gz so a backup job can protect attachments, which live on the volume and are not covered by a database dump. a read-only operations endpoint for fleet management: one call returns the app's nocobase version, installed plugin versions, database size and row counts, uptime and storage type — everything a central dashboard needs to watch many instances at once. also streams the local uploads folder as a tar.gz so a backup job can protect attachments, which live on the volume and are not covered by a database dump."><span class="lang lang-vi">Ops Agent (Cổng vận hành)</span><span class="lang lang-en" hidden>Ops Agent</span><span class="lang lang-zh" hidden>Ops Agent</span></a>
@@ -2335,6 +2336,207 @@ NocoBase 原本的行为</strong>，绝不抛出错误。</li>
 （<code>src/shared/crashGuard.ts</code>）：从核心 model 类沿原型链向上查找基类 <code>FlowModel.prototype</code>，
 并给 <code>applySubModelsBeforeRenderFlows</code> 打补丁，以<strong>隔离每个子 model 的 <code>beforeRender</code></strong>（这样一个损坏的列
 就无法让共享的 <code>Promise.all</code> 变成 rejected → 不会冻结）；幂等，并保留原实现作为兜底。没有数据表；服务端为空。</p>
+</div>
+    </section>
+
+    <section class="plugin" id="friendly-url" data-text="đường dẫn dễ đọc friendly urls 友好网址 đường dẫn trang dễ đọc: /admin/bao-cao/chi-phi thay cho /admin/94iwybl2q18/tabs/43zfdcgb30j. mỗi trang và tab có một đường dẫn tạo từ tiêu đề (bỏ dấu tiếng việt), giữ nguyên khi đổi tên trang; sửa tay thì đường dẫn cũ vẫn dùng được. link dạng mã cũ vẫn mở được và tự chuyển sang dạng dễ đọc. chạy ở cả giao diện cũ lẫn mới, không thay đổi trang, menu hay popup. readable page addresses: /admin/bao-cao/chi-phi instead of /admin/94iwybl2q18/tabs/43zfdcgb30j. every page and tab gets an address made from its title (vietnamese marks removed), kept when the page is renamed; editing it keeps the old one working. links with the old codes still open and switch to the readable form. works in both the classic and the modern client, without changing pages, menus or popups. 易读的页面地址：/admin/bao-cao/chi-phi 代替 /admin/94iwybl2q18/tabs/43zfdcgb30j。每个页面和标签页都会根据标题生成地址（去除越南语声调），重命名页面时保持不变；手动修改后旧地址依然可用。旧的编码链接仍可打开，并自动切换为易读形式。同时支持经典客户端和新客户端，不改动页面、菜单或弹窗。 admin">
+      <div class="plugin-head">
+        <h2><span class="lang lang-vi">Đường dẫn dễ đọc</span><span class="lang lang-en" hidden>Friendly URLs</span><span class="lang lang-zh" hidden>友好网址</span></h2>
+        <span class="chip chip-cat"><span class="lang lang-vi">Quản trị / Công cụ</span><span class="lang lang-en" hidden>Admin &amp; tools</span><span class="lang lang-zh" hidden>Admin &amp; tools</span></span>
+        <span class="chip">v0.1.0</span>
+        <a class="chip chip-top" href="#top" title="Top">↑</a>
+      </div>
+      <div class="prose lang lang-vi"><blockquote>
+<p>Đường dẫn trang <strong>đọc được</strong>: <code>/admin/bao-cao/chi-phi</code> thay cho <code>/admin/94iwybl2q18/tabs/43zfdcgb30j</code>. Link dạng mã cũ
+vẫn mở được, đổi tên trang không làm hỏng link đã lưu.</p>
+</blockquote>
+<p><strong>Nhóm:</strong> Công cụ &amp; quản trị (Admin &amp; tools) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.1.0</p>
+<h3>Vì sao cần</h3>
+<p>NocoBase đặt địa chỉ trang bằng mã ngẫu nhiên (<code>/admin/94iwybl2q18</code>). Người dùng không nhớ được, không đoán được trang
+nào khi gửi link qua chat, và nhìn thanh địa chỉ cũng không biết đang ở đâu.</p>
+<h3>Cài xong có gì mới?</h3>
+<ul>
+<li><strong>Mỗi trang có một đường dẫn tạo từ tiêu đề</strong>, bỏ dấu tiếng Việt: <em>Báo Cáo</em> → <code>/admin/bao-cao</code>. Tab có tiêu đề cũng
+vậy: <code>/admin/bao-cao/chi-phi</code>. Trang đã có sẵn được tạo đường dẫn ngay khi bật plugin, trang mới thì lúc tạo.</li>
+<li><strong>Thanh địa chỉ hiện đường dẫn dễ đọc</strong> khi bấm menu, đổi tab, mở popup (<code>/admin/bao-cao/view/…/filterbytk/226</code>),
+bấm Back/Forward — ở cả giao diện cũ (<code>/admin</code>) lẫn giao diện mới (<code>/v/admin</code>).</li>
+<li><strong>Link cũ vẫn chạy</strong>: mở <code>/admin/94iwybl2q18</code> vẫn vào đúng trang, và thanh địa chỉ tự đổi sang <code>/admin/bao-cao</code>.</li>
+<li><strong>Thêm một trang Settings: “Đường dẫn dễ đọc”</strong> để xem và sửa đường dẫn của từng trang.</li>
+</ul>
+<h3>Cách dùng</h3>
+<ol>
+<li>Cài và bật plugin — xong. Mọi trang đã có đường dẫn.</li>
+<li>Muốn đổi: ⚙ <strong>Settings</strong> → <strong>“Đường dẫn dễ đọc”</strong>, sửa ô <strong>Đường dẫn</strong> rồi nhấn Enter (gõ “Danh sách Xe” cũng
+được — sẽ thành <code>danh-sach-xe</code>). Đường dẫn trước đó chuyển xuống cột <strong>Đường dẫn cũ</strong> và vẫn mở được trang.</li>
+<li><strong>Sao chép link</strong> cho link đầy đủ để gửi người khác; <strong>Lấy từ tiêu đề</strong> tạo lại đường dẫn theo tiêu đề hiện tại
+(dùng sau khi đổi tên trang, nếu muốn link theo tên mới).</li>
+</ol>
+<h3>Cần biết</h3>
+<ul>
+<li>🔒 <strong>Đổi tên trang không đổi đường dẫn</strong> — để link đã gửi, đã lưu bookmark không hỏng. Muốn theo tên mới thì bấm
+<strong>Lấy từ tiêu đề</strong>; đường dẫn cũ vẫn mở được.</li>
+<li>🧩 Đường dẫn trang không trùng nhau trong cả app; tab chỉ cần không trùng trong cùng trang. Trùng thì tự thêm <code>-2</code>, <code>-3</code>.</li>
+<li>⛔ Một số tên NocoBase đã dùng (<code>settings</code>, <code>pm</code>, <code>plugins</code>, <code>view</code>, <code>tab</code>…) không đặt được.</li>
+<li>🪟 Phần popup và bản ghi trong đường dẫn vẫn là mã (<code>/view/c9wvrx0vaki/filterbytk/226</code>) — popup không có tên riêng.</li>
+<li>🔗 Rê chuột lên menu hoặc nút copy ở trang <em>Routes</em> của NocoBase vẫn cho link dạng mã; link đó vẫn mở được.</li>
+<li>🔐 Đường dẫn dễ đọc chỉ được nhận ra với những trang người đó có quyền xem — người không có quyền mở link sẽ
+gặp trang 404, không lộ tên trang.</li>
+<li>🧹 Tắt plugin thì mọi trang về lại địa chỉ dạng mã; link dễ đọc đã gửi đi sẽ không mở được cho tới khi bật lại.</li>
+</ul>
+<h3>Xử lý sự cố</h3>
+<table>
+<thead>
+<tr>
+<th>Hiện tượng</th>
+<th>Nguyên nhân / cách xử lý</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Link dễ đọc báo 404</td>
+<td>Trang đã bị xoá, hoặc plugin đang tắt. Link dạng mã cũng 404 thì do trang không còn.</td>
+</tr>
+<tr>
+<td>Thanh địa chỉ vẫn hiện mã</td>
+<td>Trang chưa có đường dẫn: bấm <strong>Tạo đường dẫn cho trang còn thiếu</strong> trong Settings.</td>
+</tr>
+<tr>
+<td>Không lưu được đường dẫn</td>
+<td>Tên đã có trang khác dùng, là tên NocoBase dành riêng, hoặc không có chữ/số nào.</td>
+</tr>
+</tbody>
+</table>
+<h3>Ghi chú kỹ thuật</h3>
+<p>Đường dẫn lưu trong <code>desktopRoutes.options</code> (<code>ptdlSlug</code>, <code>ptdlSlugAliases</code>); server gán khi route được tạo/lưu và
+giữ lại nếu có chỗ khác ghi đè cả object <code>options</code>. Phía client không sửa trang, menu hay popup nào: NocoBase dựng
+React Router bằng <code>createBrowserRouter(routes, app.router.options)</code>, và plugin truyền vào <code>options.window</code> một window
+dịch đường dẫn — router đọc thấy <code>/admin/&lt;uid&gt;/tab/&lt;uid&gt;</code>, còn thanh địa chỉ ghi <code>/admin/&lt;slug&gt;/&lt;tab-slug&gt;</code>. Danh sách
+trang được tải song song với các plugin khác (cùng request <code>desktopRoutes:listAccessible</code> của NocoBase), nên mở thẳng
+link dễ đọc không bị 404. API: <code>ptdlFriendlyUrl:list|setSlug|backfill</code> (snippet ACL <code>pm.tuanla90-friendly-url</code>).</p>
+</div>
+      <div class="prose lang lang-en" hidden><blockquote>
+<p><strong>Readable</strong> page addresses: <code>/admin/bao-cao/chi-phi</code> instead of <code>/admin/94iwybl2q18/tabs/43zfdcgb30j</code>. Links with the
+old codes still open, and renaming a page never breaks a saved link.</p>
+</blockquote>
+<p><strong>Group:</strong> Admin &amp; tools · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.1.0</p>
+<h3>Why</h3>
+<p>NocoBase addresses pages by random codes (<code>/admin/94iwybl2q18</code>). People can’t remember them, can’t tell which page a
+link in a chat points to, and the address bar doesn’t say where they are.</p>
+<h3>What’s new after installing?</h3>
+<ul>
+<li><strong>Every page gets an address made from its title</strong>, with Vietnamese marks removed: <em>Báo Cáo</em> → <code>/admin/bao-cao</code>.
+Titled tabs too: <code>/admin/bao-cao/chi-phi</code>. Existing pages get one when the plugin is enabled, new pages when created.</li>
+<li><strong>The address bar shows the readable form</strong> when you click the menu, switch tabs, open a popup
+(<code>/admin/bao-cao/view/…/filterbytk/226</code>) or go Back/Forward — in the classic (<code>/admin</code>) and the modern (<code>/v/admin</code>) client.</li>
+<li><strong>Old links keep working</strong>: <code>/admin/94iwybl2q18</code> still opens the page, and the address bar switches to <code>/admin/bao-cao</code>.</li>
+<li><strong>A new Settings page, “Friendly URLs”</strong>, lists every page’s address and lets you change it.</li>
+</ul>
+<h3>How to use</h3>
+<ol>
+<li>Install and enable the plugin — done. Every page has an address.</li>
+<li>To change one: ⚙ <strong>Settings</strong> → <strong>“Friendly URLs”</strong>, edit the <strong>Address</strong> box and press Enter (typing “Danh sách Xe”
+works — it becomes <code>danh-sach-xe</code>). The previous address moves to <strong>Old addresses</strong> and still opens the page.</li>
+<li><strong>Copy link</strong> gives the full link to send; <strong>From title</strong> remakes the address from the current title (after a
+rename, if you want the link to follow the new name).</li>
+</ol>
+<h3>Good to know</h3>
+<ul>
+<li>🔒 <strong>Renaming a page keeps its address</strong>, so links already sent or bookmarked don’t break. Use <strong>From title</strong> to
+follow the new name; the old address still opens.</li>
+<li>🧩 Page addresses are unique across the app; tab addresses only within their page. Clashes get <code>-2</code>, <code>-3</code>.</li>
+<li>⛔ Names NocoBase uses itself (<code>settings</code>, <code>pm</code>, <code>plugins</code>, <code>view</code>, <code>tab</code>…) can’t be taken.</li>
+<li>🪟 The popup / record part of an address stays as codes (<code>/view/c9wvrx0vaki/filterbytk/226</code>) — popups have no name.</li>
+<li>🔗 Hovering the menu, or the copy button on NocoBase’s <em>Routes</em> page, still gives the coded link; it still opens.</li>
+<li>🔐 A readable address is only recognised for pages the person may see — someone without access gets a 404 and
+doesn’t learn the page’s name.</li>
+<li>🧹 Disabling the plugin brings coded addresses back; readable links already sent stop opening until it’s enabled again.</li>
+</ul>
+<h3>Troubleshooting</h3>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Cause / fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A readable link gives 404</td>
+<td>The page was deleted, or the plugin is off. If the coded link 404s too, the page is gone.</td>
+</tr>
+<tr>
+<td>The address bar still shows codes</td>
+<td>The page has no address yet: click <strong>Fill in missing addresses</strong> in Settings.</td>
+</tr>
+<tr>
+<td>An address can’t be saved</td>
+<td>Another page uses it, NocoBase reserves it, or it has no letter or digit.</td>
+</tr>
+</tbody>
+</table>
+<h3>Technical notes</h3>
+<p>Addresses live in <code>desktopRoutes.options</code> (<code>ptdlSlug</code>, <code>ptdlSlugAliases</code>); the server assigns them when a route is
+created or saved and puts them back if something overwrites the whole <code>options</code> object. The client changes no page,
+menu or popup: NocoBase builds React Router with <code>createBrowserRouter(routes, app.router.options)</code>, and the plugin
+passes an <code>options.window</code> that translates paths — the router reads <code>/admin/&lt;uid&gt;/tab/&lt;uid&gt;</code>, the address bar shows
+<code>/admin/&lt;slug&gt;/&lt;tab-slug&gt;</code>. The page list is loaded in parallel with the other plugins (NocoBase’s own
+<code>desktopRoutes:listAccessible</code> request), so opening a readable link directly never 404s. API:
+<code>ptdlFriendlyUrl:list|setSlug|backfill</code> (ACL snippet <code>pm.tuanla90-friendly-url</code>).</p>
+</div>
+      <div class="prose lang lang-zh" hidden><blockquote>
+<p><strong>易读</strong>的页面地址：<code>/admin/bao-cao/chi-phi</code> 代替 <code>/admin/94iwybl2q18/tabs/43zfdcgb30j</code>。旧的编码链接依然可用，重命名页面也不会让已保存的链接失效。</p>
+</blockquote>
+<p><strong>分组：</strong> 管理与工具 · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.1.0</p>
+<h3>为什么需要</h3>
+<p>NocoBase 用随机编码作为页面地址（<code>/admin/94iwybl2q18</code>）。用户记不住，在聊天中收到链接也看不出是哪个页面，看地址栏也不知道自己在哪里。</p>
+<h3>安装后有什么新功能？</h3>
+<ul>
+<li><strong>每个页面都有一个由标题生成的地址</strong>，去除越南语声调：<em>Báo Cáo</em> → <code>/admin/bao-cao</code>；中文标题保留中文。有标题的标签页同样如此：<code>/admin/bao-cao/chi-phi</code>。已有页面在启用插件时生成，新页面在创建时生成。</li>
+<li><strong>地址栏显示易读形式</strong>：点击菜单、切换标签页、打开弹窗（<code>/admin/bao-cao/view/…/filterbytk/226</code>）、前进/后退时都是如此——经典客户端（<code>/admin</code>）和新客户端（<code>/v/admin</code>）均支持。</li>
+<li><strong>旧链接依然可用</strong>：打开 <code>/admin/94iwybl2q18</code> 仍进入该页面，地址栏自动切换为 <code>/admin/bao-cao</code>。</li>
+<li><strong>新增设置页面“友好网址”</strong>，列出每个页面的地址并可修改。</li>
+</ul>
+<h3>使用方法</h3>
+<ol>
+<li>安装并启用插件即可，所有页面都已有地址。</li>
+<li>修改地址：⚙ <strong>设置</strong> → <strong>“友好网址”</strong>，编辑 <strong>地址</strong> 输入框后按回车（输入“Danh sách Xe”也可以，会变成 <code>danh-sach-xe</code>）。原地址移到 <strong>旧地址</strong> 列，仍可打开该页面。</li>
+<li><strong>复制链接</strong> 获取完整链接用于发送；<strong>按标题生成</strong> 根据当前标题重新生成地址（重命名页面后，如希望链接跟随新名称时使用）。</li>
+</ol>
+<h3>注意事项</h3>
+<ul>
+<li>🔒 <strong>重命名页面不会改变地址</strong>，已发送或收藏的链接不会失效。需要跟随新名称时点击 <strong>按标题生成</strong>，旧地址仍可打开。</li>
+<li>🧩 页面地址在整个应用中唯一；标签页地址只需在同一页面内唯一。重复时自动加 <code>-2</code>、<code>-3</code>。</li>
+<li>⛔ NocoBase 自身使用的名称（<code>settings</code>、<code>pm</code>、<code>plugins</code>、<code>view</code>、<code>tab</code>…）不能使用。</li>
+<li>🪟 地址中弹窗/记录部分仍为编码（<code>/view/c9wvrx0vaki/filterbytk/226</code>）——弹窗没有名称。</li>
+<li>🔗 鼠标悬停菜单，或 NocoBase <em>路由</em> 页面上的复制按钮，得到的仍是编码链接；该链接依然可用。</li>
+<li>🔐 易读地址只对用户有权查看的页面生效——无权限的人打开链接会看到 404，不会得知页面名称。</li>
+<li>🧹 停用插件后恢复编码地址；已发出的易读链接在重新启用前无法打开。</li>
+</ul>
+<h3>故障排查</h3>
+<table>
+<thead>
+<tr>
+<th>现象</th>
+<th>原因 / 处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>易读链接显示 404</td>
+<td>页面已删除，或插件已停用。如果编码链接也 404，说明页面已不存在。</td>
+</tr>
+<tr>
+<td>地址栏仍显示编码</td>
+<td>页面尚无地址：在设置中点击 <strong>为缺少地址的页面生成地址</strong>。</td>
+</tr>
+<tr>
+<td>无法保存地址</td>
+<td>已被其他页面使用、为 NocoBase 保留名称，或不含任何字母或数字。</td>
+</tr>
+</tbody>
+</table>
+<h3>技术说明</h3>
+<p>地址保存在 <code>desktopRoutes.options</code>（<code>ptdlSlug</code>、<code>ptdlSlugAliases</code>）；服务端在路由创建或保存时分配，若其他地方整体覆盖 <code>options</code> 对象会自动恢复。客户端不修改任何页面、菜单或弹窗：NocoBase 通过 <code>createBrowserRouter(routes, app.router.options)</code> 构建 React Router，插件传入一个转换路径的 <code>options.window</code>——路由读取 <code>/admin/&lt;uid&gt;/tab/&lt;uid&gt;</code>，地址栏显示 <code>/admin/&lt;slug&gt;/&lt;tab-slug&gt;</code>。页面列表与其他插件并行加载（即 NocoBase 自身的 <code>desktopRoutes:listAccessible</code> 请求），因此直接打开易读链接不会 404。API：<code>ptdlFriendlyUrl:list|setSlug|backfill</code>（ACL 片段 <code>pm.tuanla90-friendly-url</code>）。</p>
 </div>
     </section>
 
@@ -11307,7 +11509,7 @@ photos with a <strong>GPS/time watermark</strong>, a <strong>location on a map</
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Thứ tự trường</span><span class="lang lang-en" hidden>Field Order</span><span class="lang lang-zh" hidden>字段排序</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.2.12</span>
+        <span class="chip">v0.2.13</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -11315,7 +11517,7 @@ photos with a <strong>GPS/time watermark</strong>, a <strong>location on a map</
 cấu hình trường — không cần code, không cần restart server.
 <strong>Từ 0.1.1</strong>, plugin còn <strong>tự sắp lại menu trong trang Settings</strong> cho gọn gàng theo nhóm.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Trường (Fields) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.12</p>
+<p><strong>Nhóm:</strong> Trường (Fields) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.13</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Một nút mới: “Sắp xếp trường”</strong> xuất hiện trên <strong>thanh công cụ của ngăn cấu hình trường</strong> (ngăn kéo ra khi bạn mở phần “Configure fields” của một bảng — chỗ có nút <strong>“Add field”</strong>). Nút nằm cạnh nút thêm trường.</li>
@@ -11400,7 +11602,7 @@ cấu hình trường — không cần code, không cần restart server.
 no code, no server restart.
 <strong>Since 0.1.1</strong>, the plugin also <strong>tidies the Settings-page menu</strong> into logical groups.</p>
 </blockquote>
-<p><strong>Group:</strong> Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.12</p>
+<p><strong>Group:</strong> Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.13</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A new button: “Reorder fields”</strong> appears on the <strong>toolbar of the field-configuration drawer</strong> (the drawer that opens when you “Configure fields” of a collection — where the <strong>“Add field”</strong> button is). It sits next to the add-field button.</li>
@@ -11484,7 +11686,7 @@ no code, no server restart.
 <p>直接在字段配置界面上，用<strong>拖拽</strong>给数据表的<strong>字段</strong>重新排序 —— 无需写代码，也无需重启服务端。
 <strong>自 0.1.1 起</strong>，插件还会把<strong>设置页面的菜单</strong>整理成有条理的分组。</p>
 </blockquote>
-<p><strong>分组：</strong> Fields（字段） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.12</p>
+<p><strong>分组：</strong> Fields（字段） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.13</p>
 <h3>安装之后多了什么？</h3>
 <ul>
 <li><strong>一个新按钮：“字段排序”</strong>，出现在<strong>字段配置抽屉的工具栏</strong>上（就是你对某个数据表“配置字段”时打开的那个抽屉 —— **“添加字段”**按钮所在的地方）。它紧挨着添加字段按钮。</li>
