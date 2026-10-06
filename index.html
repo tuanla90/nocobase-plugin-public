@@ -160,7 +160,7 @@ a:hover{text-decoration:underline}
       <a class="nav-link" href="#offline-sync" data-text="làm việc offline offline sync offline sync dùng app khi mất mạng, có mạng lại thì tự đồng bộ. các collection được đánh dấu sẽ được tải sẵn xuống trình duyệt (indexeddb) khi còn mạng — kể cả màn hình người dùng chưa từng mở — nên mở nguội lúc offline vẫn vào được app và vẫn có dữ liệu. đọc thì phục vụ từ cache kèm banner &quot;offline, dữ liệu lúc hh:mm&quot;. ghi chỉ cho phép tạo mới: bản ghi mới được xếp hàng ở máy với id tạm, khi có mạng thì phát lại theo thứ tự cha-trước-con và thay id tạm bằng id thật của server. cái nào server từ chối lúc phát lại sẽ rơi vào hộp thư bị từ chối để thử lại, sửa hoặc bỏ. collection có logic ghi chạy ở server (chặn chuyển trạng thái, cột ai) được gắn nhãn rủi ro cụ thể trước khi bật tạo offline. use the app without a network connection and sync automatically when it comes back. marked collections are pre-cached into the browser (indexeddb) while online — including screens the user has never opened — so a cold start offline still boots and shows data. reads are served from the cache with an &quot;offline, data as of hh:mm&quot; banner. writes are limited to create: new records are queued locally with a temporary id, then replayed parents-first when the connection returns, remapping temporary ids to the real server ids. anything the server rejects on replay lands in a rejected inbox to retry, edit or discard. collections whose writes depend on server-side logic (status-flow guards, ai columns) are flagged with the specific risk before offline create is turned on. use the app without a network connection and sync automatically when it comes back. marked collections are pre-cached into the browser (indexeddb) while online — including screens the user has never opened — so a cold start offline still boots and shows data. reads are served from the cache with an &quot;offline, data as of hh:mm&quot; banner. writes are limited to create: new records are queued locally with a temporary id, then replayed parents-first when the connection returns, remapping temporary ids to the real server ids. anything the server rejects on replay lands in a rejected inbox to retry, edit or discard. collections whose writes depend on server-side logic (status-flow guards, ai columns) are flagged with the specific risk before offline create is turned on."><span class="lang lang-vi">Làm việc offline</span><span class="lang lang-en" hidden>Offline Sync</span><span class="lang lang-zh" hidden>Offline Sync</span></a>
       <a class="nav-link" href="#deep-duplicate" data-text="nhân bản sâu (cha – con – cháu) deep duplicate 深度复制 nhân bản một bản ghi cùng toàn bộ con và cháu của nó trong một giao dịch duy nhất. một quy tắc quyết định chính xác những cột nào được sao chép ở từng cấp và những quan hệ nào sẽ đi theo; các dòng mới nhận id mới nhưng mọi liên kết đều được nối lại đúng — con của bản sao trỏ về bản ghi cha mới, các tham chiếu chéo bên trong tập vừa sao chép (kể cả cây tự tham chiếu) cũng được ánh xạ sang id mới, còn liên kết tới bản ghi bên ngoài thì giữ nguyên. xem trước cho biết sẽ tạo ra những gì trước khi ghi; giới hạn số dòng và độ sâu, xử lý cột duy nhất và ghi đè theo cột ('{{name}} (bản sao)', xoá trống, thời gian/người dùng hiện tại) giúp bản sao luôn hợp lệ. duplicate a record together with its children and grandchildren, in one transaction. a rule picks exactly which columns are copied at every level and which relations are followed; new rows get new ids while every link is rewired — a child of the copy points at the new parent, and cross-links inside the copied set (including self-referencing trees) are remapped too, while links to records outside the set stay untouched. preview shows what will be created before anything is written; row and depth caps, unique-column handling and per-column overrides ('{{name}} (copy)', clear, current time/user) keep the copy valid. 在一个事务中复制一条记录及其子记录和孙记录。规则精确决定每一层复制哪些字段、沿哪些关系展开；新记录获得新的 id，而所有关联都会重新指向正确的位置——副本的子记录指向新的父记录，被复制集合内部的交叉引用（包括自引用树）同样重新映射，指向集合之外记录的关联则保持不变。写入之前可预览将要创建的内容；行数与层级上限、唯一字段处理以及按字段的覆盖规则（'{{name}}（副本）'、清空、当前时间/用户）确保副本有效。"><span class="lang lang-vi">Nhân bản sâu (cha – con – cháu)</span><span class="lang lang-en" hidden>Deep Duplicate</span><span class="lang lang-zh" hidden>深度复制</span></a>
       <a class="nav-link" href="#change-log" data-text="nhật ký thay đổi change log 变更日志 ghi lại lịch sử thay đổi có hiểu ngữ cảnh trạng thái cho những trường bạn chọn: ai đổi, đổi lúc nào, với vai trò nào, giá trị từ→đến (kèm ảnh chụp màu và biểu tượng tại thời điểm đó), nguồn thay đổi, thời gian đã nằm ở giá trị trước đó và ghi chú tùy chọn. xem được dưới dạng popover dòng thời gian, ngăn kéo đầy đủ hoặc một khối riêng. records a status-aware change history for chosen fields: who/when/role, from→to values (with color/icon snapshot), change source, time spent in the previous value, and an optional note. surfaces as a timeline popover, a full drawer, or a block. 为选定的字段记录带状态语义的变更历史：谁改的、什么时候改的、以什么角色改的，从→到的取值（连同当时的颜色与图标快照）、变更来源、在上一个取值上停留的时长，以及可选的备注。可以用时间线弹窗、完整抽屉或独立区块三种方式呈现。"><span class="lang lang-vi">Nhật ký thay đổi</span><span class="lang lang-en" hidden>Change Log</span><span class="lang lang-zh" hidden>变更日志</span></a>
-      <a class="nav-link" href="#group-sequence" data-text="stt theo nhóm group sequence 分组编号 số thứ tự đánh lại theo từng nhóm — theo đơn hàng (kac031/8/01, /02…), theo khách hàng, theo tháng (pn2610-0001) hoặc theo chứng từ (dòng 1, 2, 3). đặt quy tắc kèm mẫu lên một trường chữ hoặc số bình thường; số được cấp lúc lưu bản ghi, trong cùng transaction với bộ đếm theo nhóm được khoá, nên lưu đồng thời không bao giờ trùng. có thể giữ mã gõ tay, bộ đếm được đồng bộ từ dữ liệu sẵn có, và form tạo mới hiện trước mã sẽ được cấp. numbering that restarts per group — per order (kac031/8/01, /02…), per customer, per month (pn2610-0001) or per document (line 1, 2, 3). put a rule with a template on an ordinary text or number field; the number is given when the record is saved, inside its transaction with a locked per-group counter, so concurrent saves never collide. typed codes can be kept, counters are seeded from existing data, and create forms show the code a save would get. 按分组重新开始的编号——按订单（kac031/8/01、/02…）、按客户、按月（pn2610-0001）或按单据（第 1、2、3 行）。在普通的文本或数字字段上设置带模板的规则；编号在保存记录时于同一事务内、以加锁的分组计数器生成，并发保存也不会重复。可保留手动输入的编号，计数器可从已有数据同步，新建表单会预先显示将要生成的编号。"><span class="lang lang-vi">STT theo nhóm</span><span class="lang lang-en" hidden>Group Sequence</span><span class="lang lang-zh" hidden>分组编号</span></a>
+      <a class="nav-link" href="#group-sequence" data-text="stt theo nhóm group sequence 分组编号 số thứ tự đánh lại theo từng nhóm — theo đơn hàng (kac031/8/01, /02…), theo khách hàng, theo tháng (pn2610-0001) hoặc theo chứng từ (dòng 1, 2, 3). thêm cột loại “group sequence”, hoặc đặt quy tắc lên một trường chữ hoặc số bình thường; số được cấp lúc lưu bản ghi, trong cùng transaction với bộ đếm theo nhóm được khoá, nên lưu đồng thời không bao giờ trùng. có thể giữ mã gõ tay, bộ đếm được đồng bộ từ dữ liệu sẵn có, và form tạo mới hiện trước mã sẽ được cấp. numbering that restarts per group — per order (kac031/8/01, /02…), per customer, per month (pn2610-0001) or per document (line 1, 2, 3). add a “group sequence” column, or put a rule on an ordinary text or number field; the number is given when the record is saved, inside its transaction with a locked per-group counter, so concurrent saves never collide. typed codes can be kept, counters are seeded from existing data, and create forms show the code a save would get. 按分组重新开始的编号——按订单（kac031/8/01、/02…）、按客户、按月（pn2610-0001）或按单据（第 1、2、3 行）。添加“group sequence”字段，或在普通的文本或数字字段上设置规则；编号在保存记录时于同一事务内、以加锁的分组计数器生成，并发保存也不会重复。可保留手动输入的编号，计数器可从已有数据同步，新建表单会预先显示将要生成的编号。"><span class="lang lang-vi">STT theo nhóm</span><span class="lang lang-en" hidden>Group Sequence</span><span class="lang lang-zh" hidden>分组编号</span></a>
       <a class="nav-link" href="#excel-template" data-text="xuất excel theo mẫu excel template export excel 模板导出 xuất bản ghi ra .xlsx từ mẫu excel bạn tự thiết kế: merge ô, màu, viền, định dạng số và logo giữ nguyên 1:1. điền ô bằng {{field}} và {{= excel formula}} (dùng lại engine formula), lặp dòng theo từng dòng chi tiết hoặc từng bản ghi với {{#each}}. chứng từ 1 bản ghi, zip hàng loạt, hoặc cả danh sách vào 1 sheet. export records to .xlsx from an excel template you design yourself: merged cells, colours, borders, number formats and logo are kept 1:1. fill cells with {{field}} placeholders and {{= excel formulas}} (reuses the formula engine), repeat a row per detail line or per record with {{#each}}. single-record document, batch zip, or a whole list into one sheet. 按你自己设计的 excel 模板把记录导出为 .xlsx：合并单元格、颜色、边框、数字格式和 logo 全部 1:1 保留。在单元格里用 {{field}} 占位符和 {{= excel formulas}} 填充内容（复用 formula 引擎），用 {{#each}} 让某一行按每条明细或每条记录重复。可导出单条记录的单据、批量打包成 zip，或把整个列表输出到一个工作表。"><span class="lang lang-vi">Xuất Excel theo mẫu</span><span class="lang lang-en" hidden>Excel Template Export</span><span class="lang lang-zh" hidden>Excel 模板导出</span></a>
     </div>
 
@@ -30100,18 +30100,18 @@ never offered before. Your other choices (enabled, snapshots, note, retention) a
 </div>
     </section>
 
-    <section class="plugin" id="group-sequence" data-text="stt theo nhóm group sequence 分组编号 số thứ tự đánh lại theo từng nhóm — theo đơn hàng (kac031/8/01, /02…), theo khách hàng, theo tháng (pn2610-0001) hoặc theo chứng từ (dòng 1, 2, 3). đặt quy tắc kèm mẫu lên một trường chữ hoặc số bình thường; số được cấp lúc lưu bản ghi, trong cùng transaction với bộ đếm theo nhóm được khoá, nên lưu đồng thời không bao giờ trùng. có thể giữ mã gõ tay, bộ đếm được đồng bộ từ dữ liệu sẵn có, và form tạo mới hiện trước mã sẽ được cấp. numbering that restarts per group — per order (kac031/8/01, /02…), per customer, per month (pn2610-0001) or per document (line 1, 2, 3). put a rule with a template on an ordinary text or number field; the number is given when the record is saved, inside its transaction with a locked per-group counter, so concurrent saves never collide. typed codes can be kept, counters are seeded from existing data, and create forms show the code a save would get. 按分组重新开始的编号——按订单（kac031/8/01、/02…）、按客户、按月（pn2610-0001）或按单据（第 1、2、3 行）。在普通的文本或数字字段上设置带模板的规则；编号在保存记录时于同一事务内、以加锁的分组计数器生成，并发保存也不会重复。可保留手动输入的编号，计数器可从已有数据同步，新建表单会预先显示将要生成的编号。 data">
+    <section class="plugin" id="group-sequence" data-text="stt theo nhóm group sequence 分组编号 số thứ tự đánh lại theo từng nhóm — theo đơn hàng (kac031/8/01, /02…), theo khách hàng, theo tháng (pn2610-0001) hoặc theo chứng từ (dòng 1, 2, 3). thêm cột loại “group sequence”, hoặc đặt quy tắc lên một trường chữ hoặc số bình thường; số được cấp lúc lưu bản ghi, trong cùng transaction với bộ đếm theo nhóm được khoá, nên lưu đồng thời không bao giờ trùng. có thể giữ mã gõ tay, bộ đếm được đồng bộ từ dữ liệu sẵn có, và form tạo mới hiện trước mã sẽ được cấp. numbering that restarts per group — per order (kac031/8/01, /02…), per customer, per month (pn2610-0001) or per document (line 1, 2, 3). add a “group sequence” column, or put a rule on an ordinary text or number field; the number is given when the record is saved, inside its transaction with a locked per-group counter, so concurrent saves never collide. typed codes can be kept, counters are seeded from existing data, and create forms show the code a save would get. 按分组重新开始的编号——按订单（kac031/8/01、/02…）、按客户、按月（pn2610-0001）或按单据（第 1、2、3 行）。添加“group sequence”字段，或在普通的文本或数字字段上设置规则；编号在保存记录时于同一事务内、以加锁的分组计数器生成，并发保存也不会重复。可保留手动输入的编号，计数器可从已有数据同步，新建表单会预先显示将要生成的编号。 data">
       <div class="plugin-head">
         <h2><span class="lang lang-vi">STT theo nhóm</span><span class="lang lang-en" hidden>Group Sequence</span><span class="lang lang-zh" hidden>分组编号</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Dữ liệu</span><span class="lang lang-en" hidden>Data</span><span class="lang lang-zh" hidden>Data</span></span>
-        <span class="chip">v0.1.1</span>
+        <span class="chip">v0.1.2</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
 <p>Số thứ tự <strong>đánh lại theo từng nhóm</strong>: <code>KAC031/8/01, /02…</code> theo đơn hàng, <code>PN2610-0001…</code> theo tháng, dòng 1, 2, 3
 theo chứng từ. Số được cấp lúc lưu bản ghi, nên hai người lưu cùng lúc không bao giờ nhận trùng số.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Dữ liệu · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.1.1</p>
+<p><strong>Nhóm:</strong> Dữ liệu · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.1.2</p>
 <h3>Vì sao cần</h3>
 <p>Trường <em>Sequence</em> có sẵn của NocoBase chỉ có <strong>một bộ đếm cho cả trường</strong> — không thể bắt đầu lại từ 1 cho từng
 đơn hay từng tháng. Các cách chữa thường dùng (công thức đếm dòng, hoặc quy tắc form điền sẵn mã) cấp trùng số khi
@@ -30123,9 +30123,15 @@ hai người lưu cùng lúc, và nhảy cóc hoặc dùng lại số sau khi c�
 dữ liệu, nên không bao giờ trùng, kể cả khi import hay tạo qua API.</li>
 <li><strong>Form tạo mới hiện trước mã sẽ được cấp</strong> ngay dưới ô (“Tự sinh khi lưu: KAC031/8/13”), tự cập nhật khi chọn
 đơn hàng. Chưa lưu thì chưa giữ chỗ số nào.</li>
-<li>Không có loại trường mới: giá trị lưu ngay trong trường bạn chọn, nên tắt plugin thì mọi mã vẫn còn nguyên.</li>
+<li><strong>Loại cột “Group sequence” (STT theo nhóm)</strong> trong <strong>Add field</strong> (nhóm Advanced): tạo cột và ghép mã ngay tại đó,
+bằng chính các mảnh như trên. Hoặc đặt quy tắc lên một trường chữ/số đã có — kiểu nào thì giá trị cũng lưu ngay trong
+trường đó, nên tắt plugin thì mọi mã vẫn còn nguyên.</li>
 </ul>
 <h3>Cách dùng</h3>
+<h4>Nhanh nhất — tạo cột mới</h4>
+<p><strong>Configure fields</strong> → <strong>Add field</strong> → <strong>Group sequence</strong>, đặt tên, thêm các mảnh (ví dụ <strong>Giá trị trường</strong> <em>Đơn hàng ›
+Mã đơn hàng</em> · <strong>Chữ cố định</strong> <code>/</code> · <strong>Số tự tăng</strong> 2 chữ số) rồi Submit. Quy tắc được tạo cùng cột; mở sửa cột sau này
+sẽ thấy quy tắc hiện tại, xoá cột thì quy tắc cũng bị xoá.</p>
 <h4>Tình huống A — Mã theo từng đơn: <code>KAC031/8/01, /02…</code></h4>
 <ol>
 <li>Mở ⚙ <strong>Settings</strong> → <strong>“STT theo nhóm”</strong> → <strong>“Thêm quy tắc”</strong>.</li>
@@ -30191,7 +30197,7 @@ API: <code>ptdlGroupSeq:peek</code> (xem trước trong form, người dùng đ�
 <p>Numbers that <strong>restart per group</strong>: <code>KAC031/8/01, /02…</code> per order, <code>PN2610-0001…</code> per month, line 1, 2, 3 per
 document. Given when the record is saved, so two people saving at once never get the same number.</p>
 </blockquote>
-<p><strong>Group:</strong> Data · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.1.1</p>
+<p><strong>Group:</strong> Data · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.1.2</p>
 <h3>Why</h3>
 <p>NocoBase’s own <em>Sequence</em> field keeps <strong>one counter for the whole field</strong> — it can’t start again at 1 for
 each order or each month. The usual workarounds (a formula counting rows, or a form rule pre-filling a code)
@@ -30204,9 +30210,15 @@ deletion.</p>
 database transaction, so numbers never collide, also for imports and API calls.</li>
 <li><strong>Create forms show the code a save would get</strong> under the field (“Given on save: KAC031/8/13”), updated
 when you pick the order. Nothing is reserved until you save.</li>
-<li>No new field type: the value is stored in the field you chose, so turning the plugin off keeps every code.</li>
+<li><strong>A “Group sequence” field type</strong> in <strong>Add field</strong> (Advanced group): create the column and build its code right there,
+with the same pieces. Or put a rule on a text/number field you already have — the value is stored in that field either
+way, so turning the plugin off keeps every code.</li>
 </ul>
 <h3>How to use</h3>
+<h4>Quickest — a new column</h4>
+<p><strong>Configure fields</strong> → <strong>Add field</strong> → <strong>Group sequence</strong>, give it a name, add the pieces (e.g. <strong>Field value</strong> <em>Order ›
+Order code</em> · <strong>Fixed text</strong> <code>/</code> · <strong>Auto number</strong> 2 digits) and submit. The rule is created with the field; editing the
+field later shows the rule as it is now, and deleting the field removes its rule.</p>
 <h4>Scenario A — A code per order: <code>KAC031/8/01, /02…</code></h4>
 <ol>
 <li>Open ⚙ <strong>Settings</strong> → <strong>“Group sequence”</strong> → <strong>“Add rule”</strong>.</li>
@@ -30273,7 +30285,7 @@ update, so computed fields that read it recompute. API: <code>ptdlGroupSeq:peek<
 <p><strong>按分组重新开始</strong>的编号：按订单 <code>KAC031/8/01、/02…</code>，按月 <code>PN2610-0001…</code>，按单据第 1、2、3 行。
 编号在保存记录时生成，因此两人同时保存也绝不会得到相同的编号。</p>
 </blockquote>
-<p><strong>分组：</strong> 数据 · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.1.1</p>
+<p><strong>分组：</strong> 数据 · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.1.2</p>
 <h3>为什么需要</h3>
 <p>NocoBase 自带的<em>序列</em>字段<strong>整个字段只有一个计数器</strong>——无法为每个订单或每个月重新从 1 开始。常见的变通办法
 （用公式统计行数，或用表单规则预填编号）在两人同时保存时会给出重复编号，删除记录后还会跳号或重复使用编号。</p>
@@ -30284,9 +30296,11 @@ update, so computed fields that read it recompute. API: <code>ptdlGroupSeq:peek<
 导入或通过 API 创建时也一样。</li>
 <li><strong>新建表单会在字段下方显示保存后将得到的编号</strong>（“保存时生成：KAC031/8/13”），选择订单后自动更新。
 保存之前不会占用任何编号。</li>
-<li>没有新的字段类型：值保存在你选择的字段中，因此停用插件后所有编号都会保留。</li>
+<li><strong>“Group sequence（分组编号）”字段类型</strong>，位于 <strong>添加字段</strong>（高级分组）：创建字段时直接用同样的片段组成编号。也可以在已有的文本/数字字段上设置规则——两种方式的值都保存在该字段中，因此停用插件后所有编号都会保留。</li>
 </ul>
 <h3>使用方法</h3>
+<h4>最快——新建字段</h4>
+<p><strong>配置字段</strong> → <strong>添加字段</strong> → <strong>Group sequence</strong>，填写名称，添加片段（例如 <strong>字段值</strong> <em>订单 › 订单编号</em> · <strong>固定文字</strong> <code>/</code> · <strong>自增编号</strong> 2 位）后提交。规则随字段一起创建；之后编辑字段会显示当前规则，删除字段时规则也会删除。</p>
 <h4>场景 A — 按订单编号：<code>KAC031/8/01、/02…</code></h4>
 <ol>
 <li>打开 ⚙ <strong>设置</strong> → <strong>“分组编号”</strong> → <strong>“添加规则”</strong>。</li>
