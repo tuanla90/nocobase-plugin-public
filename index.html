@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hướng dẫn Plugin @tuanla90 · @tuanla90 Plugin Guides</title>
-<meta name="description" content="Hướng dẫn sử dụng 55 plugin @tuanla90 cho NocoBase — User guides for 55 @tuanla90 NocoBase plugins.">
+<meta name="description" content="Hướng dẫn sử dụng 56 plugin @tuanla90 cho NocoBase — User guides for 56 @tuanla90 NocoBase plugins.">
 <style>
 :root{
   --bg:#ffffff; --fg:#1f2328; --muted:#656d76; --border:#d1d9e0; --card:#f6f8fa;
@@ -76,7 +76,7 @@ a:hover{text-decoration:underline}
 <a id="top"></a>
 <div class="layout">
   <aside class="side">
-    <div class="brand">📚 <span class="lang lang-vi">Hướng dẫn Plugin @tuanla90</span><span class="lang lang-en" hidden>@tuanla90 Plugin Guides</span><span class="lang lang-zh" hidden>@tuanla90 Plugin Guides</span><small>55 plugin · NocoBase</small></div>
+    <div class="brand">📚 <span class="lang lang-vi">Hướng dẫn Plugin @tuanla90</span><span class="lang lang-en" hidden>@tuanla90 Plugin Guides</span><span class="lang lang-zh" hidden>@tuanla90 Plugin Guides</span><small>56 plugin · NocoBase</small></div>
     <div class="langtoggle">
       <button data-lang="vi" class="active">Tiếng Việt</button>
       <button data-lang="en">English</button>
@@ -92,6 +92,7 @@ a:hover{text-decoration:underline}
     </div>
     <div class="nav-group">
       <div class="nav-cat"><span class="lang lang-vi">Quản trị / Công cụ</span><span class="lang lang-en" hidden>Admin &amp; tools</span><span class="lang lang-zh" hidden>Admin &amp; tools</span></div>
+      <a class="nav-link" href="#image-thumbnail" data-text="ảnh thu nhỏ image thumbnails 图片缩略图 tạo một bản nhỏ cho mỗi ảnh jpeg/png tải lên ổ lưu trữ local và dùng nó làm ảnh xem trước, để bảng, danh sách và thẻ chỉ tải vài kb mỗi ảnh thay vì cả tấm ảnh gốc, trong khi mở ảnh ra vẫn là ảnh gốc. trang thiết lập cho phép tạo ảnh nhỏ cho các ảnh đã tải lên trước đó, chạy ngầm. creates a small copy of every jpeg/png uploaded to local storage and serves it as the file preview, so tables, lists and cards load a few kb per image instead of the full photo, while opening the image still shows the original. a settings page creates thumbnails for images uploaded earlier, in the background. 为上传到本地存储的每张 jpeg/png 图片生成一张小图，并将其作为文件预览，使表格、列表和卡片每张图只加载几 kb，而不是整张原图；点开图片仍显示原图。设置页面可在后台为此前上传的图片补生成缩略图。"><span class="lang lang-vi">Ảnh thu nhỏ</span><span class="lang lang-en" hidden>Image Thumbnails</span><span class="lang lang-zh" hidden>图片缩略图</span></a>
       <a class="nav-link" href="#app-doctor" data-text="app doctor (bác sĩ ứng dụng) app doctor 应用医生 quét các bảng dữ liệu của app để tìm quan hệ hỏng và sửa bằng một cú bấm. phát hiện quan hệ một chiều (belongsto thiếu hasmany của bảng cha, hasmany thiếu belongsto của bảng con, hoặc nhiều-nhiều một chiều) — đúng loại hỏng do import/sinh app tự động để lại, và là nguyên nhân khiến cột sub-table không phân giải được field và có thể treo app. cũng cảnh báo quan hệ trỏ tới bảng/bảng trung gian không tồn tại. việc sửa chỉ thêm quan hệ ngược còn thiếu, không bao giờ đụng tới dữ liệu. scans the app's data collections for relation-integrity problems and repairs them in one click. finds one-sided relations (a belongsto without the master's hasmany, a hasmany without the child's belongsto, or a one-sided many-to-many) — the incomplete-bidirectional damage that imports and auto-generated apps leave behind, and the class that makes a sub-table column's field unresolvable and can freeze the app. also flags relations that point at a non-existent collection or junction table. repair is additive (it only creates the missing reverse relation field) and never touches your data. 扫描应用中的数据表，找出关系完整性问题并一键修复。它能发现单向关系（有 belongsto 却缺少主表的 hasmany、有 hasmany 却缺少子表的 belongsto，或单向的多对多）——这正是数据导入和自动生成的应用常常留下的双向关系残缺，也正是这一类问题会让子表格列的字段无法解析、甚至使应用卡死。此外还会标记指向不存在的数据表或中间表的关系。修复只做加法（仅补建缺失的反向关系字段），绝不改动你的数据。"><span class="lang lang-vi">App Doctor (Bác sĩ ứng dụng)</span><span class="lang lang-en" hidden>App Doctor</span><span class="lang lang-zh" hidden>应用医生</span></a>
       <a class="nav-link" href="#perf-guard" data-text="chống treo (ổn định) crash guard (stability) 防崩溃（稳定性） các lớp bảo vệ phía client cho giao diện hiện đại (/v/). chống treo (đang bật): một quan hệ hỏng (thiếu belongsto ngược / lệch khóa ngoại) có thể khiến flow beforerender của một cột ném lỗi và làm treo cả app — plugin cô lập beforerender từng sub-model để một cột hỏng chỉ thành ô trống thay vì treo tất cả. giới hạn keep-alive (thử nghiệm, mặc định tắt): nocobase v2 giữ mọi trang con đã mở nên dom phình dần khi điều hướng — plugin phát hiện được các trang tồn đọng, nhưng primitive unmount duy nhất (flowengine.destroymodel) lại xóa trang khỏi db, nên auto-dọn bị tắt cho tới khi có cách unmount không hủy diệt; trang cấu hình hiển thị tín hiệu dom và nút quét chỉ-báo-cáo. client-side defense layers for the modern (/v/) client. crash guard (active): a malformed relation (missing reverse belongsto / mismatched fk) can make a column's beforerender flow throw and render-loop the whole app (freeze) — this isolates each sub-model's beforerender so one broken column degrades to an empty cell instead of freezing everything. keep-alive cap (experimental, off by default): nocobase v2 keeps every visited sub-page mounted, so the dom grows unbounded across navigation — the plugin can detect the stale pages, but the only unmount primitive available (flowengine.destroymodel) also deletes the page from the db, so auto-eviction stays disabled until a non-destructive unmount exists; the settings page shows the live dom signal and a report-only scan. 面向新版（/v/）客户端的前端防护层。防崩溃（已启用）：一个不完整的关系（缺少反向 belongsto / 外键不匹配）会让某一列的 beforerender 流程抛出异常，进而让整个应用陷入渲染死循环并卡死 —— 本插件把每个子模型的 beforerender 隔离开，使一列出错只退化成一个空单元格，而不会拖垮全部内容。keep-alive 上限（实验性，默认关闭）：nocobase v2 会让访问过的每个子页面保持挂载，因此随着不断跳转，dom 会无限膨胀 —— 插件能识别出这些残留页面，但目前唯一可用的卸载手段（flowengine.destroymodel）会连带把页面从数据库中删除，因此在出现非破坏性的卸载方式之前，自动清理保持停用；设置页面会显示实时的 dom 指标，并提供一次仅出报告的扫描。"><span class="lang lang-vi">Chống treo (ổn định)</span><span class="lang lang-en" hidden>Crash Guard (stability)</span><span class="lang lang-zh" hidden>防崩溃（稳定性）</span></a>
       <a class="nav-link" href="#job-queue-pro" data-text="hàng chờ tác vụ (chạy hàng loạt &amp; khôi phục lỗi) job queue pro (batch jobs &amp; error recovery) 任务队列 pro（批量任务与错误恢复） chạy các tác vụ hàng loạt nặng — tính lại 10.000 hoa hồng, gửi 5.000 hóa đơn — dưới dạng job bền vững theo từng bản ghi. trạng thái mỗi bản ghi được lưu lại, nên sập ở dòng 4.521 thì chạy tiếp đúng từ đó: không tính trùng, không bỏ sót. tự retry với backoff, tab 'thư chết' cho bản ghi lỗi mãi, tab 'chưa rõ' cho job có side-effect bị đứt giữa chừng, giới hạn tốc độ, tạm dừng/chạy tiếp, tiến độ trực tiếp. handler có sẵn: cập nhật hàng loạt, tính lại cột computed, webhook http từng bản ghi, chạy workflow từng bản ghi. run heavy batch operations — recompute 10,000 commissions, send 5,000 invoices — as durable per-record jobs. every record's state is stored, so a crash at record 4,521 resumes exactly there: no double-processing, nothing skipped. automatic retry with backoff, a dead-letter tab for records that keep failing, an 'in-doubt' tab for side-effect jobs interrupted mid-send, rate limiting, pause/resume, and live progress. built-in handlers: batch field update, recompute computed columns, http webhook per record, trigger a workflow per record. 把繁重的批量操作 — 重算 10,000 条佣金、发送 5,000 张发票 — 作为按记录持久化的任务运行。每条记录的状态都有存储，崩溃在第 4,521 条就从那里继续：不重复处理、不遗漏。自动重试（退避）、死信页签、发送中断的『存疑』页签、限速、暂停/继续、实时进度。内置处理器：批量更新字段、重算计算列、按记录 http webhook、按记录触发工作流。"><span class="lang lang-vi">Hàng chờ Tác vụ (Chạy hàng loạt &amp; Khôi phục lỗi)</span><span class="lang lang-en" hidden>Job Queue Pro (Batch Jobs &amp; Error Recovery)</span><span class="lang lang-zh" hidden>任务队列 Pro（批量任务与错误恢复）</span></a>
@@ -1442,6 +1443,234 @@ a:hover{text-decoration:underline}
 <p><em>从代码生成 — 更新位置：<code>plugin-formula/src/shared/formulaKnowledge.ts</code> + <code>formulaEngine.ts</code>（第 1 类）、<code>plugin-print-template/src/shared/HelperDocs.tsx</code> + <code>helpers.ts</code>（第 2 类）、<code>plugin-block-custom-html/src/client/render.ts</code>（第 3 类）。</em></p>
 </div>
     </section>
+    <section class="plugin" id="image-thumbnail" data-text="ảnh thu nhỏ image thumbnails 图片缩略图 tạo một bản nhỏ cho mỗi ảnh jpeg/png tải lên ổ lưu trữ local và dùng nó làm ảnh xem trước, để bảng, danh sách và thẻ chỉ tải vài kb mỗi ảnh thay vì cả tấm ảnh gốc, trong khi mở ảnh ra vẫn là ảnh gốc. trang thiết lập cho phép tạo ảnh nhỏ cho các ảnh đã tải lên trước đó, chạy ngầm. creates a small copy of every jpeg/png uploaded to local storage and serves it as the file preview, so tables, lists and cards load a few kb per image instead of the full photo, while opening the image still shows the original. a settings page creates thumbnails for images uploaded earlier, in the background. 为上传到本地存储的每张 jpeg/png 图片生成一张小图，并将其作为文件预览，使表格、列表和卡片每张图只加载几 kb，而不是整张原图；点开图片仍显示原图。设置页面可在后台为此前上传的图片补生成缩略图。 admin">
+      <div class="plugin-head">
+        <h2><span class="lang lang-vi">Ảnh thu nhỏ</span><span class="lang lang-en" hidden>Image Thumbnails</span><span class="lang lang-zh" hidden>图片缩略图</span></h2>
+        <span class="chip chip-cat"><span class="lang lang-vi">Quản trị / Công cụ</span><span class="lang lang-en" hidden>Admin &amp; tools</span><span class="lang lang-zh" hidden>Admin &amp; tools</span></span>
+        <span class="chip">v0.1.0</span>
+        <a class="chip chip-top" href="#top" title="Top">↑</a>
+      </div>
+      <div class="prose lang lang-vi"><blockquote>
+<p>Bảng, danh sách và thẻ có ảnh sẽ tải <strong>một bản nhỏ của mỗi ảnh (vài KB)</strong> thay vì cả tấm ảnh gốc
+(thường từ 300 KB trở lên). Mở ảnh ra vẫn là ảnh gốc. Không cần cấu hình gì.</p>
+</blockquote>
+<p><strong>Nhóm:</strong> Công cụ &amp; quản trị (Admin &amp; tools) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.1.0</p>
+<h3>Vì sao cần</h3>
+<p>Bảng có cột ảnh chỉ hiện mỗi ảnh thành một ô vuông nhỏ, nhưng khi chưa có plugin này, trình duyệt vẫn
+phải tải và giải mã <strong>nguyên ảnh gốc</strong> cho từng ô. 50 dòng × vài ảnh chụp điện thoại là dễ dàng 5–10 MB,
+và trang bị đơ trong lúc giải mã. Có plugin, cùng trang đó chỉ còn vài trăm KB.</p>
+<h3>Cài xong có gì mới?</h3>
+<ul>
+<li><strong>Mọi ảnh JPEG hoặc PNG tải lên từ giờ</strong> đều có thêm một bản nhỏ (rộng 240 px), lưu cạnh ảnh gốc
+trong cùng thư mục (<code>anh.jpg</code> → <code>anh.thumb.jpg</code>).</li>
+<li>Mọi chỗ NocoBase hiện file dưới dạng ảnh nhỏ — <strong>ô bảng, danh sách, thẻ, ô upload</strong> — giờ dùng
+bản nhỏ. <strong>Bấm vào ảnh vẫn mở ảnh gốc.</strong></li>
+<li><strong>Thêm một trang Settings: “Ảnh thu nhỏ”</strong>, để tạo bản nhỏ cho <strong>các ảnh đã tải lên trước khi</strong> bật plugin.</li>
+<li>Không thêm trường, khối hay nút nào vào trang của bạn, và không phải cấu hình lại khối nào.</li>
+</ul>
+<h3>Cách dùng</h3>
+<h4>Ảnh tải lên từ giờ</h4>
+<p>Không phải làm gì — cứ upload như bình thường. Bản nhỏ được tạo ngay sau khi upload, chạy ngầm.</p>
+<h4>Ảnh đã tải lên từ trước</h4>
+<ol>
+<li>Mở ⚙ <strong>Settings</strong> → <strong>“Ảnh thu nhỏ”</strong> (lane classic: <code>/admin/settings/tuanla90-image-thumbnail</code>).</li>
+<li>Bấm <strong>“Tạo ảnh nhỏ cho ảnh cũ”</strong>.</li>
+<li>Theo dõi thanh tiến độ. Việc này chạy ngầm, lần lượt từng ảnh — bạn có thể rời khỏi trang.
+<strong>“Dừng”</strong> để tạm dừng; bấm lại nút lần sau sẽ làm tiếp những ảnh còn thiếu.</li>
+</ol>
+<p>✅ Xong khi trạng thái báo <strong>Đã xong</strong>. Tải lại trang có ảnh để thấy hiệu quả.</p>
+<h3>Cần biết</h3>
+<ul>
+<li>🖼️ <strong>Chỉ JPEG và PNG.</strong> Định dạng khác (WebP, GIF, HEIC…) vẫn hiện ảnh gốc.</li>
+<li>💾 <strong>Chỉ ổ lưu trữ local</strong> (mặc định “Local storage”). File trên S3 / Aliyun OSS / Tencent COS giữ
+nguyên — các dịch vụ này tự thu nhỏ ảnh qua <em>thumbnail rule</em> của storage.</li>
+<li>🔄 Ảnh chụp điện thoại được xoay đúng chiều theo thông tin EXIF, nên bản nhỏ không bao giờ bị nằm ngang.</li>
+<li>🪶 Ảnh vốn đã nhỏ (dưới ~30 KB, hoặc hẹp hơn 300 px và dưới 150 KB) được bỏ qua — hiện ảnh gốc đã đủ nhẹ.</li>
+<li>🗑️ Xoá bản ghi file thì bản nhỏ cũng bị xoá theo (trừ khi storage được đặt giữ lại file đã xoá).</li>
+<li>⏱️ Một ảnh lớn mất khoảng 0,5–1,5 giây để thu nhỏ. Việc này chạy trên luồng riêng nên app không bị khựng;
+tạo bản nhỏ cho 1.000 ảnh cũ mất khoảng 10–20 phút.</li>
+<li>Tắt plugin thì mọi nơi quay về hiện ảnh gốc; các bản nhỏ vẫn nằm trên đĩa.</li>
+</ul>
+<h3>Xử lý sự cố</h3>
+<table>
+<thead>
+<tr>
+<th>Hiện tượng</th>
+<th>Nguyên nhân / cách xử lý</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bảng vẫn tải ảnh to</td>
+<td>Ảnh tải lên trước khi có plugin: chạy <strong>“Tạo ảnh nhỏ cho ảnh cũ”</strong>, rồi tải lại trang.</td>
+</tr>
+<tr>
+<td>“Bỏ qua” nhiều</td>
+<td>Bình thường với ảnh nhỏ, storage không phải local, hoặc bản ghi mà file không còn trên đĩa.</td>
+</tr>
+<tr>
+<td>“Lỗi” khác 0</td>
+<td>Xem <strong>Lỗi gần nhất</strong> trên trang. Thường là file ảnh hỏng hoặc định dạng lạ; ảnh gốc vẫn hiện bình thường.</td>
+</tr>
+</tbody>
+</table>
+<h3>Ghi chú kỹ thuật</h3>
+<p>Plugin ghi đè <code>getFileURL(file, preview)</code> của <code>@nocobase/plugin-file-manager</code> cho trường hợp preview:
+hook <code>afterFind</code> của file-manager lấy <code>preview</code> của mỗi bản ghi file từ hàm này, và cả hai lane hiện ảnh nhỏ
+bằng <code>preview || url</code>, mở ảnh bằng <code>url</code>. Bản nhỏ phải là một file thật vì ở bản triển khai thông thường,
+<code>/storage/uploads</code> do nginx phục vụ thẳng từ đĩa. Tên bản nhỏ lưu ở <code>meta.ptdlThumb</code> của bản ghi. Ảnh được giải
+mã bằng thư viện JS thuần (jpeg-js, pngjs) trên một worker thread — không cần cài thư viện native. API server
+(admin, snippet ACL <code>pm.tuanla90-image-thumbnail</code>): <code>ptdlImageThumb:status</code>, <code>ptdlImageThumb:backfill</code>,
+<code>ptdlImageThumb:stop</code>.</p>
+</div>
+      <div class="prose lang lang-en" hidden><blockquote>
+<p>Tables, lists and cards that show photos load <strong>a small copy of each image (a few KB)</strong> instead of
+the full photo (often 300 KB+). Opening an image still shows the original. Nothing to configure.</p>
+</blockquote>
+<p><strong>Group:</strong> Admin &amp; tools · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.1.0</p>
+<h3>Why</h3>
+<p>A table with an image column shows each photo as a small square, but without this plugin the browser
+still downloads and decodes the <strong>whole original</strong> for every square. 50 rows × a few photos of a phone
+camera is easily 5–10 MB and makes the page freeze while it decodes them. With this plugin the same
+page loads a few hundred KB.</p>
+<h3>What’s new after installing?</h3>
+<ul>
+<li><strong>Every JPEG or PNG uploaded from now on</strong> gets a small copy (240 px wide), saved next to the
+original in the same folder (<code>photo.jpg</code> → <code>photo.thumb.jpg</code>).</li>
+<li>Wherever NocoBase shows a file as a thumbnail — <strong>table cells, lists, cards, the upload field</strong> —
+it now uses the small copy. <strong>Clicking the image still opens the original.</strong></li>
+<li><strong>A new Settings page: “Image thumbnails”</strong>, to create small copies for <strong>images uploaded before</strong>
+the plugin was enabled.</li>
+<li>No new field, block or button is added to your pages, and no block needs reconfiguring.</li>
+</ul>
+<h3>How to use</h3>
+<h4>Images uploaded from now on</h4>
+<p>Nothing to do — upload as usual. The small copy is made a moment after the upload, in the background.</p>
+<h4>Images uploaded before the plugin</h4>
+<ol>
+<li>Open ⚙ <strong>Settings</strong> → <strong>“Image thumbnails”</strong> (classic path <code>/admin/settings/tuanla90-image-thumbnail</code>).</li>
+<li>Click <strong>“Create thumbnails for existing images”</strong>.</li>
+<li>Watch the progress bar. It runs in the background, one image at a time — you can leave the page.
+<strong>“Stop”</strong> halts it; clicking the button again later continues with the images still missing.</li>
+</ol>
+<p>✅ Done when the status says <strong>Finished</strong>. Reload a page with images to see the effect.</p>
+<h3>Good to know</h3>
+<ul>
+<li>🖼️ <strong>JPEG and PNG only.</strong> Other formats (WebP, GIF, HEIC…) keep showing the original.</li>
+<li>💾 <strong>Local storage only</strong> (the default “Local storage”). Files on S3 / Aliyun OSS / Tencent COS are left as
+they are — those services resize images themselves through the storage’s <em>thumbnail rule</em>.</li>
+<li>🔄 Phone photos are turned upright using their EXIF orientation, so the small copy is never sideways.</li>
+<li>🪶 Images that are already small (under ~30 KB, or narrower than 300 px and under 150 KB) are skipped — the
+original is already cheap to show.</li>
+<li>🗑️ Deleting a file record deletes its small copy too (unless the storage keeps deleted files).</li>
+<li>⏱️ A large photo takes about 0.5–1.5 s to shrink. This runs on a separate thread, so the app stays
+responsive; a backfill of 1,000 photos takes roughly 10–20 minutes.</li>
+<li>Turning the plugin off simply brings back the originals everywhere; the small copies stay on disk.</li>
+</ul>
+<h3>Troubleshooting</h3>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Cause / what to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A table still downloads the big photos</td>
+<td>Images uploaded before the plugin: run <strong>“Create thumbnails for existing images”</strong>. Then reload the page.</td>
+</tr>
+<tr>
+<td>“Skipped” is high</td>
+<td>Normal for small images, non-local storage, or records whose file is missing on disk.</td>
+</tr>
+<tr>
+<td>“Failed” is not 0</td>
+<td>See <strong>Last error</strong> on the page. Usually a damaged or unusual image file; the original keeps showing.</td>
+</tr>
+</tbody>
+</table>
+<h3>Technical notes</h3>
+<p>The plugin overrides <code>getFileURL(file, preview)</code> of <code>@nocobase/plugin-file-manager</code> for the preview case:
+file-manager’s <code>afterFind</code> hook fills each file record’s <code>preview</code> from it, and both clients show
+thumbnails from <code>preview || url</code> and open <code>url</code>. The small copy has to be a real file because on a typical
+deployment <code>/storage/uploads</code> is served by nginx straight from disk. Its name is stored in the record’s
+<code>meta.ptdlThumb</code>. Images are decoded with pure-JS codecs (jpeg-js, pngjs) on a worker thread — no native
+binary to install. Server API (admin, ACL snippet <code>pm.tuanla90-image-thumbnail</code>): <code>ptdlImageThumb:status</code>,
+<code>ptdlImageThumb:backfill</code>, <code>ptdlImageThumb:stop</code>.</p>
+</div>
+      <div class="prose lang lang-zh" hidden><blockquote>
+<p>显示照片的表格、列表和卡片将加载<strong>每张图片的小图（几 KB）</strong>，而不是整张原图（通常 300 KB 以上）。
+点开图片仍是原图。无需任何配置。</p>
+</blockquote>
+<p><strong>分组：</strong> 管理与工具 · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.1.0</p>
+<h3>为什么需要</h3>
+<p>带图片列的表格只把每张照片显示成一个小方块，但没有本插件时，浏览器仍要为每个方块下载并解码<strong>整张原图</strong>。
+50 行 × 几张手机照片很容易就是 5–10 MB，页面会在解码时卡住。启用本插件后，同一页面只需几百 KB。</p>
+<h3>安装后有什么变化？</h3>
+<ul>
+<li><strong>今后上传的每张 JPEG 或 PNG</strong> 都会多生成一张小图（宽 240 px），与原图保存在同一目录
+（<code>photo.jpg</code> → <code>photo.thumb.jpg</code>）。</li>
+<li>NocoBase 以缩略图形式显示文件的地方——<strong>表格单元格、列表、卡片、上传字段</strong>——现在都使用小图。
+<strong>点击图片仍打开原图。</strong></li>
+<li><strong>新增一个设置页面：“图片缩略图”</strong>，用于为启用插件<strong>之前上传</strong>的图片补生成小图。</li>
+<li>不会在页面中新增任何字段、区块或按钮，也不需要重新配置任何区块。</li>
+</ul>
+<h3>使用方法</h3>
+<h4>今后上传的图片</h4>
+<p>无需操作——照常上传即可。小图会在上传后很快于后台生成。</p>
+<h4>之前上传的图片</h4>
+<ol>
+<li>打开 ⚙ <strong>设置</strong> → <strong>“图片缩略图”</strong>（经典版路径 <code>/admin/settings/tuanla90-image-thumbnail</code>）。</li>
+<li>点击 <strong>“为已有图片生成缩略图”</strong>。</li>
+<li>查看进度条。它在后台逐张运行——您可以离开此页面。
+<strong>“停止”</strong> 可暂停；之后再次点击按钮会继续处理尚未生成的图片。</li>
+</ol>
+<p>✅ 状态显示 <strong>已完成</strong> 即结束。重新加载带图片的页面即可看到效果。</p>
+<h3>须知</h3>
+<ul>
+<li>🖼️ <strong>仅支持 JPEG 和 PNG。</strong> 其他格式（WebP、GIF、HEIC…）仍显示原图。</li>
+<li>💾 <strong>仅限本地存储</strong>（默认的 “Local storage”）。S3 / 阿里云 OSS / 腾讯云 COS 上的文件保持不变——
+这些服务可通过存储的<em>缩略图规则</em>自行缩放图片。</li>
+<li>🔄 手机照片会按 EXIF 方向信息转正，小图不会横躺。</li>
+<li>🪶 本身已经很小的图片（约 30 KB 以下，或宽度小于 300 px 且小于 150 KB）会被跳过——直接显示原图已足够轻。</li>
+<li>🗑️ 删除文件记录时会一并删除其小图（除非存储设置为保留已删除文件）。</li>
+<li>⏱️ 一张大照片缩小约需 0.5–1.5 秒。这在独立线程中运行，应用不会卡顿；为 1,000 张旧照片补生成约需 10–20 分钟。</li>
+<li>停用插件后各处恢复显示原图；小图仍保留在磁盘上。</li>
+</ul>
+<h3>故障排查</h3>
+<table>
+<thead>
+<tr>
+<th>现象</th>
+<th>原因 / 处理方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>表格仍在下载大图</td>
+<td>插件启用前上传的图片：运行 <strong>“为已有图片生成缩略图”</strong>，然后重新加载页面。</td>
+</tr>
+<tr>
+<td>“跳过” 数量多</td>
+<td>对小图、非本地存储或磁盘上已找不到文件的记录来说属正常。</td>
+</tr>
+<tr>
+<td>“失败” 不为 0</td>
+<td>查看页面上的 <strong>最近一次错误</strong>。通常是损坏或格式特殊的图片文件；原图照常显示。</td>
+</tr>
+</tbody>
+</table>
+<h3>技术说明</h3>
+<p>本插件在预览场景下覆盖 <code>@nocobase/plugin-file-manager</code> 的 <code>getFileURL(file, preview)</code>：file-manager 的
+<code>afterFind</code> 钩子用它填充每条文件记录的 <code>preview</code>，两个客户端都以 <code>preview || url</code> 显示缩略图、以 <code>url</code> 打开原图。
+小图必须是真实文件，因为在常见部署中 <code>/storage/uploads</code> 由 nginx 直接从磁盘提供。小图文件名保存在记录的
+<code>meta.ptdlThumb</code> 中。图片在 worker 线程中用纯 JS 编解码库（jpeg-js、pngjs）处理——无需安装原生二进制。
+服务端 API（管理员，ACL 片段 <code>pm.tuanla90-image-thumbnail</code>）：<code>ptdlImageThumb:status</code>、<code>ptdlImageThumb:backfill</code>、
+<code>ptdlImageThumb:stop</code>。</p>
+</div>
+    </section>
+
     <section class="plugin" id="app-doctor" data-text="app doctor (bác sĩ ứng dụng) app doctor 应用医生 quét các bảng dữ liệu của app để tìm quan hệ hỏng và sửa bằng một cú bấm. phát hiện quan hệ một chiều (belongsto thiếu hasmany của bảng cha, hasmany thiếu belongsto của bảng con, hoặc nhiều-nhiều một chiều) — đúng loại hỏng do import/sinh app tự động để lại, và là nguyên nhân khiến cột sub-table không phân giải được field và có thể treo app. cũng cảnh báo quan hệ trỏ tới bảng/bảng trung gian không tồn tại. việc sửa chỉ thêm quan hệ ngược còn thiếu, không bao giờ đụng tới dữ liệu. scans the app's data collections for relation-integrity problems and repairs them in one click. finds one-sided relations (a belongsto without the master's hasmany, a hasmany without the child's belongsto, or a one-sided many-to-many) — the incomplete-bidirectional damage that imports and auto-generated apps leave behind, and the class that makes a sub-table column's field unresolvable and can freeze the app. also flags relations that point at a non-existent collection or junction table. repair is additive (it only creates the missing reverse relation field) and never touches your data. 扫描应用中的数据表，找出关系完整性问题并一键修复。它能发现单向关系（有 belongsto 却缺少主表的 hasmany、有 hasmany 却缺少子表的 belongsto，或单向的多对多）——这正是数据导入和自动生成的应用常常留下的双向关系残缺，也正是这一类问题会让子表格列的字段无法解析、甚至使应用卡死。此外还会标记指向不存在的数据表或中间表的关系。修复只做加法（仅补建缺失的反向关系字段），绝不改动你的数据。 admin">
       <div class="plugin-head">
         <h2><span class="lang lang-vi">App Doctor (Bác sĩ ứng dụng)</span><span class="lang lang-en" hidden>App Doctor</span><span class="lang lang-zh" hidden>应用医生</span></h2>
@@ -2112,7 +2341,7 @@ NocoBase 原本的行为</strong>，绝不抛出错误。</li>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Hàng chờ Tác vụ (Chạy hàng loạt &amp; Khôi phục lỗi)</span><span class="lang lang-en" hidden>Job Queue Pro (Batch Jobs &amp; Error Recovery)</span><span class="lang lang-zh" hidden>任务队列 Pro（批量任务与错误恢复）</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Quản trị / Công cụ</span><span class="lang lang-en" hidden>Admin &amp; tools</span><span class="lang lang-zh" hidden>Admin &amp; tools</span></span>
-        <span class="chip">v0.2.0</span>
+        <span class="chip">v0.2.1</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -3042,7 +3271,7 @@ manifest 里带有包格式的版本号；如果某个包的主版本比导入�
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Ops Agent (Cổng vận hành)</span><span class="lang lang-en" hidden>Ops Agent</span><span class="lang lang-zh" hidden>Ops Agent</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Quản trị / Công cụ</span><span class="lang lang-en" hidden>Admin &amp; tools</span><span class="lang lang-zh" hidden>Admin &amp; tools</span></span>
-        <span class="chip">v0.1.2</span>
+        <span class="chip">v0.1.3</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><p><strong>Ops Agent</strong> là một cổng API chỉ-đọc, không có màn hình cấu hình riêng. Nó phục vụ 2 việc:</p>
@@ -3082,8 +3311,8 @@ header:</p>
 </tr>
 <tr>
 <td><code>GET /api/opsAgent:listUploads</code></td>
-<td>Đăng nhập</td>
-<td>số tệp + tổng dung lượng thư mục uploads; thêm <code>?list=1</code> để lấy danh sách đầy đủ</td>
+<td>Đăng nhập (danh sách: <strong>chỉ quản trị</strong>)</td>
+<td>số tệp + tổng dung lượng thư mục uploads; <code>?list=1</code> (key admin/root) trả thêm danh sách đầy đủ và đường dẫn thư mục</td>
 </tr>
 <tr>
 <td><code>GET /api/opsAgent:dumpUploads</code></td>
@@ -3111,7 +3340,7 @@ header:</p>
 <p>Mỗi trường được lấy trong khối try/catch riêng — một phần bị lỗi (ví dụ truy vấn dung lượng DB thất
 bại) chỉ khiến đúng ô đó trả về <code>null</code>, không làm hỏng cả câu trả lời.</p>
 <h4>Ví dụ — <code>listUploads</code></h4>
-<pre><code class="language-bash">curl -H &quot;Authorization: Bearer &lt;api-key&gt;&quot; &quot;https://app-cua-ban.example.com/api/opsAgent:listUploads?list=1&quot;
+<pre><code class="language-bash">curl -H &quot;Authorization: Bearer &lt;admin-api-key&gt;&quot; &quot;https://app-cua-ban.example.com/api/opsAgent:listUploads?list=1&quot;
 </code></pre>
 <pre><code class="language-json">{
   &quot;ok&quot;: true,
@@ -3183,8 +3412,8 @@ dump does not contain</strong>.</li>
 </tr>
 <tr>
 <td><code>GET /api/opsAgent:listUploads</code></td>
-<td>logged in</td>
-<td>file count + total bytes of the uploads folder; add <code>?list=1</code> for the full file list</td>
+<td>logged in (list: <strong>admin only</strong>)</td>
+<td>file count + total bytes of the uploads folder; <code>?list=1</code> (admin/root key) adds the full file list and the folder path</td>
 </tr>
 <tr>
 <td><code>GET /api/opsAgent:dumpUploads</code></td>
@@ -3212,7 +3441,7 @@ dump does not contain</strong>.</li>
 <p>Each field is fetched in its own try/catch — one piece failing (say, the DB-size query) shows up as
 <code>null</code> in that one field instead of taking down the whole response.</p>
 <h4>Example — <code>listUploads</code></h4>
-<pre><code class="language-bash">curl -H &quot;Authorization: Bearer &lt;api-key&gt;&quot; &quot;https://your-app.example.com/api/opsAgent:listUploads?list=1&quot;
+<pre><code class="language-bash">curl -H &quot;Authorization: Bearer &lt;admin-api-key&gt;&quot; &quot;https://your-app.example.com/api/opsAgent:listUploads?list=1&quot;
 </code></pre>
 <pre><code class="language-json">{
   &quot;ok&quot;: true,
@@ -3223,7 +3452,9 @@ dump does not contain</strong>.</li>
   &quot;list&quot;: [{ &quot;path&quot;: &quot;2026/08/abc123.png&quot;, &quot;size&quot;: 40211, &quot;mtime&quot;: &quot;2026-08-20T03:11:00.000Z&quot; }]
 }
 </code></pre>
-<p>Leave off <code>?list=1</code> for just the count and total size — lighter, so a dashboard can poll it often.
+<p>Leave off <code>?list=1</code> for just the count and total size — lighter, so a dashboard can poll it often, and
+any logged-in key may ask for it. The file list and <code>dir</code> are returned only to an <code>admin</code>/<code>root</code> key
+(since 0.1.3): file paths are what makes an upload reachable.
 Very large folders are capped at 20,000 files per scan.</p>
 <h3>Why <code>dumpUploads</code> exists</h3>
 <p>Attachments in a <code>local</code> storage live on the server’s <strong>volume</strong>, not in the database. Lose the
@@ -3281,8 +3512,8 @@ anything shared (public repos, logs, chat).</li>
 </tr>
 <tr>
 <td><code>GET /api/opsAgent:listUploads</code></td>
-<td>已登录</td>
-<td>uploads 目录的文件数与总字节数；加上 <code>?list=1</code> 可获取完整文件列表</td>
+<td>已登录（列表：<strong>仅管理员</strong>）</td>
+<td>uploads 目录的文件数与总字节数；<code>?list=1</code>（admin/root 密钥）额外返回完整文件列表和目录路径</td>
 </tr>
 <tr>
 <td><code>GET /api/opsAgent:dumpUploads</code></td>
@@ -3310,7 +3541,7 @@ anything shared (public repos, logs, chat).</li>
 <p>每个字段都在各自独立的 try/catch 中获取——某一部分失败（比如数据库大小查询出错）只会让那一个字段变成
 <code>null</code>，不会拖垮整个响应。</p>
 <h4>示例 —— <code>listUploads</code></h4>
-<pre><code class="language-bash">curl -H &quot;Authorization: Bearer &lt;api-key&gt;&quot; &quot;https://your-app.example.com/api/opsAgent:listUploads?list=1&quot;
+<pre><code class="language-bash">curl -H &quot;Authorization: Bearer &lt;admin-api-key&gt;&quot; &quot;https://your-app.example.com/api/opsAgent:listUploads?list=1&quot;
 </code></pre>
 <pre><code class="language-json">{
   &quot;ok&quot;: true,
@@ -3631,7 +3862,7 @@ ZIP backup</strong>. It reads the existing attachments — <strong>no new table,
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Trình quản lý dữ liệu (Database Editor)</span><span class="lang lang-en" hidden>Database Editor</span><span class="lang lang-zh" hidden>数据库编辑器</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Quản trị / Công cụ</span><span class="lang lang-en" hidden>Admin &amp; tools</span><span class="lang lang-zh" hidden>Admin &amp; tools</span></span>
-        <span class="chip">v0.3.0</span>
+        <span class="chip">v0.3.1</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -4069,7 +4300,7 @@ data. Rename, required, unique and choice lists are editable here; retyping stay
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Trung tâm Plugin</span><span class="lang lang-en" hidden>Plugin Hub</span><span class="lang lang-zh" hidden>插件中心</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Quản trị / Công cụ</span><span class="lang lang-en" hidden>Admin &amp; tools</span><span class="lang lang-zh" hidden>Admin &amp; tools</span></span>
-        <span class="chip">v0.2.7</span>
+        <span class="chip">v0.2.9</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -4587,7 +4818,7 @@ capture the QR string, then feed it to the reader.</li>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Công thức &amp; Trường tự tính</span><span class="lang lang-en" hidden>Formula &amp; Computed Fields</span><span class="lang lang-zh" hidden>公式</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.2.13</span>
+        <span class="chip">v0.2.20</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -4595,7 +4826,7 @@ capture the QR string, then feed it to the reader.</li>
 trên field có sẵn, giá trị mặc định của form, <strong>cột thật do server tự tính lại</strong> theo quan hệ, và các phép
 <strong>tuần tự</strong> như số dư lũy kế hay tồn kho FIFO — <strong>không cần code</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Blocks / Fields · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.2.12</p>
+<p><strong>Nhóm:</strong> Blocks / Fields · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.2.20</p>
 <hr>
 <h3>Mục lục</h3>
 <ol>
@@ -4850,7 +5081,7 @@ gộp, xanh lá = kéo qua quan hệ, tím = bảng tra cứu) · Bật · nút 
 <h4>Kết quả có gì đặc biệt</h4>
 <p>Vì là <strong>cột thật</strong>, nó <strong>sắp xếp, lọc, nhóm, xuất Excel bình thường</strong> — khác hẳn A và B.</p>
 <p>Trong <strong>form</strong>, ô này hiện <strong>chỉ đọc</strong> kèm bản xem trước phía client của giá trị mà server sắp ghi.</p>
-<p>Sau khi server tính xong, các block đang mở <strong>tự cập nhật, không cần F5</strong> — kể cả trên màn hình người khác.</p>
+<p>Sau khi server tính xong, các block đang mở <strong>tự cập nhật, không cần F5</strong> — kể cả trên màn hình người khác. Người vừa lưu được cập nhật ngay; thay đổi của người khác về lặng lẽ (không hiện vòng xoay tải), chỉ ở các block liên quan tới bảng vừa đổi, tối đa khoảng 10 giây một lần, và không tải khi tab đang ẩn (mở lại tab thì cập nhật bù).</p>
 <hr>
 <h3>6. E · Tính tuần tự</h3>
 <p><strong>Cài đặt → <code>Tính tuần tự</code>.</strong> Dành cho những con số <strong>phụ thuộc thứ tự dòng</strong>.</p>
@@ -5141,6 +5372,13 @@ của mọi bảng đọc nó</strong>.</li>
 <li>Hộp xác nhận cảnh báo khi <strong>quá 2 000 dòng</strong>.</li>
 <li>Rule tự tham chiếu chính bảng mình (đánh số thứ tự) là <strong>O(N²)</strong> — chỉ nên dùng với bảng vừa.</li>
 </ul>
+<h4>Rule của form ghi đè trường tự tính (⚠, 0.2.16)</h4>
+<p>Linkage rule (<strong>Assign field value</strong>) hoặc <strong>Field values</strong> của form cũng ghi được vào một cột đã có công thức —
+thường là rule cũ còn sót từ trước khi cột thành trường tự tính. Khi đó form <strong>hiện giá trị của rule chứ không
+phải của công thức</strong> (DB là <code>AA001</code> nhưng form Edit hiện <code>AA1</code>). Nếu lần lưu đó server <strong>không</strong> tính lại (đang bật
+<em>giá trị mặc định có thể sửa</em>, hoặc chưa tích <em>Khi tạo</em> / <em>Khi sửa</em>) thì <strong>bấm Lưu sẽ ghi giá trị của rule xuống
+DB</strong>, vì NocoBase gửi mọi giá trị trong form, kể cả ô chỉ-đọc. Khi bật UI editor, cạnh 🧮 hiện <strong>⚠</strong> kèm tên rule.
+Cách sửa: ⚙ của block form → <strong>Linkage rules</strong> / <strong>Field values</strong> → tắt phần gán vào ô đó.</p>
 <h4>Vài điều khác</h4>
 <table>
 <thead>
@@ -5198,13 +5436,15 @@ tiên rồi bị <code>visited</code> chặn → tổng thiếu.</li>
 <li>Collection: <code>ptdlComputedRules</code>, <code>ptdlScanRules</code>. Rule window lưu thẳng trên field (<code>options.ptdlWindow</code>).</li>
 <li>Cầu nối: <code>globalThis.__ptdlFormula</code> + <code>registerRunJSLib('ptdlFormula')</code> cho plugin khác (spreadsheet-view).</li>
 </ul>
+<h3>Phân quyền (0.2.14)</h3>
+<p>Tính lại toàn bảng (<code>ptdlWindow:recompute</code>, <code>ptdlScan:recompute</code>) và báo cáo chốt kho (<code>ptdlScan:closing</code>) dành cho người quản lý nguồn dữ liệu (cùng quyền với sửa luật tính toán), không còn mở cho mọi người đăng nhập. Trong node workflow, <code>{{biến}}</code> trong công thức được chèn dưới dạng <strong>giá trị</strong> (số, chuỗi có nháy) — nội dung bản ghi không thể biến thành code công thức nữa.</p>
 </div>
       <div class="prose lang lang-en" hidden><blockquote>
 <p>Write <strong>Excel-style formulas</strong> (400+ functions) all across NocoBase: display columns (including HTML &amp; relation roll-ups),
 form default values, <strong>stored columns the server recomputes</strong> across relations, and <strong>sequential / window</strong> calculations
 like running balances or FIFO / average inventory costing — <strong>no code</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Blocks / Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.12</p>
+<p><strong>Group:</strong> Blocks / Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.20</p>
 <h3>What’s new after installing?</h3>
 <p>The plugin opens up <strong>5 ways to use formulas</strong>, each in a different place:</p>
 <table>
@@ -5404,7 +5644,8 @@ This column is <strong>not stored in the database</strong> — it recomputes on 
 <li><strong>Relations nested 2+ levels deep</strong> (<code>data.a.b.c</code>) usually <strong>can’t be loaded</strong> → compare by an <strong>id key</strong> instead of deep nesting (e.g. <code>bang.rel_id == data.x_id</code>).</li>
 <li>Use only <strong>functions in the list</strong> (open <strong>“Functions &amp; syntax”</strong>); there’s <strong>no</strong> <code>XLOOKUP</code> or new-Excel dynamic arrays. <code>VLOOKUP</code> needs a 2D array in one JSON field, <strong>not</strong> for a collection table.</li>
 <li><strong>Stuck on a formula?</strong> Click <strong>“✨ Let AI write it”</strong>, describe it in words (e.g. “total of active rows”) → the AI suggests one; or use <strong>“AI fix”</strong> / <strong>“Explain”</strong> on an existing formula.</li>
-<li><strong>Computed value</strong> columns refresh on other machines via WebSocket — edit a child row and the related pages update themselves, <strong>no F5</strong>.</li>
+<li><strong>A form rule can overwrite a computed field</strong> (⚠, 0.2.16): a form’s <em>Linkage rules → Assign field value</em> or <em>Field values</em> rule that targets a computed column (often left over from before the column became computed) makes the form show <strong>that rule’s value instead of the formula’s</strong>. When the server doesn’t recompute on that save (<em>editable default</em>, or <em>On create</em> / <em>On update</em> not ticked), <strong>Save stores it</strong>, because the form submits every value, read-only fields included. With the UI Editor on, a <strong>⚠</strong> next to the 🧮 names the rule; turn the assignment off in the form block’s ⚙ → <strong>Linkage rules</strong> / <strong>Field values</strong>.</li>
+<li><strong>Computed value</strong> columns refresh on other machines via WebSocket — edit a child row and the related pages update themselves, <strong>no F5</strong>. Your own save refreshes at once; other people’s changes arrive quietly (no loading spinner), only on blocks related to the changed collection, at most once every ~10 seconds, and not while the tab is in the background (it catches up when you return).</li>
 <li>Runs on <strong>both</strong> clients: classic <code>/admin</code> and modern <code>/v/</code>. Enabling / editing rules needs <strong>no server restart</strong>.</li>
 </ul>
 <h3>Remove / disable</h3>
@@ -5418,13 +5659,15 @@ This column is <strong>not stored in the database</strong> — it recomputes on 
 <hr>
 <h4>For developers</h4>
 <p>The engine is ~400 formulajs functions + HTML helpers + AppSheet/regex-style helpers (<code>SPLIT</code> <code>TEXTJOIN</code> <code>UNIQUE</code>/<code>DISTINCT</code> <code>CONTAINS</code> <code>LIST</code> <code>IN</code> <code>ANY</code> <code>REGEXMATCH</code>/<code>REGEXEXTRACT</code>/<code>REGEXREPLACE</code> <code>INTERSECT</code> <code>INITIALS</code> <code>ADDDAYS</code>/<code>ADDMONTHS</code>/<code>ADDYEARS</code>/<code>DATEADD</code> — in <code>CUSTOM_FNS</code>, <code>src/shared/formulaEngine.ts</code>). Five entry points: the virtual column (<code>formulaColumnModel</code> + classic <code>formulaColumnClassic</code>), the display field (<code>formulaFieldModel</code>), the default value compiled to RunJS (<code>formulaDefaultValue</code>), the server computed-rule stored in <code>ptdlComputedRules</code> (client <code>computedRuleClient</code>, auto-detects dependencies + fan-out + WS live-refresh), and the sequential / window + costing engine (<code>ScanCalcManager</code>, <code>excelToSql</code>). Design details: <code>COMPUTED-FIELD.md</code> (§4b example list), <code>ROLLUP.md</code>, <code>LEDGER-WINDOW-MODE.md</code>, <code>COSTING.md</code>.</p>
+<h3>Permissions (0.2.14)</h3>
+<p>Full recomputes (<code>ptdlWindow:recompute</code>, <code>ptdlScan:recompute</code>) and the ledger closing report (<code>ptdlScan:closing</code>) are for data-source managers (the same permission as editing computed rules), not every logged-in user. In the workflow node, <code>{{variables}}</code> inside the formula are inserted as <strong>values</strong> (numbers, quoted text) — a record’s content can no longer turn into formula code.</p>
 </div>
       <div class="prose lang lang-zh" hidden><blockquote>
 <p>在 NocoBase 的各个角落编写 <strong>Excel 风格的公式</strong>（400 多个函数）：显示列（含 HTML 与关系汇总）、
 表单默认值、<strong>由服务端跨关系重新计算并存储的列</strong>，以及<strong>顺序 / 窗口</strong>计算，
 例如滚动余额或 FIFO / 平均库存成本核算 — <strong>无需写代码</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> 区块 / 字段 · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.2.12</p>
+<p><strong>分组：</strong> 区块 / 字段 · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.2.20</p>
 <h3>安装后有什么变化？</h3>
 <p>插件带来了 <strong>5 种使用公式的方式</strong>，分别位于不同的地方：</p>
 <table>
@@ -5624,7 +5867,8 @@ This column is <strong>not stored in the database</strong> — it recomputes on 
 <li><strong>嵌套 2 层及以上的关系</strong>（<code>data.a.b.c</code>）通常<strong>无法加载</strong> → 请改用 <strong>id 键</strong>来比较，而不是深层嵌套（例如 <code>bang.rel_id == data.x_id</code>）。</li>
 <li>只能使用<strong>列表中的函数</strong>（打开**“函数与语法”**）；<strong>没有</strong> <code>XLOOKUP</code>，也没有新版 Excel 的动态数组。<code>VLOOKUP</code> 需要单个 JSON 字段中的二维数组，<strong>不适用于</strong>数据表。</li>
 <li><strong>公式写不出来？</strong> 点击 <strong>“✨ 让 AI 来写”</strong>，用文字描述（例如“有效行的合计”）→ AI 会给出建议；也可以对已有公式使用 <strong>“AI 修正”</strong> / <strong>“解释”</strong>。</li>
-<li><strong>计算值</strong>列会通过 WebSocket 在其他机器上刷新 — 修改一条子行，相关页面就会自行更新，<strong>无需按 F5</strong>。</li>
+<li><strong>表单规则可能覆盖计算字段</strong>（⚠，0.2.16）：表单的<em>联动规则 → 字段赋值</em>或 <em>Field values</em> 规则如果写入某个计算列（常见于该列改成计算字段之前遗留的旧规则），表单会显示<strong>该规则的值而不是公式的值</strong>。若本次保存服务端不会重新计算（<em>可编辑默认值</em>，或未勾选<em>创建时</em> / <em>更新时</em>），<strong>点击保存就会把它写入数据库</strong>，因为表单会提交所有值，包括只读字段。开启 UI 编辑器后，🧮 旁会出现 <strong>⚠</strong> 并显示规则名称；在表单区块的 ⚙ → <strong>联动规则</strong> / <strong>Field values</strong> 中关闭对该字段的赋值即可。</li>
+<li><strong>计算值</strong>列会通过 WebSocket 在其他机器上刷新 — 修改一条子行，相关页面就会自行更新，<strong>无需按 F5</strong>。自己保存后立即刷新；他人的更改会静默到达（不显示加载动画），只刷新与被更改数据表相关的区块，约每 10 秒最多一次，标签页在后台时不请求（回到页面时补刷新）。</li>
 <li>在<strong>两个</strong>客户端上都可运行：经典版 <code>/admin</code> 与现代版 <code>/v/</code>。启用 / 修改规则<strong>无需重启服务端</strong>。</li>
 </ul>
 <h3>移除 / 停用</h3>
@@ -5638,6 +5882,8 @@ This column is <strong>not stored in the database</strong> — it recomputes on 
 <hr>
 <h4>面向开发者</h4>
 <p>引擎包含约 400 个 formulajs 函数 + HTML 辅助函数 + AppSheet/正则风格的辅助函数（<code>SPLIT</code> <code>TEXTJOIN</code> <code>UNIQUE</code>/<code>DISTINCT</code> <code>CONTAINS</code> <code>LIST</code> <code>IN</code> <code>ANY</code> <code>REGEXMATCH</code>/<code>REGEXEXTRACT</code>/<code>REGEXREPLACE</code> <code>INTERSECT</code> <code>INITIALS</code> <code>ADDDAYS</code>/<code>ADDMONTHS</code>/<code>ADDYEARS</code>/<code>DATEADD</code> — 位于 <code>CUSTOM_FNS</code>，<code>src/shared/formulaEngine.ts</code>）。五个入口：虚拟列（<code>formulaColumnModel</code> + 经典版 <code>formulaColumnClassic</code>）、显示字段（<code>formulaFieldModel</code>）、编译为 RunJS 的默认值（<code>formulaDefaultValue</code>）、存放在 <code>ptdlComputedRules</code> 中的服务端计算规则（客户端 <code>computedRuleClient</code>，自动识别依赖 + 级联扩散 + WS 实时刷新），以及顺序 / 窗口与成本核算引擎（<code>ScanCalcManager</code>、<code>excelToSql</code>）。设计细节：<code>COMPUTED-FIELD.md</code>（§4b 示例列表）、<code>ROLLUP.md</code>、<code>LEDGER-WINDOW-MODE.md</code>、<code>COSTING.md</code>。</p>
+<h3>权限（0.2.14）</h3>
+<p>整表重算（<code>ptdlWindow:recompute</code>、<code>ptdlScan:recompute</code>）和库存结账报表（<code>ptdlScan:closing</code>）仅限数据源管理者（与编辑计算规则相同的权限），不再对所有登录用户开放。在工作流节点中，公式里的 <code>{{变量}}</code> 以<strong>值</strong>（数字、带引号的文本）插入——记录内容无法再变成公式代码。</p>
 </div>
     </section>
 
@@ -5645,7 +5891,7 @@ This column is <strong>not stored in the database</strong> — it recomputes on 
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Cột AI</span><span class="lang lang-en" hidden>AI Column</span><span class="lang lang-zh" hidden>AI 字段</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.7.13</span>
+        <span class="chip">v0.7.20</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -5653,7 +5899,7 @@ This column is <strong>not stored in the database</strong> — it recomputes on 
 đối chiếu với danh mục để chọn mã, tạo ảnh, đọc thành <strong>giọng nói</strong>. Làm lẻ từng ô, làm <strong>hàng loạt</strong>
 trên các dòng đã tích, hoặc <strong>tự chạy khi lưu</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Trường (Fields) · AI · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.7.12</p>
+<p><strong>Nhóm:</strong> Trường (Fields) · AI · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.7.20</p>
 <hr>
 <h3>Mục lục</h3>
 <ol>
@@ -6379,16 +6625,26 @@ mục 12.</p>
 <strong>lịch tự embed lại</strong> (1h/6h/12h/hằng ngày) là chi phí lặp đi lặp lại; <strong>phân loại chuyên sâu</strong> gửi toàn bộ
 hồ sơ của tới 40 ứng viên trong một prompt — đắt nhất trong plugin. <strong>Không có hạn mức chi tiêu nào cả.</strong></p>
 <h4>Quyền — cần biết</h4>
-<p>Mọi API của plugin đều mở cho <strong>người dùng đã đăng nhập</strong>, không có kiểm tra vai trò. Nghĩa là người dùng
-có hiểu biết kỹ thuật có thể:</p>
+<p>Từ <strong>0.7.20</strong>, plugin tự kiểm tra quyền ở phía máy chủ, không còn mở mọi API cho người dùng đã đăng nhập:</p>
 <ul>
-<li><strong>ghi đè hoặc xoá khoá API ElevenLabs/Vbee</strong>, kể cả đổi <code>Base URL</code> sang máy chủ của họ;</li>
-<li><strong>cài luật tự chạy lên bất kỳ bảng nào</strong> với prompt tuỳ ý;</li>
-<li><strong>đọc dữ liệu bảng mà họ không có quyền</strong> thông qua chức năng phân loại (kết quả trả về nguyên bản ghi
-master);</li>
-<li>kích hoạt embed lại tới 20 000 dòng (tốn tiền thật).</li>
+<li><strong>Cấu hình</strong> chỉ dành cho quản trị. Khoá ElevenLabs/Vbee, lịch embed lại, xoá chỉ mục và nhật ký lỗi
+tự chạy thuộc trang <strong>AI Providers</strong> (<code>pm.tuanla90-ai-provider</code>). <strong>Luật tự chạy phía Server</strong> và nút
+<strong>Embed master</strong> chỉ dành cho người được cấu hình giao diện (<code>ui.*</code>). Người dùng thường chỉ mở form
+thì không cài hay gỡ được luật nào.</li>
+<li><strong>Phân loại</strong> chỉ đối chiếu với các dòng master mà người bấm <strong>được xem</strong>, đúng theo phạm vi dữ liệu
+của vai trò (ví dụ “chỉ dữ liệu của mình”). Cột bị ẩn với vai trò đó không có trong kết quả trả về.
+Không có quyền xem bảng master thì nhận lỗi 403.</li>
+<li><strong>Trích nhiều dòng</strong> (nút hàng loạt / AI Function) đọc bản ghi cha trong phạm vi của người bấm, và cần
+quyền <strong>tạo</strong> ở bảng con. Chế độ <strong>thay thế</strong> cần thêm quyền <strong>xoá</strong>, và chỉ xoá các dòng con mà người
+đó được xoá. Cột không được nhập khi tạo mới thì để trống.</li>
+<li><strong>Tải file nguồn</strong>: chỉ lấy từ đường dẫn file của chính app (<code>/storage/…</code>, <code>/files/…</code>), từ các
+storage đã cấu hình trong File manager, hoặc từ địa chỉ Internet công khai. Địa chỉ nội bộ/private
+(127.0.0.1, 10.x, 169.254.x, <code>*.internal</code>…) bị từ chối, kể cả khi đi qua redirect. Nếu dùng MinIO/S3
+trong mạng nội bộ mà không khai trong File manager, thêm origin vào biến môi trường
+<code>PTDL_AI_FETCH_ALLOW</code> (phân tách bằng dấu phẩy).</li>
+<li><strong>Luật tự chạy</strong> vẫn chạy với quyền hệ thống khi bản ghi được lưu. Đó là lý do chỉ quản trị mới cài
+được chúng.</li>
 </ul>
-<p>Nếu hệ thống có nhiều người dùng ngoài, nên cân nhắc điều này.</p>
 <h4>Dữ liệu gửi ra ngoài</h4>
 <p>Gửi tới nhà cung cấp AI: <strong>prompt sau khi thay biến</strong>, và với trích xuất là <strong>toàn bộ file</strong> (mã hoá
 base64). Với phân loại là câu truy vấn <strong>kèm hồ sơ các ứng viên</strong>. Với giọng nói là văn bản cần đọc — tới
@@ -6421,7 +6677,7 @@ báo “Script error”.</li>
 classify a value against a catalog collection, turn <strong>one document into many rows</strong> in a sub-table,
 create images and read text aloud as <strong>speech</strong> (TTS) — per cell, in <strong>bulk</strong>, or <strong>auto-run on save</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Fields · AI · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.7.12</p>
+<p><strong>Group:</strong> Fields · AI · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.7.20</p>
 <blockquote>
 <p>⚙ <strong>Prerequisites (without these, nothing will generate):</strong></p>
 <ul>
@@ -6602,6 +6858,8 @@ create images and read text aloud as <strong>speech</strong> (TTS) — per cell,
 <li>🎙️ <strong>Provider limits:</strong> <strong>image generation</strong> and <strong>audio transcription (STT)</strong> are currently <strong>Google (google-genai) only</strong>; <strong>speech (TTS)</strong> has the full <strong>Google / ElevenLabs / Vbee</strong>; <strong>text generate/read</strong> works with <strong>every provider</strong>.</li>
 <li>🔢 <strong>Out of quota (429 errors):</strong> Google’s free tier runs dry easily, especially TTS — wait for the daily reset or upgrade billing. The plugin retries on rate limits but can’t fix an exhausted quota.</li>
 <li>🩺 <strong>Auto-run failures are no longer silent:</strong> each error is written to the hidden <strong><code>ptdlAiAutorunLog</code></strong> collection (build a table block on it to view; auto-cleaned after 14 days).</li>
+<li>🔐 <strong>Permissions (0.7.20+).</strong> Configuration is admin-only: voice-provider keys, re-embed schedules, clearing an index and the auto-run error log belong to the <strong>AI Providers</strong> page (<code>pm.tuanla90-ai-provider</code>); <strong>server auto-run rules</strong> and <strong>Embed master</strong> need interface-configuration rights (<code>ui.*</code>). <strong>Classify</strong> only matches master rows the user may <strong>view</strong> (their role’s data scope), and hidden columns are left out of the answer. <strong>Multi-row extract</strong> reads the parent within the user’s scope and needs <strong>create</strong> on the child table (<strong>replace</strong> mode also needs <strong>delete</strong>, and only clears rows they may delete).</li>
+<li>🌐 <strong>Source files</strong> are downloaded only from this app’s own file routes (<code>/storage/…</code>, <code>/files/…</code>), storages configured in File manager, or public internet hosts — private/internal addresses are refused, also after a redirect. A MinIO/S3 on a private network that is not a File-manager storage can be allowed with <code>PTDL_AI_FETCH_ALLOW</code> (comma-separated origins).</li>
 <li>Runs on <strong>both</strong> clients: classic <code>/admin</code> and modern <code>/v/</code>. Because it touches the server tier (auto-run, hidden collections), <strong>enabling/disabling the plugin requires a server restart</strong>.</li>
 </ul>
 <h3>Remove / disable</h3>
@@ -6618,7 +6876,7 @@ create images and read text aloud as <strong>speech</strong> (TTS) — per cell,
 对照目录数据表对某个值做分类、把<strong>一份文档变成子表格里的多行</strong>、
 生成图片、把文本朗读成<strong>语音</strong>（TTS）— 可以逐格执行、<strong>批量</strong>执行，或<strong>保存时自动运行</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> 字段 · AI · <strong>运行于：</strong> /admin（经典）+ /v/（现代） · <strong>版本：</strong> 0.7.12</p>
+<p><strong>分组：</strong> 字段 · AI · <strong>运行于：</strong> /admin（经典）+ /v/（现代） · <strong>版本：</strong> 0.7.20</p>
 <blockquote>
 <p>⚙ <strong>前置条件（没有这些，什么都生成不了）：</strong></p>
 <ul>
@@ -6799,6 +7057,8 @@ create images and read text aloud as <strong>speech</strong> (TTS) — per cell,
 <li>🎙️ <strong>提供商限制：****图片生成</strong>和<strong>音频转写（STT）<strong>目前</strong>仅支持 Google（google-genai）</strong>；<strong>语音（TTS）<strong>则完整支持 <strong>Google / ElevenLabs / Vbee</strong>；<strong>文本生成/读取</strong>在</strong>所有提供商</strong>上都能用。</li>
 <li>🔢 **额度用尽（429 错误）：**Google 的免费额度很容易耗尽，尤其是 TTS — 请等待每日重置或升级付费方案。插件会在触发限流时重试，但无法解决额度已经用完的问题。</li>
 <li>🩺 **自动运行失败不再是悄无声息的：**每个错误都会写入隐藏数据表 <strong><code>ptdlAiAutorunLog</code></strong>（在它上面建一个表格区块即可查看；14 天后自动清理）。</li>
+<li>🔐 <strong>权限（0.7.20 起）</strong>：配置仅限管理员——语音服务密钥、重新嵌入计划、清空索引和自动运行错误日志属于 <strong>AI Providers</strong> 页面（<code>pm.tuanla90-ai-provider</code>）；<strong>服务端自动运行规则</strong>和 <strong>Embed master</strong> 需要界面配置权限（<code>ui.*</code>）。<strong>分类</strong>只会匹配用户<strong>有权查看</strong>的主表记录（遵循角色的数据范围），隐藏字段不会出现在结果中。<strong>多行提取</strong>只在用户的数据范围内读取父记录，并需要子表的<strong>创建</strong>权限（<strong>替换</strong>模式还需要<strong>删除</strong>权限，且只删除其有权删除的行）。</li>
+<li>🌐 <strong>源文件</strong>只会从本应用的文件路由（<code>/storage/…</code>、<code>/files/…</code>）、文件管理器中配置的存储或公网地址下载；内网/私有地址会被拒绝（重定向后同样检查）。未在文件管理器中配置的内网 MinIO/S3，可通过环境变量 <code>PTDL_AI_FETCH_ALLOW</code>（逗号分隔的 origin）放行。</li>
 <li><strong>两个客户端都能运行</strong>：经典 <code>/admin</code> 和现代 <code>/v/</code>。由于它涉及服务端（自动运行、隐藏数据表），<strong>启用/停用本插件需要重启服务器</strong>。</li>
 </ul>
 <h3>卸载 / 停用</h3>
@@ -7520,7 +7780,7 @@ clear separators may land on “Province only”.</li>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Field nâng cao</span><span class="lang lang-en" hidden>Field Enhancements</span><span class="lang lang-zh" hidden>字段增强</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.2.69</span>
+        <span class="chip">v0.2.71</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -8908,9 +9168,14 @@ bundle JS cũ trong bộ nhớ, nên widget mới/đã sửa sẽ có vẻ như 
 <td>Dùng <code>/v/</code></td>
 </tr>
 <tr>
-<td>Người dùng thường sửa được widget global</td>
-<td>ACL cấp cho <code>loggedIn</code>, không có gate riêng cho admin</td>
-<td>Biết để mà lường; chưa có tuỳ chọn siết</td>
+<td>Người dùng thường bấm công tắc global không được (403)</td>
+<td>Từ 0.2.70, chỉ người được cấu hình giao diện (<code>ui.*</code>), trang Field nâng cao (<code>pm.*</code>) hoặc Database Editor mới ghi được widget global</td>
+<td>Cấp quyền cấu hình giao diện cho vai trò đó, hoặc nhờ quản trị bật</td>
+</tr>
+<tr>
+<td>Link hiện chữ nhưng bấm không đi đâu</td>
+<td>Từ 0.2.70, link chỉ nhận <code>http(s)</code>, <code>mailto</code>, <code>tel</code>, <code>sms</code>, <code>zalo</code> và đường dẫn tương đối — <code>javascript:</code>/<code>data:</code> bị bỏ</td>
+<td>Sửa giá trị/mẫu link về một địa chỉ hợp lệ</td>
 </tr>
 </tbody>
 </table>
@@ -9053,6 +9318,7 @@ default everywhere; those global assignments are then listed and managed under <
 <ul>
 <li>⚠️ A widget only appears for the <strong>matching data type</strong> (see the table above). Columns of another type won’t offer it.</li>
 <li>✅ <strong>Display-safe:</strong> widgets draw over the original value, so <strong>sorting, filtering and export still use the real data</strong> — the data itself is never changed.</li>
+<li>🔐 <strong>Global widgets are admin-configured (0.2.70+):</strong> everyone reads them, but only interface configurers (<code>ui.*</code>), the Field nâng cao settings page (<code>pm.*</code>) or the Database Editor console can create/change/remove one. The link widget only follows <code>http(s)</code>, <code>mailto</code>, <code>tel</code>, <code>sms</code>, <code>zalo</code> and relative links — a <code>javascript:</code>/<code>data:</code> value is shown as text and not linked.</li>
 <li>Runs on <strong>both</strong> clients: classic <code>/admin</code> and modern <code>/v/</code>.</li>
 </ul>
 <h3>Remove / disable</h3>
@@ -9205,9 +9471,18 @@ bash build-env/recipes/add-markers.sh build-env/storage/tar/@tuanla90/plugin-fie
 </blockquote>
 <h3>提示与注意事项</h3>
 <ul>
-<li>⚠️ 组件只会在<strong>数据类型匹配</strong>的字段上出现（见上表）。其他类型的列不会提供它。</li>
-<li>✅ <strong>显示层是安全的：</strong> 组件只是覆盖在原始值之上绘制，因此<strong>排序、筛选和导出用的仍然是真实数据</strong> — 数据本身绝不会被改动。</li>
-<li><strong>两个客户端都能运行</strong>：经典 <code>/admin</code> 和新版 <code>/v/</code>。</li>
+<li>
+<p>⚠️ 组件只会在<strong>数据类型匹配</strong>的字段上出现（见上表）。其他类型的列不会提供它。</p>
+</li>
+<li>
+<p>✅ <strong>显示层是安全的：</strong> 组件只是覆盖在原始值之上绘制，因此<strong>排序、筛选和导出用的仍然是真实数据</strong> — 数据本身绝不会被改动。</p>
+</li>
+<li>
+<p><strong>两个客户端都能运行</strong>：经典 <code>/admin</code> 和新版 <code>/v/</code>。</p>
+</li>
+<li>
+<p>🔐 <strong>全局控件由管理员配置（0.2.70 起）</strong>：所有人都能读取，但只有界面配置者（<code>ui.*</code>）、“Field nâng cao”设置页（<code>pm.*</code>）或 Database Editor 控制台可以新建/修改/删除。链接控件只跳转 <code>http(s)</code>、<code>mailto</code>、<code>tel</code>、<code>sms</code>、<code>zalo</code> 和相对链接——<code>javascript:</code>/<code>data:</code> 值只显示为文本，不生成链接。</p>
+</li>
 </ul>
 <h3>移除 / 停用</h3>
 <ul>
@@ -9242,7 +9517,7 @@ bash build-env/recipes/add-markers.sh build-env/storage/tar/@tuanla90/plugin-fie
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Luồng trạng thái</span><span class="lang lang-en" hidden>Status Flow</span><span class="lang lang-zh" hidden>状态流</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.2.14</span>
+        <span class="chip">v0.2.18</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -9251,7 +9526,7 @@ bash build-env/recipes/add-markers.sh build-env/storage/tar/@tuanla90/plugin-fie
 <strong>chỉ hiện những trạng thái kế hợp lệ</strong>; <strong>máy chủ chặn</strong> mọi chuyển tiếp sai luật (kể cả sửa hàng loạt).
 Trên ô dữ liệu còn có <strong>sơ đồ luồng</strong> và <strong>nút chuyển nhanh</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Fields · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.14</p>
+<p><strong>Nhóm:</strong> Fields · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.15</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Một kiểu trường mới.</strong> Khi thêm/cấu hình trường của một bảng, danh sách kiểu trường có thêm
@@ -9386,7 +9661,9 @@ co theo nội dung (tắt = như hiện tại).</p>
 <h3>Mẹo &amp; lưu ý</h3>
 <ul>
 <li>✅ <strong>Máy chủ là “trọng tài”.</strong> Ô chọn lọc sẵn chỉ để tiện tay; kể cả gọi API trực tiếp, sửa hàng loạt hay
-nhập (import), chuyển sai luật/sai vai trò đều <strong>bị chặn</strong> kèm thông báo rõ (“… không được phép”).</li>
+nhập (import), chuyển sai luật/sai vai trò đều <strong>bị chặn</strong> kèm thông báo rõ (“… không được phép”).
+Từ 0.2.16 áp cả cho <strong>nhập Excel</strong> dòng mới: dòng nhập với trạng thái khác trạng thái đầu bị từ chối với người
+không phải root (để trống thì nhận trạng thái đầu).</li>
 <li>⚠️ <strong>Không xoá trắng được</strong> trạng thái đã đặt — hệ thống báo lỗi thay vì đưa về rỗng. Muốn “kết thúc”
 thì tạo một <strong>trạng thái cuối</strong> (vd <em>Đã huỷ</em>) và cho các trạng thái khác chuyển vào đó.</li>
 <li>⚠️ <strong>Sửa hàng loạt kiểu “thô”</strong> trên trường trạng thái bị <strong>từ chối</strong> — hãy sửa <strong>từng bản ghi</strong> để luật chuyển tiếp được áp.</li>
@@ -9424,7 +9701,7 @@ Client chỉ lọc dropdown cho gọn (UX), không phải nơi bảo vệ.</li>
 dropdown shows <strong>only valid next statuses</strong>; the <strong>server blocks</strong> every illegal transition (including bulk edit).
 Cells also get a <strong>flow graph</strong> and <strong>quick-transition buttons</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.14</p>
+<p><strong>Group:</strong> Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.15</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A new field type.</strong> When you add/configure a field on a collection, the field-type list gains
@@ -9558,7 +9835,9 @@ status highlighted), <strong>Change log</strong> (needs the change-log plugin).<
 <h3>Tips &amp; notes</h3>
 <ul>
 <li>✅ <strong>The server is the “referee”.</strong> The pre-filtered dropdown is just for convenience; even a direct API call,
-a bulk edit or an import gets <strong>blocked</strong> on an illegal or wrong-role move, with a clear message (“… not allowed”).</li>
+a bulk edit or an import gets <strong>blocked</strong> on an illegal or wrong-role move, with a clear message (“… not allowed”).
+Since 0.2.16 this includes <strong>Excel import</strong> of new rows: a row imported at a status other than the initial one is
+refused for non-root users (an empty status gets the initial one).</li>
 <li>⚠️ <strong>You can’t blank out</strong> a status you’ve set — the system raises an error instead of resetting it to empty. To “finish”,
 create a <strong>final status</strong> (e.g. <em>Cancelled</em>) and let the other statuses move into it.</li>
 <li>⚠️ <strong>“Raw” bulk edits</strong> on the status field are <strong>rejected</strong> — edit <strong>one record at a time</strong> so the transition rules apply.</li>
@@ -9596,7 +9875,7 @@ The client only filters the dropdown for tidiness (UX); it is not the protection
 下拉框<strong>只显示合法的下一个状态</strong>；<strong>服务端会拦截</strong>每一次非法流转（包括批量编辑）。
 单元格上还能显示<strong>流程图</strong>和<strong>快捷流转按钮</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> Fields · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.14</p>
+<p><strong>分组：</strong> Fields · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.15</p>
 <h3>安装后有什么变化？</h3>
 <ul>
 <li><strong>一种新的字段类型。</strong> 在数据表上添加/配置字段时，字段类型列表中会多出
@@ -9730,7 +10009,8 @@ The client only filters the dropdown for tidiness (UX); it is not the protection
 <h3>提示与注意事项</h3>
 <ul>
 <li>✅ <strong>服务端才是&quot;裁判&quot;。</strong> 预先过滤的下拉框只是为了方便；即使是直接调用 API、
-批量编辑或导入，非法流转或角色不符的流转都会<strong>被拦截</strong>，并给出清晰的提示（“… 不被允许”）。</li>
+批量编辑或导入，非法流转或角色不符的流转都会<strong>被拦截</strong>，并给出清晰的提示（“… 不被允许”）。
+0.2.16 起同样适用于 <strong>Excel 导入</strong>新行：非 root 用户导入的行若状态不是初始状态会被拒绝（留空则取初始状态）。</li>
 <li>⚠️ <strong>你无法把已设置的状态清空</strong> — 系统会报错，而不是把它重置为空。想要&quot;结束&quot;，
 请创建一个<strong>最终状态</strong>（例如 <em>已取消</em>），并让其他状态可以流转进来。</li>
 <li>⚠️ 对状态字段的**&quot;原始&quot;批量编辑<strong>会</strong>被拒绝** — 请<strong>逐条记录</strong>编辑，这样流转规则才会生效。</li>
@@ -9768,7 +10048,7 @@ The client only filters the dropdown for tidiness (UX); it is not the protection
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Mã số thuế</span><span class="lang lang-en" hidden>Vietnam Tax Code</span><span class="lang lang-zh" hidden>越南税号</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.2.2</span>
+        <span class="chip">v0.2.3</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -10078,7 +10358,7 @@ PTDL_VNTAX_LOOKUP_AUTH=Bearer xxx                               # if the source 
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Thêm cột tại chỗ</span><span class="lang lang-en" hidden>Inline Field</span><span class="lang lang-zh" hidden>就地新增字段</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.1.17</span>
+        <span class="chip">v0.1.18</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -10345,7 +10625,7 @@ field-order 一致）— 如果要开放给非管理员，请收紧为管理员�
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Thiết bị hiện trường</span><span class="lang lang-en" hidden>Device Kit</span><span class="lang lang-zh" hidden>设备套件（拍照·定位）</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.8.10</span>
+        <span class="chip">v0.8.11</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -11026,7 +11306,7 @@ photos with a <strong>GPS/time watermark</strong>, a <strong>location on a map</
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Thứ tự trường</span><span class="lang lang-en" hidden>Field Order</span><span class="lang lang-zh" hidden>字段排序</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.2.10</span>
+        <span class="chip">v0.2.11</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -11034,7 +11314,7 @@ photos with a <strong>GPS/time watermark</strong>, a <strong>location on a map</
 cấu hình trường — không cần code, không cần restart server.
 <strong>Từ 0.1.1</strong>, plugin còn <strong>tự sắp lại menu trong trang Settings</strong> cho gọn gàng theo nhóm.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Trường (Fields) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.8</p>
+<p><strong>Nhóm:</strong> Trường (Fields) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.11</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Một nút mới: “Sắp xếp trường”</strong> xuất hiện trên <strong>thanh công cụ của ngăn cấu hình trường</strong> (ngăn kéo ra khi bạn mở phần “Configure fields” của một bảng — chỗ có nút <strong>“Add field”</strong>). Nút nằm cạnh nút thêm trường.</li>
@@ -11119,7 +11399,7 @@ cấu hình trường — không cần code, không cần restart server.
 no code, no server restart.
 <strong>Since 0.1.1</strong>, the plugin also <strong>tidies the Settings-page menu</strong> into logical groups.</p>
 </blockquote>
-<p><strong>Group:</strong> Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.8</p>
+<p><strong>Group:</strong> Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.11</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A new button: “Reorder fields”</strong> appears on the <strong>toolbar of the field-configuration drawer</strong> (the drawer that opens when you “Configure fields” of a collection — where the <strong>“Add field”</strong> button is). It sits next to the add-field button.</li>
@@ -11203,7 +11483,7 @@ no code, no server restart.
 <p>直接在字段配置界面上，用<strong>拖拽</strong>给数据表的<strong>字段</strong>重新排序 —— 无需写代码，也无需重启服务端。
 <strong>自 0.1.1 起</strong>，插件还会把<strong>设置页面的菜单</strong>整理成有条理的分组。</p>
 </blockquote>
-<p><strong>分组：</strong> Fields（字段） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.8</p>
+<p><strong>分组：</strong> Fields（字段） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.11</p>
 <h3>安装之后多了什么？</h3>
 <ul>
 <li><strong>一个新按钮：“字段排序”</strong>，出现在<strong>字段配置抽屉的工具栏</strong>上（就是你对某个数据表“配置字段”时打开的那个抽屉 —— **“添加字段”**按钮所在的地方）。它紧挨着添加字段按钮。</li>
@@ -11880,7 +12160,7 @@ bridge?.publish('ch1', { action: 'add', record: ctx.record });
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Biểu đồ ECharts Pro</span><span class="lang lang-en" hidden>Data Visualization: ECharts Pro</span><span class="lang lang-zh" hidden>数据可视化：ECharts Pro</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Khối &amp; biểu đồ</span><span class="lang lang-en" hidden>Blocks &amp; charts</span><span class="lang lang-zh" hidden>Blocks &amp; charts</span></span>
-        <span class="chip">v0.2.11</span>
+        <span class="chip">v0.2.12</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -12381,7 +12661,7 @@ for full control — all configured <strong>right on the chart</strong>, no serv
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Cây lọc / Thanh lọc</span><span class="lang lang-en" hidden>Filter Tree / Bar</span><span class="lang lang-zh" hidden>筛选树</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Khối &amp; biểu đồ</span><span class="lang lang-en" hidden>Blocks &amp; charts</span><span class="lang lang-zh" hidden>Blocks &amp; charts</span></span>
-        <span class="chip">v0.3.14</span>
+        <span class="chip">v0.3.15</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -12434,7 +12714,7 @@ kèm <strong>ô tìm kiếm</strong> chữ tự do tuỳ chọn — <strong>khô
 <tbody>
 <tr>
 <td><strong>Nhóm</strong></td>
-<td><strong>Bảng dữ liệu</strong> + <strong>Nhóm theo</strong> (Cây lọc có thêm cấp 2 / cấp 3 tùy chọn).</td>
+<td><strong>Bảng dữ liệu</strong> + <strong>Nhóm theo</strong> (Cây lọc có thêm cấp 2 / cấp 3 tùy chọn) · <strong>Sắp xếp nhóm theo</strong>: Mặc định (theo dữ liệu) / Nhãn / Giá trị số liệu / Thứ tự lựa chọn (field chọn) / <strong>Một cột…</strong> · <strong>Chiều</strong> Tăng dần / Giảm dần · <strong>Cột sắp xếp</strong> (khi chọn “Một cột…”). Áp cho mọi cấp của cây.</td>
 </tr>
 <tr>
 <td><strong>Chỉ số &amp; định dạng</strong></td>
@@ -12442,7 +12722,7 @@ kèm <strong>ô tìm kiếm</strong> chữ tự do tuỳ chọn — <strong>khô
 </tr>
 <tr>
 <td><strong>Kiểu hiển thị</strong></td>
-<td><strong>Màu badge đếm</strong> (Nhiều màu theo giá trị / Một màu) · <strong>Icon &amp; màu theo giá trị</strong>. <em>Thanh lọc thêm:</em> <strong>Kiểu thanh</strong> (Pill/Segmented/Tab), <strong>Cỡ</strong>, <strong>Căn lề</strong>, <strong>Cho chọn nhiều (chỉ pill)</strong>, <strong>Hiện mục “Tất cả”</strong>, <strong>Hiện số đếm</strong>.</td>
+<td><strong>Màu badge đếm</strong> (Nhiều màu theo giá trị / Một màu) · <strong>Icon &amp; màu theo giá trị</strong> (bấm <strong>×</strong> cạnh ô màu để xoá màu). <em>Thanh lọc thêm:</em> <strong>Kiểu thanh</strong> (Pill/Segmented/Tab), <strong>Cỡ</strong>, <strong>Căn lề</strong>, <strong>Cho chọn nhiều (chỉ pill)</strong>, <strong>Hiện mục “Tất cả”</strong>, <strong>Hiện số đếm</strong>.</td>
 </tr>
 <tr>
 <td><strong>Phạm vi dữ liệu</strong></td>
@@ -12493,6 +12773,7 @@ kèm <strong>ô tìm kiếm</strong> chữ tự do tuỳ chọn — <strong>khô
 <li>⚠️ <strong>Phải “Kết nối tới khối dữ liệu”</strong> thì bấm lọc mới có tác dụng — chỉ chọn Bảng + cột nhóm là mới thấy số đếm.</li>
 <li>Cột nhóm được: <strong>trạng thái / lựa chọn / số / ngày / boolean</strong>. <strong>Không nhóm</strong> theo cột quan hệ trực tiếp, JSON — nhưng có thể <strong>rẽ qua 1 quan hệ 1–1</strong> tới cột con (vd <code>khách → giới tính</code>). Nếu trống sẽ báo <em>“Không có nhóm…”</em>.</li>
 <li>🔢 Badge đếm lấy từ <strong>một truy vấn GROUP BY</strong> trên chính bảng đích — <strong>không sửa dữ liệu</strong>, chỉ đếm.</li>
+<li>↕️ <strong>Sắp xếp theo “Một cột…”</strong>: mỗi nhóm lấy giá trị <strong>nhỏ nhất</strong> (tăng dần) hoặc <strong>lớn nhất</strong> (giảm dần) của cột đó trong các dòng của nhóm, tính luôn trong truy vấn GROUP BY ở trên (không thêm request). Cột được đi qua <strong>1 quan hệ</strong>, vd nhóm theo <code>phòng ban → tên</code> thì sắp theo <code>phòng ban → sort_index</code>. <strong>Nhãn</strong> so kiểu tự nhiên (“Kho 2” trước “Kho 10”). Nhóm <em>(trống)</em> luôn nằm cuối.</li>
 <li>🔄 <strong>Tự cập nhật số</strong> khi dữ liệu bảng đổi (thêm/sửa/xoá — kể cả do người khác hoặc quy trình máy chủ) và khi quay lại tab.</li>
 <li>Lựa chọn đang bấm là <strong>tạm thời</strong>: <strong>F5 / tải lại trang</strong> sẽ về <strong>Tất cả</strong> (không “kẹt” bộ lọc).</li>
 <li><strong>Trung bình</strong> không cộng gộp được nên badge tổng “Tất cả” để trống khi Chỉ số là Trung bình.</li>
@@ -12561,7 +12842,7 @@ blocks on the same page. Two skins on one engine: <strong>Filter tree</strong> (
 <tbody>
 <tr>
 <td><strong>Group</strong></td>
-<td><strong>Collection</strong> + <strong>Group by</strong> (Filter tree adds an optional level 2 / level 3).</td>
+<td><strong>Collection</strong> + <strong>Group by</strong> (Filter tree adds an optional level 2 / level 3) · <strong>Sort groups by</strong>: Default (as stored) / Label / Metric value / Option order (select fields) / <strong>A column…</strong> · <strong>Direction</strong> Ascending / Descending · <strong>Sort column</strong> (for “A column…”). Applies to every level of the tree.</td>
 </tr>
 <tr>
 <td><strong>Metric &amp; format</strong></td>
@@ -12569,7 +12850,7 @@ blocks on the same page. Two skins on one engine: <strong>Filter tree</strong> (
 </tr>
 <tr>
 <td><strong>Style</strong></td>
-<td><strong>Count badge color</strong> (Colorful per value / Mono one color) · <strong>Icon &amp; color per value</strong>. <em>Filter bar adds:</em> <strong>Bar style</strong> (Pill/Segmented/Tab), <strong>Size</strong>, <strong>Align</strong>, <strong>Allow multiple (pill only)</strong>, <strong>Show “All” item</strong>, <strong>Show counts</strong>.</td>
+<td><strong>Count badge color</strong> (Colorful per value / Mono one color) · <strong>Icon &amp; color per value</strong> (click the <strong>×</strong> next to a color to clear it). <em>Filter bar adds:</em> <strong>Bar style</strong> (Pill/Segmented/Tab), <strong>Size</strong>, <strong>Align</strong>, <strong>Allow multiple (pill only)</strong>, <strong>Show “All” item</strong>, <strong>Show counts</strong>.</td>
 </tr>
 <tr>
 <td><strong>Data scope</strong></td>
@@ -12620,6 +12901,7 @@ blocks on the same page. Two skins on one engine: <strong>Filter tree</strong> (
 <li>⚠️ <strong>You must “Connect to data blocks”</strong> for clicks to actually filter — picking a collection + group field alone only gives you the counts.</li>
 <li>Groupable fields: <strong>status / select / number / date / boolean</strong>. You <strong>can’t group</strong> directly by a relation field or JSON — but you can <strong>hop through one 1-to-1 relation</strong> to a sub-field (e.g. <code>customer → gender</code>). If none qualify you’ll see <em>“No groups…”</em>.</li>
 <li>🔢 The count badges come from <strong>a single GROUP BY query</strong> on the target collection itself — <strong>no data is changed</strong>, it only counts.</li>
+<li>↕️ <strong>Sorting by “A column…”</strong>: each group takes the <strong>smallest</strong> (ascending) or <strong>largest</strong> (descending) value of that column among its rows, computed in the same GROUP BY query (no extra request). The column may go through <strong>one relation</strong>, e.g. group by <code>department → name</code> and sort by <code>department → sort_index</code>. <strong>Label</strong> order is natural (“Store 2” before “Store 10”). The <em>(empty)</em> group always goes last.</li>
 <li>🔄 <strong>Counts auto-refresh</strong> when the table’s data changes (add/edit/delete — even by someone else or a server process) and when you return to the tab.</li>
 <li>The active selection is <strong>temporary</strong>: <strong>F5 / reload</strong> returns to <strong>All</strong> (the filter never gets “stuck”).</li>
 <li><strong>Average</strong> can’t be aggregated across groups, so the “All” total badge is left blank when the Metric is Average.</li>
@@ -12684,7 +12966,7 @@ blocks on the same page. Two skins on one engine: <strong>Filter tree</strong> (
 <tbody>
 <tr>
 <td><strong>分组</strong></td>
-<td><strong>数据表</strong> + <strong>分组依据</strong>（筛选树可再加可选的第 2 层 / 第 3 层）。</td>
+<td><strong>数据表</strong> + <strong>分组依据</strong>（筛选树可再加可选的第 2 层 / 第 3 层）· <strong>分组排序依据</strong>：默认（按存储顺序）/ 名称 / 指标值 / 选项顺序（选择字段）/ <strong>某一列…</strong> · <strong>方向</strong> 升序 / 降序 · <strong>排序列</strong>（选“某一列…”时）。对树的每一层都生效。</td>
 </tr>
 <tr>
 <td><strong>指标与格式</strong></td>
@@ -12692,7 +12974,7 @@ blocks on the same page. Two skins on one engine: <strong>Filter tree</strong> (
 </tr>
 <tr>
 <td><strong>样式</strong></td>
-<td><strong>计数徽标颜色</strong>（每个取值一种颜色 / 单色）· <strong>每个取值的图标与颜色</strong>。<em>筛选栏额外有：</em> <strong>栏样式</strong>（Pill/Segmented/Tab）、<strong>尺寸</strong>、<strong>对齐</strong>、<strong>允许多选（仅 pill）</strong>、<strong>显示“全部”项</strong>、<strong>显示计数</strong>。</td>
+<td><strong>计数徽标颜色</strong>（每个取值一种颜色 / 单色）· <strong>每个取值的图标与颜色</strong>（点颜色旁的 <strong>×</strong> 即可清除颜色）。<em>筛选栏额外有：</em> <strong>栏样式</strong>（Pill/Segmented/Tab）、<strong>尺寸</strong>、<strong>对齐</strong>、<strong>允许多选（仅 pill）</strong>、<strong>显示“全部”项</strong>、<strong>显示计数</strong>。</td>
 </tr>
 <tr>
 <td><strong>数据范围</strong></td>
@@ -12743,6 +13025,7 @@ blocks on the same page. Two skins on one engine: <strong>Filter tree</strong> (
 <li>⚠️ <strong>你必须做“连接到数据区块”</strong>，点击才会真的产生筛选 —— 只选数据表 + 分组字段的话，你只能看到计数。</li>
 <li>可用于分组的字段：<strong>状态 / 下拉 / 数字 / 日期 / 布尔</strong>。<strong>不能</strong>直接按关系字段或 JSON 分组 —— 但可以<strong>穿过一层一对一关系</strong>去用它的子字段（例如 <code>customer → gender</code>）。一个都不符合的话，你会看到*“No groups…”*。</li>
 <li>🔢 计数徽标来自对目标数据表本身的<strong>一次 GROUP BY 查询</strong> —— <strong>不会改动任何数据</strong>，只是计数。</li>
+<li>↕️ <strong>按“某一列…”排序</strong>：每个分组取该列在其各行中的<strong>最小值</strong>（升序）或<strong>最大值</strong>（降序），在同一个 GROUP BY 查询中算出（不额外发请求）。该列可以经过<strong>一层关系</strong>，例如按 <code>部门 → 名称</code> 分组、按 <code>部门 → sort_index</code> 排序。<strong>名称</strong>按自然顺序比较（“仓库 2”在“仓库 10”之前）。<em>（空）</em> 分组始终排在最后。</li>
 <li>🔄 当表格数据发生变化时（新增/编辑/删除 —— 哪怕是别人或服务端进程改的），以及你切回该标签页时，<strong>计数会自动刷新</strong>。</li>
 <li>当前选中项是<strong>临时的</strong>：<strong>F5 / 刷新</strong>会回到<strong>全部</strong>（筛选永远不会“卡住”）。</li>
 <li><strong>平均值</strong>无法跨分组聚合，所以指标为平均值时，“全部”那一项的合计徽标会留空。</li>
@@ -12763,7 +13046,7 @@ blocks on the same page. Two skins on one engine: <strong>Filter tree</strong> (
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Chế độ bảng tính</span><span class="lang lang-en" hidden>Spreadsheet View</span><span class="lang lang-zh" hidden>电子表格视图</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Khối &amp; biểu đồ</span><span class="lang lang-en" hidden>Blocks &amp; charts</span><span class="lang lang-zh" hidden>Blocks &amp; charts</span></span>
-        <span class="chip">v0.2.13</span>
+        <span class="chip">v0.2.15</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -12771,7 +13054,7 @@ blocks on the same page. Two skins on one engine: <strong>Filter tree</strong> (
 widget của NocoBase</strong>, rồi ghi ngược về server. Kèm <strong>cột công thức ảo</strong>, <strong>nhóm nhiều cấp có tổng phụ</strong>,
 <strong>dòng tổng hợp</strong>, <strong>định dạng theo điều kiện</strong>, <strong>dán TSV từ Excel</strong>, <strong>fill-down</strong> và <strong>sao chép</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Blocks · <strong>Chạy trên:</strong> <code>/v/</code> + <code>/admin</code> <em>(chỉ trang chạy FlowEngine)</em> · <strong>Phiên bản:</strong> 0.2.13</p>
+<p><strong>Nhóm:</strong> Blocks · <strong>Chạy trên:</strong> <code>/v/</code> + <code>/admin</code> <em>(chỉ trang chạy FlowEngine)</em> · <strong>Phiên bản:</strong> 0.2.15</p>
 <hr>
 <h3>Mục lục</h3>
 <ol>
@@ -12914,7 +13197,7 @@ widget của NocoBase</strong>, rồi ghi ngược về server. Kèm <strong>c�
 <tr>
 <td><strong>Nhóm theo</strong></td>
 <td>không nhóm</td>
-<td><strong>Tối đa 3 cấp</strong>, thứ tự chọn = thứ tự cấp. Chỉ nhận cột select/radio/quan hệ/text/checkbox/email</td>
+<td><strong>Tối đa 3 cấp</strong>, thứ tự chọn = thứ tự cấp. Chỉ nhận cột select/radio/quan hệ/text/checkbox/email — của chính bảng <strong>hoặc của bảng liên kết</strong> (đi 1 bước quan hệ nhiều-một, ví dụ <code>Khách hàng / Loại</code>)</td>
 </tr>
 <tr>
 <td><strong>Kiểu hiển thị nhóm</strong></td>
@@ -12928,6 +13211,7 @@ widget của NocoBase</strong>, rồi ghi ngược về server. Kèm <strong>c�
 </tr>
 </tbody>
 </table>
+<p>💡 Trường nhóm không có cột trên bảng (trường của bảng liên kết, hoặc cột đang ẩn) thì chế độ <strong>Gộp ô</strong> tự thêm một <strong>cột nhóm chỉ đọc</strong> ở đầu bảng để gộp ô.</p>
 <p>⚠️ Chế độ <strong>Gộp ô</strong> không có dòng tiêu đề nhóm, <strong>không đóng/mở được</strong>, và <strong>ô gộp không sửa được</strong>
 (<em>“sửa ô gộp mơ hồ: sửa dòng nào?”</em>).</p>
 <p>⚠️ <strong>Bật nhóm là mất phân trang</strong> — plugin tải một lần tới mức giới hạn ở trên.</p>
@@ -13281,8 +13565,10 @@ vạch cam biến mất là xong.</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Quyền:</strong> server chỉ kiểm tra quyền <strong>ở mức bảng</strong> (create/update/destroy) khi lưu hàng loạt; <strong>quyền theo
-từng dòng chưa áp</strong> (ghi nhận là giới hạn của phiên bản này).</p>
+<p><strong>Quyền:</strong> khi lưu hàng loạt, server kiểm tra đúng như form thường (từ 0.2.14): quyền create/update/destroy theo
+<strong>mọi vai trò</strong> của người dùng, <strong>phạm vi dữ liệu</strong> (vd “chỉ bản ghi của mình” — một dòng ngoài phạm vi là cả lô bị
+từ chối, không ghi gì) và <strong>cột được phép</strong> (cột bị khoá quyền không được ghi). Mỗi thay đổi đi kèm người dùng
+hiện tại, nên luồng trạng thái (Status Flow), người tạo/người sửa và nhật ký thay đổi thấy đúng người.</p>
 <p><strong>Hiệu năng:</strong> dòng cao 36px, có ảo hoá. Mỗi lần dán tối đa 1 000 dòng, server nhận tối đa 2 000 thao tác
 một transaction. Bật nhóm trên bảng lớn là chỗ tốn nhất.</p>
 <hr>
@@ -13303,7 +13589,7 @@ một transaction. Bật nhóm trên bảng lớn là chỗ tốn nhất.</p>
 save per row. Add <strong>virtual formula columns</strong>, <strong>multi-level grouping with subtotals</strong>, a <strong>summary row</strong>,
 <strong>conditional formatting</strong>, <strong>TSV paste</strong> from Excel/Sheets, <strong>fill-down</strong> and <strong>copy</strong> — all configured right on the block, no code.</p>
 </blockquote>
-<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> /v/ (modern) + /admin (classic, FlowEngine pages) · <strong>Version:</strong> 0.2.13</p>
+<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> /v/ (modern) + /admin (classic, FlowEngine pages) · <strong>Version:</strong> 0.2.15</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>One new block type</strong> in the block picker: <strong>“Spreadsheet”</strong> (in the <strong>“Content”</strong> group, next to the core blocks). Add it to a page like any other block and point it at a collection.</li>
@@ -13403,7 +13689,7 @@ save per row. Add <strong>virtual formula columns</strong>, <strong>multi-level 
 <h4>Scenario D — Multi-level grouping + subtotals + a summary row</h4>
 <ol>
 <li><strong>First enable a summary on the number column:</strong> hover over the number column’s header → ⚙ → <strong>“Column format…”</strong> → the <strong>“Summary”</strong> section, pick a calculation (see the table below). Do this for each column you want to total.</li>
-<li>The block’s ⚙ → <strong>“Spreadsheet”</strong> → the <strong>Row grouping</strong> section → <strong>“Group by”</strong>: pick <strong>1–3 fields</strong> (selection order = <strong>level 1 → level N</strong>). You can group by <strong>single-select / many-to-one relation / text / checkbox</strong> fields.</li>
+<li>The block’s ⚙ → <strong>“Spreadsheet”</strong> → the <strong>Row grouping</strong> section → <strong>“Group by”</strong>: pick <strong>1–3 fields</strong> (selection order = <strong>level 1 → level N</strong>). You can group by <strong>single-select / many-to-one relation / text / checkbox</strong> fields — of the collection itself <strong>or of a linked collection</strong> (one many-to-one hop, e.g. <code>Customer / Type</code>). In <strong>Merged cells</strong> mode, a group field with no column in the grid (a linked field, or a hidden column) gets a read-only <strong>group column</strong> added at the front.</li>
 <li>Choose the <strong>“Group display”</strong>: <strong>“Group rows (collapsible)”</strong> (click to collapse/expand each group) or <strong>“Merged cells (Excel style)”</strong> (merges the group-column cells, with no collapsible header rows).</li>
 <li>If needed, raise the <strong>“Group load limit”</strong> (up to 50,000 rows — when grouping is on the table loads every row so subtotals are computed correctly).</li>
 <li>Click <strong>Save</strong>. ✅ Each group shows a <strong>subtotal</strong> on its group header row; a <strong>summary row</strong> at the bottom totals everything.</li>
@@ -13458,7 +13744,7 @@ save per row. Add <strong>virtual formula columns</strong>, <strong>multi-level 
 <ul>
 <li><strong>Per-row saving keeps data safe.</strong> Editing several cells in one row writes <strong>once</strong> when you leave the row or click <strong>Save</strong>. If someone else just changed the same row, the table <strong>reloads the latest version and keeps your changes</strong>, prompting you to click <strong>Save to overwrite</strong> — nothing is lost silently.</li>
 <li>⚠️ <strong>Formula columns need <code>@tuanla90/plugin-formula</code>.</strong> Without it, ƒ cells show <strong>“⚠ requires @tuanla90/plugin-formula”</strong>. ƒ columns are <strong>virtual</strong> (computed at display time), so they <strong>can’t</strong> be sorted/filtered on the server.</li>
-<li><strong>Permissions are respected.</strong> Add/edit/delete/paste/fill-down all follow the current role’s ACL; actions you don’t have permission for are skipped and reported back.</li>
+<li><strong>Permissions are respected.</strong> Add/edit/delete/paste/fill-down all follow the current role’s ACL; actions you don’t have permission for are skipped and reported back. On save the server re-checks every row like a normal form (0.2.14+): all of the user’s roles, their <strong>data scope</strong> (one row outside it refuses the whole batch) and the <strong>allowed columns</strong>; each write carries the user, so Status Flow rules, created/updated-by and change logs see who did it.</li>
 <li><strong>Grouping loads many rows.</strong> When <strong>Group by</strong> is on, the table loads every row (up to the <strong>Group load limit</strong>, max 50,000) so subtotals are accurate — on very large tables, set a sensible limit.</li>
 <li><strong>Unsupported fields</strong> (attachment, rich text/markdown, JSON, sub-form/sub-table, password…) are <strong>hidden from the grid</strong> automatically — to edit them, open the <strong>record</strong> with the <strong>⤢</strong> button.</li>
 <li><strong>CSV export</strong> exists in the core, but the <strong>“Export” button is temporarily hidden in this build</strong>; to use it you must re-enable it in code (<code>showExport</code>). For now, use <strong>copy/paste</strong> to get data out.</li>
@@ -13479,7 +13765,7 @@ save per row. Add <strong>virtual formula columns</strong>, <strong>multi-level 
 按行保存。还可以添加<strong>虚拟公式列</strong>、<strong>带小计的多级分组</strong>、<strong>汇总行</strong>、
 <strong>条件格式</strong>、从 Excel/Sheets <strong>粘贴 TSV</strong>、<strong>向下填充</strong>与<strong>复制</strong> — 全部直接在区块上配置，无需写代码。</p>
 </blockquote>
-<p><strong>分组：</strong> 区块 · <strong>运行于：</strong> /v/（现代） + /admin（经典，FlowEngine 页面） · <strong>版本：</strong> 0.2.13</p>
+<p><strong>分组：</strong> 区块 · <strong>运行于：</strong> /v/（现代） + /admin（经典，FlowEngine 页面） · <strong>版本：</strong> 0.2.15</p>
 <h3>安装后有什么变化？</h3>
 <ul>
 <li>区块选择器中多了<strong>一种新的区块类型</strong>：<strong>“电子表格”</strong>（位于**“内容”**分组，与核心区块并列）。像添加其他区块一样把它加到页面上，并指向一个数据表即可。</li>
@@ -13579,7 +13865,7 @@ save per row. Add <strong>virtual formula columns</strong>, <strong>multi-level 
 <h4>场景 D — 多级分组 + 小计 + 汇总行</h4>
 <ol>
 <li><strong>先在数字列上启用汇总：</strong> 把鼠标悬停在数字列的标题上 → ⚙ → <strong>“列格式…”</strong> → **“汇总”**部分，挑选一种计算方式（见下表）。每一个你想合计的列都要这样设置一次。</li>
-<li>区块的 ⚙ → <strong>“电子表格”</strong> → <strong>行分组</strong>部分 → <strong>“分组依据”</strong>：挑选 <strong>1–3 个字段</strong>（选择顺序 = <strong>第 1 级 → 第 N 级</strong>）。可以按<strong>单选 / 多对一关系 / 文本 / 复选框</strong>字段分组。</li>
+<li>区块的 ⚙ → <strong>“电子表格”</strong> → <strong>行分组</strong>部分 → <strong>“分组依据”</strong>：挑选 <strong>1–3 个字段</strong>（选择顺序 = <strong>第 1 级 → 第 N 级</strong>）。可以按<strong>单选 / 多对一关系 / 文本 / 复选框</strong>字段分组 —— 既可以是本表字段，<strong>也可以是关联表的字段</strong>（经过一层多对一关系，例如 <code>客户 / 类型</code>）。在<strong>合并单元格</strong>模式下，若分组字段在表格中没有对应列（关联表字段或已隐藏的列），会在最前面自动添加一个只读的<strong>分组列</strong>。</li>
 <li>选择**“分组显示方式”<strong>：</strong>“分组行（可折叠）”<strong>（点击可折叠/展开每个分组）或</strong>“合并单元格（Excel 风格）”**（合并分组列的单元格，没有可折叠的标题行）。</li>
 <li>如有需要，调高**“分组加载上限”**（最高 50,000 行 — 开启分组时表格会加载所有行，以便正确计算小计）。</li>
 <li>点击<strong>保存</strong>。✅ 每个分组会在其分组标题行上显示<strong>小计</strong>；底部的<strong>汇总行</strong>会合计全部数据。</li>
@@ -13634,7 +13920,7 @@ save per row. Add <strong>virtual formula columns</strong>, <strong>multi-level 
 <ul>
 <li><strong>按行保存让数据更安全。</strong> 在同一行里编辑多个单元格，只会在你离开该行或点击<strong>保存</strong>时写入<strong>一次</strong>。如果刚好有其他人修改了同一行，表格会<strong>重新加载最新版本并保留你的修改</strong>，并提示你点击<strong>保存以覆盖</strong> — 不会有任何内容被悄悄丢弃。</li>
 <li>⚠️ <strong>公式列需要 <code>@tuanla90/plugin-formula</code>。</strong> 没有它时，ƒ 单元格会显示**“⚠ 需要 @tuanla90/plugin-formula”<strong>。ƒ 列是</strong>虚拟的**（在显示时计算），因此<strong>无法</strong>在服务端排序/筛选。</li>
-<li><strong>权限会被遵守。</strong> 添加/编辑/删除/粘贴/向下填充都会遵循当前角色的 ACL；没有权限的操作会被跳过并反馈给你。</li>
+<li><strong>权限会被遵守。</strong> 添加/编辑/删除/粘贴/向下填充都会遵循当前角色的 ACL；没有权限的操作会被跳过并反馈给你。保存时服务端会像普通表单一样逐行复核（0.2.14 起）：用户的全部角色、<strong>数据范围</strong>（有一行越界则整批拒绝）和<strong>允许的字段</strong>；每次写入都带上当前用户，因此状态流、创建人/修改人和变更日志都能看到操作者。</li>
 <li><strong>分组会加载大量行。</strong> 开启<strong>分组依据</strong>时，表格会加载所有行（不超过<strong>分组加载上限</strong>，最高 50,000），以保证小计准确 — 在超大表上请设置一个合理的上限。</li>
 <li><strong>不受支持的字段</strong>（附件、富文本/Markdown、JSON、子表单/子表格、密码…）会自动<strong>从网格中隐藏</strong> — 想编辑它们，请用 <strong>⤢</strong> 按钮打开<strong>记录</strong>。</li>
 <li><strong>CSV 导出</strong>在核心中是存在的，但**“导出”按钮在本次构建中被临时隐藏**；要使用它必须在代码中重新开启（<code>showExport</code>）。目前请用<strong>复制/粘贴</strong>把数据取出来。</li>
@@ -13998,7 +14284,7 @@ and falls back to the original columns. Server: <code>src/server/plugin.ts</code
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Định dạng có điều kiện</span><span class="lang lang-en" hidden>Conditional Formatting</span><span class="lang lang-zh" hidden>条件格式</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Khối &amp; biểu đồ</span><span class="lang lang-en" hidden>Blocks &amp; charts</span><span class="lang lang-zh" hidden>Blocks &amp; charts</span></span>
-        <span class="chip">v0.2.28</span>
+        <span class="chip">v0.2.30</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -14108,6 +14394,7 @@ Trong hộp thoại, bấm <strong>“Thêm quy tắc”</strong>. Mỗi quy t�
 <li>🎨 <strong>Đây là định dạng hiển thị thuần túy (phía trình duyệt).</strong> Nó <strong>không sửa dữ liệu</strong>, không cần <strong>restart server</strong>, và có hiệu lực <strong>ngay khi Lưu</strong> khối.</li>
 <li>⚠️ <strong>Quy tắc kiểu “Điều kiện” phải có ít nhất một điều kiện</strong> — nếu để trống, quy tắc <strong>không tô gì</strong> (chủ ý, để tránh lỡ tô cả bảng).</li>
 <li>🧭 <strong>Điều kiện xét theo từng dòng</strong> và có thể tham chiếu <strong>bất kỳ field nào, kể cả xuyên quan hệ</strong>. Cột <em>được tô</em> (<strong>Áp dụng cho</strong>) có thể khác cột <em>dùng để xét điều kiện</em>.</li>
+<li>🔗 Điều kiện xuyên quan hệ (ví dụ <code>Khách hàng → Nhóm</code>) <strong>không cần</strong> bảng có sẵn cột của quan hệ đó — từ 0.2.30 plugin tự tải kèm dữ liệu quan hệ cần cho điều kiện. (Chỉ áp cho khối <strong>Bảng</strong>.)</li>
 <li>🔢 <strong>Thang màu / Thanh dữ liệu chỉ dùng cho cột số</strong> và scale theo <strong>min–max của các dòng đang hiển thị</strong>. Vì vậy <strong>phân trang / lọc</strong> sẽ làm thang màu đổi theo tập dòng hiện có trên trang.</li>
 <li>🧩 <strong>Icon chỉ có ở kiểu “Điều kiện”</strong> (Thang màu / Thanh dữ liệu không chèn icon).</li>
 <li>🔁 <strong>Khi nhiều quy tắc cùng khớp một ô:</strong> phần màu/kiểu chữ — quy tắc <strong>sau đè</strong> quy tắc trước; icon — lấy quy tắc <strong>có icon khớp cuối cùng</strong>.</li>
@@ -14123,6 +14410,8 @@ Trong hộp thoại, bấm <strong>“Thêm quy tắc”</strong>. Mỗi quy t�
 <hr>
 <h4>Cho nhà phát triển</h4>
 <p>Thuần client, chỉ lane <code>/v/</code>: patch <code>TableBlockModel.getColumns()</code> → bọc <code>onCell</code> (style ô: màu/nền/đậm/nghiêng/viền) và bọc <code>render</code> (chèn icon trước nội dung), <strong>crash-safe</strong> (mọi lỗi rơi về hành vi gốc). Quy tắc lưu trong prop khối <code>ptdlCondRules</code> qua <code>setProps</code> (MobX reactive → bảng tự re-render, không lưu vào dữ liệu). Bộ điều kiện dùng lại condition-kit của <code>@tuanla90/shared</code> (<code>evalConditionOp</code>, field picker xuyên quan hệ); nội suy màu heatmap + min/max tính trên các dòng đang tải. Lane classic là no-op (không có <code>TableBlockModel</code>); server để trống. Chi tiết: <code>src/shared/tableRulesModel.tsx</code>.</p>
+<h3>Phân quyền (0.2.29)</h3>
+<p>Mọi người đều thấy luật định dạng; chỉ sửa được từ cấu hình field (người cấu hình giao diện, <code>ui.*</code>), trang cài đặt Conditional format, hoặc console Database Editor — không còn mở cho mọi người đăng nhập.</p>
 </div>
       <div class="prose lang lang-en" hidden><blockquote>
 <p>Color the text, background, bold/italic, border, icon, or draw a <strong>heatmap / data bar</strong> on cells in
@@ -14231,6 +14520,7 @@ In the dialog, click <strong>“Add rule”</strong>. Each rule uses one of 3 ty
 <li>🎨 <strong>This is pure display formatting (browser-side).</strong> It <strong>never edits data</strong>, needs <strong>no server restart</strong>, and takes effect <strong>the moment you Save</strong> the block.</li>
 <li>⚠️ <strong>A “Condition” rule must have at least one condition</strong> — if left empty, the rule <strong>colors nothing</strong> (by design, to avoid accidentally coloring the whole table).</li>
 <li>🧭 <strong>Conditions are evaluated per row</strong> and can reference <strong>any field, including through relations</strong>. The column that gets <em>colored</em> (<strong>Apply to</strong>) can differ from the column <em>used to test the condition</em>.</li>
+<li>🔗 A condition through a relation (e.g. <code>Customer → Group</code>) does <strong>not</strong> need a column of that relation in the table — since 0.2.30 the plugin loads the relation data the condition needs. (Table blocks only.)</li>
 <li>🔢 <strong>Color scale / Data bar work on numeric columns only</strong> and scale to the <strong>min–max of the currently visible rows</strong>. So <strong>paging / filtering</strong> shifts the scale to whatever rows are on the page.</li>
 <li>🧩 <strong>Icons exist only in the “Condition” type</strong> (Color scale / Data bar insert no icon).</li>
 <li>🔁 <strong>When several rules match one cell:</strong> for color / text style, a <strong>later rule overrides</strong> an earlier one; for the icon, the <strong>last matching rule that has an icon</strong> wins.</li>
@@ -14246,6 +14536,8 @@ In the dialog, click <strong>“Add rule”</strong>. Each rule uses one of 3 ty
 <hr>
 <h4>For developers</h4>
 <p>Pure client, <code>/v/</code> lane only: patches <code>TableBlockModel.getColumns()</code> → wraps <code>onCell</code> (cell style: color/fill/bold/italic/border) and wraps <code>render</code> (inserts the icon before content), <strong>crash-safe</strong> (any error falls back to native behavior). Rules are stored in the block prop <code>ptdlCondRules</code> via <code>setProps</code> (MobX-reactive → the table re-renders itself, nothing written to data). The condition engine reuses <code>@tuanla90/shared</code>’s condition-kit (<code>evalConditionOp</code>, relation-aware field picker); heatmap color interpolation + min/max are computed over the currently loaded rows. The classic lane is a no-op (no <code>TableBlockModel</code>); the server side is empty. Details: <code>src/shared/tableRulesModel.tsx</code>.</p>
+<h3>Permissions (0.2.29)</h3>
+<p>Everyone sees the formatting rules; they can be changed from the field settings (interface configurers, <code>ui.*</code>), the Conditional format settings page, or the Database Editor console — not by every logged-in user.</p>
 </div>
       <div class="prose lang lang-zh" hidden><blockquote>
 <p>根据每一行的值，为<strong>表格区块</strong>中的单元格设置文字颜色、背景、加粗/斜体、边框、图标，
@@ -14354,6 +14646,7 @@ In the dialog, click <strong>“Add rule”</strong>. Each rule uses one of 3 ty
 <li>🎨 <strong>这是纯粹的显示格式化（浏览器端）。</strong> 它<strong>绝不修改数据</strong>，<strong>无需重启服务</strong>，并且在你<strong>保存</strong>区块的那一刻立即生效。</li>
 <li>⚠️ <strong>“条件”规则必须至少有一个条件</strong> — 如果留空，该规则<strong>不会着色任何内容</strong>（这是刻意设计的，避免不小心把整张表都染上颜色）。</li>
 <li>🧭 <strong>条件是逐行求值的</strong>，并且可以引用<strong>任意字段，包括通过关系引用的字段</strong>。被<em>着色</em>的列（<strong>应用于</strong>）可以和用来<em>判断条件</em>的列不同。</li>
+<li>🔗 通过关系的条件（例如 <code>客户 → 分组</code>）<strong>不需要</strong>表格里已有该关系的列 —— 自 0.2.30 起，插件会自动加载条件所需的关系数据。（仅适用于<strong>表格</strong>区块。）</li>
 <li>🔢 <strong>色阶 / 数据条只适用于数值列</strong>，并且按<strong>当前可见行</strong>的<strong>最小值–最大值</strong>缩放。所以<strong>翻页 / 筛选</strong>会让色阶随当前页上的行而变化。</li>
 <li>🧩 <strong>只有“条件”类型才有图标</strong>（色阶 / 数据条不会插入图标）。</li>
 <li>🔁 <strong>当多条规则同时命中一个单元格时：</strong> 对于颜色 / 文字样式，<strong>靠后的规则会覆盖</strong>靠前的；对于图标，<strong>最后一条带图标的匹配规则</strong>胜出。</li>
@@ -14369,6 +14662,8 @@ In the dialog, click <strong>“Add rule”</strong>. Each rule uses one of 3 ty
 <hr>
 <h4>面向开发者</h4>
 <p>纯客户端，仅 <code>/v/</code> lane：给 <code>TableBlockModel.getColumns()</code> 打补丁 → 包装 <code>onCell</code>（单元格样式：颜色/填充/加粗/斜体/边框）并包装 <code>render</code>（在内容前插入图标），<strong>崩溃安全</strong>（任何错误都会回退到原生行为）。规则通过 <code>setProps</code> 存放在区块属性 <code>ptdlCondRules</code> 中（MobX 响应式 → 表格自行重新渲染，不会写入数据）。条件引擎复用 <code>@tuanla90/shared</code> 的 condition-kit（<code>evalConditionOp</code>、支持关系的字段选择器）；热力图颜色插值以及最小/最大值是在当前已加载的行上计算的。classic lane 为空操作（没有 <code>TableBlockModel</code>）；服务端部分为空。细节：<code>src/shared/tableRulesModel.tsx</code>。</p>
+<h3>权限（0.2.29）</h3>
+<p>所有人都能看到格式规则；只能在字段设置（界面配置者，<code>ui.*</code>）、条件格式设置页或 Database Editor 控制台中修改——不再对所有登录用户开放。</p>
 </div>
     </section>
 
@@ -14488,13 +14783,13 @@ white-screens the page.</li>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Khối bố cục (Tabs / Collapse)</span><span class="lang lang-en" hidden>Layout Containers (Tabs / Collapse)</span><span class="lang lang-zh" hidden>布局容器（标签页 / 折叠面板）</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Khối &amp; biểu đồ</span><span class="lang lang-en" hidden>Blocks &amp; charts</span><span class="lang lang-zh" hidden>Blocks &amp; charts</span></span>
-        <span class="chip">v0.4.12</span>
+        <span class="chip">v0.4.13</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
 <p>Hai khối để <strong>sắp xếp nội dung trang và gom field trong form</strong>: khối <strong>Tabs</strong> và khối <strong>Collapse (Mục gập)</strong> — đều lồng nhau được, có cả biến thể nhóm-field trong form. Kèm khả năng <strong>đổi kiểu thanh tab</strong> của trang/popup sẵn có sang Line, Pill, Segment, Card, Step hoặc Text, với <strong>mặc định chung cho cả app theo từng theme</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Khối (Blocks) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.4.11</p>
+<p><strong>Nhóm:</strong> Khối (Blocks) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.4.13</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <p>Khi bật <strong>chế độ chỉnh giao diện (UI Editor)</strong> bạn sẽ thấy thêm:</p>
 <ul>
@@ -14681,7 +14976,7 @@ white-screens the page.</li>
 ability to <strong>restyle the tab bar</strong> of an existing page/popup to Line, Pill, Segment, Card, Step or
 Text, with an <strong>app-wide default per theme</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.4.11</p>
+<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.4.13</p>
 <h3>What’s new after installing?</h3>
 <p>When you turn on <strong>UI-editor mode</strong> you get:</p>
 <ul>
@@ -14872,7 +15167,7 @@ Text, with an <strong>app-wide default per theme</strong>.</p>
 <strong>重新设置</strong>现有页面/弹窗</strong>标签栏的样式</strong>，改成 Line、Pill、Segment、Card、Step 或
 Text，并且能<strong>按主题设置全应用范围的默认样式</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> 区块 · <strong>运行于：</strong> /admin（经典版）+ /v/（新版） · <strong>版本：</strong> 0.4.11</p>
+<p><strong>分组：</strong> 区块 · <strong>运行于：</strong> /admin（经典版）+ /v/（新版） · <strong>版本：</strong> 0.4.13</p>
 <h3>安装后有什么新变化？</h3>
 <p>打开<strong>界面编辑（UI editor）模式</strong>后，你会看到：</p>
 <ul>
@@ -15616,7 +15911,7 @@ configured right on the block, <strong>no code, no server restart</strong>.</p>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Khối: Bảng tổng hợp</span><span class="lang lang-en" hidden>Block: Pivot table</span><span class="lang lang-zh" hidden>区块：数据透视表</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Khối &amp; biểu đồ</span><span class="lang lang-en" hidden>Blocks &amp; charts</span><span class="lang lang-zh" hidden>Blocks &amp; charts</span></span>
-        <span class="chip">v0.1.2</span>
+        <span class="chip">v0.1.4</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -15625,7 +15920,7 @@ configured right on the block, <strong>no code, no server restart</strong>.</p>
 thẳng trong SQL</strong>, gộp ô, <strong>thanh bar / heatmap</strong>, gom nhóm theo ngày, <strong>bấm ô để xem chi tiết</strong>, và <strong>xuất
 Excel/CSV giữ nguyên ô gộp</strong>. Tất cả cấu hình ngay trên khối — không cần code.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Blocks · <strong>Chạy trên:</strong> /v/ (hiện đại) + /admin (cổ điển, trang FlowEngine) · <strong>Phiên bản:</strong> 0.1.2</p>
+<p><strong>Nhóm:</strong> Blocks · <strong>Chạy trên:</strong> /v/ (hiện đại) + /admin (cổ điển, trang FlowEngine) · <strong>Phiên bản:</strong> 0.1.3</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Một loại khối mới</strong> trong danh sách thêm khối: <strong>“Bảng tổng hợp”</strong> (nhóm <strong>“Content”</strong>). Thêm vào trang như mọi khối khác rồi chọn bảng dữ liệu.</li>
@@ -15668,7 +15963,7 @@ bình tỉ lệ con. Hiện dạng phần trăm hoặc số lần, kèm hoặc k
 in SQL</strong>, merged cells, <strong>bars / heatmaps</strong>, date bucketing, <strong>click-to-drill-down</strong>, and <strong>Excel/CSV export
 that keeps the merged cells</strong>. All configured on the block — no code.</p>
 </blockquote>
-<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> /v/ (modern) + /admin (classic, FlowEngine pages) · <strong>Version:</strong> 0.1.2</p>
+<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> /v/ (modern) + /admin (classic, FlowEngine pages) · <strong>Version:</strong> 0.1.3</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>One new block type</strong> in the block picker: <strong>“Pivot table”</strong> (in the <strong>“Content”</strong> group). Add it to a page like any other block and point it at a collection.</li>
@@ -15710,7 +16005,7 @@ summed or averaged. Optional display as percent or times, with or without the ra
 去重计数、<strong>比率 A/B</strong>），<strong>小计与总计直接在 SQL 中计算</strong>，合并单元格，<strong>条形 / 热力图</strong>，日期分桶，
 <strong>点击单元格下钻</strong>，以及<strong>保留合并单元格的 Excel/CSV 导出</strong>。全部在区块上配置——无需写代码。</p>
 </blockquote>
-<p><strong>分组：</strong> Blocks · <strong>运行于：</strong> /v/（新版）+ /admin（经典版 FlowEngine 页面） · <strong>版本：</strong> 0.1.2</p>
+<p><strong>分组：</strong> Blocks · <strong>运行于：</strong> /v/（新版）+ /admin（经典版 FlowEngine 页面） · <strong>版本：</strong> 0.1.3</p>
 <h3>安装后有什么变化？</h3>
 <ul>
 <li>区块选择器中新增<strong>一种区块</strong>：<strong>“数据透视表”</strong>（在 <strong>“Content”</strong> 分组）。像其他区块一样添加到页面，然后选择数据表。</li>
@@ -17622,7 +17917,7 @@ bash recipes/add-markers.sh storage/tar/@tuanla90/plugin-detail-panel-0.1.0.tgz
       <div class="plugin-head">
         <h2><span class="lang lang-vi">View Pro</span><span class="lang lang-en" hidden>View Pro</span><span class="lang lang-zh" hidden>视图 Pro</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Khối &amp; biểu đồ</span><span class="lang lang-en" hidden>Blocks &amp; charts</span><span class="lang lang-zh" hidden>Blocks &amp; charts</span></span>
-        <span class="chip">v0.1.26</span>
+        <span class="chip">v0.1.28</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -17632,7 +17927,7 @@ chuyển giữa <strong>Kanban · Gantt · Lịch · Gallery · Deck · Cây · 
 <strong>Mẫu tuỳ biến</strong> — bạn tự viết HTML cho một bản ghi, mỗi mẫu thành một nút riêng mang tên bạn đặt.
 Đổi cách nhìn <strong>không phải tải lại dữ liệu</strong>; bộ lọc — sắp xếp — phạm vi dữ liệu <strong>áp chung cho tất cả</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Khối (Blocks) · <strong>Chạy trên:</strong> cả <strong>/admin (classic)</strong> và <strong>/v/ (modern)</strong> · <strong>Phiên bản:</strong> 0.1.25</p>
+<p><strong>Nhóm:</strong> Khối (Blocks) · <strong>Chạy trên:</strong> cả <strong>/admin (classic)</strong> và <strong>/v/ (modern)</strong> · <strong>Phiên bản:</strong> 0.1.28</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Một khối mới trong danh sách chọn khối: “View Pro”</strong> (nhóm <em>Content</em>). Chọn bảng như mọi khối khác.</li>
@@ -17800,6 +18095,8 @@ nhưng <strong>chưa có đường găng</strong> và các kiểu phụ thuộc 
 <li><strong>Bản đồ / Cây</strong>: chỉ thấy dữ liệu đã tải (xem <em>Tải thêm</em> ở trên).</li>
 <li><strong>Geocode địa chỉ</strong>: chưa tự động. Địa chỉ rời khỏi máy nên phải do bạn chủ động bấm.</li>
 </ul>
+<h3>Phân quyền &amp; an toàn (0.1.27)</h3>
+<p>Preset dùng chung (Kanban, Gantt, Card…) mọi người đều đọc được nhưng chỉ người cấu hình giao diện (<code>ui.*</code>) mới sửa. Trong Template view, giá trị trông như link script (<code>javascript:</code>…) được hiện kèm tiền tố <code>unsafe:</code> thay vì thành link chạy script.</p>
 </div>
       <div class="prose lang lang-en" hidden><blockquote>
 <p><strong>One block, nine built-in ways to look at it — plus the ones you write yourself.</strong> Instead of placing
@@ -17809,7 +18106,7 @@ Tree · Map · Table · Spreadsheet</strong>, plus <strong>Templates</strong> �
 becoming its own switcher button under the name you give it. Switching a lens <strong>does not refetch</strong>;
 filter — sorting — data scope apply to <strong>all of them</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> both <strong>/admin (classic)</strong> and <strong>/v/ (modern)</strong> · <strong>Version:</strong> 0.1.25</p>
+<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> both <strong>/admin (classic)</strong> and <strong>/v/ (modern)</strong> · <strong>Version:</strong> 0.1.28</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A new block in the block picker: “View Pro”</strong> (group <em>Content</em>). Pick a collection like any other block.</li>
@@ -17982,6 +18279,8 @@ its own dependency is drawn dashed red), but <strong>no critical path</strong> a
 <li><strong>Map / Tree</strong>: only see the data already loaded (see <em>Load more</em> above).</li>
 <li><strong>Geocoding addresses</strong>: not automatic. Addresses would leave your machine, so it has to be your call.</li>
 </ul>
+<h3>Permissions &amp; safety (0.1.27)</h3>
+<p>Shared view presets (Kanban, Gantt, Card…) can be read by everyone and changed only by interface configurers (<code>ui.*</code>). In a Template view, a value that looks like a script link (<code>javascript:</code>…) is shown with an <code>unsafe:</code> prefix instead of becoming a clickable script.</p>
 </div>
       <div class="prose lang lang-zh" hidden><blockquote>
 <p><strong>一个区块，九种内置视角 —— 还有你自己写的视角。</strong> 不必为同一张表分别放一个看板区块、一个日历区块、
@@ -17989,7 +18288,7 @@ its own dependency is drawn dashed red), but <strong>no critical path</strong> a
 表格 · 电子表格</strong> 之间切换，另有 <strong>自定义模板</strong> —— 你为一条记录写一段 HTML，每个模板都以你起的名字
 成为切换栏上独立的一个按钮。切换视角<strong>不会重新请求数据</strong>；筛选、排序、数据范围<strong>对全部视角生效</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> 区块（Blocks） · <strong>适用于：</strong> <strong>/admin（经典）和 /v/（新版）都可以</strong> · <strong>版本：</strong> 0.1.25</p>
+<p><strong>分组：</strong> 区块（Blocks） · <strong>适用于：</strong> <strong>/admin（经典）和 /v/（新版）都可以</strong> · <strong>版本：</strong> 0.1.28</p>
 <h3>安装后有什么变化？</h3>
 <ul>
 <li><strong>区块选择器里多了一个「View Pro」区块</strong>（<em>Content</em> 分组）。像其他区块一样选择数据表即可。</li>
@@ -18153,6 +18452,8 @@ NocoBase 标准操作，选你需要的。</li>
 <li><strong>地图 / 树形</strong>：只能看到已加载的数据（见上文<em>加载更多</em>）。</li>
 <li><strong>地址转坐标</strong>：不自动进行。地址会离开你的机器，所以必须由你主动触发。</li>
 </ul>
+<h3>权限与安全（0.1.27）</h3>
+<p>共享视图预设（看板、甘特、卡片…）所有人可读，只有界面配置者（<code>ui.*</code>）可修改。在模板视图中，看起来像脚本链接（<code>javascript:</code>…）的值会带上 <code>unsafe:</code> 前缀显示，而不会变成可点击的脚本。</p>
 </div>
     </section>
 
@@ -18160,7 +18461,7 @@ NocoBase 标准操作，选你需要的。</li>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Dựng app từ mô tả</span><span class="lang lang-en" hidden>App Builder</span><span class="lang lang-zh" hidden>应用生成器</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Giao diện</span><span class="lang lang-en" hidden>Interface</span><span class="lang lang-zh" hidden>Interface</span></span>
-        <span class="chip">v0.7.3</span>
+        <span class="chip">v0.7.13</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -19108,7 +19409,7 @@ AI 理解错了，用大白话写下更正再点<strong>重新规划</strong>；
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Mẫu in ấn</span><span class="lang lang-en" hidden>Print Template</span><span class="lang lang-zh" hidden>打印模板</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Giao diện</span><span class="lang lang-en" hidden>Interface</span><span class="lang lang-zh" hidden>Interface</span></span>
-        <span class="chip">v0.1.17</span>
+        <span class="chip">v0.1.19</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -19750,6 +20051,8 @@ trong <code>dist/</code> và <strong>phải sống sót qua build/deploy</strong
 <li><code>buildPagedDocument</code> (Paged.js, có số trang thật) vẫn còn trong code nhưng <strong>không được gọi</strong> —
 <code>void buildPagedDocument;</code>.</li>
 </ul>
+<h3>Bảo mật (0.1.18)</h3>
+<p>HTML gửi tới dịch vụ PDF được làm “tĩnh” trước khi Gotenberg render: bỏ script, iframe, embed và thuộc tính sự kiện; mọi URL ảnh / stylesheet phải trỏ về chính app, về host công khai, hoặc nằm sẵn trong trang (<code>data:</code>). URL dạng <code>/storage/...</code> được gắn origin của app nên nay hiện được trong PDF. Muốn chắc chắn tuyệt đối, hãy chạy Gotenberg với <code>--chromium-allow-list</code> chỉ cho phép origin của app — Chromium của nó nằm trong mạng nội bộ của bạn.</p>
 </div>
       <div class="prose lang lang-en" hidden><blockquote>
 <p>Design <strong>invoice / receipt / report</strong> templates once in a <strong>drag-and-drop</strong> editor (or in HTML), then print
@@ -20395,6 +20698,8 @@ the drag-drop editor is GrapesJS (<code>GrapesBodyEditor</code>), and the Handle
 <li><code>buildPagedDocument</code> (Paged.js, with real page numbers) is still in the code but <strong>never called</strong> —
 <code>void buildPagedDocument;</code>.</li>
 </ul>
+<h3>Security (0.1.18)</h3>
+<p>HTML sent to the PDF service is made static before Gotenberg renders it: scripts, frames, embeds and event handlers are removed, and every image / stylesheet URL must point to this app, a public host or be inline (<code>data:</code>). Root-relative URLs (<code>/storage/...</code>) are anchored on the app, so they now show up in the PDF. For a hard guarantee, also start Gotenberg with <code>--chromium-allow-list</code> limited to your app’s origin — its Chromium runs inside your network.</p>
 </div>
       <div class="prose lang lang-zh" hidden><blockquote>
 <p>用<strong>拖拽</strong>编辑器（或 HTML）把<strong>发票 / 收据 / 报表</strong>模板设计一次，之后任何一条记录都能一键打印。
@@ -21019,6 +21324,8 @@ PDF 服务，则由管理员 snippet 把关。记录数据依旧走 NocoBase 正
 <li><code>buildPagedDocument</code>（Paged.js，带真正的页码）还留在代码里，但<strong>从来没有被调用过</strong> ——
 <code>void buildPagedDocument;</code>。</li>
 </ul>
+<h3>安全（0.1.18）</h3>
+<p>发送到 PDF 服务的 HTML 在 Gotenberg 渲染前会被处理成静态文档：移除脚本、iframe、embed 与事件属性；所有图片/样式表 URL 必须指向本应用、公网主机或内联（<code>data:</code>）。以 <code>/storage/...</code> 开头的 URL 会补上应用的 origin，因此现在可以显示在 PDF 中。若需严格保证，请同时以 <code>--chromium-allow-list</code> 启动 Gotenberg，只允许本应用的 origin——它的 Chromium 运行在你的内网中。</p>
 </div>
     </section>
 
@@ -21026,7 +21333,7 @@ PDF 服务，则由管理员 snippet 把关。记录数据依旧走 NocoBase 正
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Menu nâng cao (Nhóm + Badge)</span><span class="lang lang-en" hidden>Menu Enhancements (Sections + Badge)</span><span class="lang lang-zh" hidden>菜单增强（分组 + 角标）</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Giao diện</span><span class="lang lang-en" hidden>Interface</span><span class="lang lang-zh" hidden>Interface</span></span>
-        <span class="chip">v0.4.24</span>
+        <span class="chip">v0.4.25</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -21452,7 +21759,7 @@ Everything is configured right on the menu item — <strong>no code, no extra pa
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Nút thao tác nâng cao</span><span class="lang lang-en" hidden>Action Button Enhancements</span><span class="lang lang-zh" hidden>操作按钮增强</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Giao diện</span><span class="lang lang-en" hidden>Interface</span><span class="lang lang-zh" hidden>Interface</span></span>
-        <span class="chip">v0.1.6</span>
+        <span class="chip">v0.1.8</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -21460,7 +21767,7 @@ Everything is configured right on the menu item — <strong>no code, no extra pa
 của khối, và thêm 2 công cụ mới cho bảng — <strong>Thanh tìm kiếm</strong> và <strong>Bộ lọc</strong> — tất cả chỉnh ngay trên
 giao diện, <strong>không cần code, không cần restart server</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Giao diện · Nút thao tác (Actions/UI)  ·  <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern)  ·  <strong>Phiên bản:</strong> 0.1.6</p>
+<p><strong>Nhóm:</strong> Giao diện · Nút thao tác (Actions/UI)  ·  <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern)  ·  <strong>Phiên bản:</strong> 0.1.8</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <p>Plugin <strong>không thêm menu hay trang Settings</strong> nào. Thay vào đó, khi bạn <strong>bật chế độ chỉnh sửa giao diện
 (UI Editor)</strong> sẽ có thêm các lựa chọn mới:</p>
@@ -21469,7 +21776,7 @@ giao diện, <strong>không cần code, không cần restart server</strong>.</p
 bóng đổ, bo góc, cỡ &amp; màu icon, cỡ nút, và <strong>ghim</strong> nút về trái/phải.</li>
 <li>📐 <strong>Trong ⚙ của mỗi khối (form hoặc bảng)</strong>: thêm mục <strong>“Bố cục thanh nút”</strong> — xếp nút ngang/dọc,
 căn trái/giữa/phải, giãn đều hai đầu…</li>
-<li>🔍 <strong>Trên bảng (Table)</strong>: thêm được hành động <strong>“Thanh tìm kiếm”</strong> — ô tìm kiếm gõ tới đâu lọc tới đó.</li>
+<li>🔍 <strong>Trên bảng (Table)</strong>: thêm được hành động <strong>“Thanh tìm kiếm”</strong> — ô tìm kiếm, lọc khi nhấn <strong>Enter</strong> hoặc bấm icon kính lúp.</li>
 <li>🧰 <strong>Trên bảng (Table)</strong>: thêm được hành động <strong>“Bộ lọc”</strong> — các ô lọc nhanh theo cột dropdown/quan hệ/ngày.</li>
 </ul>
 <h3>Cấu hình ở đâu?</h3>
@@ -21607,7 +21914,7 @@ Nếu <strong>Dọc</strong> → chọn <strong>Căn chỉnh</strong>: Trái · 
 </table>
 </li>
 <li>
-<p>Bấm <strong>“Lưu”</strong>. ✅ Gõ vào ô là bảng tự lọc (gõ tới đâu lọc tới đó).</p>
+<p>Bấm <strong>“Lưu”</strong>. ✅ Gõ vào ô rồi nhấn <strong>Enter</strong> hoặc bấm <strong>icon kính lúp</strong> để lọc bảng (không tự truy vấn trong lúc gõ). Xoá trắng ô thì bỏ lọc.</p>
 </li>
 </ol>
 <h4>Tình huống D — Thêm Bộ lọc nhanh cho bảng</h4>
@@ -21681,7 +21988,7 @@ Chi tiết thiết kế: <code>docs/ACTION-ENHANCEMENTS-DESIGN.md</code>; bản 
 a block’s <strong>action bar</strong>, and add two brand-new tools to tables — a <strong>Search bar</strong> and a <strong>Filter bar</strong> —
 all right in the UI, <strong>no code, no server restart</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> UI · Action buttons (Actions/UI) · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.1.6</p>
+<p><strong>Group:</strong> UI · Action buttons (Actions/UI) · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.1.8</p>
 <h3>What’s new after installing?</h3>
 <p>The plugin <strong>adds no menu and no Settings page</strong>. Instead, once you turn on <strong>UI editing (UI Editor)</strong>, new options appear:</p>
 <ul>
@@ -21689,7 +21996,7 @@ all right in the UI, <strong>no code, no server restart</strong>.</p>
 shadow, corner radius, icon size &amp; colour, button size, and <strong>pin</strong> the button left/right.</li>
 <li>📐 <strong>In each block’s ⚙ (form or table)</strong>: a new <strong>“Action bar layout”</strong> item — arrange buttons horizontally
 or vertically, align left/center/right, spread them evenly…</li>
-<li>🔍 <strong>On a Table</strong>: you can add a <strong>“Search bar”</strong> action — a search box that filters as you type.</li>
+<li>🔍 <strong>On a Table</strong>: you can add a <strong>“Search bar”</strong> action — a search box that filters when you press <strong>Enter</strong> or click its search icon.</li>
 <li>🧰 <strong>On a Table</strong>: you can add a <strong>“Filter bar”</strong> action — quick filter boxes for dropdown/relation/date columns.</li>
 </ul>
 <h3>Where to configure</h3>
@@ -21828,7 +22135,7 @@ If <strong>Vertical</strong> → choose the <strong>Alignment</strong>: Left · 
 </table>
 </li>
 <li>
-<p>Click <strong>“Save”</strong>. ✅ Typing in the box filters the table as you go (filters live, keystroke by keystroke).</p>
+<p>Click <strong>“Save”</strong>. ✅ Type in the box, then press <strong>Enter</strong> or click the <strong>search icon</strong> to filter the table (it does not query while you type). Clearing the box removes the filter.</p>
 </li>
 </ol>
 <h4>Scenario D — Add a quick Filter bar to a table</h4>
@@ -21907,7 +22214,7 @@ bash recipes/add-markers.sh storage/tar/@tuanla90/plugin-action-enhancements-*.t
 区块的<strong>操作栏</strong>，并给表格新增两件全新的工具 — <strong>搜索栏</strong>和<strong>筛选栏</strong> —
 全部在界面里完成，<strong>无需写代码，无需重启服务端</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> UI · 操作按钮（Actions/UI） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.1.6</p>
+<p><strong>分组：</strong> UI · 操作按钮（Actions/UI） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.1.8</p>
 <h3>安装之后有什么变化？</h3>
 <p>插件<strong>不会新增菜单，也不会新增设置页</strong>。只要你打开<strong>界面编辑（UI Editor）</strong>，就会出现一些新选项：</p>
 <ul>
@@ -21915,7 +22222,7 @@ bash recipes/add-markers.sh storage/tar/@tuanla90/plugin-action-enhancements-*.t
 阴影、圆角、图标大小与颜色、按钮尺寸，以及把按钮<strong>固定</strong>在左侧/右侧。</li>
 <li>📐 <strong>在每个区块的 ⚙ 里（表单或表格）</strong>：多了一项**“操作栏布局”** — 让按钮横向或纵向排列、
 靠左/居中/靠右对齐、均匀分布……</li>
-<li>🔍 <strong>在表格上</strong>：可以添加一个**“搜索栏”**操作 — 一个边输入边筛选的搜索框。</li>
+<li>🔍 <strong>在表格上</strong>：可以添加一个**“搜索栏”**操作 — 一个搜索框，按 <strong>Enter</strong> 或点击搜索图标后筛选。</li>
 <li>🧰 <strong>在表格上</strong>：可以添加一个**“筛选栏”**操作 — 针对下拉/关系/日期类型列的快捷筛选框。</li>
 </ul>
 <h3>在哪里配置</h3>
@@ -22054,7 +22361,7 @@ bash recipes/add-markers.sh storage/tar/@tuanla90/plugin-action-enhancements-*.t
 </table>
 </li>
 <li>
-<p>点**“保存”**。✅ 在框里输入内容，表格会随之筛选（实时筛选，逐个按键生效）。</p>
+<p>点**“保存”<strong>。✅ 在框里输入内容，然后按 <strong>Enter</strong> 或点击</strong>搜索图标**来筛选表格（输入过程中不会查询）。清空输入框即取消筛选。</p>
 </li>
 </ol>
 <h4>场景 D — 给表格添加一个快捷筛选栏</h4>
@@ -22767,7 +23074,7 @@ No manual block/column/popup wiring. The result is a native NocoBase page you ca
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Thư viện icon (Lucide + thay icon hệ thống)</span><span class="lang lang-en" hidden>Custom Icons (Lucide + Remap)</span><span class="lang lang-zh" hidden>自定义图标（Lucide + 替换）</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Giao diện</span><span class="lang lang-en" hidden>Interface</span><span class="lang lang-zh" hidden>Interface</span></span>
-        <span class="chip">v0.2.11</span>
+        <span class="chip">v0.2.13</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -22775,7 +23082,7 @@ No manual block/column/popup wiring. The result is a native NocoBase page you ca
 Ant Design mặc định bằng Lucide</strong> ở mọi nơi — menu, nút, field, thanh tiêu đề. Kèm <strong>bộ mapping mặc định</strong>
 nạp sẵn khi cài và <strong>trình sửa từng icon</strong> có nhập/xuất CSV. Không cần code, không cần restart server.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Giao diện (UI) · Icon · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.10</p>
+<p><strong>Nhóm:</strong> Giao diện (UI) · Icon · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.13</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Toàn bộ icon Lucide vào trình chọn icon</strong> — ở <strong>cả hai</strong> giao diện. Khi bạn cấu hình icon cho menu / nút /
@@ -22932,7 +23239,7 @@ theo tên. Chi tiết kỹ thuật: xem <code>README.md</code> (tiếng Anh).</p
 default Ant Design icons with Lucide</strong> everywhere — menus, buttons, fields, the header bar. Ships a <strong>default
 mapping</strong> loaded on install and a <strong>per-icon editor</strong> with CSV import/export — <strong>no code, no server restart</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Interface (UI) · Icons · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.10</p>
+<p><strong>Group:</strong> Interface (UI) · Icons · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.13</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>The whole Lucide set enters the icon picker</strong> — in <strong>both</strong> clients. When you set an icon for a menu / button /
@@ -23095,7 +23402,7 @@ modern via <code>addMenuItem</code> + <code>addPageTabItem</code> — and ACL gr
 <strong>用 Lucide 替换默认的 Ant Design 图标</strong> — 菜单、按钮、字段、顶部导航栏。安装时会自动载入一套<strong>默认
 映射</strong>，另外还提供一个带 CSV 导入／导出的<strong>逐个图标编辑器</strong> — <strong>无需写代码，无需重启服务端</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> 界面（UI） · 图标 · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.10</p>
+<p><strong>分组：</strong> 界面（UI） · 图标 · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.2.13</p>
 <h3>安装之后有什么变化？</h3>
 <ul>
 <li><strong>整套 Lucide 图标进入图标选择器</strong> — <strong>两个</strong>客户端都有。当你给菜单 / 按钮 / 字段设置图标时，打开选择器就能在
@@ -24670,7 +24977,7 @@ app name, favicon and logo (light/dark)… Ships with presets, <strong>remembers
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Tiêu đề tùy biến</span><span class="lang lang-en" hidden>Custom Header</span><span class="lang lang-zh" hidden>自定义页头</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Giao diện</span><span class="lang lang-en" hidden>Interface</span><span class="lang lang-zh" hidden>Interface</span></span>
-        <span class="chip">v0.2.9</span>
+        <span class="chip">v0.2.11</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -24678,7 +24985,7 @@ app name, favicon and logo (light/dark)… Ships with presets, <strong>remembers
 nhãn field ở form/detail và tiêu đề khối: đặt <strong>icon</strong>, <strong>màu chữ</strong>, <strong>cỡ chữ</strong>, <strong>in đậm</strong>,
 <strong>nền</strong> (đơn sắc/gradient) và <strong>căn lề</strong>. Không cần code — chỉnh ngay trên phần tử.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Giao diện (Blocks/UI) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.9</p>
+<p><strong>Nhóm:</strong> Giao diện (Blocks/UI) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.11</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <p>Plugin thêm một <strong>mục tạo kiểu vào menu ⚙ (bánh răng)</strong> của 4 loại phần tử. <strong>Không</strong> thêm menu, trang hay mục Settings nào:</p>
 <table>
@@ -24836,13 +25143,15 @@ nhãn field ở form/detail và tiêu đề khối: đặt <strong>icon</strong>
 <li>Mặc định mức field lưu ở collection <strong><code>ptdlFieldStyles</code></strong> (ACL <code>loggedIn</code>; 1 dòng cho mỗi nguồn+bảng+field), nạp vào cache lúc khởi động, ghi qua <code>ptdlFieldStyles:updateOrCreate</code>; bản theo-view lưu trong flow params (<code>chFieldStyle</code>).</li>
 <li>Giới hạn đã biết: chưa hỗ trợ <strong>ảnh</strong> nền (chỉ đơn sắc/gradient) và nền cho tiêu đề cột; đổi mặc định field chỉ tự làm mới khi tab được focus lại. Chi tiết kỹ thuật: xem <code>README.md</code> (tiếng Anh) + <code>IMPROVEMENTS-CHECKLIST.md</code>.</li>
 </ul>
+<h3>Phân quyền (0.2.10)</h3>
+<p>Mọi người đều thấy style của field; chỉ người được cấu hình giao diện (<code>ui.*</code>) mới sửa được.</p>
 </div>
       <div class="prose lang lang-en" hidden><blockquote>
 <p>Style <strong>titles and labels</strong> across the NocoBase UI — page headers, table column headers,
 form/detail field labels and block titles: set an <strong>icon</strong>, <strong>text color</strong>, <strong>size</strong>, <strong>bold</strong>,
 <strong>background</strong> (solid / gradient) and <strong>alignment</strong>. No code — style right on the element.</p>
 </blockquote>
-<p><strong>Group:</strong> Appearance (Blocks/UI) · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.9</p>
+<p><strong>Group:</strong> Appearance (Blocks/UI) · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.11</p>
 <h3>What’s new after installing?</h3>
 <p>The plugin adds a <strong>styling item to the ⚙ (gear) menu</strong> of 4 element types. It adds <strong>no</strong> menu, page or Settings entry:</p>
 <table>
@@ -25003,13 +25312,15 @@ form/detail field labels and block titles: set an <strong>icon</strong>, <strong
 <li><strong>Build:</strong> <code>bash build-env/recipes/run-custom-header-build.sh</code> → <code>build-env/storage/tar/*custom-header*.tgz</code>. No bundled deps — framework packages (<code>react</code>, <code>antd</code>, <code>@nocobase/*</code>, <code>@formily/react</code>) are stubbed at build so <code>dist/externalVersion.js</code> matches the runtime.</li>
 <li><strong>Known limits:</strong> no background <strong>image</strong> yet (solid/gradient only) and no column-header background; a field-default change refreshes on tab refocus only (no global force-render). See <code>IMPROVEMENTS-CHECKLIST.md</code> for the v0.2.0 change batch and acceptance tests.</li>
 </ul>
+<h3>Permissions (0.2.10)</h3>
+<p>Everyone sees the field styles; only people allowed to configure the interface (<code>ui.*</code>) can change them.</p>
 </div>
       <div class="prose lang lang-zh" hidden><blockquote>
 <p>为 NocoBase 界面中的<strong>标题与标签</strong>设置样式 — 页面标题、表格列标题、
 表单/详情中的字段标签以及区块标题：可设置<strong>图标</strong>、<strong>文字颜色</strong>、<strong>字号</strong>、<strong>加粗</strong>、
 <strong>背景</strong>（纯色 / 渐变）和<strong>对齐方式</strong>。无需写代码 — 直接在元素上设置样式。</p>
 </blockquote>
-<p><strong>分组：</strong> 外观（区块/UI） · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.2.9</p>
+<p><strong>分组：</strong> 外观（区块/UI） · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.2.11</p>
 <h3>安装后有什么变化？</h3>
 <p>插件会在 4 类元素的 <strong>⚙（齿轮）菜单中添加一个样式设置项</strong>。它<strong>不会</strong>新增任何菜单、页面或设置入口：</p>
 <table>
@@ -25170,6 +25481,8 @@ form/detail field labels and block titles: set an <strong>icon</strong>, <strong
 <li><strong>构建：</strong> <code>bash build-env/recipes/run-custom-header-build.sh</code> → <code>build-env/storage/tar/*custom-header*.tgz</code>。不打包任何依赖 — 框架包（<code>react</code>、<code>antd</code>、<code>@nocobase/*</code>、<code>@formily/react</code>）在构建时会被 stub 掉，以便 <code>dist/externalVersion.js</code> 与运行时保持一致。</li>
 <li><strong>已知限制：</strong> 暂不支持背景<strong>图片</strong>（仅纯色/渐变），也不支持列标题背景；字段默认值的变更只在标签页重新获得焦点时刷新（没有全局强制重渲染）。v0.2.0 的改动批次与验收测试见 <code>IMPROVEMENTS-CHECKLIST.md</code>。</li>
 </ul>
+<h3>权限（0.2.10）</h3>
+<p>所有人都能看到字段样式；只有有权配置界面（<code>ui.*</code>）的人才能修改。</p>
 </div>
     </section>
 
@@ -26563,7 +26876,7 @@ The same mechanism covers <strong>BOM explosion</strong>, <strong>commission spl
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Đồng bộ Google Sheets</span><span class="lang lang-en" hidden>Google Sheets Sync</span><span class="lang lang-zh" hidden>Google Sheets 同步</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Dữ liệu</span><span class="lang lang-en" hidden>Data</span><span class="lang lang-zh" hidden>Data</span></span>
-        <span class="chip">v0.1.17</span>
+        <span class="chip">v0.1.18</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -26718,6 +27031,8 @@ chế độ <strong>thay toàn bộ</strong> hoặc <strong>upsert theo cột kh
 <p>Ô mà chính bảng tính không tính được — <code>#N/A</code> do <code>VLOOKUP</code> không tìm thấy, <code>#REF!</code>, <code>#DIV/0!</code>, <code>#GETTING_DATA</code> khi <code>IMPORTRANGE</code> đang tải — là ô <strong>không có giá trị</strong>, nên được nhập vào dưới dạng <strong>trống</strong>, y như ô để rỗng. Nó không bị lưu thành chữ <code>&quot;#N/A&quot;</code>, không làm cột số bị suy ra thành cột chữ, không bị tính là quan hệ khớp hụt, và ở chế độ upsert thì không trở thành khoá (dòng nào lỗi ở cột khoá sẽ bị bỏ qua). Kết quả đồng bộ báo có bao nhiêu ô như vậy và ở cột nào, để công thức hỏng trên sheet hiện ra ngay chứ không âm thầm biến thành ô trống khó hiểu.</p>
 <h4>Giá trị quan hệ mà bảng cha không có</h4>
 <p>Ô có giá trị thật nhưng không dòng cha nào khớp: khoá ngoại để <strong>trống</strong>, và giá trị trên sheet không được lưu ở đâu cả. So khớp là khớp chính xác sau khi cắt khoảng trắng, cộng một tầng dự phòng bỏ qua hoa/thường và khoảng trắng thừa (<code>marketing</code> tìm ra <code>Marketing</code>) — tầng này được báo riêng, vì nó nghĩa là sheet và bảng cha đang viết khác nhau. <strong>Không</strong> bỏ dấu: <code>Ha Noi</code> sẽ không khớp <code>Hà Nội</code>. Nếu hai dòng cha cùng gộp về một khoá thì ô đó bị coi là không khớp chứ không nối bừa. Kết quả đồng bộ nêu tên cột <strong>và các giá trị bị hụt</strong>, để bạn biết cần thêm gì vào bảng cha; thêm xong thì sync bảng cha trước, rồi sync lại bảng này.</p>
+<h3>An toàn (0.1.18)</h3>
+<p>Đồng bộ không bao giờ nhắm vào bảng hệ thống (users, roles, authenticators, workflows…) hay bảng của plugin. Chế độ “collection có sẵn” chỉ nhận bảng nghiệp vụ (Collection Manager), còn chế độ “tạo mới” từ chối bảng đã tồn tại mà không do Sheet Sync tạo — vì chế độ này xoá sạch bảng trước khi nhập lại.</p>
 </div>
       <div class="prose lang lang-en" hidden><blockquote>
 <p>Pull data from <strong>a single Google Sheet tab</strong> into a <strong>real NocoBase collection</strong> — run it
@@ -26874,6 +27189,8 @@ optional <strong>two-way write-back</strong> to the sheet.</p>
 <p>A cell the sheet itself could not evaluate — <code>#N/A</code> from a <code>VLOOKUP</code> that found nothing, <code>#REF!</code>, <code>#DIV/0!</code>, <code>#GETTING_DATA</code> while an <code>IMPORTRANGE</code> loads — carries no value, so it is imported as <strong>empty</strong>, exactly like a blank cell. It is not stored as the text <code>&quot;#N/A&quot;</code>, it does not demote a numeric column to text during type inference, it is not treated as a failed relation match, and in upsert mode it does not become a key (rows whose key column errors are skipped). The sync result reports how many such cells there were and in which columns, so a broken formula on the sheet is visible instead of surfacing later as unexplained blanks.</p>
 <h4>A relation value the parent table doesn’t have</h4>
 <p>The cell has a real value but no parent row matches it: the foreign key is left <strong>empty</strong> and the cell value is not stored anywhere. Matching is exact on the trimmed text, with one fallback tier that ignores letter case and collapsed whitespace (<code>marketing</code> finds <code>Marketing</code>) — reported separately, because it means the sheet and the parent disagree on spelling. Diacritics are <strong>not</strong> folded: <code>Ha Noi</code> will not match <code>Hà Nội</code>. If two parent rows fold to the same key the cell is treated as unmatched rather than linked to a guess. The sync result names the columns <strong>and the offending values</strong>, so you can see what to add to the parent; add it, sync the parent first, then sync this table again.</p>
+<h3>Safety (0.1.18)</h3>
+<p>A sync never targets a system table (users, roles, authenticators, workflows…) or a plugin table. “Existing collection” mode only accepts a Collection Manager (business) table, and “create” mode refuses a table that already exists unless Sheet Sync created it — because that mode empties the table before re-importing.</p>
 </div>
       <div class="prose lang lang-zh" hidden><blockquote>
 <p>把<strong>某个 Google Sheet 工作表</strong>的数据拉取到一张<strong>真正的 NocoBase 数据表</strong>中 —
@@ -27026,6 +27343,8 @@ optional <strong>two-way write-back</strong> to the sheet.</p>
 <p>Google 客户端<strong>没有任何外部依赖</strong> — 使用 node 的 <code>crypto</code> 签发 RS256 JWT，并通过全局 <code>fetch</code> 直接从 Sheets REST API 获取 token 和数据（不用 <code>googleapis</code>）；作用域是完整的 <code>auth/spreadsheets</code>，因此回写无需重新授权。<strong>类型推断</strong>以 <code>UNFORMATTED</code> 方式读取值，并依据单元格生效的 <code>numberFormat.type</code>（由 Sheets API 权威给出）判断是日期还是数字，因此无论语言区域如何都能识别日期，并以格式化字符串的启发式判断作为兜底。</p>
 <p>配置存放在两张隐藏数据表中：<code>ptdl_gsheet_connections</code>（每个连接一行 — 来源、目标、模式、计划、状态、<code>accountId</code>、旧版内联 <code>credentials</code>、<code>twoWay</code>、<code>pushDeletes</code>…）和 <code>ptdl_gsheet_accounts</code>（可复用的 service account，<code>credentials</code> 只写不读）。凭据解析顺序：账号优先，内联凭据兜底。<strong>目标数据表</strong>通过 collections repository 创建（与数据表管理界面走同一条路径，所以它会出现在数据源中），另加一个隐藏的 <code>_sheet_row</code> bigint 字段用于标识行。</p>
 <p>服务端资源：<code>ptdlGsheet</code>（ACL snippet <code>pm.gsheet-sync</code>），包含 <code>listConnections</code>、<code>saveConnection</code>、<code>deleteConnection</code>、<code>testConnection</code>、<code>preview</code>、<code>syncNow</code>、<code>pushNow</code>、<code>listAccounts</code>、<code>saveAccount</code>、<code>deleteAccount</code> 等操作。调度器每 60 秒运行一次。回写（<code>WritebackManager</code>）按双向连接分别绑定，对变更进行排队 + 防抖，并合并成一次 <code>values:batchUpdate</code>（外加 append / deleteDimension）刷出 — 已防范公式注入且不会形成回环；表格上的行标识以<strong>主键列</strong>为准，<code>_sheet_row</code> 作为提示。整个设置界面是 <code>src/shared/ConnectionManager.tsx</code>（仅用 antd），由两条客户端通道共用，api client 按通道注入。构建：<code>bash build-env/recipes/run-gsheet-sync-build.sh</code>。</p>
+<h3>安全（0.1.18）</h3>
+<p>同步永远不会写入系统表（users、roles、authenticators、workflows…）或插件表。“已有数据表”模式只接受数据表管理中的业务表；“新建”模式会拒绝已存在且不是由 Sheet Sync 创建的表——因为该模式会在重新导入前清空整张表。</p>
 </div>
     </section>
 
@@ -27033,7 +27352,7 @@ optional <strong>two-way write-back</strong> to the sheet.</p>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Gửi Email</span><span class="lang lang-en" hidden>Mailer</span><span class="lang lang-zh" hidden>邮件发送</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Dữ liệu</span><span class="lang lang-en" hidden>Data</span><span class="lang lang-zh" hidden>Data</span></span>
-        <span class="chip">v0.2.11</span>
+        <span class="chip">v0.2.14</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -27560,7 +27879,7 @@ database, bật lại là dùng tiếp.</p>
 <ul>
 <li>Bộ máy render: <code>src/shared/renderEngine.ts</code> — port nguyên văn <code>helpers.ts</code> của <code>@tuanla90/plugin-print-template</code>
 (copy, <strong>không import</strong>, nên 2 plugin cài độc lập được).</li>
-<li>Trình kéo-thả: <code>src/shared/grapesBodyEditor.tsx</code>, asset nạp từ <code>dist/grapes/</code>. Thuộc tính DOM vẫn mang tiền
+<li>Trình kéo-thả: <code>src/shared/grapesBodyEditor.tsx</code>, asset nạp từ <code>dist/client/vendor/grapes/</code>. Thuộc tính DOM vẫn mang tiền
 tố <code>data-pt-*</code> (pt = print-template) và nhóm block vẫn tên <code>Template in</code> — di sản của việc copy.</li>
 <li>Server: <code>src/server/plugin.ts</code> + <code>sendCore.ts</code>. Collection <code>ptdlMailerMethods</code> / <code>ptdlMailTemplates</code>
 (+ <code>ptdlMailerConfig</code> legacy v0.1 chỉ để migrate). Resource <code>mailer</code> với 7 action; 5 action quản trị chặn
@@ -27664,7 +27983,7 @@ bằng snippet <code>pm.mailer</code> + kiểm tra role trong handler; <code>sen
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Gửi tin nhắn (Zalo / Telegram / Slack)</span><span class="lang lang-en" hidden>Chat messages (Zalo / Telegram / Slack)</span><span class="lang lang-zh" hidden>聊天消息 (Zalo / Telegram / Slack)</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Dữ liệu</span><span class="lang lang-en" hidden>Data</span><span class="lang lang-zh" hidden>Data</span></span>
-        <span class="chip">v0.1.0</span>
+        <span class="chip">v0.1.2</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -27795,6 +28114,11 @@ có hay chưa, và để trống ô thì giữ nguyên giá trị cũ. Webhook v
 Zalo và Telegram phải gửi đúng header khoá bí mật đã đăng ký, Slack phải có chữ ký HMAC hợp lệ trong cửa
 sổ năm phút; sai thì trả 401 và không ghi gì. Tin do chính bot gửi bị bỏ qua, nên chức năng tự trả lời
 không thể tự nói chuyện với mình. Chỉ admin/root cấu hình được kênh; người dùng thường chỉ gửi được tin.</p>
+<p>Người dùng thường gửi được gì (từ 0.1.1): chỉ tới chat có trong <strong>sổ địa chỉ</strong> (hoặc đích của chính mẫu
+tin) — gõ chat id tuỳ ý là quyền của admin/workflow. Biến <code>{{field}}</code> được điền <strong>đúng như người đó nhìn thấy
+bản ghi</strong>: bản ghi phải nằm trong phạm vi dữ liệu của họ, quan hệ họ không được xem thì để trống, cột bị ẩn
+với vai trò của họ không bao giờ lọt vào tin nhắn. Kết nối Zalo/Telegram <strong>chưa có webhook secret sẽ từ chối
+mọi sự kiện gửi vào</strong> — nút Register webhook luôn đặt secret.</p>
 <h3>Cạm bẫy hay gặp</h3>
 <table>
 <thead>
@@ -27969,6 +28293,11 @@ session-authenticated: Zalo and Telegram must present the secret header they wer
 must present a valid HMAC signature within a five-minute window; anything else gets 401 and writes
 nothing. Messages the bot itself sent are ignored, so an auto-reply can never answer itself. Only
 admin/root can configure channels; ordinary users can only send.</p>
+<p>What an ordinary user can send (since 0.1.1): only to a chat that is in the <strong>address book</strong> (or the
+template’s own target) — raw chat ids are an admin/workflow capability. <code>{{field}}</code> tokens are filled
+<strong>as that user sees the record</strong>: it must be inside their data scope, a relation they may not view renders
+empty, and columns hidden from their role never reach the message. A Zalo/Telegram connection <strong>without a
+webhook secret refuses every inbound event</strong> — Register webhook always sets one.</p>
 <h3>Common traps</h3>
 <table>
 <thead>
@@ -28137,6 +28466,10 @@ Slack 3900 字符。</p>
 登录会话验证：Zalo 与 Telegram 必须带上注册时的密钥请求头，Slack 必须在五分钟窗口内提供有效的 HMAC 签名；
 否则返回 401 且不写入任何数据。机器人自己发出的消息会被忽略，因此自动回复不可能自我应答。仅 admin/root
 可配置渠道，普通用户只能发送。</p>
+<p>普通用户能发送什么（0.1.1 起）：只能发给<strong>通讯录</strong>中的聊天（或模板自带的目标）——直接填写任意 chat id 属于
+管理员/工作流的能力。<code>{{field}}</code> 变量<strong>按该用户看到的记录</strong>填充：记录必须在其数据范围内，无权查看的关联显示为空，
+对其角色隐藏的字段不会进入消息。<strong>未设置 webhook 密钥</strong>的 Zalo/Telegram 连接会<strong>拒绝所有入站事件</strong>——“注册
+webhook”总会设置密钥。</p>
 <h3>常见问题</h3>
 <table>
 <thead>
@@ -28565,7 +28898,7 @@ Slack 3900 字符。</p>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Nhân bản sâu (cha – con – cháu)</span><span class="lang lang-en" hidden>Deep Duplicate</span><span class="lang lang-zh" hidden>深度复制</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Dữ liệu</span><span class="lang lang-en" hidden>Data</span><span class="lang lang-zh" hidden>Data</span></span>
-        <span class="chip">v0.2.0</span>
+        <span class="chip">v0.2.2</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -28703,7 +29036,13 @@ kết.</p>
 <ul>
 <li>Nút thuộc nhóm hành động “tạo mới”: vai trò không có quyền <strong>create</strong> trên bảng sẽ không nhìn thấy
 nút, và máy chủ cũng từ chối lời gọi.</li>
-<li>Đọc sơ đồ quan hệ (trình sửa quy tắc) chỉ dành cho quản trị.</li>
+<li>Việc nhân bản tuân theo quyền của người bấm ở <strong>mọi cấp</strong>, y như form thông thường: chỉ chép được bản
+ghi nằm trong phạm vi dữ liệu của vai trò (với “bản ghi của mình”, bản ghi của người khác được báo “không
+tìm thấy”); cột mà vai trò không được xem thì không được chép và không hiện trong bản xem trước; cột không
+được nhập khi tạo mới thì để trống. Cấp con mà vai trò không được xem hoặc tạo sẽ bị bỏ qua và ghi
+<strong>không có quyền</strong> trong bản xem trước. Root không bị giới hạn.</li>
+<li>Đọc sơ đồ quan hệ, xem danh sách quy tắc và xem trước một quy tắc chưa lưu (trình sửa quy tắc) chỉ
+dành cho quản trị.</li>
 </ul>
 <h3>Ghi chú</h3>
 <ul>
@@ -28848,7 +29187,13 @@ with the link.</p>
 <ul>
 <li>The button is an “create”-class action: a role without <strong>create</strong> permission on the collection never
 sees it, and the server rejects the call as well.</li>
-<li>Reading the relation schema (the rule editor) is admin-only.</li>
+<li>A duplicate follows the caller’s permissions at <strong>every level</strong>, exactly like the normal forms: only
+records inside the role’s data scope can be copied (another user’s record reads as “not found” under
+“own records”), columns the role cannot view are neither copied nor shown in the preview, and columns it
+cannot fill on create stay empty. A child level the role cannot view or create is skipped and marked
+<strong>no permission</strong> in the preview. Root is unrestricted.</li>
+<li>Reading the relation schema, listing rules and previewing an unsaved rule (the rule editor) are
+admin-only.</li>
 </ul>
 <h3>Notes</h3>
 <ul>
@@ -28980,7 +29325,8 @@ paths and sort positions are rebuilt, workflows fire on the copies.</li>
 <h3>权限</h3>
 <ul>
 <li>该按钮属于“创建”类操作：没有该数据表 <strong>create</strong> 权限的角色看不到按钮，服务端同样会拒绝请求。</li>
-<li>读取关系结构（规则编辑器）仅限管理员。</li>
+<li>复制在<strong>每一层</strong>都遵循操作者的权限，与普通表单一致：只能复制角色数据范围内的记录（“仅自己的数据”时，他人的记录会提示“未找到”）；角色无权查看的字段不会被复制，也不会出现在预览中；创建时无权填写的字段保持为空。角色无权查看或创建的子层级会被跳过，并在预览中标记为 <strong>无权限</strong>。root 不受限制。</li>
+<li>读取关系结构、查看规则列表以及预览未保存的规则（规则编辑器）仅限管理员。</li>
 </ul>
 <h3>说明</h3>
 <ul>
@@ -28996,7 +29342,7 @@ paths and sort positions are rebuilt, workflows fire on the copies.</li>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Nhật ký thay đổi</span><span class="lang lang-en" hidden>Change Log</span><span class="lang lang-zh" hidden>变更日志</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Dữ liệu</span><span class="lang lang-en" hidden>Data</span><span class="lang lang-zh" hidden>Data</span></span>
-        <span class="chip">v0.1.12</span>
+        <span class="chip">v0.1.13</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -29555,7 +29901,7 @@ never offered before. Your other choices (enabled, snapshots, note, retention) a
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Xuất Excel theo mẫu</span><span class="lang lang-en" hidden>Excel Template Export</span><span class="lang lang-zh" hidden>Excel 模板导出</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Dữ liệu</span><span class="lang lang-en" hidden>Data</span><span class="lang lang-zh" hidden>Data</span></span>
-        <span class="chip">v0.1.12</span>
+        <span class="chip">v0.1.16</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><p>Xuất bản ghi ra file <strong><code>.xlsx</code> theo đúng mẫu bạn tự thiết kế trong Excel</strong> — merge ô, màu, viền, định dạng số, logo giữ <strong>nguyên 1:1</strong>. Bạn chỉ đặt các ô placeholder <code>{{...}}</code>, khi xuất plugin chỉ <strong>thay giá trị</strong>, mọi định dạng được giữ y hệt.</p>
@@ -29580,8 +29926,13 @@ never offered before. Your other choices (enabled, snapshots, note, retention) a
 <ul>
 <li>Trường thường → <code>{{tên_trường}}</code>.</li>
 <li>Trường <strong>quan hệ</strong> → <code>{{quan_he.cột_hiển_thị}}</code> (vd <code>{{department.name}}</code>) — tự lấy <strong>cột nhãn</strong> của bảng đích, và tự thêm quan hệ đó vào <em>“Quan hệ cần nạp”</em>.</li>
-<li>Quan hệ nhiều (hasMany) đầu tiên → 1 <strong>dòng lặp <code>{{#each}}</code></strong> kèm các cột của bảng con.</li>
+<li>Quan hệ nhiều (hasMany) đầu tiên → 1 <strong>dòng lặp <code>{{#each}}</code></strong> kèm các cột của bảng con. Cột quan hệ trong dòng lặp (vd <code>{{product.name}}</code>) tự thêm luôn <code>dong_hang.product</code> vào <em>“Quan hệ cần nạp”</em>.</li>
 <li>Kèm 1 sheet <strong>“# Hướng dẫn”</strong> (cú pháp đầy đủ).</li>
+</ul>
+<h4>Quan hệ cần nạp (0.1.16)</h4>
+<ul>
+<li>Bấm <strong>＋ Thêm quan hệ ▾</strong> rồi rê chuột để mở tầng sâu hơn — tối đa <strong>3 tầng</strong>, vd <code>custom_declaration_id</code> → <code>custom_declaration_id.order</code> → <code>custom_declaration_id.order.company</code> (cùng bộ chọn với Mẫu in). Mỗi lần chọn thành 1 tag, bấm × để bỏ.</li>
+<li>Thường <strong>không cần chọn tay</strong>: khi <strong>tải file lên</strong> (và lần nữa lúc <strong>Lưu</strong>), plugin đọc mọi <code>{{…}}</code> trong file — ô thường, công thức (<code>data.…</code>), dòng <code>{{#each}}</code> và các cột của nó, tham số ảnh, tên file xuất — rồi <strong>tự thêm</strong> từng tầng quan hệ chạm tới (<code>ma_khach</code>, <code>ma_khach.nhan_vien_phu_trach</code>, <code>dong_hang.product</code>…). Chỉ thêm, không bao giờ xoá.</li>
 </ul>
 <blockquote>
 <p>🧩 <strong>Sheet ghi chú:</strong> mọi sheet có tên <strong>bắt đầu bằng <code>#</code></strong> (vd <code># Hướng dẫn</code>, <code># Ghi chú</code>) sẽ <strong>tự bị bỏ khi xuất</strong> — dùng để ghi chú lúc thiết kế, không xuất hiện trong file kết quả.</p>
@@ -29603,7 +29954,7 @@ never offered before. Your other choices (enabled, snapshots, note, retention) a
 </tr>
 <tr>
 <td><code>{{khach_hang.ten}}</code></td>
-<td>Trường của <strong>quan hệ</strong> (nhớ chọn quan hệ ở <em>“Quan hệ cần nạp”</em>)</td>
+<td>Trường của <strong>quan hệ</strong> — lồng nhiều tầng cũng được: <code>{{khach_hang.nhan_vien_phu_trach.ho_va_ten}}</code> (quan hệ tự thêm vào <em>“Quan hệ cần nạp”</em> khi tải file lên)</td>
 </tr>
 <tr>
 <td><code>{{= data.so_luong * data.don_gia}}</code></td>
@@ -29752,7 +30103,7 @@ never offered before. Your other choices (enabled, snapshots, note, retention) a
 </tr>
 <tr>
 <td>Cột quan hệ trống</td>
-<td>Chưa chọn quan hệ ở <em>“Quan hệ cần nạp”</em> nên dữ liệu không được nạp.</td>
+<td>Quan hệ (hoặc 1 tầng lồng như <code>a.b</code>) chưa có trong <em>“Quan hệ cần nạp”</em>. Từ 0.1.15 plugin tự thêm khi tải file lên / Lưu — vẫn trống thì kiểm tra lại tên quan hệ trong ô có đúng chính tả không.</td>
 </tr>
 <tr>
 <td>Tổng cộng bằng công thức Excel <code>=SUM(...)</code> sai sau khi nhân dòng</td>
@@ -29768,7 +30119,7 @@ never offered before. Your other choices (enabled, snapshots, note, retention) a
 <h3>8. Ghi chú kỹ thuật</h3>
 <ul>
 <li>Mẫu <code>.xlsx</code> lưu ngay trong bản ghi (base64) — không phụ thuộc plugin lưu trữ file.</li>
-<li>Render <strong>client-side</strong>: ExcelJS (<code>dist/exceljs.min.js</code>) + JSZip được tải động từ chính plugin (không bundle vào bản chính).</li>
+<li>Render <strong>client-side</strong>: ExcelJS (<code>dist/client/vendor/exceljs.min.js</code>) + JSZip được tải động từ chính plugin (không bundle vào bản chính).</li>
 <li>Công thức dùng cầu nối <code>__ptdlFormula</code> của <strong>plugin-formula</strong> (soft-dependency) — cần bật plugin-formula để dùng <code>{{= …}}</code>.</li>
 <li>Hiện hỗ trợ <strong>dòng lặp một-dòng</strong> (band 1 dòng). Dòng lặp nhiều-dòng và tự dời tham chiếu công thức Excel là hạng mục nâng cấp sau.</li>
 </ul>
@@ -29804,7 +30155,7 @@ never offered before. Your other choices (enabled, snapshots, note, retention) a
 </tr>
 <tr>
 <td><code>{{customer.name}}</code></td>
-<td>a relation field (pick the relation under <em>Relations to load</em>)</td>
+<td>a relation field — nested works too: <code>{{customer.owner.name}}</code> (relations are added to <em>Relations to load</em> automatically on upload)</td>
 </tr>
 <tr>
 <td><code>{{= data.qty * data.price}}</code></td>
@@ -29829,6 +30180,11 @@ never offered before. Your other choices (enabled, snapshots, note, retention) a
 </tbody>
 </table>
 <p><strong>★ <code>{{field}}</code> vs <code>{{= formula}}</code></strong> — plain value cells write the field name directly; inside a <strong>formula</strong> you must reference fields as <strong><code>data.field</code></strong> (relations as <code>data.rel.field</code>, e.g. <code>SUM(data.lines.amount)</code>). Same convention as computed-field / rich-select.</p>
+<h3>Relations to load (0.1.16)</h3>
+<ul>
+<li>Click <strong>＋ Add relation ▾</strong> and hover to open deeper levels — up to <strong>3 levels</strong>, e.g. <code>lines</code> → <code>lines.order</code> → <code>lines.order.company</code> (the same picker as Print Template). Each pick becomes a removable tag.</li>
+<li>You rarely need to pick by hand: on <strong>upload</strong> (and again on <strong>save</strong>) the plugin reads every <code>{{…}}</code> in the file — plain cells, formulas (<code>data.…</code>), <code>{{#each}}</code> bands and their columns, image arguments, the output file name — and adds each relation level it reaches (<code>customer</code>, <code>customer.owner</code>, <code>lines.product</code>…). It only ever adds.</li>
+</ul>
 <h3>Two common templates</h3>
 <ul>
 <li><strong>A. Document / voucher</strong> — parent header on top, child table below, totals: <a href="examples/mau-phieu-ban-hang.xlsx"><code>examples/mau-phieu-ban-hang.xlsx</code></a>. Uses <code>{{#each lines}}</code> + <code>{{= SUMPRODUCT(data.lines.quantity, data.lines.price)}}</code>.</li>
@@ -29870,7 +30226,7 @@ never offered before. Your other choices (enabled, snapshots, note, retention) a
 </tr>
 <tr>
 <td><code>{{customer.name}}</code></td>
-<td>关系上的某个字段（记得在<em>需要加载的关系</em>里选上这个关系）</td>
+<td>关系上的某个字段 — 也支持多层嵌套：<code>{{customer.owner.name}}</code>（上传文件时会自动加入<em>需要加载的关系</em>）</td>
 </tr>
 <tr>
 <td><code>{{= data.qty * data.price}}</code></td>
@@ -29895,6 +30251,11 @@ never offered before. Your other choices (enabled, snapshots, note, retention) a
 </tbody>
 </table>
 <p><strong>★ <code>{{field}}</code> 与 <code>{{= formula}}</code> 的区别</strong> — 普通取值单元格直接写字段名；而在<strong>公式</strong>内部，引用字段必须写成 <strong><code>data.field</code></strong>（关系字段写成 <code>data.rel.field</code>，例如 <code>SUM(data.lines.amount)</code>）。这与计算字段 / 高级选择器的约定完全一致。</p>
+<h3>需要加载的关系（0.1.16）</h3>
+<ul>
+<li>点击 <strong>＋ 添加关系 ▾</strong>，鼠标悬停即可展开更深层级——最多 <strong>3 层</strong>，例如 <code>lines</code> → <code>lines.order</code> → <code>lines.order.company</code>（与打印模板相同的选择器）。每次选择都会成为一个可删除的标签。</li>
+<li>通常<strong>无需手动选择</strong>：<strong>上传</strong>文件时（以及<strong>保存</strong>时再检查一次），插件会读取文件里的每个 <code>{{…}}</code> — 普通单元格、公式（<code>data.…</code>）、<code>{{#each}}</code> 重复行及其各列、图片参数、导出文件名 — 并自动加入其用到的每一层关系（<code>customer</code>、<code>customer.owner</code>、<code>lines.product</code>…）。只会添加，不会删除。</li>
+</ul>
 <h3>两种常见模板</h3>
 <ul>
 <li><strong>A. 单据 / 凭证</strong> — 上方是主表表头，下方是明细表，还有合计：<a href="examples/mau-phieu-ban-hang.xlsx"><code>examples/mau-phieu-ban-hang.xlsx</code></a>。用到了 <code>{{#each lines}}</code> + <code>{{= SUMPRODUCT(data.lines.quantity, data.lines.price)}}</code>。</li>
@@ -30274,7 +30635,7 @@ configured right in the admin UI, <strong>no code, no server restart</strong>.</
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Đăng nhập bằng Google</span><span class="lang lang-en" hidden>Google Sign-In</span><span class="lang lang-zh" hidden>Google 登录</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Bảo mật &amp; Đăng nhập</span><span class="lang lang-en" hidden>Security &amp; sign-in</span><span class="lang lang-zh" hidden>Security &amp; sign-in</span></span>
-        <span class="chip">v0.1.1</span>
+        <span class="chip">v0.1.2</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -30405,6 +30766,13 @@ hình xác thực khác — nên hãy cân nhắc khi cấp quyền quản trị
 khai đứng sau nó: <code>ptdlGoogleAuth:authorize</code> và <code>ptdlGoogleAuth:callback</code>. Không thêm bảng dữ liệu nào
 — chuỗi <code>state</code> đã ký tự mang đủ ngữ cảnh — và không cần thư viện <code>googleapis</code>, vì <code>fetch</code> có sẵn của
 Node lo phần đổi token.</p>
+<h3>Bảo mật (0.1.2)</h3>
+<ul>
+<li><strong>Lượt đăng nhập gắn với trình duyệt đã bắt đầu nó.</strong> Token Google trả về chỉ được chấp nhận ở đúng tab đã bấm nút — một đường link mang token của người khác không còn đăng nhập được ai.</li>
+<li><strong>“Liên kết với người dùng có cùng email” nay mặc định TẮT.</strong> NocoBase cho người dùng tự sửa email mà không xác minh, nên khi bật liên kết, ai đặt email của người khác vào tài khoản mình sẽ nhận luôn lượt đăng nhập Google của người đó. Chỉ bật khi người dùng không tự đổi được email.</li>
+<li><strong>Tên miền cho phép là tên miền Google Workspace.</strong> Tên miền công ty nay bắt buộc có claim <code>hd</code> của Google; <code>gmail.com</code> / <code>googlemail.com</code> vẫn so theo email.</li>
+<li><strong>“Vai trò cho người dùng mới” không được là vai trò quyền cao</strong> (root, admin, hoặc vai trò có quyền cài đặt / cấu hình giao diện) — bị từ chối khi lưu và khi gán.</li>
+</ul>
 </div>
       <div class="prose lang lang-en" hidden><blockquote>
 <p>Let people into NocoBase with the Google account they already use. You register one OAuth client
@@ -30534,6 +30902,13 @@ other authentication settings — so treat administrator access accordingly.</p>
 public endpoints back it: <code>ptdlGoogleAuth:authorize</code> and <code>ptdlGoogleAuth:callback</code>. There is no extra
 database table — the signed <code>state</code> carries its own context — and no <code>googleapis</code> dependency, since
 Node’s built-in <code>fetch</code> does the token exchange.</p>
+<h3>Security (0.1.2)</h3>
+<ul>
+<li><strong>Sign-in is bound to the browser that started it.</strong> The token that comes back from Google is only accepted by the tab that pressed the button — a link carrying someone else’s token no longer signs anyone in.</li>
+<li><strong>“Link to an existing user with the same email” is now off by default.</strong> NocoBase lets users edit their own email without verification, so with linking on, a user who puts someone else’s email on their account receives that person’s Google sign-in. Enable it only if users cannot change their email.</li>
+<li><strong>Allowed domains means Google Workspace domains.</strong> A company domain now requires Google’s <code>hd</code> claim; <code>gmail.com</code> / <code>googlemail.com</code> are still matched by email.</li>
+<li><strong>“Role for new users” cannot be an elevated role</strong> (root, admin, or a role with settings / UI-configuration permissions) — refused when saving and when assigning.</li>
+</ul>
 </div>
       <div class="prose lang lang-zh" hidden><blockquote>
 <p>让大家用手上已有的 Google 账号进入 NocoBase。你在 Google 那边注册一个 OAuth 客户端，把两个值粘贴到
@@ -30658,6 +31033,13 @@ app      -&gt;  stores the token and opens the landing page
 <p>认证类型标识是 <code>google</code>，因此自定义登录页会自动取到对应的 Google 图标。背后是两个公开端点：
 <code>ptdlGoogleAuth:authorize</code> 与 <code>ptdlGoogleAuth:callback</code>。不会新增任何数据表 —— 已签名的 <code>state</code>
 自带上下文 —— 也不需要 <code>googleapis</code> 依赖，因为换取令牌由 Node 内置的 <code>fetch</code> 完成。</p>
+<h3>安全（0.1.2）</h3>
+<ul>
+<li><strong>登录与发起它的浏览器绑定。</strong> Google 返回的令牌只会被点击按钮的那个标签页接受——携带他人令牌的链接无法再让任何人登录。</li>
+<li><strong>“按相同邮箱关联已有用户”现在默认关闭。</strong> NocoBase 允许用户在未验证的情况下修改自己的邮箱，开启关联时，把他人邮箱填到自己账号上的用户就会拿到那个人的 Google 登录。仅在用户无法修改邮箱时开启。</li>
+<li><strong>允许的域名指 Google Workspace 域名。</strong> 公司域名现在要求 Google 的 <code>hd</code> 声明；<code>gmail.com</code> / <code>googlemail.com</code> 仍按邮箱匹配。</li>
+<li><strong>“新用户角色”不能是高权限角色</strong>（root、admin，或拥有设置/界面配置权限的角色）——保存和分配时都会被拒绝。</li>
+</ul>
 </div>
     </section>
 
@@ -30665,7 +31047,7 @@ app      -&gt;  stores the token and opens the landing page
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Luật dữ liệu (phân quyền dòng, cột &amp; trang)</span><span class="lang lang-en" hidden>Data Rules (row, column &amp; page permissions)</span><span class="lang lang-zh" hidden>数据规则（行、列与页面权限）</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Bảo mật &amp; Đăng nhập</span><span class="lang lang-en" hidden>Security &amp; sign-in</span><span class="lang lang-zh" hidden>Security &amp; sign-in</span></span>
-        <span class="chip">v0.4.6</span>
+        <span class="chip">v0.4.7</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><p>Một nơi cho cả ba tầng “ai được đụng vào cái gì”: <strong>dòng</strong>, <strong>cột</strong> và <strong>trang</strong>. Mở ra là biết ngay: vai trò nào, trên bảng nào, được xem/sửa/xoá những dòng nào — và logic “những dòng nào” viết bằng đúng cú pháp công thức của <strong>Trường tự tính</strong>.</p>
@@ -30888,6 +31270,13 @@ data.region == $user.region &amp;&amp; data.amount &lt;= 100000000
 <li><strong>Người dùng nhiều vai trò thấy phần hợp (OR)</strong> các luật của những vai trò đó — thêm vai trò là được thêm quyền, không phải mất quyền.</li>
 <li><strong>Luật AND với scope gốc.</strong> Đã cấu hình <em>Own records</em> mà thêm luật thì phải thoả cả hai.</li>
 <li><strong>Xuất dữ liệu chịu luật của quyền Xem</strong> — xuất cũng là đọc.</li>
+<li><strong>Dữ liệu liên quan theo luật của chính bảng đó</strong> (từ 0.4.7). <code>orders:list?appends=items</code> chỉ trả các dòng
+<code>items</code> mà luật Xem của <code>items</code> cho phép, và bỏ các cột bị ẩn trên <code>items</code>. Khi xuất dữ liệu, cột đi qua
+quan hệ tới bảng có luật với người đó sẽ bị bỏ.</li>
+<li><strong>Tổng hợp (<code>:query</code>, biểu đồ) chịu luật Xem</strong>; truy vấn lọc theo một cột bị ẩn sẽ bị từ chối (vì như thế là
+đọc ngược lại được cột đó).</li>
+<li><strong><code>updateOrCreate</code> / <code>firstOrCreate</code> bị từ chối</strong> với người đang chịu luật Sửa (hoặc Xem / ẩn cột) trên bảng
+đó — hai action này không nhận filter nên không gắn luật vào được. Hãy dùng create / update.</li>
 <li><strong>Biểu thức được kiểm tra lúc lưu.</strong> Sai cú pháp hoặc sai tên trường là không lưu được. Nếu vẫn có luật hỏng lọt xuống runtime, luật đó <strong>không cấp gì cả</strong> (fail-closed) và ghi log lỗi.</li>
 <li><strong>Chỉ vai trò có snippet <code>pm.*</code> (mặc định: admin) mới vào được trang này</strong> và gọi được API của nó.</li>
 </ul>
@@ -31165,6 +31554,13 @@ filter that would be produced, <strong>how many of how many rows</strong> that p
 <li><strong>A caller holding several roles gets the OR</strong> of those roles’ rules — extra roles grant, never remove.</li>
 <li><strong>Rules AND with the native scope.</strong> With <em>Own records</em> configured as well, both must hold.</li>
 <li><strong>Export is governed by the View rules</strong> — exporting is reading.</li>
+<li><strong>Related data obeys the related table’s rules</strong> (0.4.7+). <code>orders:list?appends=items</code> only returns the
+<code>items</code> rows that the <code>items</code> View rules allow, minus the columns hidden on <code>items</code>. An export drops
+relation columns whose table has rules for the caller.</li>
+<li><strong>Aggregations (<code>:query</code>, charts) are governed by the View rules</strong>, and a query that filters on a hidden
+column is refused (it would read the column back).</li>
+<li><strong><code>updateOrCreate</code> / <code>firstOrCreate</code> are refused</strong> for a caller governed by an Update (resp. View / hide)
+rule on that table — they carry no filter a rule could be added to. Use create / update.</li>
 <li><strong>Expressions are validated on save.</strong> A syntax error or an unknown field name cannot be saved. Should a
 broken rule ever reach the gate anyway, it grants nothing (fail-closed) and logs the error.</li>
 <li><strong>Only roles carrying the <code>pm.*</code> snippet (admin by default)</strong> can open this page or call its API.</li>
@@ -31430,6 +31826,11 @@ data.region == $user.region &amp;&amp; data.amount &lt;= 100000000
 <li><strong>持有多个角色的调用者拿到的是这些角色规则的 OR</strong> — 多一个角色只会多一份权限，永远不会少。</li>
 <li><strong>规则与原生数据范围是 AND 关系。</strong> 如果同时配置了<em>自己的记录（Own records）</em>，那么两者都必须成立。</li>
 <li><strong>导出受「查看」规则约束</strong> — 导出就是读取。</li>
+<li><strong>关联数据遵循关联表自身的规则</strong>（0.4.7 起）。<code>orders:list?appends=items</code> 只返回 <code>items</code> 的「查看」规则允许的行，
+并去掉 <code>items</code> 上被隐藏的字段。导出时，经过关联到“对该用户有规则的表”的列会被移除。</li>
+<li><strong>聚合（<code>:query</code>、图表）受「查看」规则约束</strong>；按被隐藏字段过滤的查询会被拒绝（否则可以反推出该字段）。</li>
+<li>对在该表上受「修改」（或「查看」/隐藏字段）规则约束的用户，<strong><code>updateOrCreate</code> / <code>firstOrCreate</code> 会被拒绝</strong>——
+这两个 action 不接受 filter，无法附加规则。请使用 create / update。</li>
 <li><strong>表达式在保存时校验。</strong> 语法错误或字段名不存在都无法保存。万一真有一条坏掉的规则跑到了拦截环节，
 它什么都不会授予（fail-closed），并记录错误日志。</li>
 <li><strong>只有持有 <code>pm.*</code> snippet 的角色（默认是 admin）</strong> 才能打开这个页面或调用它的 API。</li>
@@ -31451,7 +31852,7 @@ data.region == $user.region &amp;&amp; data.amount &lt;= 100000000
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Trang đăng nhập tùy biến</span><span class="lang lang-en" hidden>Custom Login</span><span class="lang lang-zh" hidden>自定义登录页</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Bảo mật &amp; Đăng nhập</span><span class="lang lang-en" hidden>Security &amp; sign-in</span><span class="lang lang-zh" hidden>Security &amp; sign-in</span></span>
-        <span class="chip">v2.3.10</span>
+        <span class="chip">v2.3.11</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
