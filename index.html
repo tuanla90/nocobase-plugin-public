@@ -132,7 +132,7 @@ a:hover{text-decoration:underline}
       <a class="nav-link" href="#pivot-table" data-text="khối: bảng tổng hợp block: pivot table 区块：数据透视表 khối bảng tổng hợp (pivot) cho mọi bảng dữ liệu: xoay dòng theo cột với nhiều phép tính (tổng, đếm, trung bình, nhỏ nhất, lớn nhất, đếm không trùng). nhóm nhiều cấp có gộp ô, tiêu đề cột nhiều tầng, dòng tổng phụ và tổng cộng, % theo dòng/cột/tổng, tô màu theo độ lớn, bấm ô xem chi tiết, xuất csv/excel giữ nguyên ô gộp. pivot table block for any collection: cross-tabulate rows against columns with multiple aggregates (sum, count, average, min, max, distinct count). multi-level row groups with merged cells and multi-level column headers, subtotals and grand totals, % of row/column/total, heat-map colouring, click-to-drill-down, and csv/excel export that keeps the merged cells. aggregates run in the database, so there is no row cap. works on v1 and v2 pages. 适用于任意数据表的数据透视区块：行×列交叉汇总，支持多种聚合（求和、计数、平均、最小、最大、去重计数、比率），小计与总计经由 sql grouping sets 直接来自数据库，支持合并单元格、条形/热力图、日期粒度、点击下钻，并可导出保留合并单元格的 excel/csv。经典与 /v/ 两种界面均可使用。"><span class="lang lang-vi">Khối: Bảng tổng hợp</span><span class="lang lang-en" hidden>Block: Pivot table</span><span class="lang lang-zh" hidden>区块：数据透视表</span></a>
       <a class="nav-link" href="#block-custom-html" data-text="khối: html tùy biến block: custom html 区块：自定义 html một khối dùng lại chính bộ truy vấn dữ liệu của khối biểu đồ (trình dựng truy vấn / sql / xem trước / bộ lọc / làm mới), rồi hiển thị kết quả bằng html + css + js do bạn tự viết — thẻ chỉ số, kpi, bảng xếp hạng, thẻ thông tin. đi kèm bộ mẫu dựng sẵn và các hàm hỗ trợ (định dạng, escape, biểu tượng). a block that runs the chart block’s data query (builder / sql / preview / filter / refresh) and renders the result with your own html + css + js — scorecards, kpis, top lists, cards. ships preset templates and helper functions (format, escape, icons). 一个复用图表区块数据查询能力（可视化构建器 / sql / 预览 / 筛选 / 刷新）的区块，并用你自己编写的 html + css + js 渲染查询结果——指标卡、kpi、排行榜、信息卡片都可以做。内置多套预设模板和辅助函数（格式化、转义、图标）。"><span class="lang lang-vi">Khối: HTML tùy biến</span><span class="lang lang-en" hidden>Block: Custom HTML</span><span class="lang lang-zh" hidden>区块：自定义 HTML</span></a>
       <a class="nav-link" href="#vietqr" data-text="mã qr chuyển khoản (vietqr) vietqr 越南银行转账二维码 (vietqr) khối hiển thị mã qr chuyển khoản chuẩn vietqr/napas sinh từ chính dữ liệu bản ghi — ngân hàng + số tài khoản thụ hưởng, số tiền lấy từ cột, nội dung ghép từ token {{ten_cot}}. payload sinh hoàn toàn offline (emvco tlv + crc-16), không cần api key, không phụ thuộc dịch vụ bên thứ ba. kèm field &quot;ngân hàng&quot; chọn từ danh sách napas và lưu mã bin. a record block that renders a napas vietqr bank-transfer qr from the record's own data — beneficiary bank + account, amount from a column, and a note built from {{field}} tokens. payloads are generated offline (emvco tlv + crc-16), with no api key and no third-party service. also adds a &quot;bank&quot; field type that picks from the napas list and stores the bin. 记录区块：直接用记录自身的数据生成 napas vietqr 银行转账二维码——收款银行与账号、取自某一列的金额，以及由 {{field}} 占位符拼出的转账备注。二维码内容在本地离线生成（emvco tlv + crc-16），无需 api 密钥，也不依赖任何第三方服务。同时新增“银行”字段类型，从 napas 银行列表中选择并保存 bin 代码。"><span class="lang lang-vi">Mã QR chuyển khoản (VietQR)</span><span class="lang lang-en" hidden>VietQR</span><span class="lang lang-zh" hidden>越南银行转账二维码 (VietQR)</span></a>
-      <a class="nav-link" href="#detail-panel" data-text="panel bên detail panel 详情侧栏 chế độ xem tách master–detail kiểu appsheet cho giao diện /v/. bổ sung kiểu mở ‘side panel’ (lựa chọn thứ tư bên cạnh drawer / dialog / page): popup bản ghi đã cấu hình được neo vào cạnh phải, phần nội dung bên trái thu hẹp lại nhường chỗ. có thêm tuỳ chọn bấm vào dòng để mở bản ghi ngay trong panel, kèm thanh kéo để chỉnh độ rộng. appsheet-style master–detail split view for /v/. adds a ‘side panel’ open mode (a 4th choice beside drawer / dialog / page) that docks the configured record popup to the right, shrinking the content beside it. a row-click option opens records in the panel, with a drag splitter to resize. appsheet 风格的主从分栏视图，适用于 /v/ 新界面。在 drawer / dialog / page 之外新增第四种打开方式「侧栏」：把配置好的记录弹窗停靠到右侧，同时收窄旁边的内容区。还可开启点击行即在侧栏中打开记录，中间的分隔条可拖动调整宽度。"><span class="lang lang-vi">Panel bên</span><span class="lang lang-en" hidden>Detail Panel</span><span class="lang lang-zh" hidden>详情侧栏</span></a>
+      <a class="nav-link" href="#detail-panel" data-text="panel bên detail panel 详情侧栏 chế độ xem tách master–detail kiểu appsheet cho giao diện /v/ và các trang kiểu mới (flow) trong /admin. bổ sung kiểu mở ‘side panel’ (lựa chọn thứ tư bên cạnh drawer / dialog / page): popup bản ghi đã cấu hình được neo vào cạnh phải, phần nội dung bên trái thu hẹp lại nhường chỗ. có thêm tuỳ chọn bấm vào dòng để mở bản ghi ngay trong panel, kèm thanh kéo để chỉnh độ rộng. appsheet-style master–detail split view for /v/ and the modern (flow) pages under /admin. adds a ‘side panel’ open mode (a 4th choice beside drawer / dialog / page) that docks the configured record popup to the right, shrinking the content beside it. a row-click option opens records in the panel, with a drag splitter to resize. appsheet 风格的主从分栏视图，适用于 /v/ 新界面以及 /admin 下的现代（flow）页面。在 drawer / dialog / page 之外新增第四种打开方式「侧栏」：把配置好的记录弹窗停靠到右侧，同时收窄旁边的内容区。还可开启点击行即在侧栏中打开记录，中间的分隔条可拖动调整宽度。"><span class="lang lang-vi">Panel bên</span><span class="lang lang-en" hidden>Detail Panel</span><span class="lang lang-zh" hidden>详情侧栏</span></a>
       <a class="nav-link" href="#view-pro" data-text="view pro view pro 视图 pro một khối, chín lăng kính dựng sẵn trên cùng bộ dữ liệu — kanban, gantt, lịch, gallery, deck, cây, bản đồ, bảng, bảng tính — cộng các mẫu html tự đặt tên, mỗi mẫu thành một nút chuyển view riêng. đổi lăng kính không tải lại; lọc, sắp xếp, phạm vi dữ liệu áp chung. kanban có thẻ phân cấp, giới hạn wip, tổng theo cột; gantt kéo được thanh, phần trăm hoàn thành và mũi tên phụ thuộc; lịch có lưới giờ, kéo dời, kéo mép đổi thời lượng, bấm-để-tạo và tuỳ chọn lịch âm. hiển thị ở cả giao diện cũ (/admin) lẫn mới (/v/). one block, nine built-in lenses over the same records — kanban, gantt, calendar, gallery, deck, tree, map, table, spreadsheet — plus named per-record html templates that each become their own switcher button. switch lens without refetching; filter, sort and data scope apply to all of them. kanban has designed cards, wip limits and column totals; gantt has draggable bars, progress and dependency arrows; calendar has a day/hour grid with drag-to-move, drag-to-resize, click-to-create and optional vietnamese lunar dates. renders on both the classic (/admin) and modern (/v/) clients. 一个区块，九种内置视角看同一批记录 —— 看板、甘特图、日历、画廊、卡片列表、树形、地图、表格、电子表格 —— 另加可命名的记录 html 模板，每个模板都是切换栏上独立的按钮。切换视角不重新请求；筛选、排序、数据范围对全部生效。看板有层次化卡片、wip 上限和列合计；甘特图可拖动条、完成百分比并绘制依赖箭头；日历有小时网格，支持拖动移动、拖边缘改时长、点击新建，并可选显示农历。经典（/admin）与新版（/v/）两套界面都能显示。"><span class="lang lang-vi">View Pro</span><span class="lang lang-en" hidden>View Pro</span><span class="lang lang-zh" hidden>视图 Pro</span></a>
     </div>
 
@@ -2343,7 +2343,7 @@ NocoBase 原本的行为</strong>，绝不抛出错误。</li>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Đường dẫn dễ đọc</span><span class="lang lang-en" hidden>Friendly URLs</span><span class="lang lang-zh" hidden>友好网址</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Quản trị / Công cụ</span><span class="lang lang-en" hidden>Admin &amp; tools</span><span class="lang lang-zh" hidden>Admin &amp; tools</span></span>
-        <span class="chip">v0.1.0</span>
+        <span class="chip">v0.1.1</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -5021,7 +5021,7 @@ capture the QR string, then feed it to the reader.</li>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Công thức &amp; Trường tự tính</span><span class="lang lang-en" hidden>Formula &amp; Computed Fields</span><span class="lang lang-zh" hidden>公式</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.2.22</span>
+        <span class="chip">v0.2.23</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -5029,7 +5029,7 @@ capture the QR string, then feed it to the reader.</li>
 trên field có sẵn, giá trị mặc định của form, <strong>cột thật do server tự tính lại</strong> theo quan hệ, và các phép
 <strong>tuần tự</strong> như số dư lũy kế hay tồn kho FIFO — <strong>không cần code</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Blocks / Fields · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.2.22</p>
+<p><strong>Nhóm:</strong> Blocks / Fields · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.2.23</p>
 <hr>
 <h3>Mục lục</h3>
 <ol>
@@ -5647,7 +5647,7 @@ tiên rồi bị <code>visited</code> chặn → tổng thiếu.</li>
 form default values, <strong>stored columns the server recomputes</strong> across relations, and <strong>sequential / window</strong> calculations
 like running balances or FIFO / average inventory costing — <strong>no code</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Blocks / Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.22</p>
+<p><strong>Group:</strong> Blocks / Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.23</p>
 <h3>What’s new after installing?</h3>
 <p>The plugin opens up <strong>5 ways to use formulas</strong>, each in a different place:</p>
 <table>
@@ -5870,7 +5870,7 @@ This column is <strong>not stored in the database</strong> — it recomputes on 
 表单默认值、<strong>由服务端跨关系重新计算并存储的列</strong>，以及<strong>顺序 / 窗口</strong>计算，
 例如滚动余额或 FIFO / 平均库存成本核算 — <strong>无需写代码</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> 区块 / 字段 · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.2.22</p>
+<p><strong>分组：</strong> 区块 / 字段 · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.2.23</p>
 <h3>安装后有什么变化？</h3>
 <p>插件带来了 <strong>5 种使用公式的方式</strong>，分别位于不同的地方：</p>
 <table>
@@ -17729,18 +17729,18 @@ VietinBank、Agribank……）必须存在 —— 否则构建<strong>直接失�
 </div>
     </section>
 
-    <section class="plugin" id="detail-panel" data-text="panel bên detail panel 详情侧栏 chế độ xem tách master–detail kiểu appsheet cho giao diện /v/. bổ sung kiểu mở ‘side panel’ (lựa chọn thứ tư bên cạnh drawer / dialog / page): popup bản ghi đã cấu hình được neo vào cạnh phải, phần nội dung bên trái thu hẹp lại nhường chỗ. có thêm tuỳ chọn bấm vào dòng để mở bản ghi ngay trong panel, kèm thanh kéo để chỉnh độ rộng. appsheet-style master–detail split view for /v/. adds a ‘side panel’ open mode (a 4th choice beside drawer / dialog / page) that docks the configured record popup to the right, shrinking the content beside it. a row-click option opens records in the panel, with a drag splitter to resize. appsheet 风格的主从分栏视图，适用于 /v/ 新界面。在 drawer / dialog / page 之外新增第四种打开方式「侧栏」：把配置好的记录弹窗停靠到右侧，同时收窄旁边的内容区。还可开启点击行即在侧栏中打开记录，中间的分隔条可拖动调整宽度。 blocks">
+    <section class="plugin" id="detail-panel" data-text="panel bên detail panel 详情侧栏 chế độ xem tách master–detail kiểu appsheet cho giao diện /v/ và các trang kiểu mới (flow) trong /admin. bổ sung kiểu mở ‘side panel’ (lựa chọn thứ tư bên cạnh drawer / dialog / page): popup bản ghi đã cấu hình được neo vào cạnh phải, phần nội dung bên trái thu hẹp lại nhường chỗ. có thêm tuỳ chọn bấm vào dòng để mở bản ghi ngay trong panel, kèm thanh kéo để chỉnh độ rộng. appsheet-style master–detail split view for /v/ and the modern (flow) pages under /admin. adds a ‘side panel’ open mode (a 4th choice beside drawer / dialog / page) that docks the configured record popup to the right, shrinking the content beside it. a row-click option opens records in the panel, with a drag splitter to resize. appsheet 风格的主从分栏视图，适用于 /v/ 新界面以及 /admin 下的现代（flow）页面。在 drawer / dialog / page 之外新增第四种打开方式「侧栏」：把配置好的记录弹窗停靠到右侧，同时收窄旁边的内容区。还可开启点击行即在侧栏中打开记录，中间的分隔条可拖动调整宽度。 blocks">
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Panel bên</span><span class="lang lang-en" hidden>Detail Panel</span><span class="lang lang-zh" hidden>详情侧栏</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Khối &amp; biểu đồ</span><span class="lang lang-en" hidden>Blocks &amp; charts</span><span class="lang lang-zh" hidden>Blocks &amp; charts</span></span>
-        <span class="chip">v0.1.7</span>
+        <span class="chip">v0.1.8</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
 <p>Mở bản ghi <strong>ghim sang bên phải</strong> thay vì bật popup che kín màn hình — kiểu <strong>master–detail của AppSheet</strong>:
 danh sách ở bên trái, chi tiết bản ghi ở bên phải, kéo thanh giữa để chỉnh rộng hẹp. Chỉ cần bật, <strong>không cần code</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Khối (Blocks) · <strong>Chạy trên:</strong> <strong>chỉ /v/ (modern)</strong> — không áp dụng /admin (classic) · <strong>Phiên bản:</strong> 0.1.7</p>
+<p><strong>Nhóm:</strong> Khối (Blocks) · <strong>Chạy trên:</strong> /v/ (modern) và các trang kiểu mới (flow) trong /admin — không áp dụng trang schema v1 cũ · <strong>Phiên bản:</strong> 0.1.8</p>
 <h3>Sau khi cài, có gì mới?</h3>
 <ul>
 <li><strong>Thêm một cách mở bản ghi mới: “Panel bên”</strong> — lựa chọn <strong>thứ 4</strong> nằm cạnh Drawer / Dialog / Page trong phần <em>cách mở popup</em> (Open mode) của mỗi nút mở popup (Xem/Sửa…). Chọn nó thì popup <strong>ghim sang phải</strong>, nội dung chính <strong>co lại bên cạnh</strong> thay vì bị lớp phủ che kín.</li>
@@ -17770,7 +17770,7 @@ danh sách ở bên trái, chi tiết bản ghi ở bên phải, kéo thanh gi�
 </tbody>
 </table>
 <blockquote>
-<p>⚠️ Chỉ có ở giao diện <strong>/v/ (modern)</strong>. Trên <strong>/admin (classic)</strong> plugin <strong>không làm gì</strong> (giao diện classic không có nút <em>cách mở</em> dạng này, cũng không có vùng ghim để chia đôi màn hình).</p>
+<p>⚠️ Chạy ở <strong>/v/</strong> và ở các <strong>trang kiểu mới (flow) mà NocoBase 2.x cũng hiển thị trong /admin</strong> — chúng dùng chung bộ máy popup và vùng ghim. Trang schema v1 cũ (trang kiểu cũ tạo trước 2.x) không bị ảnh hưởng.</p>
 </blockquote>
 <h3>Dùng thế nào (từng bước)</h3>
 <h4>Tình huống A — Cho nút <strong>Xem/Sửa</strong> mở bản ghi ra panel bên phải</h4>
@@ -17839,7 +17839,7 @@ danh sách ở bên trái, chi tiết bản ghi ở bên phải, kéo thanh gi�
 </table>
 </li>
 <li>
-<p>⚠️ <strong>Chỉ /v/</strong>: trên /admin (classic) plugin là <strong>no-op</strong> — không báo lỗi nhưng cũng không có gì thay đổi.</p>
+<p>⚠️ <strong>Trang schema v1 cũ</strong> (trang /admin kiểu cũ) chưa hỗ trợ — không báo lỗi nhưng cũng không có gì thay đổi. Trang kiểu mới trong /admin chạy giống hệt /v/.</p>
 </li>
 <li>
 <p>📱 <strong>Màn hình rất hẹp / điện thoại</strong>: nếu không có vùng ghim để chia đôi, panel <strong>tự lùi về dạng ngăn kéo (drawer)</strong> che kín như bình thường — vẫn dùng được, chỉ không chia đôi màn hình.</p>
@@ -17856,13 +17856,13 @@ danh sách ở bên trái, chi tiết bản ghi ở bên phải, kéo thanh gi�
 </ul>
 <hr>
 <h4>Cho nhà phát triển</h4>
-<p>Thuần client, <strong>chỉ /v/</strong>; không server / collection / schema. Không vá lõi: <strong>A</strong> bổ sung tuỳ chọn <code>sidePanel</code> vào <code>uiSchema.mode.enum</code> của action <code>openView</code> rồi bọc <code>handler</code> để nhắm popup vào vùng ghim <code>#nocobase-embed-container</code> (mutate <strong>thuộc tính</strong> của <code>ctx.inputArgs</code>, không gán lại cả object) + đặt độ rộng + tắt điều hướng router. <strong>B</strong> đăng ký flow <code>rowClick</code> trên <code>TableBlockModel</code>; nội dung “popup” kích hoạt lại đúng nút Xem ở chế độ <code>sidePanel</code>, nội dung “quick” render danh sách trường chỉ đọc. Một <code>MutationObserver</code> trên vùng ghim lo việc đặt lại độ rộng và ẩn/hiện thanh kéo khi panel đóng/mở. Nếu thiếu vùng ghim (vd mobile) thì tự lùi về drawer. Chi tiết kỹ thuật: xem <code>README.md</code> (tiếng Anh).</p>
+<p>Thuần client, nối giống hệt nhau ở cả hai lane (/v/ và /admin — lane /admin của 2.x chạy cùng FlowEngine cho trang flow); không server / collection / schema. Không vá lõi: <strong>A</strong> bổ sung tuỳ chọn <code>sidePanel</code> vào <code>uiSchema.mode.enum</code> của action <code>openView</code> rồi bọc <code>handler</code> để nhắm popup vào vùng ghim <code>#nocobase-embed-container</code> (mutate <strong>thuộc tính</strong> của <code>ctx.inputArgs</code>, không gán lại cả object) + đặt độ rộng + tắt điều hướng router. <strong>B</strong> đăng ký flow <code>rowClick</code> trên <code>TableBlockModel</code>; nội dung “popup” kích hoạt lại đúng nút Xem ở chế độ <code>sidePanel</code>, nội dung “quick” render danh sách trường chỉ đọc. Một <code>MutationObserver</code> trên vùng ghim lo việc đặt lại độ rộng và ẩn/hiện thanh kéo khi panel đóng/mở. Nếu thiếu vùng ghim (vd mobile) thì tự lùi về drawer. Chi tiết kỹ thuật: xem <code>README.md</code> (tiếng Anh).</p>
 </div>
       <div class="prose lang lang-en" hidden><blockquote>
 <p>Open a record <strong>docked to the right</strong> instead of a full-screen popup — <strong>AppSheet-style master–detail</strong>:
 the list on the left, the record’s details on the right, drag the divider to resize. Just switch it on, <strong>no code</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> <strong>/v/ (modern) only</strong> — not /admin (classic) · <strong>Version:</strong> 0.1.7</p>
+<p><strong>Group:</strong> Blocks · <strong>Runs on:</strong> /v/ (modern) and the modern (flow) pages under /admin — not legacy v1 schema pages · <strong>Version:</strong> 0.1.8</p>
 <h3>What’s new after installing?</h3>
 <ul>
 <li><strong>A new way to open a record: “Side panel”</strong> — a <strong>4th</strong> choice beside Drawer / Dialog / Page in the <em>Open mode</em> of every popup button (View/Edit…). Pick it and the popup <strong>docks to the right</strong>, with the main content <strong>shrinking beside it</strong> instead of being hidden under a mask.</li>
@@ -17892,7 +17892,7 @@ the list on the left, the record’s details on the right, drag the divider to r
 </tbody>
 </table>
 <blockquote>
-<p>⚠️ Only on the <strong>/v/ (modern)</strong> client. On <strong>/admin (classic)</strong> the plugin <strong>does nothing</strong> (the classic client has no such <em>Open mode</em> control and no dock area to split the screen).</p>
+<p>⚠️ Works on <strong>/v/</strong> and on the <strong>modern (flow) pages that NocoBase 2.x also renders under /admin</strong> — they share the same popup engine and dock area. Legacy v1 schema pages (old-style pages created before 2.x) are unaffected.</p>
 </blockquote>
 <h3>How to use (step by step)</h3>
 <h4>Scenario A — Make a <strong>View/Edit</strong> button open the record in the right panel</h4>
@@ -17961,7 +17961,7 @@ the list on the left, the record’s details on the right, drag the divider to r
 </table>
 </li>
 <li>
-<p>⚠️ <strong>/v/ only:</strong> on /admin (classic) the plugin is a <strong>no-op</strong> — no error, but nothing changes either.</p>
+<p>⚠️ <strong>Legacy v1 schema pages</strong> (old-style /admin pages) are not supported — no error, but nothing changes there. Modern pages under /admin work the same as on /v/.</p>
 </li>
 <li>
 <p>📱 <strong>Very narrow screen / phone:</strong> if there’s no dock area to split, the panel <strong>falls back to a drawer</strong> that covers the screen as usual — still usable, just not split-screen.</p>
@@ -17978,7 +17978,7 @@ the list on the left, the record’s details on the right, drag the divider to r
 </ul>
 <hr>
 <h4>For developers</h4>
-<p>Client-only, <strong>/v/ only</strong>; no server, collection, or schema, and no core patching. <strong>A</strong> pushes a <code>sidePanel</code> option into the native <code>openView</code> action’s <code>uiSchema.mode.enum</code> (label baked per language), then wraps its <code>handler</code>: when <code>mode === 'sidePanel'</code> it retargets the popup to the layout’s built-in <code>#nocobase-embed-container</code>, applies a width from the popup size, and disables router navigation before delegating to the original handler (which still builds the real popup page). The retarget mutates <code>ctx.inputArgs</code> <strong>properties</strong> — reassigning the whole object does not stick. <strong>B</strong> registers a <code>rowClick</code> flow on <code>TableBlockModel</code>; the “configured popup” content re-triggers the row’s own View action in <code>sidePanel</code> mode (falling back to a read-only field list — the “quick” content — when the table has no popup action). A <code>MutationObserver</code> on the container resets the width and shows/hides the splitter as the panel opens and closes. If the embed container is missing (e.g. mobile, where core forces a full-screen embed) it degrades to a drawer. Coexists with Sub-table Pro’s <code>rowClick</code> bridge and conditional formatting on the same blocks.</p>
+<p>Client-only, wired identically in both client lanes (/v/ and /admin — the 2.x /admin lane runs the same FlowEngine for flow pages); no server, collection, or schema, and no core patching. <strong>A</strong> pushes a <code>sidePanel</code> option into the native <code>openView</code> action’s <code>uiSchema.mode.enum</code> (label baked per language), then wraps its <code>handler</code>: when <code>mode === 'sidePanel'</code> it retargets the popup to the layout’s built-in <code>#nocobase-embed-container</code>, applies a width from the popup size, and disables router navigation before delegating to the original handler (which still builds the real popup page). The retarget mutates <code>ctx.inputArgs</code> <strong>properties</strong> — reassigning the whole object does not stick. <strong>B</strong> registers a <code>rowClick</code> flow on <code>TableBlockModel</code>; the “configured popup” content re-triggers the row’s own View action in <code>sidePanel</code> mode (falling back to a read-only field list — the “quick” content — when the table has no popup action). A <code>MutationObserver</code> on the container resets the width and shows/hides the splitter as the panel opens and closes. If the embed container is missing (e.g. mobile, where core forces a full-screen embed) it degrades to a drawer. Coexists with Sub-table Pro’s <code>rowClick</code> bridge and conditional formatting on the same blocks.</p>
 <p>Build &amp; deploy:</p>
 <pre><code class="language-bash">cd build-env
 bash recipes/run-detail-panel-build.sh
@@ -17990,7 +17990,7 @@ bash recipes/add-markers.sh storage/tar/@tuanla90/plugin-detail-panel-0.1.0.tgz
 <p>把记录<strong>停靠在右侧</strong>打开，而不是弹出一个全屏弹窗 — <strong>AppSheet 风格的主从视图</strong>：
 左边是列表，右边是记录详情，拖动中间的分隔条即可调整宽度。打开开关即可使用，<strong>无需写代码</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> 区块 · <strong>运行于：</strong> <strong>仅 /v/（现代）</strong> — 不支持 /admin（经典） · <strong>版本：</strong> 0.1.7</p>
+<p><strong>分组：</strong> 区块 · <strong>运行于：</strong> /v/（现代）以及 /admin 下的现代（flow）页面 — 不支持旧版 v1 schema 页面 · <strong>版本：</strong> 0.1.8</p>
 <h3>安装后有什么变化？</h3>
 <ul>
 <li><strong>一种新的记录打开方式：“侧边面板”</strong> — 在每个弹窗按钮（查看/编辑…）的<em>打开方式</em>中，除 Drawer / Dialog / Page 之外新增<strong>第 4 种</strong>选择。选中它后，弹窗会<strong>停靠到右侧</strong>，主内容区<strong>在旁边收窄</strong>，而不是被遮罩挡住。</li>
@@ -18020,7 +18020,7 @@ bash recipes/add-markers.sh storage/tar/@tuanla90/plugin-detail-panel-0.1.0.tgz
 </tbody>
 </table>
 <blockquote>
-<p>⚠️ 仅在 <strong>/v/（现代）</strong> 客户端上可用。在 <strong>/admin（经典）</strong> 上，本插件<strong>不起任何作用</strong>（经典客户端没有这样的<em>打开方式</em>选项，也没有可用于分屏的停靠区域）。</p>
+<p>⚠️ 适用于 <strong>/v/</strong> 以及 <strong>NocoBase 2.x 在 /admin 下渲染的现代（flow）页面</strong> — 它们共用同一套弹窗引擎和停靠区域。旧版 v1 schema 页面（2.x 之前创建的旧式页面）不受影响。</p>
 </blockquote>
 <h3>使用方法（分步说明）</h3>
 <h4>场景 A — 让<strong>查看/编辑</strong>按钮在右侧面板中打开记录</h4>
@@ -18089,7 +18089,7 @@ bash recipes/add-markers.sh storage/tar/@tuanla90/plugin-detail-panel-0.1.0.tgz
 </table>
 </li>
 <li>
-<p>⚠️ <strong>仅限 /v/：</strong> 在 /admin（经典）上本插件是<strong>空操作</strong> — 不会报错，但也不会有任何变化。</p>
+<p>⚠️ <strong>旧版 v1 schema 页面</strong>（旧式 /admin 页面）不支持 — 不会报错，但也不会有任何变化。/admin 下的现代页面与 /v/ 表现一致。</p>
 </li>
 <li>
 <p>📱 <strong>极窄屏幕 / 手机：</strong> 如果没有可用于分屏的停靠区域，面板会<strong>回退为抽屉</strong>，照常覆盖屏幕 — 仍然可用，只是不是分屏形态。</p>
@@ -18106,7 +18106,7 @@ bash recipes/add-markers.sh storage/tar/@tuanla90/plugin-detail-panel-0.1.0.tgz
 </ul>
 <hr>
 <h4>面向开发者</h4>
-<p>纯客户端，<strong>仅 /v/</strong>；没有服务端、数据表或 schema，也没有对核心打补丁。<strong>A</strong> 向原生 <code>openView</code> action 的 <code>uiSchema.mode.enum</code> 中塞入一个 <code>sidePanel</code> 选项（标签按语言预先烘焙），然后包装它的 <code>handler</code>：当 <code>mode === 'sidePanel'</code> 时，把弹窗重新指向布局内置的 <code>#nocobase-embed-container</code>，根据弹窗尺寸设置宽度，并在委托给原始 handler（它仍然会构建出真正的弹窗页面）之前禁用路由跳转。这种重定向修改的是 <code>ctx.inputArgs</code> 的<strong>属性</strong> — 整体重新赋值是不会生效的。<strong>B</strong> 在 <code>TableBlockModel</code> 上注册了一个 <code>rowClick</code> flow；“已配置的弹窗”这种内容会以 <code>sidePanel</code> 模式重新触发该行自己的查看操作（当表格没有弹窗操作时，回退为只读字段列表 — 即“快速”内容）。容器上的 <code>MutationObserver</code> 会在面板打开和关闭时重置宽度并显示/隐藏分隔条。如果嵌入容器不存在（例如移动端，核心会强制使用全屏嵌入），则降级为抽屉。能与同一区块上 Sub-table Pro 的 <code>rowClick</code> 桥接以及条件格式共存。</p>
+<p>纯客户端，在两个客户端通道（/v/ 和 /admin — 2.x 的 /admin 通道对 flow 页面运行同一个 FlowEngine）中以完全相同的方式接入；没有服务端、数据表或 schema，也没有对核心打补丁。<strong>A</strong> 向原生 <code>openView</code> action 的 <code>uiSchema.mode.enum</code> 中塞入一个 <code>sidePanel</code> 选项（标签按语言预先烘焙），然后包装它的 <code>handler</code>：当 <code>mode === 'sidePanel'</code> 时，把弹窗重新指向布局内置的 <code>#nocobase-embed-container</code>，根据弹窗尺寸设置宽度，并在委托给原始 handler（它仍然会构建出真正的弹窗页面）之前禁用路由跳转。这种重定向修改的是 <code>ctx.inputArgs</code> 的<strong>属性</strong> — 整体重新赋值是不会生效的。<strong>B</strong> 在 <code>TableBlockModel</code> 上注册了一个 <code>rowClick</code> flow；“已配置的弹窗”这种内容会以 <code>sidePanel</code> 模式重新触发该行自己的查看操作（当表格没有弹窗操作时，回退为只读字段列表 — 即“快速”内容）。容器上的 <code>MutationObserver</code> 会在面板打开和关闭时重置宽度并显示/隐藏分隔条。如果嵌入容器不存在（例如移动端，核心会强制使用全屏嵌入），则降级为抽屉。能与同一区块上 Sub-table Pro 的 <code>rowClick</code> 桥接以及条件格式共存。</p>
 <p>构建与部署：</p>
 <pre><code class="language-bash">cd build-env
 bash recipes/run-detail-panel-build.sh
@@ -18664,7 +18664,7 @@ NocoBase 标准操作，选你需要的。</li>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Dựng app từ mô tả</span><span class="lang lang-en" hidden>App Builder</span><span class="lang lang-zh" hidden>应用生成器</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Giao diện</span><span class="lang lang-en" hidden>Interface</span><span class="lang lang-zh" hidden>Interface</span></span>
-        <span class="chip">v0.7.13</span>
+        <span class="chip">v0.7.14</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -22944,7 +22944,7 @@ it gets its own icon on the home screen and opens full-screen like a real app. Y
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Tạo trang nhanh</span><span class="lang lang-en" hidden>Instant Create Page</span><span class="lang lang-zh" hidden>一键建页</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Giao diện</span><span class="lang lang-en" hidden>Interface</span><span class="lang lang-zh" hidden>Interface</span></span>
-        <span class="chip">v0.1.14</span>
+        <span class="chip">v0.1.15</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -30104,14 +30104,14 @@ never offered before. Your other choices (enabled, snapshots, note, retention) a
       <div class="plugin-head">
         <h2><span class="lang lang-vi">STT theo nhóm</span><span class="lang lang-en" hidden>Group Sequence</span><span class="lang lang-zh" hidden>分组编号</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Dữ liệu</span><span class="lang lang-en" hidden>Data</span><span class="lang lang-zh" hidden>Data</span></span>
-        <span class="chip">v0.1.2</span>
+        <span class="chip">v0.1.3</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
 <p>Số thứ tự <strong>đánh lại theo từng nhóm</strong>: <code>KAC031/8/01, /02…</code> theo đơn hàng, <code>PN2610-0001…</code> theo tháng, dòng 1, 2, 3
 theo chứng từ. Số được cấp lúc lưu bản ghi, nên hai người lưu cùng lúc không bao giờ nhận trùng số.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Dữ liệu · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.1.2</p>
+<p><strong>Nhóm:</strong> Dữ liệu · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.1.3</p>
 <h3>Vì sao cần</h3>
 <p>Trường <em>Sequence</em> có sẵn của NocoBase chỉ có <strong>một bộ đếm cho cả trường</strong> — không thể bắt đầu lại từ 1 cho từng
 đơn hay từng tháng. Các cách chữa thường dùng (công thức đếm dòng, hoặc quy tắc form điền sẵn mã) cấp trùng số khi
@@ -30121,7 +30121,7 @@ hai người lưu cùng lúc, và nhảy cóc hoặc dùng lại số sau khi c�
 <li><strong>Thêm một trang Settings: “STT theo nhóm”</strong>, nơi đặt quy tắc đánh số lên một <strong>trường chữ hoặc số bình thường</strong>.</li>
 <li>Khi lưu bản ghi, trường nhận số tiếp theo của <strong>nhóm của nó</strong> — được lấy có khoá trong cùng transaction cơ sở
 dữ liệu, nên không bao giờ trùng, kể cả khi import hay tạo qua API.</li>
-<li><strong>Form tạo mới hiện trước mã sẽ được cấp</strong> ngay dưới ô (“Tự sinh khi lưu: KAC031/8/13”), tự cập nhật khi chọn
+<li><strong>Form tạo mới hiện trước mã sẽ được cấp</strong> hiện mờ ngay trong ô còn trống (KAC031/8/13), tự cập nhật khi chọn
 đơn hàng. Chưa lưu thì chưa giữ chỗ số nào.</li>
 <li><strong>Loại cột “Group sequence” (STT theo nhóm)</strong> trong <strong>Add field</strong> (nhóm Advanced): tạo cột và ghép mã ngay tại đó,
 bằng chính các mảnh như trên. Hoặc đặt quy tắc lên một trường chữ/số đã có — kiểu nào thì giá trị cũng lưu ngay trong
@@ -30197,7 +30197,7 @@ API: <code>ptdlGroupSeq:peek</code> (xem trước trong form, người dùng đ�
 <p>Numbers that <strong>restart per group</strong>: <code>KAC031/8/01, /02…</code> per order, <code>PN2610-0001…</code> per month, line 1, 2, 3 per
 document. Given when the record is saved, so two people saving at once never get the same number.</p>
 </blockquote>
-<p><strong>Group:</strong> Data · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.1.2</p>
+<p><strong>Group:</strong> Data · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.1.3</p>
 <h3>Why</h3>
 <p>NocoBase’s own <em>Sequence</em> field keeps <strong>one counter for the whole field</strong> — it can’t start again at 1 for
 each order or each month. The usual workarounds (a formula counting rows, or a form rule pre-filling a code)
@@ -30208,7 +30208,7 @@ deletion.</p>
 <li><strong>A new Settings page: “Group sequence”</strong> where you put a numbering rule on an <strong>ordinary text or number field</strong>.</li>
 <li>When a record is saved, the field gets the next number of <strong>its group</strong> — taken under a lock in the same
 database transaction, so numbers never collide, also for imports and API calls.</li>
-<li><strong>Create forms show the code a save would get</strong> under the field (“Given on save: KAC031/8/13”), updated
+<li><strong>Create forms show the code a save would get</strong> greyed out inside the empty field (KAC031/8/13), updated
 when you pick the order. Nothing is reserved until you save.</li>
 <li><strong>A “Group sequence” field type</strong> in <strong>Add field</strong> (Advanced group): create the column and build its code right there,
 with the same pieces. Or put a rule on a text/number field you already have — the value is stored in that field either
@@ -30285,7 +30285,7 @@ update, so computed fields that read it recompute. API: <code>ptdlGroupSeq:peek<
 <p><strong>按分组重新开始</strong>的编号：按订单 <code>KAC031/8/01、/02…</code>，按月 <code>PN2610-0001…</code>，按单据第 1、2、3 行。
 编号在保存记录时生成，因此两人同时保存也绝不会得到相同的编号。</p>
 </blockquote>
-<p><strong>分组：</strong> 数据 · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.1.2</p>
+<p><strong>分组：</strong> 数据 · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.1.3</p>
 <h3>为什么需要</h3>
 <p>NocoBase 自带的<em>序列</em>字段<strong>整个字段只有一个计数器</strong>——无法为每个订单或每个月重新从 1 开始。常见的变通办法
 （用公式统计行数，或用表单规则预填编号）在两人同时保存时会给出重复编号，删除记录后还会跳号或重复使用编号。</p>
@@ -30294,7 +30294,7 @@ update, so computed fields that read it recompute. API: <code>ptdlGroupSeq:peek<
 <li><strong>新增一个设置页面：“分组编号”</strong>，在<strong>普通的文本或数字字段</strong>上设置编号规则。</li>
 <li>保存记录时，该字段获得<strong>其所属分组</strong>的下一个编号——在同一数据库事务中加锁获取，因此编号绝不冲突，
 导入或通过 API 创建时也一样。</li>
-<li><strong>新建表单会在字段下方显示保存后将得到的编号</strong>（“保存时生成：KAC031/8/13”），选择订单后自动更新。
+<li><strong>新建表单会在空字段内以浅色显示保存后将得到的编号</strong>（KAC031/8/13），选择订单后自动更新。
 保存之前不会占用任何编号。</li>
 <li><strong>“Group sequence（分组编号）”字段类型</strong>，位于 <strong>添加字段</strong>（高级分组）：创建字段时直接用同样的片段组成编号。也可以在已有的文本/数字字段上设置规则——两种方式的值都保存在该字段中，因此停用插件后所有编号都会保留。</li>
 </ul>
@@ -30365,7 +30365,7 @@ update, so computed fields that read it recompute. API: <code>ptdlGroupSeq:peek<
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Xuất Excel theo mẫu</span><span class="lang lang-en" hidden>Excel Template Export</span><span class="lang lang-zh" hidden>Excel 模板导出</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Dữ liệu</span><span class="lang lang-en" hidden>Data</span><span class="lang lang-zh" hidden>Data</span></span>
-        <span class="chip">v0.1.16</span>
+        <span class="chip">v0.1.17</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><p>Xuất bản ghi ra file <strong><code>.xlsx</code> theo đúng mẫu bạn tự thiết kế trong Excel</strong> — merge ô, màu, viền, định dạng số, logo giữ <strong>nguyên 1:1</strong>. Bạn chỉ đặt các ô placeholder <code>{{...}}</code>, khi xuất plugin chỉ <strong>thay giá trị</strong>, mọi định dạng được giữ y hệt.</p>
@@ -30429,6 +30429,10 @@ update, so computed fields that read it recompute. API: <code>ptdlGroupSeq:peek<
 <td>Đặt trong 1 ô của <strong>DÒNG chi tiết</strong> → dòng đó được <strong>nhân bản</strong> cho mỗi phần tử</td>
 </tr>
 <tr>
+<td><code>{{#each dong_hang sort=&quot;-so_luong,ten&quot;}}</code></td>
+<td>Như trên, <strong>sắp xếp</strong> dòng lặp: trường cách nhau dấu phẩy, <code>-</code> phía trước = giảm dần, đi qua quan hệ được (<code>product.name</code>). Không ghi <code>sort=</code> thì giữ thứ tự dữ liệu tải về</td>
+</tr>
+<tr>
 <td><code>{{$index}}</code></td>
 <td>Số thứ tự dòng trong bảng lặp (1, 2, 3…)</td>
 </tr>
@@ -30481,7 +30485,7 @@ update, so computed fields that read it recompute. API: <code>ptdlGroupSeq:peek<
  Tổng cộng ──────────────────────────────────► {{= SUMPRODUCT(data.$rows.quantity, data.$rows.price)}}
 </code></pre>
 <ul>
-<li>Kiểu <strong>Bảng</strong> lặp trên <code>{{#each $rows}}</code> — mỗi bản ghi (dòng con) là một dòng.</li>
+<li>Kiểu <strong>Bảng</strong> lặp trên <code>{{#each $rows}}</code> — mỗi bản ghi (dòng con) là một dòng, <strong>đúng thứ tự đang hiện trên bảng</strong> (sort trên khối bảng là file sort theo). Muốn file cố định một thứ tự riêng: <code>{{#each $rows sort=&quot;parent.code,-quantity&quot;}}</code>.</li>
 <li>Thông tin cha lấy qua quan hệ: <code>{{parent.code}}</code>, <code>{{parent.customer}}</code> (chọn quan hệ <code>parent</code> ở <em>“Quan hệ cần nạp”</em>).</li>
 <li>Bấm nút <strong>“Xuất Excel hàng loạt”</strong> trên khối bảng con, chọn kiểu <strong>“1 sheet — cả danh sách vào 1 file”</strong> (hoặc để <em>“Theo mẫu”</em> nếu mẫu đã đặt kiểu Bảng).</li>
 </ul>
@@ -30630,6 +30634,10 @@ update, so computed fields that read it recompute. API: <code>ptdlGroupSeq:peek<
 <td>put in a cell of a <strong>DETAIL row</strong> → that row is cloned per item</td>
 </tr>
 <tr>
+<td><code>{{#each lines sort=&quot;-quantity,name&quot;}}</code></td>
+<td>same, rows <strong>sorted</strong>: comma-separated fields, leading <code>-</code> = descending, relation paths work (<code>product.name</code>). Without <code>sort=</code> rows keep the loaded order — in table mode (<code>$rows</code>) that is the order the table block shows</td>
+</tr>
+<tr>
 <td><code>{{$index}}</code></td>
 <td>row number inside a band (1, 2, 3…)</td>
 </tr>
@@ -30699,6 +30707,10 @@ update, so computed fields that read it recompute. API: <code>ptdlGroupSeq:peek<
 <tr>
 <td><code>{{#each lines}}</code></td>
 <td>放在<strong>明细行</strong>的某个单元格里 → 该行会为每条明细复制一次</td>
+</tr>
+<tr>
+<td><code>{{#each lines sort=&quot;-quantity,name&quot;}}</code></td>
+<td>同上，并对重复行<strong>排序</strong>：字段用逗号分隔，前面加 <code>-</code> 为降序，可跨关系（<code>product.name</code>）。不写 <code>sort=</code> 时保持加载顺序 — 表格模式（<code>$rows</code>）下即表格区块中显示的顺序</td>
 </tr>
 <tr>
 <td><code>{{$index}}</code></td>
