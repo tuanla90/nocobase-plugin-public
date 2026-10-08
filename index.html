@@ -1677,7 +1677,7 @@ binary to install. Server API (admin, ACL snippet <code>pm.tuanla90-image-thumbn
       <div class="plugin-head">
         <h2><span class="lang lang-vi">App Doctor (Bác sĩ ứng dụng)</span><span class="lang lang-en" hidden>App Doctor</span><span class="lang lang-zh" hidden>应用医生</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Quản trị / Công cụ</span><span class="lang lang-en" hidden>Admin &amp; tools</span><span class="lang lang-zh" hidden>Admin &amp; tools</span></span>
-        <span class="chip">v0.3.8</span>
+        <span class="chip">v0.4.0</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -1685,7 +1685,7 @@ binary to install. Server API (admin, ACL snippet <code>pm.tuanla90-image-thumbn
 <strong>import / sinh app tự động</strong> để lại — cũng chính là nguyên nhân <strong>treo app khi mở sub-table</strong>. Việc sửa chỉ
 <strong>THÊM quan hệ ngược còn thiếu</strong>, <strong>không bao giờ đụng dữ liệu</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> System services · <strong>Chạy trên:</strong> /v/ (modern) + /admin (classic) · <strong>Phiên bản:</strong> 0.3.8</p>
+<p><strong>Nhóm:</strong> System services · <strong>Chạy trên:</strong> /v/ (modern) + /admin (classic) · <strong>Phiên bản:</strong> 0.4.0</p>
 <h3>Vì sao cần plugin này?</h3>
 <p>Khi bạn <strong>import dữ liệu</strong> hoặc để <strong>AI/app-builder sinh app</strong>, quan hệ nhiều khi bị <strong>một chiều</strong>: bảng con có
 <code>đơn hàng → khách</code>, nhưng bảng <code>khách</code> <strong>không có</strong> danh sách <code>đơn hàng</code> ngược lại. Hậu quả:</p>
@@ -1816,13 +1816,25 @@ admin</strong> (snippet <code>pm.app-doctor</code> + <code>requireAdmin</code>),
 <p>⚠️ “Tạo index” chỉ <strong>THÊM</strong> index, không đụng dữ liệu — nhưng trên bảng lớn có thể mất vài phút và tạm khoá ghi. Nên làm lúc vắng người dùng.</p>
 <p>Ba action mới, đều <strong>chỉ admin</strong>: <code>ptdlAppDoctor:scanPerf</code> · <code>:repairIndex</code> · <code>:probe</code>.
 Kiểm thử: <code>bash build-env/recipes/app-doctor-check.sh</code> (chạy trên sqlite thật của nb-local).</p>
+<h3>Tab “Cấu hình giao diện” (từ 0.4.0)</h3>
+<p>Tìm các khối có <strong>cấu hình đã lưu trỏ tới trường không còn tồn tại</strong> — trường đã bị xoá/đổi tên, hoặc cấu hình chép từ bảng khác. Khối kiểu này lỗi mỗi lần tải với <em>“Invalid SQL column or table reference”</em> và hiện khung đỏ <em>“Render failed”</em>.</p>
+<ul>
+<li><strong>Kiểm tra gì</strong> — sắp xếp mặc định, điều kiện phạm vi dữ liệu, các cột/trường đang hiển thị của mọi khối, và bảng của khối còn tồn tại không. Mỗi lỗi ghi rõ <strong>trang</strong> (có link) và uid của khối.</li>
+<li><strong>Sửa</strong> — chỉ tự xoá các dòng <strong>sắp xếp mặc định</strong> hỏng (từng khối hoặc <em>Sửa tất cả</em>). Lỗi phạm vi dữ liệu và cột chỉ liệt kê để bạn sửa trên giao diện: bỏ một điều kiện phạm vi sẽ cho người dùng thấy nhiều dữ liệu hơn, nên App Doctor không bao giờ tự làm.</li>
+<li><strong>Khối bị lỗi khi người dùng mở</strong> — trình duyệt của người dùng tự gửi về mọi khối không tải được (trang, khối, lỗi, số lần), nên bạn thấy lỗi thật thay vì nghe người dùng kể lại.</li>
+</ul>
+<p><strong>Bảo vệ lúc chạy (luôn bật khi plugin được bật):</strong></p>
+<ul>
+<li>Sắp xếp mặc định theo trường không tồn tại được <strong>bỏ qua</strong> trước khi gửi request → khối vẫn tải được (chỉ mất thứ tự đó). Console trình duyệt ghi rõ trường bị bỏ qua.</li>
+<li>Khung lỗi của NocoBase được làm dịu: <em>“Khối này tạm thời chưa hiển thị được — thường do cấu hình khối không còn khớp dữ liệu…”</em>, bỏ các link “NocoBase internals bug / mở issue”. <strong>Người dùng thường</strong> chỉ thấy thông báo và nút <em>Thử lại</em>; quản trị viên (vai trò root/admin) vẫn thấy đầy đủ chi tiết lỗi.</li>
+</ul>
 </div>
       <div class="prose lang lang-en" hidden><blockquote>
 <p><strong>Scan</strong> all data collections for <strong>broken relations</strong> and <strong>repair them in one click</strong>. It specializes in the
 breakage that <strong>imports / auto-generated apps</strong> leave behind — the same class that <strong>freezes the app when you open
 a sub-table</strong>. Repair only <strong>ADDS the missing reverse relation</strong> and <strong>never touches your data</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> System services · <strong>Runs on:</strong> /v/ (modern) + /admin (classic) · <strong>Version:</strong> 0.3.8</p>
+<p><strong>Group:</strong> System services · <strong>Runs on:</strong> /v/ (modern) + /admin (classic) · <strong>Version:</strong> 0.4.0</p>
 <h3>Why this plugin?</h3>
 <p>When you <strong>import data</strong> or let <strong>AI / app-builder generate an app</strong>, relations often end up <strong>one-sided</strong>: the child
 has <code>order → customer</code>, but <code>customer</code> has <strong>no</strong> reverse list of <code>orders</code>. Consequences:</p>
@@ -1961,13 +1973,25 @@ field checks that the matching reverse exists on the target (belongsTo↔hasMany
 <p>⚠️ “Create index” only ADDS an index and touches no data, but on a large table it can take minutes and briefly block writes.</p>
 <p>Three new admin-only actions: <code>ptdlAppDoctor:scanPerf</code> · <code>:repairIndex</code> · <code>:probe</code>.
 Checks: <code>bash build-env/recipes/app-doctor-check.sh</code> (runs against nb-local’s real sqlite).</p>
+<h3>UI config tab (0.4.0+)</h3>
+<p>Finds blocks whose <strong>saved settings point at fields that no longer exist</strong> — a field that was deleted or renamed, or a setting copied from another collection. Such a block fails on every load with <em>“Invalid SQL column or table reference”</em> and shows the red <em>“Render failed”</em> panel.</p>
+<ul>
+<li><strong>What it checks</strong> — every block’s default sorting, data scope conditions, the fields/columns it shows, and whether its collection still exists. Each finding names the <strong>page</strong> (with a link) and the block uid.</li>
+<li><strong>Fix</strong> — only broken <strong>default-sort</strong> entries are removed automatically (one block or <em>Fix all</em>). Data-scope and column findings are listed for you to fix in the UI: removing a scope condition would show users more rows, so App Doctor never does it.</li>
+<li><strong>Blocks that failed to load for users</strong> — users’ browsers report every block that could not load (page, block, error, how many times), so you see real failures instead of hearing about them.</li>
+</ul>
+<p><strong>Runtime guard (always on once the plugin is enabled):</strong></p>
+<ul>
+<li>A default sort on a missing field is <strong>skipped</strong> before the request is sent, so the block still loads (just without that ordering). The browser console names the skipped field.</li>
+<li>The core error panel is softened: <em>“This block could not be displayed — usually the block settings no longer match the data…”</em>, without the “NocoBase internals bug / open an issue” links. <strong>Non-admin users</strong> only see the message and <em>Try again</em>; administrators (root/admin role) still get the full error details.</li>
+</ul>
 </div>
       <div class="prose lang lang-zh" hidden><blockquote>
 <p><strong>扫描</strong>所有数据表，找出<strong>断裂的关系</strong>，并<strong>一键修复</strong>。它专门对付<strong>导入 / 自动生成的应用</strong>留下的那类
 破损 —— 也正是<strong>打开子表格时会把整个应用卡死</strong>的那一类。修复只会<strong>补上缺失的反向关系</strong>，
 <strong>绝不动你的数据</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> System services（系统服务） · <strong>运行于：</strong> /v/（现代版）+ /admin（经典版） · <strong>版本：</strong> 0.3.8</p>
+<p><strong>分组：</strong> System services（系统服务） · <strong>运行于：</strong> /v/（现代版）+ /admin（经典版） · <strong>版本：</strong> 0.4.0</p>
 <h3>为什么需要这个插件？</h3>
 <p>当你<strong>导入数据</strong>，或者让 <strong>AI / app-builder 生成一个应用</strong>时，关系常常会变成<strong>单向的</strong>：子表上有
 <code>order → customer</code>，但 <code>customer</code> 上<strong>没有</strong>反过来的 <code>orders</code> 列表。后果是：</p>
@@ -2050,6 +2074,18 @@ repo 取到的用户数据表清单（一份允许清单 —— 系统数据表�
 <strong>在服务端重新扫描</strong>一遍，再通过 <code>fields</code> repo 创建反向字段 —— <strong>按 (target, FK) 幂等</strong>，命名避免冲突（和
 <code>app-builder</code> 用的是同一套已验证的机制）。两个操作 <code>ptdlAppDoctor:scan|repair</code>，<strong>仅限管理员</strong>
 （<code>pm.app-doctor</code> snippet + <code>requireAdmin</code>），<code>ctx.body</code> 是<strong>原始</strong>的（没有 <code>{data}</code> 包装）。没有自己的 collection。</p>
+<h3>“界面配置”标签页（0.4.0+）</h3>
+<p>查找<strong>已保存的配置指向已不存在字段</strong>的区块 — 字段被删除或重命名，或配置复制自其他数据表。这类区块每次加载都会报 <em>“Invalid SQL column or table reference”</em>，并显示红色的 <em>“Render failed”</em> 错误框。</p>
+<ul>
+<li><strong>检查内容</strong> — 每个区块的默认排序、数据范围条件、显示的字段/列，以及区块所属数据表是否仍存在。每条结果都注明<strong>页面</strong>（带链接）和区块 uid。</li>
+<li><strong>修复</strong> — 只会自动删除损坏的<strong>默认排序</strong>项（单个区块或<em>全部修复</em>）。数据范围和列的问题只列出，请在界面中修改：删除数据范围条件会让用户看到更多数据，因此 App Doctor 从不自动处理。</li>
+<li><strong>用户打开时加载失败的区块</strong> — 用户浏览器会上报每个无法加载的区块（页面、区块、错误、次数），让你看到真实发生的失败。</li>
+</ul>
+<p><strong>运行时保护（插件启用后始终生效）：</strong></p>
+<ul>
+<li>指向不存在字段的默认排序会在发送请求前被<strong>跳过</strong>，区块照常加载（只是没有该排序）。浏览器控制台会注明被跳过的字段。</li>
+<li>核心错误框被柔化为：<em>“此区块暂时无法显示 — 通常是区块配置与数据不再匹配……”</em>，并去掉 “NocoBase internals bug / open an issue” 链接。<strong>非管理员用户</strong>只看到提示和<em>重试</em>按钮；管理员（root/admin 角色）仍可看到完整错误详情。</li>
+</ul>
 </div>
     </section>
 
