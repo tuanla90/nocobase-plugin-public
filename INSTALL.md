@@ -22,7 +22,7 @@ Plugin cài lúc runtime nằm ở `storage/plugins` trên **service NocoBase** 
 ## Danh sách (6 plugin — sync theo `latest/@tuanla90/`)
 | Plugin | Version | Install URL |
 |---|---|---|
-| app-doctor | 0.3.8 | `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-app-doctor-0.3.8.tgz` |
+| app-doctor | 0.4.1 | `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-app-doctor-0.4.1.tgz` |
 | column-resize | 0.1.12 | `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-column-resize-0.1.12.tgz` |
 | custom-icons | 0.2.13 | `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-custom-icons-0.2.13.tgz` |
 | field-order | 0.2.13 | `https://raw.githubusercontent.com/tuanla90/nocobase-plugin-public/main/latest/@tuanla90/plugin-field-order-0.2.13.tgz` |
