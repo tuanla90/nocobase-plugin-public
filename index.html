@@ -92,7 +92,7 @@ a:hover{text-decoration:underline}
     </div>
     <div class="nav-group">
       <div class="nav-cat"><span class="lang lang-vi">Quản trị / Công cụ</span><span class="lang lang-en" hidden>Admin &amp; tools</span><span class="lang lang-zh" hidden>Admin &amp; tools</span></div>
-      <a class="nav-link" href="#image-thumbnail" data-text="ảnh thu nhỏ image thumbnails 图片缩略图 tạo một bản nhỏ cho mỗi ảnh jpeg/png tải lên ổ lưu trữ local và dùng nó làm ảnh xem trước, để bảng, danh sách và thẻ chỉ tải vài kb mỗi ảnh thay vì cả tấm ảnh gốc, trong khi mở ảnh ra vẫn là ảnh gốc. trang thiết lập cho phép tạo ảnh nhỏ cho các ảnh đã tải lên trước đó, chạy ngầm. creates a small copy of every jpeg/png uploaded to local storage and serves it as the file preview, so tables, lists and cards load a few kb per image instead of the full photo, while opening the image still shows the original. a settings page creates thumbnails for images uploaded earlier, in the background. 为上传到本地存储的每张 jpeg/png 图片生成一张小图，并将其作为文件预览，使表格、列表和卡片每张图只加载几 kb，而不是整张原图；点开图片仍显示原图。设置页面可在后台为此前上传的图片补生成缩略图。"><span class="lang lang-vi">Ảnh thu nhỏ</span><span class="lang lang-en" hidden>Image Thumbnails</span><span class="lang lang-zh" hidden>图片缩略图</span></a>
+      <a class="nav-link" href="#image-thumbnail" data-text="ảnh thu nhỏ image thumbnails 图片缩略图 làm nhẹ ảnh tải lên: ảnh điện thoại được thu nhỏ ngay trên trình duyệt trước khi tải lên (cạnh dài tối đa 1920 px, jpeg 80%, giữ exif), và mỗi ảnh jpeg/png trên ổ lưu trữ local có thêm một bản nhỏ dùng làm ảnh xem trước, để bảng, danh sách và thẻ chỉ tải vài kb mỗi ảnh trong khi mở ra vẫn là ảnh đầy đủ. trang thiết lập cho phép tạo ảnh nhỏ và nén lại các ảnh đã tải lên trước đó, chạy ngầm. makes uploaded photos light: phone photos are shrunk in the browser before upload (at most 1920 px, jpeg 80%, exif kept), and every jpeg/png on local storage gets a small copy used as the file preview, so tables, lists and cards load a few kb per image while opening it still shows the full picture. a settings page creates thumbnails for, and re-compresses, images uploaded earlier, in the background. 让上传的照片更轻：手机照片在上传前先在浏览器中缩小（长边最多 1920 像素，jpeg 80%，保留 exif）；本地存储上的每张 jpeg/png 还会生成一张小图作为文件预览，使表格、列表和卡片每张图只加载几 kb，点开仍是完整图片。设置页面可在后台为此前上传的图片补生成缩略图并重新压缩。"><span class="lang lang-vi">Ảnh thu nhỏ</span><span class="lang lang-en" hidden>Image Thumbnails</span><span class="lang lang-zh" hidden>图片缩略图</span></a>
       <a class="nav-link" href="#app-doctor" data-text="app doctor (bác sĩ ứng dụng) app doctor 应用医生 quét các bảng dữ liệu của app để tìm quan hệ hỏng và sửa bằng một cú bấm. phát hiện quan hệ một chiều (belongsto thiếu hasmany của bảng cha, hasmany thiếu belongsto của bảng con, hoặc nhiều-nhiều một chiều) — đúng loại hỏng do import/sinh app tự động để lại, và là nguyên nhân khiến cột sub-table không phân giải được field và có thể treo app. cũng cảnh báo quan hệ trỏ tới bảng/bảng trung gian không tồn tại. việc sửa chỉ thêm quan hệ ngược còn thiếu, không bao giờ đụng tới dữ liệu. scans the app's data collections for relation-integrity problems and repairs them in one click. finds one-sided relations (a belongsto without the master's hasmany, a hasmany without the child's belongsto, or a one-sided many-to-many) — the incomplete-bidirectional damage that imports and auto-generated apps leave behind, and the class that makes a sub-table column's field unresolvable and can freeze the app. also flags relations that point at a non-existent collection or junction table. repair is additive (it only creates the missing reverse relation field) and never touches your data. 扫描应用中的数据表，找出关系完整性问题并一键修复。它能发现单向关系（有 belongsto 却缺少主表的 hasmany、有 hasmany 却缺少子表的 belongsto，或单向的多对多）——这正是数据导入和自动生成的应用常常留下的双向关系残缺，也正是这一类问题会让子表格列的字段无法解析、甚至使应用卡死。此外还会标记指向不存在的数据表或中间表的关系。修复只做加法（仅补建缺失的反向关系字段），绝不改动你的数据。"><span class="lang lang-vi">App Doctor (Bác sĩ ứng dụng)</span><span class="lang lang-en" hidden>App Doctor</span><span class="lang lang-zh" hidden>应用医生</span></a>
       <a class="nav-link" href="#perf-guard" data-text="chống treo (ổn định) crash guard (stability) 防崩溃（稳定性） các lớp bảo vệ phía client cho giao diện hiện đại (/v/). chống treo (đang bật): một quan hệ hỏng (thiếu belongsto ngược / lệch khóa ngoại) có thể khiến flow beforerender của một cột ném lỗi và làm treo cả app — plugin cô lập beforerender từng sub-model để một cột hỏng chỉ thành ô trống thay vì treo tất cả. giới hạn keep-alive (thử nghiệm, mặc định tắt): nocobase v2 giữ mọi trang con đã mở nên dom phình dần khi điều hướng — plugin phát hiện được các trang tồn đọng, nhưng primitive unmount duy nhất (flowengine.destroymodel) lại xóa trang khỏi db, nên auto-dọn bị tắt cho tới khi có cách unmount không hủy diệt; trang cấu hình hiển thị tín hiệu dom và nút quét chỉ-báo-cáo. client-side defense layers for the modern (/v/) client. crash guard (active): a malformed relation (missing reverse belongsto / mismatched fk) can make a column's beforerender flow throw and render-loop the whole app (freeze) — this isolates each sub-model's beforerender so one broken column degrades to an empty cell instead of freezing everything. keep-alive cap (experimental, off by default): nocobase v2 keeps every visited sub-page mounted, so the dom grows unbounded across navigation — the plugin can detect the stale pages, but the only unmount primitive available (flowengine.destroymodel) also deletes the page from the db, so auto-eviction stays disabled until a non-destructive unmount exists; the settings page shows the live dom signal and a report-only scan. 面向新版（/v/）客户端的前端防护层。防崩溃（已启用）：一个不完整的关系（缺少反向 belongsto / 外键不匹配）会让某一列的 beforerender 流程抛出异常，进而让整个应用陷入渲染死循环并卡死 —— 本插件把每个子模型的 beforerender 隔离开，使一列出错只退化成一个空单元格，而不会拖垮全部内容。keep-alive 上限（实验性，默认关闭）：nocobase v2 会让访问过的每个子页面保持挂载，因此随着不断跳转，dom 会无限膨胀 —— 插件能识别出这些残留页面，但目前唯一可用的卸载手段（flowengine.destroymodel）会连带把页面从数据库中删除，因此在出现非破坏性的卸载方式之前，自动清理保持停用；设置页面会显示实时的 dom 指标，并提供一次仅出报告的扫描。"><span class="lang lang-vi">Chống treo (ổn định)</span><span class="lang lang-en" hidden>Crash Guard (stability)</span><span class="lang lang-zh" hidden>防崩溃（稳定性）</span></a>
       <a class="nav-link" href="#friendly-url" data-text="đường dẫn dễ đọc friendly urls 友好网址 đường dẫn trang dễ đọc: /admin/bao-cao/chi-phi thay cho /admin/94iwybl2q18/tabs/43zfdcgb30j. mỗi trang và tab có một đường dẫn tạo từ tiêu đề (bỏ dấu tiếng việt), giữ nguyên khi đổi tên trang; sửa tay thì đường dẫn cũ vẫn dùng được. link dạng mã cũ vẫn mở được và tự chuyển sang dạng dễ đọc. chạy ở cả giao diện cũ lẫn mới, không thay đổi trang, menu hay popup. readable page addresses: /admin/bao-cao/chi-phi instead of /admin/94iwybl2q18/tabs/43zfdcgb30j. every page and tab gets an address made from its title (vietnamese marks removed), kept when the page is renamed; editing it keeps the old one working. links with the old codes still open and switch to the readable form. works in both the classic and the modern client, without changing pages, menus or popups. 易读的页面地址：/admin/bao-cao/chi-phi 代替 /admin/94iwybl2q18/tabs/43zfdcgb30j。每个页面和标签页都会根据标题生成地址（去除越南语声调），重命名页面时保持不变；手动修改后旧地址依然可用。旧的编码链接仍可打开，并自动切换为易读形式。同时支持经典客户端和新客户端，不改动页面、菜单或弹窗。"><span class="lang lang-vi">Đường dẫn dễ đọc</span><span class="lang lang-en" hidden>Friendly URLs</span><span class="lang lang-zh" hidden>友好网址</span></a>
@@ -1445,34 +1445,42 @@ a:hover{text-decoration:underline}
 <p><em>从代码生成 — 更新位置：<code>plugin-formula/src/shared/formulaKnowledge.ts</code> + <code>formulaEngine.ts</code>（第 1 类）、<code>plugin-print-template/src/shared/HelperDocs.tsx</code> + <code>helpers.ts</code>（第 2 类）、<code>plugin-block-custom-html/src/client/render.ts</code>（第 3 类）。</em></p>
 </div>
     </section>
-    <section class="plugin" id="image-thumbnail" data-text="ảnh thu nhỏ image thumbnails 图片缩略图 tạo một bản nhỏ cho mỗi ảnh jpeg/png tải lên ổ lưu trữ local và dùng nó làm ảnh xem trước, để bảng, danh sách và thẻ chỉ tải vài kb mỗi ảnh thay vì cả tấm ảnh gốc, trong khi mở ảnh ra vẫn là ảnh gốc. trang thiết lập cho phép tạo ảnh nhỏ cho các ảnh đã tải lên trước đó, chạy ngầm. creates a small copy of every jpeg/png uploaded to local storage and serves it as the file preview, so tables, lists and cards load a few kb per image instead of the full photo, while opening the image still shows the original. a settings page creates thumbnails for images uploaded earlier, in the background. 为上传到本地存储的每张 jpeg/png 图片生成一张小图，并将其作为文件预览，使表格、列表和卡片每张图只加载几 kb，而不是整张原图；点开图片仍显示原图。设置页面可在后台为此前上传的图片补生成缩略图。 admin">
+    <section class="plugin" id="image-thumbnail" data-text="ảnh thu nhỏ image thumbnails 图片缩略图 làm nhẹ ảnh tải lên: ảnh điện thoại được thu nhỏ ngay trên trình duyệt trước khi tải lên (cạnh dài tối đa 1920 px, jpeg 80%, giữ exif), và mỗi ảnh jpeg/png trên ổ lưu trữ local có thêm một bản nhỏ dùng làm ảnh xem trước, để bảng, danh sách và thẻ chỉ tải vài kb mỗi ảnh trong khi mở ra vẫn là ảnh đầy đủ. trang thiết lập cho phép tạo ảnh nhỏ và nén lại các ảnh đã tải lên trước đó, chạy ngầm. makes uploaded photos light: phone photos are shrunk in the browser before upload (at most 1920 px, jpeg 80%, exif kept), and every jpeg/png on local storage gets a small copy used as the file preview, so tables, lists and cards load a few kb per image while opening it still shows the full picture. a settings page creates thumbnails for, and re-compresses, images uploaded earlier, in the background. 让上传的照片更轻：手机照片在上传前先在浏览器中缩小（长边最多 1920 像素，jpeg 80%，保留 exif）；本地存储上的每张 jpeg/png 还会生成一张小图作为文件预览，使表格、列表和卡片每张图只加载几 kb，点开仍是完整图片。设置页面可在后台为此前上传的图片补生成缩略图并重新压缩。 admin">
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Ảnh thu nhỏ</span><span class="lang lang-en" hidden>Image Thumbnails</span><span class="lang lang-zh" hidden>图片缩略图</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Quản trị / Công cụ</span><span class="lang lang-en" hidden>Admin &amp; tools</span><span class="lang lang-zh" hidden>Admin &amp; tools</span></span>
-        <span class="chip">v0.1.0</span>
+        <span class="chip">v0.2.0</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
-<p>Bảng, danh sách và thẻ có ảnh sẽ tải <strong>một bản nhỏ của mỗi ảnh (vài KB)</strong> thay vì cả tấm ảnh gốc
-(thường từ 300 KB trở lên). Mở ảnh ra vẫn là ảnh gốc. Không cần cấu hình gì.</p>
+<p>Ảnh nhẹ đi theo hai cách: <strong>ảnh điện thoại được thu nhỏ ngay trên trình duyệt trước khi tải lên</strong> (3–5 MB
+→ vài trăm KB), và bảng, danh sách, thẻ chỉ tải <strong>một bản nhỏ của mỗi ảnh (vài KB)</strong> thay vì cả tấm ảnh.
+Mở ảnh ra vẫn là ảnh đầy đủ. Không cần cấu hình gì.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Công cụ &amp; quản trị (Admin &amp; tools) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.1.0</p>
+<p><strong>Nhóm:</strong> Công cụ &amp; quản trị (Admin &amp; tools) · <strong>Chạy trên:</strong> /admin (classic) + /v/ (modern) · <strong>Phiên bản:</strong> 0.2.0</p>
 <h3>Vì sao cần</h3>
 <p>Bảng có cột ảnh chỉ hiện mỗi ảnh thành một ô vuông nhỏ, nhưng khi chưa có plugin này, trình duyệt vẫn
 phải tải và giải mã <strong>nguyên ảnh gốc</strong> cho từng ô. 50 dòng × vài ảnh chụp điện thoại là dễ dàng 5–10 MB,
 và trang bị đơ trong lúc giải mã. Có plugin, cùng trang đó chỉ còn vài trăm KB.</p>
+<p>Chiều tải lên cũng vậy: một ảnh iPhone nặng 3–5 MB (12 MP), gửi bằng 4G thì chậm và tốn ổ lưu trữ, trong khi
+không ai cần nhiều điểm ảnh hơn một màn hình.</p>
 <h3>Cài xong có gì mới?</h3>
 <ul>
-<li><strong>Mọi ảnh JPEG hoặc PNG tải lên từ giờ</strong> đều có thêm một bản nhỏ (rộng 240 px), lưu cạnh ảnh gốc
+<li><strong>Ảnh được thu nhỏ trước khi tải lên</strong> (từ 0.2.0): ở mọi ô đính kèm, bảng con và chụp ảnh, ảnh
+JPEG/PNG/HEIC lớn hơn 500 KB được thu nhỏ ngay trên trình duyệt về <strong>cạnh dài tối đa 1920 px, JPEG chất
+lượng 80%</strong> rồi mới gửi lên. <strong>Ảnh JPEG giữ nguyên thông tin EXIF (giờ chụp, loại máy, vị trí GPS)</strong>.</li>
+<li><strong>Mọi ảnh JPEG hoặc PNG tải lên</strong> đều có thêm một bản nhỏ (rộng 240 px), lưu cạnh ảnh gốc
 trong cùng thư mục (<code>anh.jpg</code> → <code>anh.thumb.jpg</code>).</li>
 <li>Mọi chỗ NocoBase hiện file dưới dạng ảnh nhỏ — <strong>ô bảng, danh sách, thẻ, ô upload</strong> — giờ dùng
-bản nhỏ. <strong>Bấm vào ảnh vẫn mở ảnh gốc.</strong></li>
-<li><strong>Thêm một trang Settings: “Ảnh thu nhỏ”</strong>, để tạo bản nhỏ cho <strong>các ảnh đã tải lên trước khi</strong> bật plugin.</li>
+bản nhỏ. <strong>Bấm vào ảnh vẫn mở ảnh đầy đủ.</strong></li>
+<li><strong>Một trang Settings: “Ảnh thu nhỏ”</strong>, để tạo bản nhỏ cho <strong>các ảnh đã tải lên trước khi</strong> bật plugin, và
+<strong>thu nhỏ các ảnh đã tải lên trước</strong> bản 0.2.0.</li>
 <li>Không thêm trường, khối hay nút nào vào trang của bạn, và không phải cấu hình lại khối nào.</li>
 </ul>
 <h3>Cách dùng</h3>
 <h4>Ảnh tải lên từ giờ</h4>
-<p>Không phải làm gì — cứ upload như bình thường. Bản nhỏ được tạo ngay sau khi upload, chạy ngầm.</p>
+<p>Không phải làm gì — cứ upload như bình thường. Ảnh được thu nhỏ trên trình duyệt trước khi gửi, và bản nhỏ
+được tạo ngay sau khi upload, chạy ngầm.</p>
 <h4>Ảnh đã tải lên từ trước</h4>
 <ol>
 <li>Mở ⚙ <strong>Settings</strong> → <strong>“Ảnh thu nhỏ”</strong> (lane classic: <code>/admin/settings/tuanla90-image-thumbnail</code>).</li>
@@ -1481,17 +1489,32 @@ bản nhỏ. <strong>Bấm vào ảnh vẫn mở ảnh gốc.</strong></li>
 <strong>“Dừng”</strong> để tạm dừng; bấm lại nút lần sau sẽ làm tiếp những ảnh còn thiếu.</li>
 </ol>
 <p>✅ Xong khi trạng thái báo <strong>Đã xong</strong>. Tải lại trang có ảnh để thấy hiệu quả.</p>
+<h4>Thu nhỏ ảnh đã tải lên trước đây</h4>
+<p>⚠️ Thao tác này <strong>ghi đè file ảnh gốc</strong> và không hoàn tác được — <strong>hãy sao lưu thư mục <code>storage/uploads</code> trước.</strong></p>
+<ol>
+<li>Cũng trên trang đó, thẻ <strong>“Thu nhỏ ảnh đã tải lên trước đây”</strong> cho biết có bao nhiêu ảnh JPEG lớn hơn 500 KB
+và chúng chiếm bao nhiêu MB.</li>
+<li>Bấm <strong>“Thu nhỏ ảnh đã tải lên trước đây”</strong> rồi xác nhận. Mỗi ảnh được ghi lại giống như một ảnh mới tải lên
+(1920 px, JPEG 80%, giữ EXIF) <strong>dưới đúng tên file cũ</strong>, nên mọi liên kết và mọi bản ghi vẫn trỏ đúng.</li>
+<li>Tiến độ hiện <strong>Đã thu nhỏ / Bỏ qua / Lỗi</strong> và số MB trước → sau. <strong>“Dừng”</strong> để tạm dừng; chạy lại sẽ làm
+tiếp những ảnh chưa xử lý.</li>
+</ol>
 <h3>Cần biết</h3>
 <ul>
-<li>🖼️ <strong>Chỉ JPEG và PNG.</strong> Định dạng khác (WebP, GIF, HEIC…) vẫn hiện ảnh gốc.</li>
-<li>💾 <strong>Chỉ ổ lưu trữ local</strong> (mặc định “Local storage”). File trên S3 / Aliyun OSS / Tencent COS giữ
-nguyên — các dịch vụ này tự thu nhỏ ảnh qua <em>thumbnail rule</em> của storage.</li>
-<li>🔄 Ảnh chụp điện thoại được xoay đúng chiều theo thông tin EXIF, nên bản nhỏ không bao giờ bị nằm ngang.</li>
-<li>🪶 Ảnh vốn đã nhỏ (dưới ~30 KB, hoặc hẹp hơn 300 px và dưới 150 KB) được bỏ qua — hiện ảnh gốc đã đủ nhẹ.</li>
+<li>🖼️ <strong>Bản nhỏ: chỉ JPEG và PNG.</strong> Định dạng khác (WebP, GIF, HEIC…) vẫn hiện ảnh gốc.</li>
+<li>📉 <strong>Thu nhỏ khi tải lên bỏ qua:</strong> file từ 500 KB trở xuống, ảnh PNG đã vừa 1920 px (thường là ảnh chụp
+màn hình — giữ nguyên chất lượng), GIF/WebP và mọi file không phải ảnh. PNG có nền trong suốt vẫn là PNG.
+Ảnh HEIC được đổi sang JPEG khi trình duyệt đọc được HEIC (Safari); trình duyệt khác thì tải lên nguyên bản.</li>
+<li>🧭 Ảnh chụp điện thoại được xoay đúng chiều theo thông tin EXIF (cả bản nhỏ lẫn ảnh đã thu nhỏ), và EXIF
+được giữ lại đánh dấu là đã đúng chiều để không trình xem ảnh nào xoay thêm lần nữa.</li>
+<li>💾 <strong>Chỉ ổ lưu trữ local</strong> cho bản nhỏ và cho việc thu nhỏ ảnh cũ (mặc định “Local storage”). File trên
+S3 / Aliyun OSS / Tencent COS giữ nguyên. Thu nhỏ khi tải lên diễn ra trước khi gửi file nên áp dụng cho mọi storage.</li>
+<li>🪶 Ảnh vốn đã nhỏ (dưới ~30 KB, hoặc hẹp hơn 300 px và dưới 150 KB) không tạo bản nhỏ — hiện ảnh gốc đã đủ nhẹ.</li>
 <li>🗑️ Xoá bản ghi file thì bản nhỏ cũng bị xoá theo (trừ khi storage được đặt giữ lại file đã xoá).</li>
-<li>⏱️ Một ảnh lớn mất khoảng 0,5–1,5 giây để thu nhỏ. Việc này chạy trên luồng riêng nên app không bị khựng;
-tạo bản nhỏ cho 1.000 ảnh cũ mất khoảng 10–20 phút.</li>
-<li>Tắt plugin thì mọi nơi quay về hiện ảnh gốc; các bản nhỏ vẫn nằm trên đĩa.</li>
+<li>⏱️ Một ảnh lớn mất khoảng 0,5–1,5 giây để tạo bản nhỏ và khoảng 1–3 giây để thu nhỏ trên server. Việc này
+chạy trên luồng riêng, lần lượt từng ảnh, nên app không bị khựng.</li>
+<li>Tắt plugin thì mọi nơi quay về hiện ảnh gốc và tải lên lại nguyên kích thước; các bản nhỏ vẫn nằm trên đĩa.
+Ảnh đã thu nhỏ thì vẫn giữ kích thước đã thu nhỏ.</li>
 </ul>
 <h3>Xử lý sự cố</h3>
 <table>
@@ -1514,6 +1537,14 @@ tạo bản nhỏ cho 1.000 ảnh cũ mất khoảng 10–20 phút.</li>
 <td>“Lỗi” khác 0</td>
 <td>Xem <strong>Lỗi gần nhất</strong> trên trang. Thường là file ảnh hỏng hoặc định dạng lạ; ảnh gốc vẫn hiện bình thường.</td>
 </tr>
+<tr>
+<td>Ảnh tải lên vẫn nặng vài MB</td>
+<td>Trình duyệt còn giữ script cũ: tải lại trang (Ctrl+F5). Ảnh không đi qua trang NocoBase (API, import, tải thẳng lên S3) không được thu nhỏ.</td>
+</tr>
+<tr>
+<td>Thẻ thu nhỏ báo 0 ảnh</td>
+<td>Không còn ảnh JPEG nào lớn hơn 500 KB trên ổ local mà chưa được xử lý.</td>
+</tr>
 </tbody>
 </table>
 <h3>Ghi chú kỹ thuật</h3>
@@ -1521,33 +1552,45 @@ tạo bản nhỏ cho 1.000 ảnh cũ mất khoảng 10–20 phút.</li>
 hook <code>afterFind</code> của file-manager lấy <code>preview</code> của mỗi bản ghi file từ hàm này, và cả hai lane hiện ảnh nhỏ
 bằng <code>preview || url</code>, mở ảnh bằng <code>url</code>. Bản nhỏ phải là một file thật vì ở bản triển khai thông thường,
 <code>/storage/uploads</code> do nginx phục vụ thẳng từ đĩa. Tên bản nhỏ lưu ở <code>meta.ptdlThumb</code> của bản ghi. Ảnh được giải
-mã bằng thư viện JS thuần (jpeg-js, pngjs) trên một worker thread — không cần cài thư viện native. API server
-(admin, snippet ACL <code>pm.tuanla90-image-thumbnail</code>): <code>ptdlImageThumb:status</code>, <code>ptdlImageThumb:backfill</code>,
-<code>ptdlImageThumb:stop</code>.</p>
+mã bằng thư viện JS thuần (jpeg-js, pngjs) trên một worker thread — không cần cài thư viện native. Thu nhỏ khi
+tải lên là một request interceptor của axios trên API client của app: cả hai lane tải file qua <code>customRequest</code>
+của file-manager, gửi FormData tới <code>&lt;collection&gt;:create</code>; file ảnh trong đó được thay bằng bản vẽ lại qua canvas,
+chép kèm khối EXIF APP1 của ảnh JPEG gốc (Orientation → 1, cập nhật kích thước điểm ảnh, bỏ liên kết ảnh xem
+trước nhúng). Thu nhỏ ảnh cũ ghi ra file tạm rồi đổi tên đè lên file gốc, sau đó cập nhật <code>size</code> và
+<code>meta.ptdlCompressed</code> (hoặc <code>meta.ptdlCompressSkip</code>). API server (admin, snippet ACL <code>pm.tuanla90-image-thumbnail</code>):
+<code>ptdlImageThumb:status</code>, <code>ptdlImageThumb:backfill</code>, <code>ptdlImageThumb:stop</code>, <code>ptdlImageThumb:compressStatus</code>,
+<code>ptdlImageThumb:compress</code>, <code>ptdlImageThumb:compressStop</code>.</p>
 </div>
       <div class="prose lang lang-en" hidden><blockquote>
-<p>Tables, lists and cards that show photos load <strong>a small copy of each image (a few KB)</strong> instead of
-the full photo (often 300 KB+). Opening an image still shows the original. Nothing to configure.</p>
+<p>Photos get light in two ways: a <strong>phone photo is shrunk in the browser before it is uploaded</strong> (3–5 MB
+→ a few hundred KB), and tables, lists and cards load <strong>a small copy of each image (a few KB)</strong> instead
+of the full picture. Opening an image still shows the full picture. Nothing to configure.</p>
 </blockquote>
-<p><strong>Group:</strong> Admin &amp; tools · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.1.0</p>
+<p><strong>Group:</strong> Admin &amp; tools · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.0</p>
 <h3>Why</h3>
 <p>A table with an image column shows each photo as a small square, but without this plugin the browser
 still downloads and decodes the <strong>whole original</strong> for every square. 50 rows × a few photos of a phone
 camera is easily 5–10 MB and makes the page freeze while it decodes them. With this plugin the same
 page loads a few hundred KB.</p>
+<p>Uploads have the same problem the other way round: an iPhone photo is 3–5 MB (12 MP), slow to send over
+mobile data and heavy on storage, although nobody needs more than a screen’s worth of pixels.</p>
 <h3>What’s new after installing?</h3>
 <ul>
-<li><strong>Every JPEG or PNG uploaded from now on</strong> gets a small copy (240 px wide), saved next to the
+<li><strong>Photos are shrunk before upload</strong> (from 0.2.0): in every attachment field, sub-table and camera
+upload, a JPEG/PNG/HEIC photo above 500 KB is reduced in the browser to <strong>at most 1920 px on the long
+side, JPEG quality 80%</strong>, then uploaded. The <strong>EXIF data of a JPEG (date taken, camera, GPS) is kept</strong>.</li>
+<li><strong>Every JPEG or PNG uploaded</strong> gets a small copy (240 px wide), saved next to the
 original in the same folder (<code>photo.jpg</code> → <code>photo.thumb.jpg</code>).</li>
 <li>Wherever NocoBase shows a file as a thumbnail — <strong>table cells, lists, cards, the upload field</strong> —
-it now uses the small copy. <strong>Clicking the image still opens the original.</strong></li>
-<li><strong>A new Settings page: “Image thumbnails”</strong>, to create small copies for <strong>images uploaded before</strong>
-the plugin was enabled.</li>
+it now uses the small copy. <strong>Clicking the image still opens the full picture.</strong></li>
+<li><strong>A Settings page: “Image thumbnails”</strong>, to create small copies for <strong>images uploaded before</strong>
+the plugin was enabled, and to <strong>shrink photos uploaded before</strong> 0.2.0.</li>
 <li>No new field, block or button is added to your pages, and no block needs reconfiguring.</li>
 </ul>
 <h3>How to use</h3>
 <h4>Images uploaded from now on</h4>
-<p>Nothing to do — upload as usual. The small copy is made a moment after the upload, in the background.</p>
+<p>Nothing to do — upload as usual. The photo is shrunk in the browser before it is sent, and the small copy
+is made a moment after the upload, in the background.</p>
 <h4>Images uploaded before the plugin</h4>
 <ol>
 <li>Open ⚙ <strong>Settings</strong> → <strong>“Image thumbnails”</strong> (classic path <code>/admin/settings/tuanla90-image-thumbnail</code>).</li>
@@ -1556,18 +1599,34 @@ the plugin was enabled.</li>
 <strong>“Stop”</strong> halts it; clicking the button again later continues with the images still missing.</li>
 </ol>
 <p>✅ Done when the status says <strong>Finished</strong>. Reload a page with images to see the effect.</p>
+<h4>Shrink photos uploaded earlier</h4>
+<p>⚠️ This <strong>overwrites the original files</strong> and cannot be undone — <strong>back up the <code>storage/uploads</code> folder first.</strong></p>
+<ol>
+<li>On the same page, the <strong>“Shrink photos uploaded earlier”</strong> card says how many JPEG photos above 500 KB there
+are and how many MB they take.</li>
+<li>Click <strong>“Shrink photos uploaded earlier”</strong> and confirm. Each photo is rewritten the same way as a new upload
+(1920 px, JPEG 80%, EXIF kept) under <strong>the same file name</strong>, so every link and every record still points at it.</li>
+<li>The progress shows <strong>Shrunk / Skipped / Failed</strong> and the MB before → after. <strong>“Stop”</strong> halts it; starting again
+continues with the photos not handled yet.</li>
+</ol>
 <h3>Good to know</h3>
 <ul>
-<li>🖼️ <strong>JPEG and PNG only.</strong> Other formats (WebP, GIF, HEIC…) keep showing the original.</li>
-<li>💾 <strong>Local storage only</strong> (the default “Local storage”). Files on S3 / Aliyun OSS / Tencent COS are left as
-they are — those services resize images themselves through the storage’s <em>thumbnail rule</em>.</li>
-<li>🔄 Phone photos are turned upright using their EXIF orientation, so the small copy is never sideways.</li>
-<li>🪶 Images that are already small (under ~30 KB, or narrower than 300 px and under 150 KB) are skipped — the
+<li>🖼️ <strong>Thumbnails: JPEG and PNG only.</strong> Other formats (WebP, GIF, HEIC…) keep showing the original.</li>
+<li>📉 <strong>Shrinking on upload leaves alone:</strong> files of 500 KB or less, PNGs that already fit 1920 px (often
+screenshots — kept lossless), GIF/WebP, and anything that is not an image. A transparent PNG stays PNG.
+A HEIC photo becomes JPEG where the browser can read HEIC (Safari); elsewhere it is uploaded as is.</li>
+<li>🧭 Phone photos are turned upright using their EXIF orientation (thumbnails and shrunk photos alike), and
+the kept EXIF is marked upright so no viewer turns them a second time.</li>
+<li>💾 <strong>Local storage only</strong> for thumbnails and for shrinking earlier photos (the default “Local storage”).
+Files on S3 / Aliyun OSS / Tencent COS are left as they are. Shrinking on upload happens before the file is
+sent, so it works for every storage.</li>
+<li>🪶 Images that are already small (under ~30 KB, or narrower than 300 px and under 150 KB) get no thumbnail — the
 original is already cheap to show.</li>
 <li>🗑️ Deleting a file record deletes its small copy too (unless the storage keeps deleted files).</li>
-<li>⏱️ A large photo takes about 0.5–1.5 s to shrink. This runs on a separate thread, so the app stays
-responsive; a backfill of 1,000 photos takes roughly 10–20 minutes.</li>
-<li>Turning the plugin off simply brings back the originals everywhere; the small copies stay on disk.</li>
+<li>⏱️ A large photo takes about 0.5–1.5 s to thumbnail and about 1–3 s to shrink on the server. This runs on a
+separate thread, one photo at a time, so the app stays responsive.</li>
+<li>Turning the plugin off simply brings back the originals everywhere and uploads full-size again; the small
+copies stay on disk. Photos already shrunk stay shrunk.</li>
 </ul>
 <h3>Troubleshooting</h3>
 <table>
@@ -1590,6 +1649,14 @@ responsive; a backfill of 1,000 photos takes roughly 10–20 minutes.</li>
 <td>“Failed” is not 0</td>
 <td>See <strong>Last error</strong> on the page. Usually a damaged or unusual image file; the original keeps showing.</td>
 </tr>
+<tr>
+<td>Uploaded photos are still several MB</td>
+<td>The browser kept the old script: reload the page (Ctrl+F5). Uploads that do not go through the NocoBase page (API, import, S3 direct upload) are not shrunk.</td>
+</tr>
+<tr>
+<td>The shrink card says 0 photos</td>
+<td>No JPEG above 500 KB on local storage that has not been handled yet.</td>
+</tr>
 </tbody>
 </table>
 <h3>Technical notes</h3>
@@ -1598,29 +1665,39 @@ file-manager’s <code>afterFind</code> hook fills each file record’s <code>pr
 thumbnails from <code>preview || url</code> and open <code>url</code>. The small copy has to be a real file because on a typical
 deployment <code>/storage/uploads</code> is served by nginx straight from disk. Its name is stored in the record’s
 <code>meta.ptdlThumb</code>. Images are decoded with pure-JS codecs (jpeg-js, pngjs) on a worker thread — no native
-binary to install. Server API (admin, ACL snippet <code>pm.tuanla90-image-thumbnail</code>): <code>ptdlImageThumb:status</code>,
-<code>ptdlImageThumb:backfill</code>, <code>ptdlImageThumb:stop</code>.</p>
+binary to install. Shrinking on upload is an axios request interceptor on the app’s API client: both clients
+upload through file-manager’s <code>customRequest</code>, a FormData posted to <code>&lt;collection&gt;:create</code>; image files in it
+are replaced by a canvas re-encode, with the original JPEG’s EXIF APP1 copied over (Orientation → 1, pixel
+size updated, embedded preview unlinked). Re-compressing earlier photos writes a temp file and renames it over
+the original, then updates <code>size</code> and <code>meta.ptdlCompressed</code> (or <code>meta.ptdlCompressSkip</code>). Server API (admin,
+ACL snippet <code>pm.tuanla90-image-thumbnail</code>): <code>ptdlImageThumb:status</code>, <code>ptdlImageThumb:backfill</code>,
+<code>ptdlImageThumb:stop</code>, <code>ptdlImageThumb:compressStatus</code>, <code>ptdlImageThumb:compress</code>, <code>ptdlImageThumb:compressStop</code>.</p>
 </div>
       <div class="prose lang lang-zh" hidden><blockquote>
-<p>显示照片的表格、列表和卡片将加载<strong>每张图片的小图（几 KB）</strong>，而不是整张原图（通常 300 KB 以上）。
-点开图片仍是原图。无需任何配置。</p>
+<p>图片通过两种方式变轻：<strong>手机照片在上传前先在浏览器中缩小</strong>（3–5 MB → 几百 KB），表格、列表和卡片则加载
+<strong>每张图片的小图（几 KB）</strong>，而不是整张图片。点开图片仍是完整图片。无需任何配置。</p>
 </blockquote>
-<p><strong>分组：</strong> 管理与工具 · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.1.0</p>
+<p><strong>分组：</strong> 管理与工具 · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.2.0</p>
 <h3>为什么需要</h3>
 <p>带图片列的表格只把每张照片显示成一个小方块，但没有本插件时，浏览器仍要为每个方块下载并解码<strong>整张原图</strong>。
 50 行 × 几张手机照片很容易就是 5–10 MB，页面会在解码时卡住。启用本插件后，同一页面只需几百 KB。</p>
+<p>上传时也是同样的问题：一张 iPhone 照片有 3–5 MB（1200 万像素），用移动网络发送很慢，也占存储，而实际上没有人需要
+超过一个屏幕的像素。</p>
 <h3>安装后有什么变化？</h3>
 <ul>
-<li><strong>今后上传的每张 JPEG 或 PNG</strong> 都会多生成一张小图（宽 240 px），与原图保存在同一目录
+<li><strong>照片在上传前缩小</strong>（自 0.2.0 起）：在所有附件字段、子表格和拍照上传中，大于 500 KB 的 JPEG/PNG/HEIC
+照片会先在浏览器中缩小为<strong>长边最多 1920 像素、JPEG 质量 80%</strong>，然后再上传。<strong>JPEG 的 EXIF 信息（拍摄时间、
+相机、GPS）会保留。</strong></li>
+<li><strong>每张上传的 JPEG 或 PNG</strong> 都会多生成一张小图（宽 240 px），与原图保存在同一目录
 （<code>photo.jpg</code> → <code>photo.thumb.jpg</code>）。</li>
 <li>NocoBase 以缩略图形式显示文件的地方——<strong>表格单元格、列表、卡片、上传字段</strong>——现在都使用小图。
-<strong>点击图片仍打开原图。</strong></li>
-<li><strong>新增一个设置页面：“图片缩略图”</strong>，用于为启用插件<strong>之前上传</strong>的图片补生成小图。</li>
+<strong>点击图片仍打开完整图片。</strong></li>
+<li><strong>一个设置页面：“图片缩略图”</strong>，用于为启用插件<strong>之前上传</strong>的图片补生成小图，并<strong>缩小 0.2.0 之前上传</strong>的照片。</li>
 <li>不会在页面中新增任何字段、区块或按钮，也不需要重新配置任何区块。</li>
 </ul>
 <h3>使用方法</h3>
 <h4>今后上传的图片</h4>
-<p>无需操作——照常上传即可。小图会在上传后很快于后台生成。</p>
+<p>无需操作——照常上传即可。照片会在发送前于浏览器中缩小，小图会在上传后很快于后台生成。</p>
 <h4>之前上传的图片</h4>
 <ol>
 <li>打开 ⚙ <strong>设置</strong> → <strong>“图片缩略图”</strong>（经典版路径 <code>/admin/settings/tuanla90-image-thumbnail</code>）。</li>
@@ -1629,16 +1706,29 @@ binary to install. Server API (admin, ACL snippet <code>pm.tuanla90-image-thumbn
 <strong>“停止”</strong> 可暂停；之后再次点击按钮会继续处理尚未生成的图片。</li>
 </ol>
 <p>✅ 状态显示 <strong>已完成</strong> 即结束。重新加载带图片的页面即可看到效果。</p>
+<h4>缩小以前上传的照片</h4>
+<p>⚠️ 此操作会<strong>覆盖原始文件</strong>且无法撤销——<strong>请先备份 <code>storage/uploads</code> 文件夹。</strong></p>
+<ol>
+<li>在同一页面上，<strong>“缩小以前上传的照片”</strong> 卡片会显示有多少张大于 500 KB 的 JPEG 照片，以及它们占用多少 MB。</li>
+<li>点击 <strong>“缩小以前上传的照片”</strong> 并确认。每张照片都按新上传的方式重写（1920 像素、JPEG 80%、保留 EXIF），
+并<strong>沿用原文件名</strong>，因此所有链接和记录仍指向它。</li>
+<li>进度会显示 <strong>已缩小 / 跳过 / 失败</strong> 以及处理前 → 处理后的 MB。<strong>“停止”</strong> 可暂停；再次开始会继续处理
+尚未处理的照片。</li>
+</ol>
 <h3>须知</h3>
 <ul>
-<li>🖼️ <strong>仅支持 JPEG 和 PNG。</strong> 其他格式（WebP、GIF、HEIC…）仍显示原图。</li>
-<li>💾 <strong>仅限本地存储</strong>（默认的 “Local storage”）。S3 / 阿里云 OSS / 腾讯云 COS 上的文件保持不变——
-这些服务可通过存储的<em>缩略图规则</em>自行缩放图片。</li>
-<li>🔄 手机照片会按 EXIF 方向信息转正，小图不会横躺。</li>
-<li>🪶 本身已经很小的图片（约 30 KB 以下，或宽度小于 300 px 且小于 150 KB）会被跳过——直接显示原图已足够轻。</li>
+<li>🖼️ <strong>缩略图仅支持 JPEG 和 PNG。</strong> 其他格式（WebP、GIF、HEIC…）仍显示原图。</li>
+<li>📉 <strong>上传时缩小会跳过：</strong> 500 KB 及以下的文件、已在 1920 像素以内的 PNG（多为截图——保持无损）、
+GIF/WebP，以及所有非图片文件。透明 PNG 仍保持 PNG。浏览器能读取 HEIC 时（Safari），HEIC 照片会转换为
+JPEG；其他浏览器则按原样上传。</li>
+<li>🧭 手机照片会按 EXIF 方向信息转正（小图和缩小后的照片都是），保留的 EXIF 也会标记为已转正，
+因此任何看图软件都不会再转一次。</li>
+<li>💾 缩略图和缩小旧照片<strong>仅限本地存储</strong>（默认的 “Local storage”）。S3 / 阿里云 OSS / 腾讯云 COS 上的文件
+保持不变。上传时缩小发生在文件发送之前，因此适用于所有存储。</li>
+<li>🪶 本身已经很小的图片（约 30 KB 以下，或宽度小于 300 px 且小于 150 KB）不生成小图——直接显示原图已足够轻。</li>
 <li>🗑️ 删除文件记录时会一并删除其小图（除非存储设置为保留已删除文件）。</li>
-<li>⏱️ 一张大照片缩小约需 0.5–1.5 秒。这在独立线程中运行，应用不会卡顿；为 1,000 张旧照片补生成约需 10–20 分钟。</li>
-<li>停用插件后各处恢复显示原图；小图仍保留在磁盘上。</li>
+<li>⏱️ 一张大照片生成小图约需 0.5–1.5 秒，在服务端缩小约需 1–3 秒。这在独立线程中逐张运行，应用不会卡顿。</li>
+<li>停用插件后各处恢复显示原图，上传也恢复原始尺寸；小图仍保留在磁盘上。已缩小的照片保持缩小后的尺寸。</li>
 </ul>
 <h3>故障排查</h3>
 <table>
@@ -1661,6 +1751,14 @@ binary to install. Server API (admin, ACL snippet <code>pm.tuanla90-image-thumbn
 <td>“失败” 不为 0</td>
 <td>查看页面上的 <strong>最近一次错误</strong>。通常是损坏或格式特殊的图片文件；原图照常显示。</td>
 </tr>
+<tr>
+<td>上传的照片仍有好几 MB</td>
+<td>浏览器还在使用旧脚本：重新加载页面（Ctrl+F5）。不经过 NocoBase 页面的上传（API、导入、直传 S3）不会被缩小。</td>
+</tr>
+<tr>
+<td>缩小卡片显示 0 张照片</td>
+<td>本地存储上已没有尚未处理、且大于 500 KB 的 JPEG。</td>
+</tr>
 </tbody>
 </table>
 <h3>技术说明</h3>
@@ -1668,8 +1766,12 @@ binary to install. Server API (admin, ACL snippet <code>pm.tuanla90-image-thumbn
 <code>afterFind</code> 钩子用它填充每条文件记录的 <code>preview</code>，两个客户端都以 <code>preview || url</code> 显示缩略图、以 <code>url</code> 打开原图。
 小图必须是真实文件，因为在常见部署中 <code>/storage/uploads</code> 由 nginx 直接从磁盘提供。小图文件名保存在记录的
 <code>meta.ptdlThumb</code> 中。图片在 worker 线程中用纯 JS 编解码库（jpeg-js、pngjs）处理——无需安装原生二进制。
-服务端 API（管理员，ACL 片段 <code>pm.tuanla90-image-thumbnail</code>）：<code>ptdlImageThumb:status</code>、<code>ptdlImageThumb:backfill</code>、
-<code>ptdlImageThumb:stop</code>。</p>
+上传时缩小是应用 API 客户端上的一个 axios 请求拦截器：两个客户端都通过 file-manager 的 <code>customRequest</code> 上传，
+即向 <code>&lt;collection&gt;:create</code> 提交 FormData；其中的图片文件会被替换为经 canvas 重新编码的版本，并复制原 JPEG 的
+EXIF APP1（Orientation → 1、更新像素尺寸、断开内嵌预览图）。缩小旧照片时先写入临时文件，再重命名覆盖原文件，
+然后更新 <code>size</code> 和 <code>meta.ptdlCompressed</code>（或 <code>meta.ptdlCompressSkip</code>）。服务端 API（管理员，ACL 片段
+<code>pm.tuanla90-image-thumbnail</code>）：<code>ptdlImageThumb:status</code>、<code>ptdlImageThumb:backfill</code>、<code>ptdlImageThumb:stop</code>、
+<code>ptdlImageThumb:compressStatus</code>、<code>ptdlImageThumb:compress</code>、<code>ptdlImageThumb:compressStop</code>。</p>
 </div>
     </section>
 
@@ -5066,7 +5168,7 @@ capture the QR string, then feed it to the reader.</li>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Công thức &amp; Trường tự tính</span><span class="lang lang-en" hidden>Formula &amp; Computed Fields</span><span class="lang lang-zh" hidden>公式</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.2.31</span>
+        <span class="chip">v0.2.32</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
