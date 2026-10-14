@@ -1677,7 +1677,7 @@ binary to install. Server API (admin, ACL snippet <code>pm.tuanla90-image-thumbn
       <div class="plugin-head">
         <h2><span class="lang lang-vi">App Doctor (Bác sĩ ứng dụng)</span><span class="lang lang-en" hidden>App Doctor</span><span class="lang lang-zh" hidden>应用医生</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Quản trị / Công cụ</span><span class="lang lang-en" hidden>Admin &amp; tools</span><span class="lang lang-zh" hidden>Admin &amp; tools</span></span>
-        <span class="chip">v0.4.0</span>
+        <span class="chip">v0.4.1</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -1828,6 +1828,9 @@ Kiểm thử: <code>bash build-env/recipes/app-doctor-check.sh</code> (chạy tr
 <li>Sắp xếp mặc định theo trường không tồn tại được <strong>bỏ qua</strong> trước khi gửi request → khối vẫn tải được (chỉ mất thứ tự đó). Console trình duyệt ghi rõ trường bị bỏ qua.</li>
 <li>Khung lỗi của NocoBase được làm dịu: <em>“Khối này tạm thời chưa hiển thị được — thường do cấu hình khối không còn khớp dữ liệu…”</em>, bỏ các link “NocoBase internals bug / mở issue”. <strong>Người dùng thường</strong> chỉ thấy thông báo và nút <em>Thử lại</em>; quản trị viên (vai trò root/admin) vẫn thấy đầy đủ chi tiết lỗi.</li>
 </ul>
+<h3>Kiểm tra workflow: so trạng thái bằng tên (từ 0.4.1)</h3>
+<p>Phần <strong>Workflow</strong> của App Doctor báo thêm loại <strong>“So trạng thái bằng tên”</strong> (mức Lỗi): một workflow đang bật so hoặc ghi một cột <strong>status flow / Select</strong> bằng <strong>tên</strong> (vd <code>&quot;2. Đã xếp&quot;</code>) trong khi cột lưu <strong>key</strong> (<code>361387321262082</code>). Điều kiện kiểu này không bao giờ đúng mà không hề báo lỗi.</p>
+<p>Quét: điều kiện (cơ bản và công thức), câu SQL, giá trị của node Cập nhật/Tạo, và bộ lọc của trigger. Mỗi dòng nêu node, cột, tên đã dùng và <strong>key đúng</strong> để thay — hoặc dùng biến <em>System variables → Status flow</em> (status-flow ≥ 0.2.23). Chỉ đọc, không tự sửa.</p>
 </div>
       <div class="prose lang lang-en" hidden><blockquote>
 <p><strong>Scan</strong> all data collections for <strong>broken relations</strong> and <strong>repair them in one click</strong>. It specializes in the
@@ -1985,6 +1988,9 @@ Checks: <code>bash build-env/recipes/app-doctor-check.sh</code> (runs against nb
 <li>A default sort on a missing field is <strong>skipped</strong> before the request is sent, so the block still loads (just without that ordering). The browser console names the skipped field.</li>
 <li>The core error panel is softened: <em>“This block could not be displayed — usually the block settings no longer match the data…”</em>, without the “NocoBase internals bug / open an issue” links. <strong>Non-admin users</strong> only see the message and <em>Try again</em>; administrators (root/admin role) still get the full error details.</li>
 </ul>
+<h3>Workflow check: status compared by name (0.4.1+)</h3>
+<p>The <strong>Workflow</strong> section reports a new kind, <strong>“Status compared by name”</strong> (Error): an enabled workflow compares or writes a <strong>status flow / Select</strong> column using the <strong>name</strong> (e.g. <code>&quot;2. Loaded&quot;</code>) while the column stores the <strong>key</strong> (<code>361387321262082</code>). Such a condition never matches — silently.</p>
+<p>Scanned: conditions (basic and formula), SQL, Update/Create node values and trigger filters. Each row names the node, the column, the name used and the <strong>right key</strong> — or use the <em>System variables → Status flow</em> variable (status-flow ≥ 0.2.23). Read-only, nothing is changed.</p>
 </div>
       <div class="prose lang lang-zh" hidden><blockquote>
 <p><strong>扫描</strong>所有数据表，找出<strong>断裂的关系</strong>，并<strong>一键修复</strong>。它专门对付<strong>导入 / 自动生成的应用</strong>留下的那类
@@ -2086,6 +2092,9 @@ repo 取到的用户数据表清单（一份允许清单 —— 系统数据表�
 <li>指向不存在字段的默认排序会在发送请求前被<strong>跳过</strong>，区块照常加载（只是没有该排序）。浏览器控制台会注明被跳过的字段。</li>
 <li>核心错误框被柔化为：<em>“此区块暂时无法显示 — 通常是区块配置与数据不再匹配……”</em>，并去掉 “NocoBase internals bug / open an issue” 链接。<strong>非管理员用户</strong>只看到提示和<em>重试</em>按钮；管理员（root/admin 角色）仍可看到完整错误详情。</li>
 </ul>
+<h3>工作流检查：按名称比较状态（0.4.1+）</h3>
+<p><strong>工作流</strong>部分新增一类问题 <strong>“按名称比较状态”</strong>（错误）：已启用的工作流用<strong>名称</strong>（如 <code>&quot;2. 已装车&quot;</code>）比较或写入 <strong>状态流 / 下拉</strong> 列，而该列存储的是<strong>键</strong>（<code>361387321262082</code>）。这样的条件永远不成立，且不会报错。</p>
+<p>扫描范围：条件（基础与公式）、SQL、更新/新增节点的值以及触发器筛选。每一行都会指出节点、列、使用的名称以及应替换的<strong>正确键</strong> —— 或使用变量 <em>系统变量 → Status flow</em>（status-flow ≥ 0.2.23）。只读，不做任何修改。</p>
 </div>
     </section>
 
@@ -2379,7 +2388,7 @@ NocoBase 原本的行为</strong>，绝不抛出错误。</li>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Đường dẫn dễ đọc</span><span class="lang lang-en" hidden>Friendly URLs</span><span class="lang lang-zh" hidden>友好网址</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Quản trị / Công cụ</span><span class="lang lang-en" hidden>Admin &amp; tools</span><span class="lang lang-zh" hidden>Admin &amp; tools</span></span>
-        <span class="chip">v0.1.1</span>
+        <span class="chip">v0.1.2</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -5057,7 +5066,7 @@ capture the QR string, then feed it to the reader.</li>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Công thức &amp; Trường tự tính</span><span class="lang lang-en" hidden>Formula &amp; Computed Fields</span><span class="lang lang-zh" hidden>公式</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.2.23</span>
+        <span class="chip">v0.2.31</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -5065,7 +5074,7 @@ capture the QR string, then feed it to the reader.</li>
 trên field có sẵn, giá trị mặc định của form, <strong>cột thật do server tự tính lại</strong> theo quan hệ, và các phép
 <strong>tuần tự</strong> như số dư lũy kế hay tồn kho FIFO — <strong>không cần code</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Blocks / Fields · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.2.23</p>
+<p><strong>Nhóm:</strong> Blocks / Fields · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.2.31</p>
 <hr>
 <h3>Mục lục</h3>
 <ol>
@@ -5250,7 +5259,7 @@ icon <strong>🧮</strong> cạnh field đã có công thức · và trang <stro
 <tr>
 <td><strong>Công thức</strong></td>
 <td>trống</td>
-<td>Có nút <strong>Chèn field/quan hệ</strong>, <strong>Chèn bảng tra cứu</strong>, <strong>Ví dụ</strong> (28 mẫu bấm là chèn), <strong>hàm</strong>, <strong>AI viết hộ</strong></td>
+<td>Có nút <strong>Chèn field/quan hệ</strong>, <strong>Chèn bảng tra cứu</strong>, <strong>Chèn trạng thái</strong>, <strong>Ví dụ</strong> (28 mẫu bấm là chèn), <strong>hàm</strong>, <strong>AI viết hộ</strong></td>
 </tr>
 <tr>
 <td><strong>Tính khi</strong></td>
@@ -5411,7 +5420,9 @@ dòng đó.</p>
 data.product.unit_price           -- xuyên quan hệ một-một
 SUM(data.items.line_amount)       -- quan hệ một-nhiều tự thành mảng
 bang_gia.he_so                    -- BẢNG TRA CỨU: gõ thẳng tên bảng, KHÔNG có data.
+data.status_flow == &quot;361387321262082&quot; /* 2. Đã xếp */   -- cột trạng thái/lựa chọn: so với KEY
 </code></pre>
+<p><strong>Cột trạng thái / lựa chọn lưu KEY, không lưu nhãn bạn thấy.</strong> So với nhãn (<code>data.status_flow == &quot;2. Đã xếp&quot;</code>) thì luôn ra sai mà không báo lỗi. Bấm <strong>Chèn trạng thái</strong> phía trên ô công thức → chọn cột → chọn trạng thái: plugin chèn key kèm nhãn làm chú thích. Đổi tên trạng thái sau này công thức vẫn chạy vì key không đổi.</p>
 <h4>Toán tử</h4>
 <table>
 <thead>
@@ -5683,7 +5694,7 @@ tiên rồi bị <code>visited</code> chặn → tổng thiếu.</li>
 form default values, <strong>stored columns the server recomputes</strong> across relations, and <strong>sequential / window</strong> calculations
 like running balances or FIFO / average inventory costing — <strong>no code</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Blocks / Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.23</p>
+<p><strong>Group:</strong> Blocks / Fields · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.2.31</p>
 <h3>What’s new after installing?</h3>
 <p>The plugin opens up <strong>5 ways to use formulas</strong>, each in a different place:</p>
 <table>
@@ -5760,6 +5771,7 @@ column / field with the ⚙ gear button (turn on the <strong>UI Editor</strong> 
 <li><strong>A column of the current row</strong> → <code>data.&lt;column_name&gt;</code> — e.g. <code>data.subtotal</code>.</li>
 <li><strong>Through a relation</strong> → <code>data.&lt;relation&gt;.&lt;column&gt;</code> — e.g. <code>SUM(data.items.line_amount)</code> (roll up many child rows), <code>data.product.unit_price</code> (pull through a one-to-one relation).</li>
 <li><strong>Lookup table</strong> (a different collection, not a relation) → type <code>&lt;table_name&gt;.&lt;column&gt;</code> <strong>directly</strong>, <strong>WITHOUT</strong> <code>data.</code> — e.g. <code>bang_gia.he_so</code>.</li>
+<li><strong>Status / select columns store a KEY, not the label you see</strong> → compare with the key. Click <strong>“Insert status”</strong> above the formula box, pick the column → the status; it inserts the key with the label as a comment, e.g. <code>data.status_flow == &quot;361387321262082&quot; /* 2. Loaded */</code>. Comparing with the label (<code>data.status_flow == &quot;2. Loaded&quot;</code>) is always false, with no error. The key keeps working if the status is renamed.</li>
 <li><strong>Concatenate</strong> with <code>&amp;</code>. <strong>Compare</strong> with <code>==</code>, <code>&lt;&gt;</code>, <code>&gt; &lt; &gt;= &lt;=</code>; <strong>AND</strong> with <code>&amp;&amp;</code>. Function names are case-insensitive.</li>
 </ul>
 <h3>Extra functions (beyond the 400 Excel ones)</h3>
@@ -5906,7 +5918,7 @@ This column is <strong>not stored in the database</strong> — it recomputes on 
 表单默认值、<strong>由服务端跨关系重新计算并存储的列</strong>，以及<strong>顺序 / 窗口</strong>计算，
 例如滚动余额或 FIFO / 平均库存成本核算 — <strong>无需写代码</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> 区块 / 字段 · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.2.23</p>
+<p><strong>分组：</strong> 区块 / 字段 · <strong>运行于：</strong> /admin（经典） + /v/（现代） · <strong>版本：</strong> 0.2.31</p>
 <h3>安装后有什么变化？</h3>
 <p>插件带来了 <strong>5 种使用公式的方式</strong>，分别位于不同的地方：</p>
 <table>
@@ -5983,6 +5995,7 @@ This column is <strong>not stored in the database</strong> — it recomputes on 
 <li><strong>当前行的某一列</strong> → <code>data.&lt;column_name&gt;</code> — 例如 <code>data.subtotal</code>。</li>
 <li><strong>通过关系</strong> → <code>data.&lt;relation&gt;.&lt;column&gt;</code> — 例如 <code>SUM(data.items.line_amount)</code>（汇总多条子行）、<code>data.product.unit_price</code>（通过一对一关系取值）。</li>
 <li><strong>查找表</strong>（另一个数据表，而不是关系）→ <strong>直接</strong>输入 <code>&lt;table_name&gt;.&lt;column&gt;</code>，<strong>不要</strong>加 <code>data.</code> — 例如 <code>bang_gia.he_so</code>。</li>
+<li><strong>状态 / 选项列存的是键（key），不是你看到的标签</strong> → 要和键比较。点击公式框上方的 <strong>“插入状态”</strong>，选列 → 状态，即插入键并把标签作为注释，例如 <code>data.status_flow == &quot;361387321262082&quot; /* 2. 已装车 */</code>。用标签比较（<code>data.status_flow == &quot;2. 已装车&quot;</code>）永远为假，且不报错。状态改名后，键依然有效。</li>
 <li>用 <code>&amp;</code> <strong>连接字符串</strong>。用 <code>==</code>、<code>&lt;&gt;</code>、<code>&gt; &lt; &gt;= &lt;=</code> <strong>比较</strong>；用 <code>&amp;&amp;</code> 表示 <strong>AND</strong>。函数名不区分大小写。</li>
 </ul>
 <h3>额外函数（400 个 Excel 函数之外）</h3>
@@ -8019,7 +8032,7 @@ clear separators may land on “Province only”.</li>
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Field nâng cao</span><span class="lang lang-en" hidden>Field Enhancements</span><span class="lang lang-zh" hidden>字段增强</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.2.71</span>
+        <span class="chip">v0.2.75</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -9756,7 +9769,7 @@ bash build-env/recipes/add-markers.sh build-env/storage/tar/@tuanla90/plugin-fie
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Luồng trạng thái</span><span class="lang lang-en" hidden>Status Flow</span><span class="lang lang-zh" hidden>状态流</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Trường / Field</span><span class="lang lang-en" hidden>Fields</span><span class="lang lang-zh" hidden>Fields</span></span>
-        <span class="chip">v0.2.18</span>
+        <span class="chip">v0.2.23</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -9897,6 +9910,12 @@ co theo nội dung (tắt = như hiện tại).</p>
 <strong>Xác nhận trước khi chuyển</strong> và/hoặc <strong>Yêu cầu ghi chú/lý do</strong>.</li>
 <li>Bấm nút → menu <strong>chỉ liệt kê các chuyển tiếp hợp lệ cho bản ghi này</strong>.</li>
 </ol>
+<h4>(Tuỳ chọn) So trạng thái trong Workflow — chọn theo tên, không cần biết ID</h4>
+<p>Cột trạng thái lưu <strong>key</strong> của trạng thái (thường là một dãy số dài như <code>361387321262082</code>), không lưu tên. Gõ tên <code>&quot;2. Đã xếp&quot;</code> vào điều kiện workflow thì điều kiện <strong>không bao giờ đúng</strong> — và cũng không báo lỗi.</p>
+<p>Trong ô giá trị của điều kiện (hoặc node Cập nhật/Tạo), bấm nút biến → <strong>System variables → Status flow → bảng → cột → tên trạng thái</strong>. Điều kiện hiển thị tên (vd <em>Status flow / Quản lý vận chuyển / Trạng thái chuyến / 2. Đã xếp</em>), khi chạy tự thay bằng đúng key.</p>
+<blockquote>
+<p>💡 Key vẫn xem được trong hộp cấu hình cột (ô chữ xám cạnh tên trạng thái) — <strong>đừng sửa</strong> ô đó khi bảng đã có dữ liệu: dữ liệu cũ không tự đổi theo.</p>
+</blockquote>
 <h3>Mẹo &amp; lưu ý</h3>
 <ul>
 <li>✅ <strong>Máy chủ là “trọng tài”.</strong> Ô chọn lọc sẵn chỉ để tiện tay; kể cả gọi API trực tiếp, sửa hàng loạt hay
@@ -10071,6 +10090,12 @@ status highlighted), <strong>Change log</strong> (needs the change-log plugin).<
 <strong>Confirm before moving</strong> and/or <strong>Ask for a note/reason</strong>.</li>
 <li>Click the button → the menu <strong>lists only the transitions valid for this record</strong>.</li>
 </ol>
+<h4>(Optional) Compare a status in a Workflow — pick it by name, no id needed</h4>
+<p>A status column stores the status <strong>key</strong> (often a long number like <code>361387321262082</code>), not its name. Typing the name <code>&quot;2. Loaded&quot;</code> into a workflow condition makes it <strong>never match</strong> — silently.</p>
+<p>In the condition value (or an Update/Create node), click the variable button → <strong>System variables → Status flow → table → column → status name</strong>. The condition shows the name (e.g. <em>Status flow / Shipments / Trip status / 2. Loaded</em>) and resolves to the right key at run time.</p>
+<blockquote>
+<p>💡 The key is visible in the column’s config dialog (grey box next to each status name) — <strong>don’t edit it</strong> once the table has data: existing rows are not migrated.</p>
+</blockquote>
 <h3>Tips &amp; notes</h3>
 <ul>
 <li>✅ <strong>The server is the “referee”.</strong> The pre-filtered dropdown is just for convenience; even a direct API call,
@@ -10245,6 +10270,12 @@ The client only filters the dropdown for tidiness (UX); it is not the protection
 <strong>切换前确认</strong>和/或<strong>要求填写备注/原因</strong>。</li>
 <li>点击该按钮 → 菜单<strong>只列出对这条记录合法的流转</strong>。</li>
 </ol>
+<h4>（可选）在工作流中比较状态 —— 按名称选择，无需知道 ID</h4>
+<p>状态列存储的是状态的<strong>键</strong>（通常是一长串数字，如 <code>361387321262082</code>），而不是名称。在工作流条件里直接输入名称 <code>&quot;2. 已装车&quot;</code>，条件将<strong>永远不成立</strong>，且不会报错。</p>
+<p>在条件的值（或更新/新增节点）中点击变量按钮 → <strong>系统变量 → Status flow → 表 → 列 → 状态名称</strong>。条件显示名称，运行时自动替换为正确的键。</p>
+<blockquote>
+<p>💡 键可在列配置对话框中看到（状态名称旁的灰色框）—— 表中已有数据时<strong>请勿修改</strong>：已有数据不会随之迁移。</p>
+</blockquote>
 <h3>提示与注意事项</h3>
 <ul>
 <li>✅ <strong>服务端才是&quot;裁判&quot;。</strong> 预先过滤的下拉框只是为了方便；即使是直接调用 API、
@@ -21998,7 +22029,7 @@ Everything is configured right on the menu item — <strong>no code, no extra pa
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Nút thao tác nâng cao</span><span class="lang lang-en" hidden>Action Button Enhancements</span><span class="lang lang-zh" hidden>操作按钮增强</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Giao diện</span><span class="lang lang-en" hidden>Interface</span><span class="lang lang-zh" hidden>Interface</span></span>
-        <span class="chip">v0.1.8</span>
+        <span class="chip">v0.1.9</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -22197,9 +22228,26 @@ Nếu <strong>Dọc</strong> → chọn <strong>Căn chỉnh</strong>: Trái · 
 <blockquote>
 <p>💡 Ô ngày có sẵn các mốc nhanh: <strong>Hôm nay · Hôm qua · 7 ngày qua · 30 ngày qua · Tháng này · Tháng trước · Năm nay</strong>. Đặt một mốc làm <strong>mặc định</strong> thì mỗi lần mở bảng nó tự tính lại theo kỳ hiện tại.</p>
 </blockquote>
+<h4>Tình huống E — Import Excel có dòng trùng key → cập nhật thay vì báo lỗi</h4>
+<p>Mặc định NocoBase <strong>dừng import</strong> khi một dòng trùng giá trị ở cột <strong>duy nhất (unique)</strong> với bản ghi đã có (còn cột khoá không đánh dấu Unique thì bị <strong>tạo trùng</strong>). Có plugin này:</p>
+<ol>
+<li><strong>Chọn cột khoá</strong> (một lần cho mỗi bảng): <strong>Cài đặt → Khoá Import</strong> → <strong>Thêm</strong> → chọn bảng và <strong>một hoặc nhiều cột</strong> nhận diện bản ghi — ví dụ mã do người dùng tự đánh hoặc đến từ hệ thống khác (<em>natural key</em>). Nhiều cột = phải khớp <strong>cả tổ hợp</strong> (vd <code>Số tờ khai</code> + <code>Dòng</code>). Cột này <strong>không cần</strong> đánh dấu Unique trong DB.
+Chọn luôn <strong>Khi trùng khoá</strong>: <strong>Ghi đè</strong> (cập nhật bản ghi cũ — mặc định) hoặc <strong>Bỏ qua</strong> (giữ bản ghi cũ, bỏ dòng đó; không cần quyền Sửa).
+Bảng không cấu hình thì tự dùng cột <strong>ID</strong> hoặc cột đánh dấu <strong>Unique</strong> nếu file có (chế độ Ghi đè).</li>
+<li>Bấm <strong>Import</strong> như bình thường, với file có đủ các cột khoá (thiếu cột khoá nào thì import chạy như mặc định).</li>
+<li>Dòng <strong>chưa có</strong> → tạo mới. Dòng <strong>trùng key</strong> (với dữ liệu đã có, hoặc lặp lại trong chính file) → <strong>cập nhật</strong> bản ghi đó. Nếu một key lặp nhiều lần trong file thì <strong>dòng sau cùng</strong> thắng.</li>
+<li>✅ Import xong sẽ hiện cảnh báo vàng: <strong>“N dòng trùng key”</strong>, kèm <strong>số dòng Excel</strong> và <strong>các key</strong> bị trùng (tối đa 20 cái đầu).</li>
+</ol>
+<blockquote>
+<p>💡 <strong>Ô trống không xoá dữ liệu cũ</strong> — chỉ các ô có giá trị mới được ghi đè.
+🔒 Chỉ cập nhật khi người import có quyền <strong>Sửa</strong> bảng đó (và không bị giới hạn phạm vi dữ liệu). Quyền chỉ cho sửa vài cột thì chỉ những cột đó được ghi. Không có quyền Sửa → xử lý như mặc định (cột Unique thì báo lỗi, cột thường thì tạo bản ghi mới).
+Nếu DB đang có <strong>nhiều bản ghi cùng một key</strong>, tất cả đều được cập nhật và cảnh báo sẽ nói rõ số dòng như vậy.
+Không có key nào trong file → import chạy y như mặc định.
+🔐 Trang <strong>Khoá Import</strong> chỉ người có quyền vào trang cài đặt đó mới sửa được.</p>
+</blockquote>
 <h3>Mẹo &amp; lưu ý</h3>
 <ul>
-<li>⚡ <strong>Áp dụng ngay khi Lưu</strong>, không cần restart. Đây là tùy biến <strong>phía giao diện</strong> (client) — không đụng dữ liệu.</li>
+<li>⚡ <strong>Áp dụng ngay khi Lưu</strong>, không cần restart. Các tình huống A–D là tùy biến <strong>phía giao diện</strong> (client) — không đụng dữ liệu; riêng tình huống E chạy ở server khi Import.</li>
 <li>🎨 Khi bạn đặt màu cho nút, nút sẽ dùng kiểu “mặc định” để màu bạn chọn phủ toàn bộ (nền/chữ/viền/hover đúng như xem trước).</li>
 <li>🔍🧰 <strong>Thanh tìm kiếm</strong> và <strong>Bộ lọc</strong> dùng cho <strong>bảng (Table)</strong>. Chúng là hành động thật nên có thể <strong>kéo đổi vị trí</strong> và đặt <strong>Trái/Phải</strong> như các nút khác.</li>
 <li><strong>Bộ lọc</strong> chỉ nhận cột <strong>dropdown / quan hệ / ngày</strong> — các cột chữ tự do hãy dùng <strong>Thanh tìm kiếm</strong>.</li>
@@ -22418,9 +22466,26 @@ If <strong>Vertical</strong> → choose the <strong>Alignment</strong>: Left · 
 <blockquote>
 <p>💡 Date boxes come with quick presets: <strong>Today · Yesterday · Last 7 days · Last 30 days · This month · Last month · This year</strong>. Set one as the <strong>default</strong> and it recomputes for the current period every time the table opens.</p>
 </blockquote>
+<h4>Scenario E — Excel import with duplicate keys → update instead of failing</h4>
+<p>By default NocoBase <strong>stops the import</strong> when a row repeats the value of a <strong>unique</strong> column that already exists (and a key column that isn’t marked Unique just gets <strong>duplicated</strong>). With this plugin:</p>
+<ol>
+<li><strong>Pick the key columns</strong> (once per table): <strong>Settings → Import keys</strong> → <strong>Add</strong> → choose the table and <strong>one or more columns</strong> that identify a record — e.g. a code typed by users or coming from another system (a <em>natural key</em>). Several columns = the <strong>combination</strong> must match (e.g. <code>Declaration no.</code> + <code>Line</code>). The column does <strong>not</strong> need to be marked Unique in the DB.
+Also choose <strong>When the key exists</strong>: <strong>Overwrite</strong> (update the existing record — default) or <strong>Skip</strong> (keep it and leave the row out; needs no Edit permission).
+Tables without a config use the <strong>ID</strong> column, or a column marked <strong>Unique</strong>, when the file has one (Overwrite).</li>
+<li>Click <strong>Import</strong> as usual, with a file that has every key column (a missing key column → the import behaves as the default).</li>
+<li><strong>New</strong> keys → created. <strong>Duplicate</strong> keys (already in the table, or repeated in the same file) → that record is <strong>updated</strong>. When a key repeats inside the file, the <strong>last row</strong> wins.</li>
+<li>✅ After the import a yellow notice shows <strong>“N rows have a duplicate key”</strong>, with the <strong>Excel row numbers</strong> and the <strong>keys</strong> (first 20).</li>
+</ol>
+<blockquote>
+<p>💡 <strong>Empty cells never erase data</strong> — only filled cells overwrite.
+🔒 Updates happen only when the importing user may <strong>Edit</strong> that table (with no data scope). Field-level permissions limit which columns are written. Without Edit permission the import behaves as the default (a Unique column fails, a plain column creates a new record).
+When the DB already holds <strong>several records with the same key</strong>, all of them are updated and the notice says how many rows hit that.
+No key among the imported columns → the import behaves exactly as the default.
+🔐 Only users allowed into the <strong>Import keys</strong> settings page can change the keys.</p>
+</blockquote>
 <h3>Tips &amp; notes</h3>
 <ul>
-<li>⚡ <strong>Applies the moment you Save</strong>, no restart needed. This is a <strong>client-side (UI)</strong> customization — it never touches your data.</li>
+<li>⚡ <strong>Applies the moment you Save</strong>, no restart needed. Scenarios A–D are <strong>client-side (UI)</strong> customizations that never touch your data; Scenario E runs on the server during Import.</li>
 <li>🎨 When you set a button colour, the button switches to the “default” style so your colours cover the whole button (background/text/border/hover exactly as previewed).</li>
 <li>🔍🧰 The <strong>Search bar</strong> and <strong>Filter bar</strong> are for <strong>tables</strong>. They are real actions, so you can <strong>drag to reorder</strong> them and set <strong>Left/Right</strong> just like any button.</li>
 <li>The <strong>Filter bar</strong> only accepts <strong>dropdown / relation / date</strong> columns — for free-text columns use the <strong>Search bar</strong>.</li>
@@ -22644,9 +22709,26 @@ bash recipes/add-markers.sh storage/tar/@tuanla90/plugin-action-enhancements-*.t
 <blockquote>
 <p>💡 日期框自带快捷预设：<strong>今天 · 昨天 · 最近 7 天 · 最近 30 天 · 本月 · 上月 · 今年</strong>。把其中一个设为<strong>默认值</strong>，表格每次打开时都会按当前时段重新计算。</p>
 </blockquote>
+<h4>场景 E — Excel 导入遇到重复键 → 更新而不是报错</h4>
+<p>默认情况下，若某行在<strong>唯一（unique）<strong>字段上的值与已有记录相同，NocoBase 会</strong>中止导入</strong>（而未标记唯一的键列则会被<strong>重复创建</strong>）。安装本插件后：</p>
+<ol>
+<li><strong>选择键列</strong>（每张表一次）：<strong>设置 → 导入键</strong> → <strong>添加</strong> → 选择表以及用于识别记录的<strong>一列或多列</strong> —— 例如用户自行编写或来自其他系统的编码（<em>自然键</em>）。多列 = <strong>组合</strong>必须一致（如 <code>报关单号</code> + <code>行号</code>）。该列<strong>无需</strong>在数据库中标记为唯一。
+同时选择<strong>键已存在时</strong>：<strong>覆盖</strong>（更新已有记录 —— 默认）或<strong>跳过</strong>（保留已有记录并忽略该行；无需编辑权限）。
+未配置的表在文件包含时使用 <strong>ID</strong> 列或标记为<strong>唯一</strong>的列（覆盖）。</li>
+<li>照常点击<strong>导入</strong>，文件需包含所有键列（缺少任一键列则按默认方式导入）。</li>
+<li><strong>新</strong>键 → 新建记录；<strong>重复</strong>键（表中已存在，或在同一文件中重复出现）→ <strong>更新</strong>该记录。文件内重复时以<strong>最后一行</strong>为准。</li>
+<li>✅ 导入完成后显示黄色提示 <strong>“N 行键值重复”</strong>，并列出 <strong>Excel 行号</strong>和<strong>键值</strong>（前 20 个）。</li>
+</ol>
+<blockquote>
+<p>💡 <strong>空单元格不会清除原有数据</strong> —— 只有有值的单元格才会覆盖。
+🔒 仅当导入用户对该表拥有<strong>编辑</strong>权限（且没有数据范围限制）时才会更新；字段级权限会限制可写入的列。没有编辑权限时按默认方式处理（唯一列报错，普通列新建记录）。
+若数据库中已有<strong>多条相同键的记录</strong>，它们都会被更新，提示中会注明此类行数。
+导入列中没有任何键 → 导入行为与默认完全相同。
+🔐 只有可进入<strong>导入键</strong>设置页的用户才能修改键。</p>
+</blockquote>
 <h3>提示与注意事项</h3>
 <ul>
-<li>⚡ <strong>一保存就立即生效</strong>，无需重启。这是**客户端（界面层）**的自定义 — 完全不会碰你的数据。</li>
+<li>⚡ <strong>一保存就立即生效</strong>，无需重启。场景 A–D 是**客户端（界面层）**的自定义，完全不会碰你的数据；场景 E 在导入时于服务器端运行。</li>
 <li>🎨 一旦你给按钮设了颜色，按钮会切换到“default”样式，这样你设定的颜色才能覆盖整个按钮（背景/文字/边框/悬停都与预览完全一致）。</li>
 <li>🔍🧰 <strong>搜索栏</strong>和<strong>筛选栏</strong>是给<strong>表格</strong>用的。它们是真正的操作，因此可以像其他按钮一样<strong>拖动排序</strong>、设置<strong>靠左/靠右</strong>。</li>
 <li><strong>筛选栏</strong>只接受<strong>下拉 / 关系 / 日期</strong>类型的列 — 自由文本类的列请用<strong>搜索栏</strong>。</li>
@@ -26228,7 +26310,7 @@ client’s <code>pm:listEnabledV2</code> skips the plugin and nothing renders on
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Bộ sinh dòng theo quy tắc</span><span class="lang lang-en" hidden>Line Generator</span><span class="lang lang-zh" hidden>行生成器</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Dữ liệu</span><span class="lang lang-en" hidden>Data</span><span class="lang lang-zh" hidden>Data</span></span>
-        <span class="chip">v0.8.19</span>
+        <span class="chip">v0.8.20</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
@@ -26237,7 +26319,7 @@ Cùng một cơ chế lo được <strong>chia hoa hồng</strong>, <strong>nổ
 khớp qua quan hệ, người nhận động, gộp-và-cộng, làm tròn; chạy <strong>thủ công bằng nút</strong> hoặc <strong>tự động khi
 lưu</strong>, kèm <strong>xem thử</strong> và <strong>trình gỡ lỗi từng bước</strong>.</p>
 </blockquote>
-<p><strong>Nhóm:</strong> Công cụ mô hình dữ liệu · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.8.18</p>
+<p><strong>Nhóm:</strong> Công cụ mô hình dữ liệu · <strong>Chạy trên:</strong> <code>/admin</code> (classic) + <code>/v/</code> (modern) · <strong>Phiên bản:</strong> 0.8.20</p>
 <hr>
 <h3>Mục lục</h3>
 <ol>
@@ -26718,7 +26800,8 @@ kết quả sau gộp → cập nhật bản ghi cha.</p>
 <blockquote>
 <p>🔎 <strong>Bước 4 là nơi trả lời câu hỏi “sao ra 0 dòng”.</strong> Luôn mở nó khi kết quả không như ý.</p>
 </blockquote>
-<p>⚠️ Danh sách chọn bản ghi để thử <strong>chỉ có 20 bản ghi mới nhất</strong>.</p>
+<p>Ô chọn bản ghi để thử <strong>tìm trên máy chủ</strong> (từ 0.8.20): gõ <strong>id</strong> hoặc <strong>tên</strong> (cột tiêu đề của bảng) là ra
+đúng bản ghi đó, kể cả bản ghi rất cũ. Trước 0.8.20 ô này chỉ có 20 bản ghi mới nhất.</p>
 <h4>Chạy trên bản ghi</h4>
 <p>Bấm <strong><code>Sinh dòng</code></strong> → hộp thoại <strong>luôn xem thử trước</strong>, hiện <strong><code>N dòng sẽ tạo</code></strong> + danh sách. Bấm
 <strong><code>Xác nhận tạo N dòng</code></strong> mới ghi thật. Xem thử ra 0 dòng thì <strong>nút xác nhận bị khoá</strong>.</p>
@@ -26858,6 +26941,13 @@ lâu và khoá bảng lâu.</li>
 <p>Nút chỉ hiện với người có quyền <strong>sửa</strong> bảng đó, nhưng <strong>API sinh dòng mở cho mọi người đã đăng nhập</strong>, với
 bất kỳ bộ sinh nào và bất kỳ bản ghi nào — và có thể bỏ qua điều kiện kích hoạt. Ràng buộc thực tế chỉ nằm
 ở giao diện. Cân nhắc khi dữ liệu sinh ra là tiền.</p>
+<h4>12.11 Công thức ra rỗng ghi vào cột ngày / số</h4>
+<p><code>YMONTH(parent.liquidation_date)</code> khi đơn <strong>chưa có ngày thanh lý</strong> ra chuỗi rỗng. Trước 0.8.20, PostgreSQL từ
+chối ghi chuỗi rỗng vào cột ngày giờ → cả lần chạy hỏng với <strong><code>Request failed with status code 500</code></strong>. Từ
+0.8.20 kết quả rỗng ghi vào cột <strong>ngày / số / có-không</strong> được lưu là <strong>trống (NULL)</strong>; cột chữ vẫn giữ chuỗi
+rỗng. Nếu cơ sở dữ liệu vẫn từ chối một giá trị, hộp thoại hiện <strong>đúng câu lỗi</strong> (cột nào, giá trị gì) và
+<strong>không ghi dòng nào</strong>. Muốn kỳ hoa hồng luôn có tháng thì sửa dữ liệu gốc (điền ngày thanh lý), hoặc đổi
+công thức, ví dụ <code>YMONTH(parent.liquidation_date || NOW())</code>.</p>
 <hr>
 <h3>Gỡ / tắt</h3>
 <p>Tắt trong <strong>Plugin Manager</strong>. <strong>Các dòng đã sinh vẫn còn nguyên</strong> (chúng là dữ liệu bình thường trong bảng
@@ -26879,7 +26969,7 @@ NocoBase nuốt mất (thành <code>data</code>, rụng <code>ok</code>/<code>sk
 <p>From <strong>one parent record</strong> → generate <strong>N child rows</strong> in <strong>one transaction</strong>, following a <strong>rule set</strong> you declare once.
 The same mechanism covers <strong>BOM explosion</strong>, <strong>commission splits</strong>, and <strong>cost / piece-rate allocation</strong> — with cross-relation matching, dynamic recipients, group-and-sum, and rounding; run it <strong>manually with a button</strong> or <strong>automatically on save</strong>, with a <strong>dry-run preview</strong> + <strong>debugger</strong>.</p>
 </blockquote>
-<p><strong>Group:</strong> Data model tools · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.8.18</p>
+<p><strong>Group:</strong> Data model tools · <strong>Runs on:</strong> /admin (classic) + /v/ (modern) · <strong>Version:</strong> 0.8.20</p>
 <blockquote>
 <p><strong>New in 0.8</strong> — the single JOIN is generalised into an <strong>ordered multi-step JOIN pipeline</strong>. The config editor becomes a <strong>pipeline builder</strong>: LEFT source, then an add/remove/reorder list of <strong>step cards</strong> (each joins its own RIGHT side), then the final group/SUM + write target.</p>
 <ul>
@@ -26966,7 +27056,7 @@ The same mechanism covers <strong>BOM explosion</strong>, <strong>commission spl
 </ol>
 <h4>Preview &amp; debug (do this before saving)</h4>
 <ul>
-<li><strong>Dry-run preview:</strong> the right-hand panel of the editor — pick a record under <strong>“Preview with:”</strong>, click <strong>“Run preview”</strong>. It shows the <strong>“N rows”</strong>, <strong>“N skipped”</strong>, <strong>“N errors”</strong> cards and a table of the rows that would be generated. <strong>Nothing is written.</strong></li>
+<li><strong>Dry-run preview:</strong> the right-hand panel of the editor — pick a record under <strong>“Preview with:”</strong> (type an <strong>id</strong> or a <strong>name</strong> to search the whole table on the server), click <strong>“Run preview”</strong>. It shows the <strong>“N rows”</strong>, <strong>“N skipped”</strong>, <strong>“N errors”</strong> cards and a table of the rows that would be generated. <strong>Nothing is written.</strong></li>
 <li><strong>Step-by-step debug:</strong> open the <strong>“Step-by-step debug”</strong> block below the preview table to inspect each stage: <strong>Step 1</strong> the parent record (relations loaded) → <strong>Step 2</strong> input rows → <strong>Step 3</strong> matched rules → <strong>Step 4</strong> each pair (row × rule, showing <strong>Kept</strong>/<strong>Skipped</strong> and the reason) → <strong>Step 5</strong> result after grouping → <strong>Step 6</strong> the columns that will be written back to the parent.</li>
 <li><strong>Insert a column into a formula:</strong> use the <strong>“Formula tools — insert a column into the focused input”</strong> bar at the top: click a formula input, then pick <strong>“＋ Parent column (parent)”</strong>, <strong>“＋ Source-row column (src)”</strong> or <strong>“＋ Rule column (rule)”</strong> — a token like <code>parent.responsible_staff.direct_manager.id</code> is inserted at the caret (a null hop mid-path just yields null, no error).</li>
 </ul>
@@ -26980,6 +27070,7 @@ The same mechanism covers <strong>BOM explosion</strong>, <strong>commission spl
 <li>👥 <strong>Who can do what:</strong> <strong>running/previewing</strong> a generator is open to <strong>any logged-in user</strong> (accounting clicks the commission button); but <strong>creating/editing rules</strong> in Settings is <strong>admin-only</strong>.</li>
 <li>🔗 <strong>Dynamic recipients:</strong> one rule can point to <em>self / department head / director</em> depending on the data — the engine walks relations via <code>REL()</code>. Remember the <strong>“Load … relations”</strong> fields in sections 1/2/3 so the path the formula needs is loaded.</li>
 <li>🔁 <strong>Auto-refresh:</strong> after generating, related lists/tables update themselves (no F5).</li>
+<li>🗓️ <strong>An empty formula result going into a date / number / yes-no column is stored as empty (NULL)</strong> — e.g. <code>YMONTH(parent.liquidation_date)</code> on an order with no liquidation date. (Before 0.8.20 Postgres rejected the empty text and the run failed with <em>“Request failed with status code 500”</em>.) If the database still refuses a value, the dialog shows its exact reason and <strong>nothing is written</strong>.</li>
 <li>Runs on <strong>both</strong> clients: classic <code>/admin</code> and modern <code>/v/</code>.</li>
 </ul>
 <h3>Remove / disable</h3>
@@ -26996,7 +27087,7 @@ The same mechanism covers <strong>BOM explosion</strong>, <strong>commission spl
 <p>从<strong>一条父记录</strong> → 在<strong>一个事务内</strong>生成 <strong>N 行子记录</strong>，依据的是一套你只需声明一次的<strong>规则集</strong>。
 同一套机制可以覆盖 <strong>BOM 展开</strong>、<strong>提成分摊</strong>以及<strong>成本／计件工资分摊</strong> —— 支持跨关系匹配、动态收款人、分组求和与取整；既可以<strong>用按钮手动运行</strong>，也可以<strong>在保存时自动运行</strong>，并配有<strong>试运行预览</strong> + <strong>调试器</strong>。</p>
 </blockquote>
-<p><strong>分组：</strong> Data model tools（数据模型工具） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.8.18</p>
+<p><strong>分组：</strong> Data model tools（数据模型工具） · <strong>运行于：</strong> /admin（classic）+ /v/（modern） · <strong>版本：</strong> 0.8.20</p>
 <blockquote>
 <p><strong>0.8 新增</strong> —— 原先单一的 JOIN 被推广为<strong>有序的多步 JOIN 流水线</strong>。配置编辑器随之变成一个<strong>流水线搭建器</strong>：左侧数据源，接着是一串可增删、可排序的<strong>步骤卡片</strong>（每一步各自连接自己的右侧数据），最后是分组／SUM 与写入目标。</p>
 <ul>
@@ -27083,7 +27174,7 @@ The same mechanism covers <strong>BOM explosion</strong>, <strong>commission spl
 </ol>
 <h4>预览与调试（保存前请务必做一遍）</h4>
 <ul>
-<li><strong>试运行预览：</strong> 编辑器的右侧面板 —— 在 <strong>“预览所用记录：”<strong>下选一条记录，点 <strong>“运行预览”</strong>。它会显示 <strong>“N 行”</strong>、</strong>“跳过 N 行”</strong>、**“N 个错误”**几张卡片，以及一张列出将要生成的行的表格。<strong>不会写入任何数据。</strong></li>
+<li><strong>试运行预览：</strong> 编辑器的右侧面板 —— 在 <strong>“预览所用记录：”<strong>下选一条记录（输入 <strong>ID</strong> 或</strong>名称</strong>即可在服务端搜索整张表），点 <strong>“运行预览”</strong>。它会显示 <strong>“N 行”</strong>、<strong>“跳过 N 行”</strong>、**“N 个错误”**几张卡片，以及一张列出将要生成的行的表格。<strong>不会写入任何数据。</strong></li>
 <li><strong>逐步调试：</strong> 展开预览表格下方的 **“逐步调试”**区块，检查每一个阶段：<strong>第 1 步</strong>父记录（已加载关系）→ <strong>第 2 步</strong>输入行 → <strong>第 3 步</strong>匹配到的规则 → <strong>第 4 步</strong>每一个配对（行 × 规则，显示 <strong>保留</strong>／<strong>跳过</strong>及其原因）→ <strong>第 5 步</strong>分组后的结果 → <strong>第 6 步</strong>将写回父记录的那些列。</li>
 <li><strong>往公式里插入一列：</strong> 使用顶部的 **“公式工具 — 向当前聚焦的输入框插入列”<strong>工具条：先点中某个公式输入框，再选 <strong>“＋ 父记录列（parent）”</strong>、</strong>“＋ 来源行列（src）”**或 <strong>“＋ 规则列（rule）”</strong> —— 类似 <code>parent.responsible_staff.direct_manager.id</code> 的记号就会插入到光标处（路径中间某一跳为空只会得到 null，不会报错）。</li>
 </ul>
@@ -27097,6 +27188,7 @@ The same mechanism covers <strong>BOM explosion</strong>, <strong>commission spl
 <li>👥 <strong>谁能做什么：</strong> <strong>运行／预览</strong>生成器对<strong>任何已登录用户</strong>开放（会计点提成按钮）；但在设置里<strong>创建／编辑规则</strong>是<strong>仅限管理员</strong>的。</li>
 <li>🔗 <strong>动态收款人：</strong> 一条规则可以根据数据指向<em>本人 / 部门主管 / 总监</em> —— 引擎通过 <code>REL()</code> 沿关系游走。记得填好第 1／2／3 节中的 **“加载……关系”**字段，好让公式需要的路径被加载进来。</li>
 <li>🔁 <strong>自动刷新：</strong> 生成之后，相关的列表／表格会自行更新（不用按 F5）。</li>
+<li>🗓️ <strong>公式结果为空、而目标是日期／数字／是否列时，会存为空值（NULL）</strong> —— 例如订单还没有清算日期时的 <code>YMONTH(parent.liquidation_date)</code>。（0.8.20 之前 Postgres 会拒绝空字符串，整次运行以 <em>“Request failed with status code 500”</em> 失败。）如果数据库仍拒绝某个值，对话框会显示确切原因，并且<strong>不写入任何行</strong>。</li>
 <li>在<strong>两个</strong>客户端上都能运行：经典版 <code>/admin</code> 与现代版 <code>/v/</code>。</li>
 </ul>
 <h3>卸载 / 停用</h3>
@@ -32364,7 +32456,7 @@ data.region == $user.region &amp;&amp; data.amount &lt;= 100000000
       <div class="plugin-head">
         <h2><span class="lang lang-vi">Trang đăng nhập tùy biến</span><span class="lang lang-en" hidden>Custom Login</span><span class="lang lang-zh" hidden>自定义登录页</span></h2>
         <span class="chip chip-cat"><span class="lang lang-vi">Bảo mật &amp; Đăng nhập</span><span class="lang lang-en" hidden>Security &amp; sign-in</span><span class="lang lang-zh" hidden>Security &amp; sign-in</span></span>
-        <span class="chip">v2.3.11</span>
+        <span class="chip">v2.3.13</span>
         <a class="chip chip-top" href="#top" title="Top">↑</a>
       </div>
       <div class="prose lang lang-vi"><blockquote>
